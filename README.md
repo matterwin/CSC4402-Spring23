@@ -11,10 +11,10 @@ The idea behind our project is all based on movie user ratings. So, our website 
 We will use a MySQL database to store the users' data, including their credentials, comments, posts, and everything. For the most part, we will be using javascript libraries and frameworks to build the frontend and backend. 
 
 Group members:
-Matthew Erwin (Team lead/Programmer)
-Noah Lewis (Programmer)
-Blake Opial (Programmer)
-Chris Prest (Programmer)
-Ellis Manieri (Programmer)
-John Meyers (Programmer)
+Matthew Erwin (Team lead/Programmer),
+Noah Lewis (Programmer),
+Blake Opial (Programmer),
+Chris Prest (Programmer),
+Ellis Manieri (Programmer),
+John Meyers (Programmer),
 Keylor Nunez (Programmer)
