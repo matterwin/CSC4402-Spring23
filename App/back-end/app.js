@@ -6,6 +6,9 @@ dotenv.config();
 
 const app = express();
 
+// NOTE: setting up middleware
+app.use(express.json());
+
 const controllerRouterList = [
 	require('./controllers/test_controller/testController'),
 ];

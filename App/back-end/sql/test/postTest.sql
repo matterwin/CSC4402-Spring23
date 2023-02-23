@@ -1,1 +1,2 @@
-INSERT INTO testTable (id, testMessage) VALUES (3, 'Highway 37');
+INSERT INTO testTable (testMessage)
+VALUES (?);

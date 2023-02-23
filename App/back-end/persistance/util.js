@@ -2,7 +2,10 @@ const fs = require('fs');
 const mysql = require('mysql');
 
 const readSqlFile = (path) => {
-    return fs.readFileSync(path).toString();
+    const finalString = fs.readFileSync(path).toString()
+    .replace(/(\r\n|\n|\r)/gm," ");
+
+    return finalString;
 }
 
 const executeQuery = (path, params, callback) => {
