@@ -1,0 +1,1 @@
+INSERT INTO testTable (id, testMessage) VALUES (3, 'Highway 37');
