@@ -1,5 +1,9 @@
 const express = require('express');
-const { postTestHandler, getAllTestsHandler, getTestHandler, putTestHandler, deleteTestHandler } = require('./testControllerHandler');
+const { postTestHandler, 
+        getAllTestsHandler, 
+        getTestHandler, 
+        putTestHandler, 
+        deleteTestHandler } = require('./testControllerHandler');
 
 const _BASE_PATH = `testController`;
 const router = express.Router();

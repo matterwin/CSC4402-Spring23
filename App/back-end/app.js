@@ -11,6 +11,7 @@ app.use(express.json());
 
 const controllerRouterList = [
 	require('./controllers/test_controller/testController'),
+	require('./controllers/user_auth_controller/userAuthController'),
 ];
 
 controllerRouterList.forEach((routerObject) => {
