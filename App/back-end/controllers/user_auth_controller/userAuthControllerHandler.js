@@ -1,14 +1,14 @@
 const { executeQuery } = require('../../persistance/util');
 
 const _verifyPostTest = (body) => {
-    return body && body.testMessage;
+    return body && body.email && body.password;
 }
 
 const _verifyPutTest = (body) => {
-    return body && body.testMessage;
+    return body && body.email && body.password;
 };
 
-const postTestHandler = (req, res) => {
+const postUserAuthHandler = (req, res) => {
     const body = req.body;
 
     if(!_verifyPostTest(body)){
@@ -16,15 +16,15 @@ const postTestHandler = (req, res) => {
         return;
     }
 
-    executeQuery('sql/test/postTest.sql', [body.testMessage], (queryResult) => {
+    executeQuery('sql/userAuth/postUserAuth.sql', [body.email, body.password], (queryResult) => {
         res.json({
             id: queryResult.insertId,
         });
     });
 }
 
-const getAllTestsHandler = (req, res) => {
-    executeQuery('sql/test/getAllTests.sql', undefined, (queryResult) => {
+const getAllUserAuthHandler = (req, res) => {
+    executeQuery('sql/userAuth/getAllUserAuth.sql', undefined, (queryResult) => {
         if(!queryResult.length){
             res.status(404).send();
             return;
@@ -35,7 +35,8 @@ const getAllTestsHandler = (req, res) => {
         queryResult.forEach(row => {
             resultDTO.push({
                 id: row.id,
-                testMessage: row.testMessage,
+                email: row.email,
+                password: row.password,
             })
         });
 
@@ -43,10 +44,10 @@ const getAllTestsHandler = (req, res) => {
     });
 };
 
-const getTestHandler = (req, res) => {
+const getUserAuthHandler = (req, res) => {
     const id = req.params._id;
 
-    executeQuery('sql/test/getTest.sql', [id], (queryResult) => {
+    executeQuery('sql/userAuth/getUserAuth.sql', [id], (queryResult) => {
         if(!queryResult.length){
             res.status(404).send();
             return;
@@ -56,7 +57,7 @@ const getTestHandler = (req, res) => {
     });
 }
 
-const putTestHandler = (req, res) => {
+const putUserAuthHandler = (req, res) => {
     const id = req.params._id;
     const body = req.body;
 
@@ -65,7 +66,7 @@ const putTestHandler = (req, res) => {
         return;
     }
 
-    executeQuery('sql/test/putTest.sql', [body.testMessage, id], (queryResult) => {
+    executeQuery('sql/userAuth/putUserAuth.sql', [body.email, body.password, id], (queryResult) => {
         if(!queryResult.affectedRows){
             res.status(404).send();
             return;
@@ -77,10 +78,10 @@ const putTestHandler = (req, res) => {
     });
 }
 
-const deleteTestHandler = (req, res) => {
+const deleteUserAuthHandler = (req, res) => {
     const id = req.params._id;
 
-    executeQuery('sql/test/deleteTest.sql', [id], (queryResult) => {
+    executeQuery('sql/userAuth/deleteUserAuth.sql', [id], (queryResult) => {
         if(!queryResult.affectedRows){
             res.status(404).send();
             return;
@@ -91,9 +92,9 @@ const deleteTestHandler = (req, res) => {
 }
 
 module.exports = {
-    postTestHandler,
-    getAllTestsHandler,
-    getTestHandler,
-    putTestHandler,
-    deleteTestHandler,
+    postUserAuthHandler,
+    getUserAuthHandler,
+    getAllUserAuthHandler,
+    putUserAuthHandler,
+    deleteUserAuthHandler,
 };
