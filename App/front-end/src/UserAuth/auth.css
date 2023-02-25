@@ -1,6 +1,8 @@
+
 .center-auth {
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 15vh;
+} 
+
+.auth-title {
+    font-family: 'Baloo 2', cursive;
 }

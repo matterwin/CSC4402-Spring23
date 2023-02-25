@@ -19,7 +19,7 @@ function Home(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {/* {'Go back '} */}
-      <Link color="inherit" href="./Home">
+      <Link color="inherit" href="/">
         Home
       </Link>{' '}
     </Typography>
@@ -52,11 +52,11 @@ export default function SignIn() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
+            <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
+              <LockOutlinedIcon style={{ color: 'white' }} />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Register
+              <div className="auth-title">Register</div>
             </Typography>
             <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
               <TextField
@@ -76,8 +76,6 @@ export default function SignIn() {
                 id="email"
                 label="Email Address"
                 name="email"
-                autoComplete="email"
-                autoFocus
               />
               <TextField
                 margin="normal"

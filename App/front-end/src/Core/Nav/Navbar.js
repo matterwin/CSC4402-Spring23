@@ -17,11 +17,18 @@ function Navbar() {
         setIsOpen(false);
     }
 
+    let { pathname } = window.location;
+    pathname = pathname.substring(1, pathname.length)
+    if(pathname === "") pathname = "Home";
+
   return (
     <div>
       <div className="nav-container">
         <NavLink className="title" end to="/"><h1>Navbar</h1></NavLink>
         
+        <p className="pos">{pathname}</p>
+
+    <div className="test">
         <div className="menu-container">
             <div className={`menu-icon ${isOpen ? 'menu-icon--open' : ''}`} onClick={handleClick} onMouseLeave={() => {
             document.addEventListener("click", hideMenu)}}>
@@ -31,7 +38,8 @@ function Navbar() {
             </div>                     
         </div>
 
-       <a href="/Login"><Button variant="contained" className="login-button" >Log In</Button></a>
+       <a href="/Login" className="login-button"><Button variant="contained">Log In</Button></a>
+       </div>
       </div>
     </div>
   );
