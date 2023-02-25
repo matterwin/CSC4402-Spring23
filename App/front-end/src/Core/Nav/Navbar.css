@@ -1,4 +1,21 @@
+a {
+  text-decoration: none;
+}
+
+NavLink {
+  text-decoration: none;
+  align-content: center;
+}
+
+.login-button {
+  background-color: blue;
+  color: white;
+  border-radius: 40px;
+  /* other styles */
+}
+
 .nav-container {
+    text-decoration: none;
     background-color: #2a3038;
     display: flex;
     text-decoration: none;
@@ -6,6 +23,15 @@
     padding-bottom: 9px;
     padding-left: 60px;
     padding-right: 60px;
+
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items: center;
+}
+
+.title {
+  margin-right: auto;
 }
 
 .nav-container h1 {
@@ -17,6 +43,8 @@
     font-family: 'Comfortaa', cursive;
     /* font-family: 'Righteous', cursive; */
     font-family: 'Baloo 2', cursive;
+    text-decoration: none;
+
 }
 
 .menu-icon {
