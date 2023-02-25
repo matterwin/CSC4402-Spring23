@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState, useRef } from "react"
 
 import "./auth.css"
 
@@ -29,14 +30,55 @@ function Home(props) {
 const theme = createTheme();
 
 export default function SignIn() {
+
+  const [buttonClass, setButtonClass] = useState("");
+  const [inputColor, setInputColor] = useState("primary");
+
+  const formRef = useRef(null);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      username: data.get('username'),
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
+    let username =  data.get('username');
+    let email =  data.get('email');
+    let password = data.get('password');
+
+    if ((username.trim().length !== 0) && (email.trim().length !== 0) && (password.trim().length !== 0)) {
+
+      console.log({
+        username: data.get('username'),
+        email: data.get('email'),
+        password: data.get('password'),
+      });
+
+      const intervalId = setInterval(() => {
+        setButtonClass("inputSuccess");
+        setInputColor("success");
+      }, 0);
+
+      setTimeout(() => {
+        clearInterval(intervalId);
+        setButtonClass("");
+        setInputColor("primary");
+      }, 4000);
+
+      formRef.current.reset();
+    }
+    else {
+      console.log("Invalid Input");
+
+      const intervalId = setInterval(() => {
+        setButtonClass("inputInvalid");
+        setInputColor("error");
+      }, 0);
+
+      setTimeout(() => {
+          clearInterval(intervalId);
+          setButtonClass("");
+          setInputColor("primary");
+      }, 500);
+    }
   };
 
   return (
@@ -58,7 +100,7 @@ export default function SignIn() {
             <Typography component="h1" variant="h5">
               <div className="auth-title">Register</div>
             </Typography>
-            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <Box component="form" ref={formRef} onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -95,7 +137,9 @@ export default function SignIn() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2 }} 
+                className={buttonClass}
+                color={inputColor}
               >
                 Sign up
               </Button>

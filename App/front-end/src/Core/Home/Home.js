@@ -6,7 +6,7 @@ function Home() {
   return (
     <div>
       <div className="container">
-        Home
+        This will be the home page
       </div>
     </div>
   );
