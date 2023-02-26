@@ -4,7 +4,8 @@ html {
 
 body {
   /* dark-mode */
-  background-color: #1d1d20; 
+  background-color: #1d1d20;
+  overflow-x: hidden; 
   /* light-mode */
   /* background-color: #f4f4f5; */
 }
