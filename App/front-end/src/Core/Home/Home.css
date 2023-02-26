@@ -1,6 +1,74 @@
 .container {
     text-align: center;
+    margin: 0 auto;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    background-color: #3b4048;
+    background-image: linear-gradient(to bottom, #2c2f35, #3b4048);
+  }
+
+  .container-bg-color {
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 90px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    background-color: #1d1d20;
+  }
+
+.home-title {
+    color: rgb(255, 255, 255);
+    font-size: 4rem;
+    font-family: 'Phudu', cursive;
+}
+
+.home-title-div {
+    background-color: #3b4048;
+    padding: 80px;
+    padding-top: 50px;
+}
+
+.subtext-title {
+    margin: 0 auto;
+    font-family: Roboto;
+    color: #949494;
+    word-wrap: break-word;
+    width: 50em;
+    margin-bottom: 15rem;
+}
+
+.note-cards {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background-color: #e7e7e7;
+    padding-top: 5rem;
+    padding-bottom: 40rem;
+    padding-right: 15rem;
+    padding-left: 15rem;
+    margin-bottom: -250px;
+    font-family: Roboto;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(114, 114, 114, 0.35), 0 6px 6px rgba(63, 63, 63, 0.35);
+    background-image: linear-gradient(to bottom, #e7e7e7, #1976d25e);
+}
+
+.space {
+    padding: 100px;
+}
+
+.container-bg-color > * {
     color: #fff;
-    color: #000;
-    font-size: 5rem;
+    font-family: Roboto;
 }

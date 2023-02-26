@@ -131,7 +131,7 @@ export default function SignIn() {
                 className={buttonClass}
                 color={inputColor}
               >
-                Sign up
+                Sign in
               </Button>
               <Grid container>
                 <Grid item xs>

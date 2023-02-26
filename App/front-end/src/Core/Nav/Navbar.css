@@ -27,14 +27,15 @@ NavLink {
     display:flex;
     flex-direction:row;
     align-items: center;
-    margin-bottom: 1rem;
-    justify-content: flex-end;
-    justify-content: space-between;
+    justify-content: flex-start;
+    /* margin-bottom: 1rem; */
+    /* justify-content: space-around;
+    justify-content: space-between; */
 }
 
-.title {
+/* .title {
   margin-right: auto;
-}
+} */
 
 .nav-container h1 {
     color: #fff;
@@ -108,7 +109,14 @@ NavLink {
     padding: 0;
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 2.5rem;
+    /* margin-right: 2.5rem; */
+    /* margin-left: auto; */
+    /* align-items: center;
+    margin-left: 27%;
+    margin-right: auto;
+    margin-left: auto; */
+    /* margin-left: auto;
+    margin-right: 1rem; */
   }
 
   .test {
@@ -117,4 +125,11 @@ NavLink {
     align-items: center;
     justify-content: space-between;
     gap: 2.5rem;
+    margin-left: auto;
   }
+
+  .h1 {
+    padding: 90px;
+  }
+
+  

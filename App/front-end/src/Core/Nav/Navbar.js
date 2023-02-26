@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import { NavLink } from "react-router-dom";
 
+import SearchBar from "./SearchBar"
+
 import './Navbar.css'
 
 function Navbar() {
@@ -24,11 +26,15 @@ function Navbar() {
   return (
     <div>
       <div className="nav-container">
+     
         <NavLink className="title" end to="/"><h1>Navbar</h1></NavLink>
         
-        <p className="pos">{pathname}</p>
+        <SearchBar />
 
-    <div className="test">
+        
+
+      <div className="test">
+      <p className="pos">{pathname}</p>
         <div className="menu-container">
             <div className={`menu-icon ${isOpen ? 'menu-icon--open' : ''}`} onClick={handleClick} onMouseLeave={() => {
             document.addEventListener("click", hideMenu)}}>
@@ -38,7 +44,7 @@ function Navbar() {
             </div>                     
         </div>
 
-       <a href="/Login" className="login-button"><Button variant="contained">Log In</Button></a>
+        <a href="/Login" className="login-button"><Button variant="contained" size="large">Log In</Button></a>
        </div>
       </div>
     </div>
