@@ -53,8 +53,10 @@
     font-family: Roboto;
     color: #949494;
     word-wrap: break-word;
-    max-width: 50rem;
+    max-width: 40rem;
     margin-bottom: 15rem;
+    font-weight: 500;
+    font-size: 1.5rem;
 }
 
 .note-cards {
@@ -136,5 +138,29 @@
         margin-bottom: 5rem;
         padding-right: 40vw;
         padding-left: 40vw;
+    }
+}
+
+@media (max-width: 580px) {
+    .subtext-title {
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 1rem;
+    }
+
+    .home-title {
+        font-size: 2.5rem;
+        margin-left: 5px;
+        margin-right: 5px
+    }
+}
+
+@media (max-width: 335px) {
+    .subtext-title {
+        font-size: 0.9rem;
+    }
+
+    .home-title {
+        font-size: 2rem;
     }
 }

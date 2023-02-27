@@ -4,7 +4,7 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 
 const Search = styled('div')(({ theme }) => ({
-  color: 'white',
+  color: 'red', // Default color
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -44,12 +44,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchBar() {
+export default function SearchBar({showIcon = true}, { fontColor = 'white', ...props }) {
+  const searchStyle = { ...props.style, color: fontColor };
+
   return (
-    <Search>
-      <SearchIconWrapper>
-        <SearchIcon />
-      </SearchIconWrapper>
+    <Search style={searchStyle}>
+      {showIcon && (
+        <SearchIconWrapper>
+          <SearchIcon />
+        </SearchIconWrapper>
+      )}
       <StyledInputBase
         placeholder="Search…"
       />

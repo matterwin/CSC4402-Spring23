@@ -60,11 +60,11 @@ NavLink {
     cursor: pointer;
     color: #fff;
     border-radius: 3px;
-    padding: 10px;
+    padding: 15px;
     z-index: 999;
     margin-left: auto;
     background-color: transparent;
-    padding: 10px;
+    padding: 15px;
   }
   
   .menu-icon {
@@ -132,4 +132,27 @@ NavLink {
     padding: 90px;
   }
 
-  
+  @media (max-width: 800px) {
+    .login-button {
+      display: none;
+    }
+  }
+
+  @media (max-width: 675px) {
+    .search {
+      display: none;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .pos {
+      display: none;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .nav-container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }

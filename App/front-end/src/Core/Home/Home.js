@@ -9,7 +9,7 @@ function Home() {
         <div>
           <h1 className='home-title'>Movies reviewed, opinions shared</h1>
           <p className="subtext-title">
-            Discover new favorites and join the conversation with our user-driven movie review platform. Share your opinions and explore the diverse perspectives of our community. (This is ugly, will change later)
+            Discover new favorites and join the conversation with our user-driven movie review platform
           </p>
           <div className='space'>&nbsp;</div>
         </div>
