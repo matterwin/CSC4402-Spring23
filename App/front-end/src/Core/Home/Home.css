@@ -89,6 +89,7 @@
     box-shadow: 0 10px 20px rgba(114, 114, 114, 0.35), 0 6px 6px rgba(63, 63, 63, 0.35);
     background-image: linear-gradient(to bottom, #e7e7e7, #1976d25e);
     color:#3b4048;
+    border: solid 3px #1976d25e;
 }
 
 .card1 > * {
