@@ -65,15 +65,16 @@ NavLink {
     margin-left: auto;
     background-color: transparent;
     padding: 15px;
+    background-color: #ffffff27;
   }
   
   .menu-icon {
     transition: 0.3s ease-in-out;
   }
   
-  .menu-icon:hover {
-    background-color: #ffffff27;
-  }
+  /* .menu-icon:hover {
+    background-color: #1976d23d;
+  } */
 
   .menu-icon__line {
     width: 100%;
@@ -99,6 +100,19 @@ NavLink {
   
   .menu-icon--open .menu-icon__line:nth-of-type(3) {
     transform: translateY(-10px) rotate(-585deg);
+  }
+
+  .menu-icon:hover .menu-icon__line:nth-of-type(2) {
+    animation: move 0.8s ease-in-out alternate infinite;
+  }
+  
+  @keyframes move {
+    from {
+      transform: translateX(0px);
+    }
+    to {
+      transform: translateX(20px);
+    }
   }
 
   .pos {

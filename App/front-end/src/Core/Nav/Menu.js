@@ -8,8 +8,8 @@ import RateReview from '@mui/icons-material/RateReview';
 import Divider from '@mui/material/Divider';
 import AccountBox from '@mui/icons-material/AccountBox';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-// import SearchIcon from '@mui/icons-material/Search';
+import Whatshot from '@mui/icons-material/Whatshot';
+import Feed from '@mui/icons-material/Feed';
 
 import { NavLink } from "react-router-dom";
 import { useState } from 'react';
@@ -42,6 +42,8 @@ const StyledMenu = styled((props) => (
     '& .MuiMenu-list': {
       padding: '4px 0',
     },
+    //maxHeight: 200, // Set a fixed height for the menu
+    //overflowY: 'auto', // Enable vertical scrolling when content overflows
     '& .MuiMenuItem-root': {
       '& .MuiSvgIcon-root': {
         fontSize: 20,
@@ -68,31 +70,26 @@ export default function CustomizedMenus() {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
     setIsOpen(!isOpen);
+    document.addEventListener("keydown", handleClose);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
+    setIsOpen(false);
+    document.removeEventListener("keydown", console.log("event listener removed"));
   };
-
-  function hideMenu() {
-      document.removeEventListener("click", hideMenu);
-      setIsOpen(false);
-  }
 
   return (
     <div>
         <Button sx={{ padding: '1px' }}>
           <div className="menu-container">
             <div className={`menu-icon ${isOpen ? 'menu-icon--open' : ''}`}  
-            onMouseLeave={() => {document.addEventListener("click", hideMenu)}}
             id="demo-customized-button"
             aria-controls={open ? 'demo-customized-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
             variant="contained"
-            disableElevation
             onClick={handleClick}
-            endIcon={<KeyboardArrowDownIcon />}
           >
                 <div className="menu-icon__line"></div>
                 <div className="menu-icon__line"></div>
@@ -115,15 +112,30 @@ export default function CustomizedMenus() {
             Home
           </MenuItem>
         </NavLink>        
-        
+
+        <NavLink end to="/" className="navlink">
+          <MenuItem onClick={handleClose} disableRipple>
+            <Feed />
+            Feed
+          </MenuItem>
+        </NavLink>  
+
+        <NavLink end to="/" className="navlink">
+          <MenuItem onClick={handleClose} disableRipple>
+            <Whatshot />
+            Hottest Now
+          </MenuItem>
+        </NavLink>
+
         <NavLink end to="/" className="navlink">
           <MenuItem onClick={handleClose} disableRipple>
             <RateReview />
             Rate & Review
           </MenuItem>
-        </NavLink>  
+        </NavLink>
 
         <Divider sx={{ my: 0.5 }} />
+
         <MenuItem onClick={handleClose} disableRipple>
           <AccountBox />
           Profile
