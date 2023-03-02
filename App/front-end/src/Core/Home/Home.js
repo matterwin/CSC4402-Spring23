@@ -1,5 +1,6 @@
 import React from 'react';
 import Divider from '@mui/material/Divider';
+import marvel from '../Videos/MARVEL-INTRO-2021.mp4'
 
 import './Home.css'
 
@@ -12,10 +13,28 @@ function Home() {
           <p className="subtext-title">
             Discover new favorites and join the conversation with our user-driven movie review platform
             <Divider sx={{ my: 5.5, borderWidth: '0.25rem', borderRadius: '20px', borderColor: '#949494', 
-            width: '50px', marginLeft: 'auto', marginRight: 'auto' 
+            width: '50px', marginLeft: 'auto', marginRight: 'auto', marginBottom: '0px'
             }} 
           />
           </p>
+          <div className="container-users">
+            <div>
+              <h2>100+ millions</h2>
+              <p>yearly visitors to Movie App</p>
+            </div>
+            <div>
+              <h2>10+ genres</h2>
+              <p>out there to search</p>
+            </div>
+            <div>
+              <h2>100+ movies</h2>
+              <p>to rate and review</p>
+            </div>
+            <div>
+              <h2>5000+</h2>
+              <p>ratings and reviews</p>
+            </div>
+          </div>
           <div className='space'>&nbsp;</div>
         </div>
       </div>
@@ -69,7 +88,29 @@ function Home() {
         {/* <div className='three-cards'>
           
         </div> */}
-        
+        <div className="container-movies">
+          <div>
+          <div className="side-movie">
+                <video className='actual-movie' loop muted autoPlay>
+                  <source src={marvel} type="video/mp4" />
+                </video>
+              </div>
+          </div>
+            <div>
+              <div className="mid-movie">
+                <video className='actual-movie' loop muted autoPlay>
+                  <source src={marvel} type="video/mp4" />
+                </video>
+              </div>
+            </div>
+            <div>
+            <div className="side-movie">
+                <video className='actual-movie' loop muted autoPlay>
+                  <source src={marvel} type="video/mp4" />
+                </video>
+              </div>
+            </div>
+        </div>
         <div className="stuff">
           Test
         </div>
