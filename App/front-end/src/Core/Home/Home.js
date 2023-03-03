@@ -1,6 +1,7 @@
 import React from 'react';
 import Divider from '@mui/material/Divider';
 import marvel from '../Videos/MARVEL-INTRO-2021.mp4'
+import mario from '../Videos/mario.mp4'
 
 import './Home.css'
 
@@ -19,7 +20,7 @@ function Home() {
           </p>
           <div className="container-users">
             <div>
-              <h2>100+ millions</h2>
+              <h2>100+ million</h2>
               <p>yearly visitors to Movie App</p>
             </div>
             <div>
@@ -84,6 +85,7 @@ function Home() {
       </div>
 
       <div className='space'>&nbsp;</div>
+      <div className='space'>&nbsp;</div>
       <div className="container-bottom">
         {/* <div className='three-cards'>
           
@@ -92,7 +94,7 @@ function Home() {
           <div>
           <div className="side-movie">
                 <video className='actual-movie' loop muted autoPlay>
-                  <source src={marvel} type="video/mp4" />
+                  <source src={mario} type="video/mp4" />
                 </video>
               </div>
           </div>
