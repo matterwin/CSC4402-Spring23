@@ -127,7 +127,7 @@ export default function CustomizedMenus() {
           </MenuItem>
         </NavLink>
 
-        <NavLink end to="/" className="navlink">
+        <NavLink end to="/RateReview" className="navlink">
           <MenuItem onClick={handleClose} disableRipple>
             <RateReview />
             Rate & Review
@@ -136,10 +136,12 @@ export default function CustomizedMenus() {
 
         <Divider sx={{ my: 0.5 }} />
 
-        <MenuItem onClick={handleClose} disableRipple>
+        <NavLink end to="/Profile" className="navlink">
+          <MenuItem onClick={handleClose} disableRipple>
           <AccountBox />
           Profile
-        </MenuItem>
+          </MenuItem>
+        </NavLink>
 
         <MenuItem onClick={handleClose} disableRipple>
           <MoreHorizIcon />

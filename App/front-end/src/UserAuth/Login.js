@@ -33,6 +33,7 @@ export default function SignIn() {
 
   const [buttonClass, setButtonClass] = useState("");
   const [inputColor, setInputColor] = useState("primary");
+  const [isInputValid, setIsInputValid] = useState('');
 
   const formRef = useRef(null);
 
@@ -59,7 +60,9 @@ export default function SignIn() {
         clearInterval(intervalId);
         setButtonClass("");
         setInputColor("primary");
-      }, 4000);
+        //navigate("/");
+        setIsInputValid('/');
+      }, 1500);
 
       formRef.current.reset();
     }
@@ -123,6 +126,7 @@ export default function SignIn() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
+              
               <Button
                 type="submit"
                 fullWidth
@@ -130,6 +134,7 @@ export default function SignIn() {
                 sx={{ mt: 3, mb: 2 }} 
                 className={buttonClass}
                 color={inputColor}
+                href={isInputValid}
               >
                 Sign in
               </Button>

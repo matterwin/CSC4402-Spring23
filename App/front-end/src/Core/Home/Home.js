@@ -1,7 +1,8 @@
 import React from 'react';
 import Divider from '@mui/material/Divider';
-import marvel from '../Videos/MARVEL-INTRO-2021.mp4'
+import marvel from '../Videos/marvel.mp4'
 import mario from '../Videos/mario.mp4'
+import nemo from '../Videos/nemo.mp4'
 
 import './Home.css'
 
@@ -108,7 +109,7 @@ function Home() {
             <div>
             <div className="side-movie">
                 <video className='actual-movie' loop muted autoPlay>
-                  <source src={marvel} type="video/mp4" />
+                  <source src={nemo} type="video/mp4" />
                 </video>
               </div>
             </div>

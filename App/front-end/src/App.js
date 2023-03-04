@@ -5,9 +5,13 @@ import Home from './Core/Home/Home'
 import Navbar from './Core/Nav/Navbar'
 import Login from './UserAuth/Login'
 import Register from './UserAuth/Register'
+import Profile from './Core/Profile/Profile'
+import RateReview from './Core/RateReview/RateReview'
 import './App.css';
 
 function App() {
+
+  console.log("rendered");
 
   const { pathname } = window.location;
   const HideNav = pathname === '/Register' || pathname === '/Login' ? null : <Navbar />
@@ -26,6 +30,8 @@ function App() {
             <Route path="/" element={<Home/>}/>
             <Route path="/Login" element={<Login/>}/>
             <Route path="/Register" element={<Register/>}/>
+            <Route path="/Profile" element={<Profile/>}/>
+            <Route path="/RateReview" element={<RateReview/>}/>
           </Routes>
 
         </Router>
