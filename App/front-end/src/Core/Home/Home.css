@@ -34,6 +34,7 @@
     padding-bottom: 50px;
     border-radius: 10px;
     background-color: #1d1d20;
+    background-color: #f4f4f5;
   }
 
   .container-users {
@@ -266,16 +267,16 @@
   /* Define the keyframes for the glowing effect */
 @keyframes glowing {
   0% {
-    color: #fff;
-    text-shadow: 0 0 10px #fff;
+    color: #1d1d20;
+    text-shadow: 0 0 10px #1d1d20;
   }
   50% {
-    color: #fff;
-    text-shadow: 0 0 20px #fff;
+    color: #1d1d20;
+    text-shadow: 0 0 20px #1d1d20;
   }
   100% {
-    color: #fff;
-    text-shadow: 0 0 10px #fff;
+    color: #1d1d20;
+    text-shadow: 0 0 10px #1d1d20;
   }
 }
 

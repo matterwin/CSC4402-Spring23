@@ -12,7 +12,7 @@ function Profile() {
     <div >
         <div className="profile-container">
             <div className='no-vid-msg'>
-                <TheaterComedyIcon sx={{ fontSize: 64, color: '#FFFFFF' }}/>
+                <TheaterComedyIcon sx={{ fontSize: 64, color: '#1d1d20' }}/>
                 <p className='h1-msg'>You don't have any Movie Reviews</p>
                 <p className='p-msg'>Add a new Movie Review by clicking the button down below</p>
                 <NavLink className="title" end to="/RateReview">

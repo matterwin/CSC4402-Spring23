@@ -19,6 +19,7 @@
 
 .h1-msg {
     color: rgb(255, 255, 255);
+    color: #1d1d20;
     font-size: 1.7rem;
     font-family: 'Baloo 2', cursive;
     margin-bottom: 0;
@@ -26,7 +27,7 @@
 
 .p-msg {
     margin-top: 0;
-    color: #acacac;
+    color: #727272;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.2rem;
 }
