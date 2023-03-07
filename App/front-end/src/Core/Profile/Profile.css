@@ -127,11 +127,19 @@
 
 @media(max-width:450px) {
     .h1-msg {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
     
     .p-msg {
         font-size: 1rem;
     }
+}
+
+@media(max-width: 950px) {
+    .no-vid-msg {
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
 }
 
