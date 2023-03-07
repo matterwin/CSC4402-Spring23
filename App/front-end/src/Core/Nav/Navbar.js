@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import { NavLink, useLocation } from "react-router-dom";
-import PushPinIcon from '@mui/icons-material/PushPin';
+// import PushPinIcon from '@mui/icons-material/PushPin';
+// import AccountTreeIcon from '@mui/icons-material/AccountTree';
+import WidgetsIcon from '@mui/icons-material/Widgets';
 
 // import SearchBar from "./SearchBar"
 import Menu from "./Menu"
@@ -31,12 +33,12 @@ function Navbar() {
         
         <div className="path">
           
-          <p className="pos"><PushPinIcon sx={{ fontSize: 20}}/>{pathname}</p>
+          <p className="pos"><WidgetsIcon sx={{ fontSize: 27, marginTop:'3px'}}/>{pathname}</p>
         </div>
 
         <div className="test">
           <Menu />
-          <a href="/Login" className="login-button"><Button variant="contained" sx={{ padding: '15px' }}>Log In</Button></a>
+          <a href="/Login" className="login-button"><Button variant="contained" sx={{ padding: '12px', paddingLeft: '20px', paddingRight: '20px', fontSize: '18px' }}>Log In</Button></a>
         </div>
 
       </div>

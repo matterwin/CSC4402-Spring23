@@ -11,6 +11,10 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Whatshot from '@mui/icons-material/Whatshot';
 import Feed from '@mui/icons-material/Feed';
 
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import Stack from '@mui/material/Stack';
+
 import { NavLink } from "react-router-dom";
 import { useState } from 'react';
 // import SearchBar from "./SearchBar"
@@ -64,6 +68,7 @@ export default function CustomizedMenus() {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [renderIn, setRenderIn] = useState(true);
 
   const open = Boolean(anchorEl);
 
@@ -74,9 +79,19 @@ export default function CustomizedMenus() {
   };
 
   const handleClose = () => {
+    setRenderIn(true);
     setAnchorEl(null);
     setIsOpen(false);
     document.removeEventListener("keydown", console.log("event listener removed"));
+  };
+
+  const handleCloseForMore = () => {
+    document.removeEventListener("keydown", console.log("event listener removed"));
+
+    setTimeout(() => {
+      setRenderIn(!renderIn);
+    }, 100);
+
   };
 
   return (
@@ -143,7 +158,7 @@ export default function CustomizedMenus() {
           </MenuItem>
         </NavLink>
 
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem onClick={handleCloseForMore} disableRipple>
           <MoreHorizIcon />
           More
         </MenuItem>
@@ -151,6 +166,18 @@ export default function CustomizedMenus() {
         <MenuItem onClick={handleClose} disableRipple>
           <a href="/Login"><Button variant="contained" sx={{ padding: '5px', paddingRight: '100px', paddingLeft: '100px' }}>Log In</Button></a>
         </MenuItem>
+
+        {
+          renderIn ? <></> : 
+          <Stack sx={{width: '245px', paddingLeft: '15px', paddingRight: '15px', paddingBottom: '10px'}} spacing={2}>
+            <Alert severity="info">
+              <AlertTitle>Really?</AlertTitle>
+              What more do you need — <strong>search around</strong>
+            </Alert>
+          </Stack>
+        }
+        
+
 
         {/* <MenuItem disableRipple>
           <SearchIcon />

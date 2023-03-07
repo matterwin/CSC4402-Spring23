@@ -16,6 +16,7 @@
     margin: 0 auto;
     margin-left: 50px;
     margin-right: 50px;
+    margin-bottom: 50px;
     margin-top: 50px;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -86,14 +87,24 @@
   height: 350px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35), 0 6px 6px rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
 }
 
-.side-movie {
+.side-movie-right {
     width: 350px;
     height: 250px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35), 0 6px 6px rgba(0, 0, 0, 0.35);
-  }
+    border-top-right-radius: 50px;
+}
+
+.side-movie-left {
+    width: 350px;
+    height: 250px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35), 0 6px 6px rgba(0, 0, 0, 0.35);
+    border-top-left-radius: 50px;
+}
   
 
 .actual-movie {
@@ -169,7 +180,7 @@
     box-shadow: 0 10px 20px rgba(114, 114, 114, 0.35), 0 6px 6px rgba(63, 63, 63, 0.35);
     background-image: linear-gradient(to bottom, #e7e7e7, #1976d25e);
     color:#3b4048;
-    border: solid 3px #1976d25e;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35), 0 6px 6px rgba(0, 0, 0, 0.35);
 }
 
 .card1 > * {
@@ -203,6 +214,10 @@
         margin-left: 15px;
         margin-right: 15px;
         margin-top: 15px;
+    }
+
+    .container-bottom {
+        margin-bottom: 15px;
     }
 
     .note-cards {
@@ -304,18 +319,61 @@
   text-shadow: 0 0 10px #fff;
 } */
 
-@media (max-width: 1240px) {
-    .side-movie {
-        display: none;
+@media (max-width: 1300px) {
+    .side-movie-right, .side-movie-left {
+        width: 280px;
+        height: 180px;
+        overflow: hidden;
       }
 
-    .mid-movie {
-        width: 350px;
-        height: 250px;
+    .mid-movie {      
+        width: 320px;
+        height: 220px;
         overflow: hidden;
     }
 
     .container-movies {
         margin-top: -150px;
     }
+}
+
+@media (max-width: 975px) {
+    .side-movie-right, .side-movie-left {
+        display: none;
+      }
+}
+
+@media (max-width: 640px) {
+    .side-movie-right, .side-movie-left {
+        display: none;
+      }
+}
+
+@media (max-width: 435px) {
+    .mid-movie {
+        width: 280px;
+        height: 180px;
+        overflow: hidden;
+    }
+
+    .container-movies {
+        margin-top: -150px;
+    }
+}
+
+@media (max-width: 345px) {
+    .mid-movie {
+        width: 250px;
+        height: 150px;
+        overflow: hidden;
+    }
+
+    .container-movies {
+        margin-top: -150px;
+    }
+}
+
+.container-users > div > p {
+    word-wrap: break-word;
+    max-width: 15rem;
 }

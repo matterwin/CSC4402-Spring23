@@ -14,6 +14,10 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState, useRef } from "react"
 
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import Stack from '@mui/material/Stack';
+
 import "./auth.css"
 
 function Home(props) {
@@ -34,6 +38,7 @@ export default function SignIn() {
   const [buttonClass, setButtonClass] = useState("");
   const [inputColor, setInputColor] = useState("primary");
   const [isInputValid, setIsInputValid] = useState('');
+  const [renderIn, setRenderIn] = useState(true);
 
   const formRef = useRef(null);
 
@@ -62,7 +67,13 @@ export default function SignIn() {
         setInputColor("primary");
         //navigate("/");
         setIsInputValid('/');
-      }, 1500);
+      }, 4000);
+
+      setRenderIn(false);
+
+      setTimeout(() => { 
+        setRenderIn(true);
+      }, 4000);
 
       formRef.current.reset();
     }
@@ -138,6 +149,17 @@ export default function SignIn() {
               >
                 Sign in
               </Button>
+
+              { renderIn ? <></> :
+                <div class="alert-container">
+                  <Stack sx={{ width: '300px' }} spacing={2}>
+                    <Alert severity="success">
+                      <AlertTitle>Success</AlertTitle>
+                      You have successfully <strong>signed in!</strong>
+                    </Alert>
+                  </Stack>
+                </div>
+              }
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
