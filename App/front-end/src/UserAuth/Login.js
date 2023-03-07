@@ -151,7 +151,7 @@ export default function SignIn() {
               </Button>
 
               { renderIn ? <></> :
-                <div class="alert-container">
+                <div className="alert-container">
                   <Stack sx={{ width: '300px' }} spacing={2}>
                     <Alert severity="success">
                       <AlertTitle>Success</AlertTitle>
