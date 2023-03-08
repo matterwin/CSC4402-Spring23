@@ -9,7 +9,6 @@ const router = express.Router();
 
 const getAllMovie = `/${_BASE_PATH}`;
 const getMovie = `/${_BASE_PATH}/:_id`;
-const putMovie = `/${_BASE_PATH}/:_id`;
 const deleteMovie = `/${_BASE_PATH}/:_id`;
 const postMovie = `/${_BASE_PATH}`;
 
