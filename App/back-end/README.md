@@ -6,9 +6,11 @@
 ## How to Run
 1. Ensure you are in the back-end folder on your cli
 2. Run `npm install`
-3. Set .env variables according to your credentials you made when installing mysql
-4. Open MySql Workbench and CopyPast/Run sql/createDatabase.sql and createSchema.sql
-5. You can now run `npm start` or `npm run watch`
+3. In the App/back-end folder create a file named .env
+4. Copy and paste the contents of default.env to .env
+5. Set .env variables according to your needs
+6. Open MySql Workbench and CopyPast/Run sql/createDatabase.sql and createSchema.sql
+7. You can now run `npm start` or `npm run watch`
 
 ## How to Make Request with Postman
 1. Open Postman and in the top left click import
