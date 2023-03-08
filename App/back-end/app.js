@@ -34,6 +34,15 @@ const controllerRouterList = [
 	require('./controllers/movie_controller/movieController'),
 ];
 
+app.on('uncaughtException', function (req, res, route, err) {
+	log.info('******* Begin Error *******\n%s\n*******\n%s\n******* End Error *******', route, err.stack);
+	if (!res.headersSent) {
+		return res.send(500, {ok: false});
+	}
+	res.write('\n');
+	res.end();
+});
+
 controllerRouterList.forEach((routerObject) => {
 	console.log(`${routerObject.routerName}:`);
 	routerObject.routerRouteDetails.forEach((routerDetails) => {

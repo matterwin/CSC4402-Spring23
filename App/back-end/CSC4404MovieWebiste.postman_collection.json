@@ -10,7 +10,7 @@
 			"name": "Test",
 			"item": [
 				{
-					"name": "GetAllTests",
+					"name": "GetAllTest",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -251,6 +251,128 @@
 							"path": [
 								"api",
 								"userAuthController"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "GetAllMovie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/movieController",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieController"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMovie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/movieController/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieController",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostMovie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"type": "file",
+									"src": "/C:/Users/lewis/src/CSC4402-Spring23/App/back-end/README.md"
+								},
+								{
+									"key": "name",
+									"value": "testName",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "testDescription",
+									"type": "text"
+								},
+								{
+									"key": "length",
+									"value": "00:00:00",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "1000-01-01",
+									"type": "text"
+								},
+								{
+									"key": "genre",
+									"value": "testGenre",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/movieController",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieController"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteMovie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/movieController/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieController",
+								"1"
 							]
 						}
 					},
