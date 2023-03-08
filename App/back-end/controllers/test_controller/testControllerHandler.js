@@ -23,8 +23,8 @@ const postTestHandler = (req, res) => {
     });
 }
 
-const getAllTestsHandler = (req, res) => {
-    executeQuery('sql/test/getAllTests.sql', undefined, (queryResult) => {
+const getAllTestHandler = (req, res) => {
+    executeQuery('sql/test/getAllTest.sql', undefined, (queryResult) => {
         if(!queryResult.length){
             res.status(404).send();
             return;
@@ -92,7 +92,7 @@ const deleteTestHandler = (req, res) => {
 
 module.exports = {
     postTestHandler,
-    getAllTestsHandler,
+    getAllTestHandler,
     getTestHandler,
     putTestHandler,
     deleteTestHandler,
