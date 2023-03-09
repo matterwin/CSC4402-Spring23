@@ -128,7 +128,7 @@ export default function CustomizedMenus() {
           </MenuItem>
         </NavLink>        
 
-        <NavLink end to="/" className="navlink">
+        <NavLink end to="/Feed" className="navlink">
           <MenuItem onClick={handleClose} disableRipple>
             <Feed />
             Feed

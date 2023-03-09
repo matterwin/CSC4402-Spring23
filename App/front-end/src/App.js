@@ -7,6 +7,7 @@ import Login from './UserAuth/Login'
 import Register from './UserAuth/Register'
 import Profile from './Core/Profile/Profile'
 import RateReview from './Core/RateReview/RateReview'
+import Feed from './Core/Feed/Feed'
 import './App.css';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Route path="/Register" element={<Register/>}/>
             <Route path="/Profile" element={<Profile/>}/>
             <Route path="/RateReview" element={<RateReview/>}/>
+            <Route path="/Feed" element={<Feed/>}/>
           </Routes>
 
         </Router>
