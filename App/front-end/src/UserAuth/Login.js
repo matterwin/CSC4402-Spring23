@@ -14,9 +14,9 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState, useRef } from "react"
 
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
-import Stack from '@mui/material/Stack';
+// import Alert from '@mui/material/Alert';
+// import AlertTitle from '@mui/material/AlertTitle';
+// import Stack from '@mui/material/Stack';
 
 import "./auth.css"
 
@@ -37,8 +37,8 @@ export default function SignIn() {
 
   const [buttonClass, setButtonClass] = useState("");
   const [inputColor, setInputColor] = useState("primary");
-  const [isInputValid, setIsInputValid] = useState('');
-  const [renderIn, setRenderIn] = useState(true);
+  // const [isInputValid, setIsInputValid] = useState('');
+  // const [renderIn, setRenderIn] = useState(true);
 
   const formRef = useRef(null);
 
@@ -56,6 +56,20 @@ export default function SignIn() {
         password: data.get('password'),
       });
 
+      // fetch('http://localhost:8000/api/userAuthController', {
+      //   method: 'GET',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     email: email,
+      //     password: password,
+      //   }),
+      // })
+      // .then(data => {
+      //   console.log(data);
+      // })
+
       const intervalId = setInterval(() => {
         setButtonClass("inputSuccess");
         setInputColor("success");
@@ -66,14 +80,14 @@ export default function SignIn() {
         setButtonClass("");
         setInputColor("primary");
         //navigate("/");
-        setIsInputValid('/');
+        // setIsInputValid('/');
       }, 4000);
 
-      setRenderIn(false);
+      // setRenderIn(false);
 
-      setTimeout(() => { 
-        setRenderIn(true);
-      }, 4000);
+      // setTimeout(() => { 
+      //   setRenderIn(true);
+      // }, 4000);
 
       formRef.current.reset();
     }
@@ -145,12 +159,12 @@ export default function SignIn() {
                 sx={{ mt: 3, mb: 2 }} 
                 className={buttonClass}
                 color={inputColor}
-                href={isInputValid}
+                // href={isInputValid}
               >
                 Sign in
               </Button>
 
-              { renderIn ? <></> :
+              {/* { renderIn ? <></> :
                 <div className="alert-container">
                   <Stack sx={{ width: '300px' }} spacing={2}>
                     <Alert severity="success">
@@ -159,7 +173,7 @@ export default function SignIn() {
                     </Alert>
                   </Stack>
                 </div>
-              }
+              } */}
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">

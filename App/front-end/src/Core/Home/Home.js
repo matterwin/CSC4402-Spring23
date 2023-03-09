@@ -13,12 +13,11 @@ function Home() {
         <div>
           <h1 className='home-title'>Movies reviewed, opinions shared</h1>
           <p className="subtext-title">
-            Discover new favorites and join the conversation with our user-driven movie review platform
-            <Divider sx={{ my: 5.5, borderWidth: '0.25rem', borderRadius: '20px', borderColor: '#949494', 
-            width: '50px', marginLeft: 'auto', marginRight: 'auto', marginBottom: '0px'
-            }} 
-          />
+            Discover new favorites and join the conversation with our user-driven movie review platform         
           </p>
+          <Divider sx={{ my: 5.5, borderWidth: '0.25rem', borderRadius: '20px', borderColor: '#949494', 
+            width: '50px', marginLeft: 'auto', marginRight: 'auto', marginBottom: '50px', marginTop: '-200px'
+          }} />
           <div className="container-users">
             <div>
               <h2>15+ million</h2>
