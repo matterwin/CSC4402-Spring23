@@ -52,6 +52,21 @@ export default function SignIn() {
         password: data.get('password'),
       });
 
+      fetch('http://localhost:8000/api/userAuthController', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: username,
+          email: email,
+          password: password,
+        }),
+      })
+      .then(data => {
+        console.log(data);
+      })
+
       const intervalId = setInterval(() => {
         setButtonClass("inputSuccess");
         setInputColor("success");

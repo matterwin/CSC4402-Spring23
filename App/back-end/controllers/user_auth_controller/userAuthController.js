@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { postUserAuthHandler, 
         getUserAuthHandler, 
         getAllUserAuthHandler, 
@@ -7,7 +8,9 @@ const { postUserAuthHandler,
 
 const _BASE_PATH = `userAuthController`;
 const router = express.Router();
-
+router.use(cors({
+    origin: '*'
+}));
 const getAllUserAuth = `/${_BASE_PATH}`;
 const getUserAuth = `/${_BASE_PATH}/:_id`;
 const putUserAuth = `/${_BASE_PATH}/:_id`;

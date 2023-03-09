@@ -1,2 +1,2 @@
-INSERT INTO userAuthTable (email, password)
-VALUES (?, ?);
+INSERT INTO userAuthTable (username, email, password)
+VALUES (?, ?, ?);

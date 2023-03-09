@@ -1,11 +1,11 @@
 const { executeQuery } = require('../../persistance/util');
 
 const _verifyPostTest = (body) => {
-    return body && body.email && body.password;
+    return body && body.username && body.email && body.password;
 }
 
 const _verifyPutTest = (body) => {
-    return body && body.email && body.password;
+    return body && body.username && body.email && body.password;
 };
 
 const postUserAuthHandler = (req, res) => {
@@ -16,7 +16,7 @@ const postUserAuthHandler = (req, res) => {
         return;
     }
 
-    executeQuery('sql/userAuth/postUserAuth.sql', [body.email, body.password], (queryResult) => {
+    executeQuery('sql/userAuth/postUserAuth.sql', [body.username, body.email, body.password], (queryResult) => {
         res.json({
             id: queryResult.insertId,
         });
@@ -35,6 +35,7 @@ const getAllUserAuthHandler = (req, res) => {
         queryResult.forEach(row => {
             resultDTO.push({
                 id: row.id,
+                username: row.username,
                 email: row.email,
                 password: row.password,
             })
@@ -66,7 +67,7 @@ const putUserAuthHandler = (req, res) => {
         return;
     }
 
-    executeQuery('sql/userAuth/putUserAuth.sql', [body.email, body.password, id], (queryResult) => {
+    executeQuery('sql/userAuth/putUserAuth.sql', [body.username, body.email, body.password, id], (queryResult) => {
         if(!queryResult.affectedRows){
             res.status(404).send();
             return;
