@@ -31,7 +31,6 @@ function MovieCard() {
             <StarsIcon sx={{color: "#1976d2"}}/>
             <StarsIcon sx={{color: "#1976d2"}}/>
             <StarsIcon sx={{color: "#1976d2"}}/>
-            <StarsIcon sx={{color: "#1976d2"}}/>
             <p className='movie-title'>Superbad</p>
             <p className='last-review'>Last Review: 1/9/23</p>
         </div>     
@@ -48,17 +47,11 @@ function MovieCard() {
         <div className='movie-review-div'>
             <img alt="pic of movie" src={mariobros} className="movie-pic"></img>
             <StarsIcon sx={{color: "#1976d2"}}/>
-            <StarsIcon sx={{color: "#1976d2"}}/>
-            <StarsIcon sx={{color: "#1976d2"}}/>
-            <StarsIcon sx={{color: "#1976d2"}}/>
-            <StarsIcon sx={{color: "#1976d2"}}/>
             <p className='movie-title'>The Super Mariobros</p>
             <p className='last-review'>Last Review: 10/20/23</p>
         </div>  
         <div className='movie-review-div'>
             <img alt="pic of movie" src={nuke} className="movie-pic"></img>
-            <StarsIcon sx={{color: "#1976d2"}}/>
-            <StarsIcon sx={{color: "#1976d2"}}/>
             <StarsIcon sx={{color: "#1976d2"}}/>
             <StarsIcon sx={{color: "#1976d2"}}/>
             <StarsIcon sx={{color: "#1976d2"}}/>
@@ -86,9 +79,6 @@ function MovieCard() {
         </div>  
         <div className='movie-review-div'>
             <img alt="pic of movie" src={transformers} className="movie-pic"></img>
-            <StarsIcon sx={{color: "#1976d2"}}/>
-            <StarsIcon sx={{color: "#1976d2"}}/>
-            <StarsIcon sx={{color: "#1976d2"}}/>
             <StarsIcon sx={{color: "#1976d2"}}/>
             <StarsIcon sx={{color: "#1976d2"}}/>
             <p className='movie-title'>Transformers: Rise of The Beasts</p>
