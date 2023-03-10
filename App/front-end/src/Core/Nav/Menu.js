@@ -11,13 +11,8 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Whatshot from '@mui/icons-material/Whatshot';
 import Feed from '@mui/icons-material/Feed';
 
-// import Alert from '@mui/material/Alert';
-// import AlertTitle from '@mui/material/AlertTitle';
-// import Stack from '@mui/material/Stack';
-
 import { NavLink } from "react-router-dom";
 import { useState } from 'react';
-// import SearchBar from "./SearchBar"
 
 import "./Menu.css"
 
@@ -46,8 +41,6 @@ const StyledMenu = styled((props) => (
     '& .MuiMenu-list': {
       padding: '4px 0',
     },
-    //maxHeight: 200, // Set a fixed height for the menu
-    //overflowY: 'auto', // Enable vertical scrolling when content overflows
     '& .MuiMenuItem-root': {
       '& .MuiSvgIcon-root': {
         fontSize: 20,
@@ -120,6 +113,7 @@ export default function CustomizedMenus() {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
+        sx={{position: 'fixed'}}
       >        
         <NavLink end to="/" className="navlink">
           <MenuItem onClick={handleClose} disableRipple>
