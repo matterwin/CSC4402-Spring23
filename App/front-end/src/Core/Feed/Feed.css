@@ -36,13 +36,14 @@
     margin: 0 auto;
     margin-left: 250px;
     margin-right: 250px;
-    /* margin-top: 50px; */
     padding-top: 10px;
     padding-bottom: 500px;
     border-radius: 10px;
     background-color: #fff;
-    position: sticky;
-    /* background-color: #3b4048; */
+    position: static;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1250px;
 }
 
 .feed-bar {
@@ -56,4 +57,80 @@
     padding-top: 10px;
     margin-bottom: 0px;
     padding-bottom: 0px;
+  }
+
+  @media(max-width: 765px) {
+    .feed-welcome-title {
+        font-size: 1.3rem;
+    }
+    
+    .feed-welcome-msg {
+        font-size: 13px;
+    }
+  }
+
+  @media(max-width: 1181px) {
+    .feed-welcome-title, .feed-welcome-msg {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+  }
+
+  @media(max-width: 1290px) {
+    .feed-container {
+        width: 90%;
+    }
+  }
+
+  @media(max-width: 360px) {
+    .feed-bar {
+        display: none;
+    }
+  }
+
+  @media(max-width: 400px) {
+    .feed-container {
+        width: 100%;
+    }
+
+    .feed-bar {
+        justify-content: center;
+    }
+  }
+
+  @media(max-width: 635px) {
+    .feed-welcome-title, .feed-welcome-msg {
+        margin-left: 70px;
+        margin-right: 70px;
+    }
+  }
+
+  @media(max-width: 565px) {
+    .feed-welcome-title, .feed-welcome-msg {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+  }
+
+  @media(max-width: 505px) {
+    .feed-welcome-title, .feed-welcome-msg {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+  }
+
+  @media(max-width: 435px) {
+    .feed-welcome-title {
+        font-size: 1.1rem;
+    }
+  }
+
+  @media(max-width: 330px) {
+    .feed-welcome-title {
+        font-size: 1rem;
+    }
+    
+    .feed-welcome-msg {
+        font-size: 13px;
+    }
   }

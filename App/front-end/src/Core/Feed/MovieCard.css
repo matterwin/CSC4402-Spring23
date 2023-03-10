@@ -4,14 +4,10 @@
     padding-bottom: 9px;
     display:flex;
     flex-direction:row;
-    justify-content:flex-start;
-    gap: 20px;
+    justify-content:center;
     align-content: flex-start;
     flex-wrap: wrap;
-    margin-left: 80px;
-    margin-right: 50px;
-    padding-bottom: 900px;
-}  
+}
 
 .movie-review-div {
     width: 160px;
@@ -19,6 +15,8 @@
     text-align: left;
     padding-bottom: 80px;
     cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .movie-review-div:hover .movie-title {

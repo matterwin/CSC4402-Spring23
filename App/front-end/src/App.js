@@ -8,6 +8,7 @@ import Register from './UserAuth/Register'
 import Profile from './Core/Profile/Profile'
 import RateReview from './Core/RateReview/RateReview'
 import Feed from './Core/Feed/Feed'
+import ScrollButton from './Core/Nav/ScrollButton'
 import './App.css';
 
 function App() {
@@ -20,12 +21,10 @@ function App() {
   return (
     <div>
        <Router>
-          
-          {/* {
-            location.pathname !== '/Register' && <Navbar />
-          } */}
 
           {HideNav}
+
+          <ScrollButton />
         
           <Routes>
             <Route path="/" element={<Home/>}/>
