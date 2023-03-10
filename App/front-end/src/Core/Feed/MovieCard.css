@@ -1,0 +1,59 @@
+.rows-of-movies {
+    text-decoration: none;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    gap: 20px;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: 80px;
+    margin-right: 50px;
+    padding-bottom: 900px;
+}  
+
+.movie-review-div {
+    width: 160px;
+    height: 250px;
+    text-align: left;
+    padding-bottom: 80px;
+    cursor: pointer;
+
+}
+
+.movie-review-div:hover .movie-title {
+    color:  #1976d2;
+}
+
+.movie-review-div:hover .movie-pic {
+    filter: brightness(70%);
+  }
+
+.movie-review-div:hover .last-review {
+    color:  #1976d2;
+}
+
+
+.movie-pic {
+    width: 160px;
+    height: 235px;
+    border-radius: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.movie-title {
+    margin-top: -5px;
+    margin-bottom: 5px;
+    font-family: 'Baloo 2', cursive;
+}
+
+.last-review {
+    margin-top: -5px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px
+}
+
+/* word-wrap: break-word;
+    max-width: 40rem; */

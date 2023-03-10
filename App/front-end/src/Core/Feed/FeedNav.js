@@ -11,13 +11,13 @@ function Feed() {
     <div>
         <div className="feed-bar">
             <div className='buttons'>
-                <Button1 />
+                <Button1 variant="contained" color="primary" disableElevation />
             </div> 
             <div className='buttons'>
-                <Button2 />
+                <Button2 variant="contained" color="primary" disableElevation />
             </div>
             <div className='buttons'>
-                <Button3 />
+                <Button3 variant="contained" color="primary" disableElevation />
             </div>
         </div>
     </div>
