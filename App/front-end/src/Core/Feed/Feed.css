@@ -9,6 +9,7 @@
     margin-right: 150px;
     font-weight: bold;
     padding-bottom: 0px;
+    margin-top: 0px;
 }
 
 .feed-welcome-msg {
@@ -49,4 +50,10 @@
     top: 0;
     z-index: 1;
     background-color: #f4f4f5;
+  }
+
+  .movie-icon {
+    padding-top: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
   }

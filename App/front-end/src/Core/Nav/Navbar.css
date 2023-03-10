@@ -130,6 +130,10 @@ NavLink {
     align-items: center;
   }
 
+  .pos-p {
+    padding-left: 4px;
+  }
+
   .test {
     display:flex;
     flex-direction:row;

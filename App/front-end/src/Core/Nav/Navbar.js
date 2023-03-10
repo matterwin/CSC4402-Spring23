@@ -33,7 +33,7 @@ function Navbar() {
         
         <div className="path">
           
-          <p className="pos"><WidgetsIcon sx={{ fontSize: 27, marginTop:'3px'}}/>{pathname}</p>
+          <div className="pos"><WidgetsIcon sx={{ fontSize: 27, marginTop:'3px'}}/><p className='pos-p'>{pathname}</p></div>
         </div>
 
         <div className="test">
