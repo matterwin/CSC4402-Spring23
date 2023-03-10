@@ -19,7 +19,6 @@
     text-align: left;
     padding-bottom: 80px;
     cursor: pointer;
-
 }
 
 .movie-review-div:hover .movie-title {
@@ -47,6 +46,9 @@
     margin-top: -5px;
     margin-bottom: 5px;
     font-family: 'Baloo 2', cursive;
+    line-height: 1;
+    padding-top: 3px;
+    padding-bottom: 2px;
 }
 
 .last-review {
@@ -54,6 +56,3 @@
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 14px
 }
-
-/* word-wrap: break-word;
-    max-width: 40rem; */
