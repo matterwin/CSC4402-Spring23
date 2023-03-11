@@ -9,6 +9,7 @@ import Profile from './Core/Profile/Profile'
 import RateReview from './Core/RateReview/RateReview'
 import Feed from './Core/Feed/Feed'
 import ScrollButton from './Core/Nav/ScrollButton'
+import UserSettings from './Core/Profile/UserSettings'
 import './App.css';
 
 function App() {
@@ -31,8 +32,9 @@ function App() {
             <Route path="/Login" element={<Login/>}/>
             <Route path="/Register" element={<Register/>}/>
             <Route path="/Profile" element={<Profile/>}/>
-            <Route path="/RateReview" element={<RateReview/>}/>
+            <Route path="/Rate&Review" element={<RateReview/>}/>
             <Route path="/Feed" element={<Feed/>}/>
+            <Route path="/Settings" element={<UserSettings/>}/>
           </Routes>
 
         </Router>

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import './RateReview.css'
+import './UserSettings.css'
 
-function RateReview() {
+function UserSettings() {
 
   return (
     <div >
         <div className="profile-container">
-            <p className='hello-there'>Hello there</p>
+            <p className='hello-there'>Welcome to your settings page</p>
             <div className='space'>&nbsp;</div>
             <div className='space'>&nbsp;</div>
             <div className='space'>&nbsp;</div>
@@ -16,4 +16,4 @@ function RateReview() {
   );
 }
 
-export default RateReview;
+export default UserSettings;

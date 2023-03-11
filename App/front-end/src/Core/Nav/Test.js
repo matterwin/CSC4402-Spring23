@@ -11,9 +11,9 @@ function Test() {
 
     return (
         <div className='profile-menu'>
-            <NavLink end to="/Profile" className='navInactive'>Profile</NavLink>
+            <NavLink end to="/Profile" className={({ isActive }) => (isActive ? 'profileNavActive' : 'profileNavInactive')}>Profile</NavLink>
             <Divider sx={{ my: 0.5, color: '' }} />
-            <NavLink end to="/" className='navInactive'>Settings</NavLink> 
+            <NavLink end to="/Settings" className={({ isActive }) => (isActive ? 'profileNavActive' : 'profileNavInactive')}>Settings</NavLink> 
             <Divider sx={{ my: 0.5 }} /> 
             <a href="/Login" className='navInactive'>Log In</a>
         </div>

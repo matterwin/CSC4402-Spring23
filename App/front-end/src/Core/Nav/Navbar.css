@@ -239,6 +239,10 @@ NavLink {
     border-bottom: 3px solid transparent;
   }
 
+  .navInactive:hover {
+    color: #8f8f8f;
+  }
+
   .navActive {
     text-decoration: none;
     color: #1976d2;

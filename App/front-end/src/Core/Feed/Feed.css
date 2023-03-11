@@ -44,6 +44,8 @@
     margin-right: auto;
     margin-left: auto;
     width: 1250px;
+    border: 1px solid #1976d2;
+    border-top: 0px;
 }
 
 .feed-bar {
@@ -54,7 +56,7 @@
   }
 
   .movie-icon {
-    padding-top: 10px;
+    padding-top: 20px;
     margin-bottom: 0px;
     padding-bottom: 0px;
   }

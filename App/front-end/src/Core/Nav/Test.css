@@ -47,3 +47,21 @@
         transform: rotateY(0);
     }
   }
+
+  .profileNavInactive {
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    font-family: 'Baloo 2', cursive;
+    text-decoration: none;
+  }
+
+  .profileNavInactive:hover {
+    color: #8f8f8f;
+  }
+
+  .profileNavActive {
+    text-decoration: none;
+    color: #1976d2;
+    font-size: 1.2rem;
+    font-family: 'Baloo 2', cursive;
+  }

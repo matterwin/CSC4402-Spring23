@@ -69,7 +69,7 @@ function Navbar() {
                 FEED
             </NavLink>  
 
-            <NavLink end to="/RateReview" className={({ isActive }) => (isActive ? 'navActive' : 'navInactive')}>
+            <NavLink end to="/Rate&Review" className={({ isActive }) => (isActive ? 'navActive' : 'navInactive')}>
                 RATE&REVIEW
             </NavLink>
           </div>
