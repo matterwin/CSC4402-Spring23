@@ -1,0 +1,49 @@
+/* .profile-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    background-color: #3b4048;
+    right: 0;
+    left: 0;
+    text-align: left;
+    padding: 16px 0;
+    margin-top: 13.4rem;
+    padding-left: 20px;
+    padding-right: 30px;
+    z-index: 999;
+    animation: loadingtransition 200ms ease-in;
+  } */
+
+  .profile-menu {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #3b4048;
+    right: 0;
+    left: 1;
+    /* height: 150px; */
+
+    text-align: left;
+    padding: 16px 0;
+    top: 4.5rem;
+    padding-left: 20px;
+    padding-right: 30px;
+    z-index: 999;
+    animation: loadingtransition 200ms ease-in;
+  }
+
+
+  
+  @keyframes  loadingtransition{
+  
+    from{
+        opacity: 0;
+        transform: rotateY(-50deg);
+    }
+    to{
+        opacity: 1;
+        transform: rotateY(0);
+    }
+  }

@@ -139,7 +139,7 @@ NavLink {
     flex-direction:row;
     align-items: center;
     justify-content: space-between;
-    gap: 2.5rem;
+    gap: 2rem;
     margin-left: auto;
   }
 
@@ -165,16 +165,111 @@ NavLink {
     }
   }
 
-  @media (max-width: 500px) {
+  /* @media (max-width: 500px) {
     .nav-container {
       padding-left: 20px;
       padding-right: 20px;
     }
-  }
+  } */
 
   .path {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -0%);
+    cursor: default;
   }
   
+  .pfp-div {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f4f4f5;
+    cursor: pointer;
+    
+  }
+  
+  .profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+    border-radius: 50%;
+  }
+
+  .notif {
+    border-radius: 50px;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+
+  .parent-div-pfp {
+    cursor: pointer;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+    gap: -2.5rem;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    cursor: pointer;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-left: auto;
+    color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    font-family: 'Baloo 2', cursive;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  .navInactive {
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    font-family: 'Baloo 2', cursive;
+    text-decoration: none;
+  }
+
+  .navActive {
+    text-decoration: none;
+    color: #1976d2;
+    font-size: 1.2rem;
+    font-family: 'Baloo 2', cursive;
+  }
+
+  @media(max-width: 1110px) {
+    .pos {
+      display: none;
+    }
+  }
+
+  @media(max-width: 695px) {
+    .burger {
+      display:flex;
+    }
+
+    .nav-container {
+      display:flex;
+      flex-direction:row;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .nav-container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .nav-links, .parent-div-pfp, .notif, .profile-menu {
+      display: none;
+    } 
+  }

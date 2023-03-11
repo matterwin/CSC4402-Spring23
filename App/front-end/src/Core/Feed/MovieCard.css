@@ -17,6 +17,7 @@
     cursor: pointer;
     padding-left: 10px;
     padding-right: 10px;
+    animation: loadingtransition 500ms ease-in;
 }
 
 .movie-review-div:hover .movie-title {
@@ -54,3 +55,20 @@
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 14px
 }
+
+  
+  @keyframes  loadingtransition{
+  
+    from{
+        opacity: 0;
+        transform: rotateY(-50deg);
+    }
+    to{
+        opacity: 1;
+        transform: rotateY(0);
+    }
+  }
+  
+  .cursor {
+    animation: none;
+  }
