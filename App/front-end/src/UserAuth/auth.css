@@ -3,6 +3,11 @@
     margin-top: 15vh;
 } 
 
+.center-auth > * {
+    animation: loadingtransition 0ms ease-in;
+  
+}
+
 .auth-title {
     font-family: 'Baloo 2', cursive;
 }

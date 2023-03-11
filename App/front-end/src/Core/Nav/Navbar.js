@@ -6,9 +6,10 @@ import Pika from "../Videos/pika.png"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
-import Hamburger from './Hamburger'
+// import Hamburger from './Hamburger'
 import Notify from './NotifIcon'
 import Test from './Test'
+import Menu from './Menu'
 
 import './Navbar.css'
 
@@ -80,7 +81,7 @@ function Navbar() {
           
           <div className='parent-div-pfp' onClick={showProfileMenu} >
           {showPMenu ? <Test /> : <></> }
-            <Tooltip title="Open profile">
+            <Tooltip title="Profile">
               <div className="pfp-div">
                 <img className="profile-pic" src={Pika} alt="ProfilePicture" />
               </div>
@@ -95,7 +96,7 @@ function Navbar() {
         </div>
 
         <div className='burger'>
-          <Hamburger />
+          <Menu />
         </div>
 
         
