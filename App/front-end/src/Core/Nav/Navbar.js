@@ -54,11 +54,16 @@ function Navbar() {
         </div>
         
             
-        <div className="path">         
+        <div className="path">   
+        
+           
           <div className="pos">
             <WidgetsIcon sx={{ fontSize: 27, marginTop:'3px'}}/>
-            <p className='pos-p'>{pathname}</p>
+            <Tooltip title="Where you are">
+              <p className='pos-p'>{pathname}</p>
+            </Tooltip>
             </div>
+            
         </div>     
 
         <div className="test">

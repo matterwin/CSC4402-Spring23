@@ -90,13 +90,22 @@
     }
   }
 
-  @media(max-width: 400px) {
+  @media(max-width: 425px) {
     .feed-container {
         width: 100%;
+        border: none;
     }
 
-    .feed-bar {
-        justify-content: center;
+    .feed-bar, .feed-bar-actual {
+      margin-left: 0px;
+      margin-right: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+      border-bottom: 1px solid #1976d2;
+    }
+
+    .movie-review-div {
+      padding-bottom: 80px;
     }
   }
 

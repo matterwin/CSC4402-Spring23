@@ -9,8 +9,7 @@ function Feed() {
 
   return (
     <div>
-        
-        <div className="feed-container">
+      <div className="feed-container">
         <div className="feed-bar">
           <FeedBar />
         </div>
