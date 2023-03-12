@@ -281,3 +281,9 @@ NavLink {
       display: none;
     } 
   }
+
+  @media(max-width: 920px) {
+    .search-bar {
+      display: none;
+    }
+  }

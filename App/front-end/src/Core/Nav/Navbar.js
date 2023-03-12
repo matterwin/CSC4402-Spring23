@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation } from "react-router-dom";
 import WidgetsIcon from '@mui/icons-material/Widgets';
-// import SearchBar from "./SearchBar"
+import SearchBar from "./SearchBar"
 import Pika from "../Videos/pika.png"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material/styles';
@@ -49,7 +49,10 @@ function Navbar() {
       <div className="nav-container">
 
         <NavLink className="title" end to="/"><h1>Navbar</h1></NavLink>
-        {/* <SearchBar/> */}
+        <div className='search-bar'>
+          <SearchBar sx={{paddingRight: 200, color: 'white'}}/>
+        </div>
+        
             
         <div className="path">         
           <div className="pos">

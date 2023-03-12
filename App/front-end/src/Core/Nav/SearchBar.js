@@ -3,17 +3,17 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 
-const Search = styled('div')(({ theme }) => ({
+const Search = styled('div')(({ theme, hasInput }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: hasInput ? alpha(theme.palette.common.white, 0.85) : alpha(theme.palette.common.white, 0.25),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: alpha(theme.palette.common.white, 0.85),
   },
   marginLeft: 0,
   width: '100%',
   [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
+    marginLeft: theme.spacing(2),
     width: 'auto',
   },
 }));
@@ -37,24 +37,32 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: '12ch',
+      width: '16ch',
       '&:focus': {
-        width: '20ch',
+        width: '22ch',
       },
     },
   },
 }));
 
 export default function SearchAppBar() {
+  const [inputValue, setInputValue] = React.useState('');
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
   return (
-    <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+    <Search hasInput={inputValue.length > 0}>
+      <SearchIconWrapper>
+        <SearchIcon />
+      </SearchIconWrapper>
+      <StyledInputBase
+        placeholder="Search movie"
+        inputProps={{ 'aria-label': 'search' }}
+        value={inputValue}
+        onChange={handleInputChange}
+      />
+    </Search>
   );
 }
