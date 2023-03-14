@@ -2,7 +2,11 @@ import React from 'react';
 import './FeedNav.css'
 import Sort from './Sort'
 
-function Feed() {
+function FeedNav() {
+
+  function handleReset() {
+    console.log("test");
+  }
 
   return (
     <div>
@@ -10,7 +14,7 @@ function Feed() {
             <div className='buttons'>
                 <Sort />
             </div>
-            <div className='reset'>
+            <div onClick={handleReset} className='reset'>
                 <p>RESET</p>
             </div>
         </div>
@@ -18,4 +22,4 @@ function Feed() {
   );
 }
 
-export default Feed;
+export default FeedNav;

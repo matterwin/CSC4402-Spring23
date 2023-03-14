@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FeedBar from './FeedNav'
+import FeedNav from './FeedNav'
 import MovieCard from './MovieCard'
 import './Feed.css'
 import MovieFilterIcon from '@mui/icons-material/MovieFilter';
@@ -11,7 +11,7 @@ function Feed() {
     <div>
       <div className="feed-container">
         <div className="feed-bar">
-          <FeedBar />
+          <FeedNav />
         </div>
           <div className='movie-icon'>
             <MovieFilterIcon sx={{fontSize:"45px",color: "#1976d2"}}/>

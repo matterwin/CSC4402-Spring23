@@ -10,7 +10,7 @@ body {
   background-color: #f4f4f5;
 }
 
-*{
+/* *{
   animation: loadingtransition 200ms ease-in;
 }
 
@@ -24,7 +24,7 @@ body {
       opacity: 1;
       transform: rotateY(0);
   }
-}
+} */
 
 .cursor {
   animation: none;

@@ -16,6 +16,12 @@ NavLink {
   align-content: center;
 }
 
+.navlink {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: 'Baloo 2', cursive;
+}
+
 .login-button {
   background-color: rgb(114, 114, 131);
   color: white;
@@ -185,8 +191,7 @@ NavLink {
     border-radius: 50%;
     overflow: hidden;
     background-color: #f4f4f5;
-    cursor: pointer;
-    
+    cursor: pointer; 
   }
   
   .profile-pic {
