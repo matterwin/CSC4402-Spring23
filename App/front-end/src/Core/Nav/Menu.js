@@ -3,13 +3,7 @@ import { styled, alpha } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import HomeRounded from '@mui/icons-material/HomeRounded';
-import RateReview from '@mui/icons-material/RateReview';
 import Divider from '@mui/material/Divider';
-import AccountBox from '@mui/icons-material/AccountBox';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import Whatshot from '@mui/icons-material/Whatshot';
-import Feed from '@mui/icons-material/Feed';
 
 import { NavLink } from "react-router-dom";
 import { useState } from 'react';
@@ -32,18 +26,21 @@ const StyledMenu = styled((props) => (
 ))(({ theme }) => ({
   '& .MuiPaper-root': {
     borderRadius: 6,
+    border: '1px solid #fff',
     marginTop: theme.spacing(1),
     minWidth: 180,
     color:
-      theme.palette.mode === 'light' ? 'rgb(55, 65, 81)' : theme.palette.grey[300],
+      theme.palette.mode === 'light' ? 'rgb(55, 65, 81)' : theme.palette.grey[0],
+    backgroundColor: '#3b4048',
     boxShadow:
       'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
     '& .MuiMenu-list': {
       padding: '4px 0',
     },
     '& .MuiMenuItem-root': {
+      color: '#fff',
       '& .MuiSvgIcon-root': {
-        fontSize: 20,
+        fontSize: 18,
         color: theme.palette.text.secondary,
         marginRight: theme.spacing(1.5),
       },
@@ -52,6 +49,10 @@ const StyledMenu = styled((props) => (
           theme.palette.primary.main,
           theme.palette.action.selectedOpacity,
         ),
+      '&:hover': {
+        backgroundColor: '#1976d2',
+        color: 'white',
+        },
       },
     },
   },
@@ -61,7 +62,6 @@ export default function CustomizedMenus() {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [renderIn, setRenderIn] = useState(true);
 
   const open = Boolean(anchorEl);
 
@@ -72,19 +72,9 @@ export default function CustomizedMenus() {
   };
 
   const handleClose = () => {
-    setRenderIn(true);
     setAnchorEl(null);
     setIsOpen(false);
     document.removeEventListener("keydown", console.log("event listener removed"));
-  };
-
-  const handleCloseForMore = () => {
-    document.removeEventListener("keydown", console.log("event listener removed"));
-
-    setTimeout(() => {
-      setRenderIn(!renderIn);
-    }, 100);
-
   };
 
   return (
@@ -113,49 +103,41 @@ export default function CustomizedMenus() {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
-        sx={{position: 'fixed'}}
+        disableScrollLock={true}
+        sx={{position: 'absolute'}}
       >        
+
+        <MenuItem disableRipple>
+            <div>noahlewis</div> 
+        </MenuItem>
+
+        <Divider sx={{ my: 0.5, backgroundColor: '#fff' }} />
+
         <NavLink end to="/" className="navlink">
           <MenuItem onClick={handleClose} disableRipple>
-            <HomeRounded />
             Home
           </MenuItem>
         </NavLink>        
 
         <NavLink end to="/Feed" className="navlink">
           <MenuItem onClick={handleClose} disableRipple>
-            <Feed />
             Feed
           </MenuItem>
         </NavLink>  
 
-        <NavLink end to="/" className="navlink">
-          <MenuItem onClick={handleClose} disableRipple>
-            <Whatshot />
-            Hottest Now
-          </MenuItem>
-        </NavLink>
-
         <NavLink end to="/RateReview" className="navlink">
           <MenuItem onClick={handleClose} disableRipple>
-            <RateReview />
             Rate & Review
           </MenuItem>
         </NavLink>
 
-        <Divider sx={{ my: 0.5 }} />
+        <Divider sx={{ my: 0.5, backgroundColor: '#fff' }} />
 
         <NavLink end to="/Profile" className="navlink">
           <MenuItem onClick={handleClose} disableRipple>
-          <AccountBox />
           Profile
           </MenuItem>
         </NavLink>
-
-        <MenuItem onClick={handleCloseForMore} disableRipple>
-          <MoreHorizIcon />
-          More
-        </MenuItem>
 
         <MenuItem onClick={handleClose} disableRipple>
           <a href="/Login"><Button variant="contained" sx={{ padding: '5px', paddingRight: '100px', paddingLeft: '100px' }}>Log In</Button></a>

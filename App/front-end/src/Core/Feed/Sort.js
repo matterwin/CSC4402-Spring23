@@ -11,10 +11,16 @@ import Chip from '@mui/material/Chip';
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
+  disableScrollLock: true,
+  position: 'absolute',
+  paddingRight: '50px',
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
+      maxwidth: 30,
+      borderRadius: 6,     
+      border: '1.8px solid #1976d2',
+      borderTop: 0,
     },
   },
 };
@@ -23,8 +29,7 @@ const names = [
   'A-Z',
   'Highest Rating',
   'Lowest Rating',
-  'Newest',
-  ''
+  'Newest'
 ];
 
 function getStyles(name, personName, theme) {

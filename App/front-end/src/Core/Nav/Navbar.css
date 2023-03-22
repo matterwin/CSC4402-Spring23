@@ -266,7 +266,6 @@ NavLink {
   @media(max-width: 695px) {
     .burger {
       display:flex;
-      
     }
 
     .nav-container {

@@ -8,7 +8,6 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Pika from "../Videos/pika.png";
 import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
-
 import { NavLink } from "react-router-dom";
 
   const StyledKeyboardArrowDownIcon = styled(KeyboardArrowDownIcon)({
@@ -121,7 +120,15 @@ export default function CustomizedMenus() {
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
+            disableScrollLock={true}
+            sx={{position: 'absolute'}}
             >
+
+          <MenuItem disableRipple>
+              <div>noahlewis</div> 
+          </MenuItem>
+
+        <Divider sx={{ my: 0.5, backgroundColor: '#fff' }} />
 
         <NavLink end to="/Profile" className="navlink">
           <MenuItem onClick={handleClose} disableRipple>
