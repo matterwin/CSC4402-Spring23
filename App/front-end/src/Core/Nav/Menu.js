@@ -125,7 +125,7 @@ export default function CustomizedMenus() {
           </MenuItem>
         </NavLink>  
 
-        <NavLink end to="/RateReview" className="navlink">
+        <NavLink end to="/Rate&Review" className="navlink">
           <MenuItem onClick={handleClose} disableRipple>
             Rate & Review
           </MenuItem>
