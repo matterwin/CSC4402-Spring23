@@ -24,6 +24,15 @@
     gap: 10px;
 }
 
+.name-and-username {
+    text-decoration: none;
+    display:flex;
+    flex-direction:column;
+    align-items:left;
+    justify-content: flex-start;
+    /* gap: 10px; */
+}
+
 .reviews {
     font-family: 'Baloo 2', cursive;
     display: flex;
@@ -63,6 +72,18 @@
 
 .prof-username {
     font-family: 'Baloo 2', cursive;
+    color: #727272;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.prof-name {
+    font-family: 'Baloo 2', cursive;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-bottom: -15px;
 }
 
 .prof-pfp-div {

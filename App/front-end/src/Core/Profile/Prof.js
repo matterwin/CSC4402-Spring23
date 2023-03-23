@@ -21,8 +21,9 @@ function Prof() {
                         <img className="prof-profile-pic" src={Pika} alt="ProfilePicture" />      
                     </Tooltip>             
                 </div>
-                <div>
-                    <h1 className='prof-username'>matterwin</h1>
+                <div className="name-and-username">
+                    <h1 className='prof-name'>Matthew Erwin</h1>
+                    <h2 className='prof-username'>matterwin</h2>
                 </div>
             </div>
             
