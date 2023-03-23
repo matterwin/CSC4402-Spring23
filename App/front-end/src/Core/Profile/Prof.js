@@ -5,6 +5,8 @@ import Button from '@mui/material/Button';
 import { NavLink } from "react-router-dom";
 import ReviewsIcon from '@mui/icons-material/Reviews';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
+import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
+import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 
 import './Prof.css'
 
@@ -15,12 +17,12 @@ function Prof() {
         <div className="profile-info">
             <div className='pic-and-name'>
                 <div className="prof-pfp-div">             
-                    <Tooltip title="Profile">
+                    <Tooltip title="Profile pic">
                         <img className="prof-profile-pic" src={Pika} alt="ProfilePicture" />      
                     </Tooltip>             
                 </div>
                 <div>
-                    <h1 className='prof-username'>noahlewis</h1>
+                    <h1 className='prof-username'>matterwin</h1>
                 </div>
             </div>
             
@@ -47,7 +49,7 @@ function Prof() {
                 </div>
                 <div className='small-row'>
                     <VerifiedUserIcon sx={{color: '#2a3038'}}/>
-                    <p>@noahlewis</p>
+                    <p>@m3ttwin</p>
                 </div>
                 
             </div>
@@ -56,7 +58,20 @@ function Prof() {
         <div className="profile-info">
             
             <h2 className='reviews'>Reviews</h2>
-
+            <div className='review-box'>
+                <TheaterComedyIcon sx={{ fontSize: 50, color: '#2a3038' }}/>
+                <p className='h1-msg'>You don't have any Movie Reviews</p>
+                <p className='p-msg'>Add a new Movie Review by clicking the button down below</p>
+                <NavLink className="title" end to="/RateReview">
+                    <Button 
+                        variant="outlined" 
+                        startIcon={<AddToPhotosIcon  />}
+                        style={{ backgroundColor: '#e7e7e7' }}
+                    >
+                        Rate A Movie
+                    </Button>
+                </NavLink>
+            </div>
         </div>        
     </div>
   );

@@ -36,9 +36,29 @@
     margin-right: 60px;
     margin-top: 50px;
     /* padding-top: 50px; */
-    padding-bottom: 500px;
+    padding-bottom: 50px;
     border-radius: 10px;
     /* background-color: #3b4048; */
+}
+
+.review-box {
+    padding: 100px;
+    background-color: #A1C7ED;
+}
+
+.h1-msg {
+    color: rgb(255, 255, 255);
+    color: #1d1d20;
+    font-size: 1.6rem;
+    font-family: 'Baloo 2', cursive;
+    margin-bottom: 0;
+}
+
+.p-msg {
+    margin-top: 0;
+    color: #727272;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.2rem;
 }
 
 .prof-username {
