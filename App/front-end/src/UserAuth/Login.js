@@ -14,9 +14,9 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState, useRef } from "react"
 
-// import Alert from '@mui/material/Alert';
-// import AlertTitle from '@mui/material/AlertTitle';
-// import Stack from '@mui/material/Stack';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import Stack from '@mui/material/Stack';
 
 import "./auth.css"
 
@@ -37,10 +37,51 @@ export default function SignIn() {
 
   const [buttonClass, setButtonClass] = useState("");
   const [inputColor, setInputColor] = useState("primary");
-  // const [isInputValid, setIsInputValid] = useState('');
-  // const [renderIn, setRenderIn] = useState(true);
+
+  const [renderInSuccess, setRenderInSuccess] = useState(true);
+  const [renderInFail, setRenderInFail] = useState(true);
 
   const formRef = useRef(null);
+
+  function handleFailure() {
+
+    const intervalId = setInterval(() => {
+      setButtonClass("inputInvalid");
+      setInputColor("error");
+    }, 0);
+
+    setTimeout(() => {
+        clearInterval(intervalId);
+        setButtonClass("");
+        setInputColor("primary");
+    }, 500);
+
+    setRenderInFail(false);
+  
+    setTimeout(() => { 
+      setRenderInFail(true);
+    }, 4000);
+  }
+
+  function handleSuccess() {
+
+    const intervalId = setInterval(() => {
+      setButtonClass("inputSuccess");
+      setInputColor("success");
+    }, 0);
+
+    setTimeout(() => {
+      clearInterval(intervalId);
+      setButtonClass("");
+      setInputColor("primary");
+    }, 4000);
+
+    setRenderInSuccess(false);
+
+    setTimeout(() => { 
+      setRenderInSuccess(true);
+    }, 4000); 
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -70,24 +111,68 @@ export default function SignIn() {
       //   console.log(data);
       // })
 
-      const intervalId = setInterval(() => {
-        setButtonClass("inputSuccess");
-        setInputColor("success");
-      }, 0);
+      fetch('http://localhost:8000/api/userAuthControllerLogin', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      })
+      .then(response => {
+        if (response.status === 404) {
+          throw new Error("Access denied");
+        }
+        return response.json();
+      })
+      .then(data => {
+        if(data) { 
 
-      setTimeout(() => {
-        clearInterval(intervalId);
-        setButtonClass("");
-        setInputColor("primary");
-        //navigate("/");
-        // setIsInputValid('/');
-      }, 4000);
+          handleSuccess();
 
-      // setRenderIn(false);
+          console.log("success");
+          console.log(data);
+        }
+      })
+      .catch(error => {
 
-      // setTimeout(() => { 
-      //   setRenderIn(true);
-      // }, 4000);
+        handleFailure();
+        
+        console.log("Error: " + error.message);
+      });
+
+      // const url = `http://localhost:8000/api/userAuthControllerLogin?email=${email}&password=${password}`;
+
+      // fetch(url, {
+      //   method: 'GET',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      // })
+      // .then(response => {
+      //   if (response.status === 404) {
+      //     throw new Error("Access denied");
+      //   }
+      //   return response.json();
+      // })
+      // .then(data => {
+      //   if(data) { 
+
+      //     handleSuccess();
+
+      //     console.log("success");
+      //     console.log(data);
+      //   }
+      // })
+      // .catch(error => {
+
+      //   handleFailure();
+        
+      //   console.log("Error: " + error.message);
+      // });
+
 
       formRef.current.reset();
     }
@@ -163,8 +248,7 @@ export default function SignIn() {
               >
                 Sign in
               </Button>
-
-              {/* { renderIn ? <></> :
+              { renderInSuccess ? <></> :
                 <div className="alert-container">
                   <Stack sx={{ width: '300px' }} spacing={2}>
                     <Alert severity="success">
@@ -173,7 +257,17 @@ export default function SignIn() {
                     </Alert>
                   </Stack>
                 </div>
-              } */}
+              }
+              { renderInFail ? <></> :
+                <div className="alert-container">
+                  <Stack sx={{ width: '300px' }} spacing={2}>
+                    <Alert severity="error">
+                      <AlertTitle>Failed</AlertTitle>
+                      Email or password <strong>incorrect</strong>
+                    </Alert>
+                  </Stack>
+                </div>
+              }
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">

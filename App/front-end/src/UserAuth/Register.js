@@ -45,7 +45,7 @@ export default function SignIn() {
 
   const formRef = useRef(null);
 
- function handleFailure() {
+  function handleFailure() {
 
     const intervalId = setInterval(() => {
       setButtonClass("inputInvalid");
@@ -101,21 +101,6 @@ export default function SignIn() {
         password: data.get('password'),
       });
 
-      // fetch('http://localhost:8000/api/userAuthController', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     username: username,
-      //     email: email,
-      //     password: password,
-      //   }),
-      // })
-      // .then(data => {
-      //   console.log(data);
-      // })
-
       fetch('http://localhost:8000/api/userAuthController', {
         method: 'POST',
         headers: {
@@ -148,23 +133,6 @@ export default function SignIn() {
         
         console.log("Error: " + error.message);
       });
-
-      // const intervalId = setInterval(() => {
-      //   setButtonClass("inputSuccess");
-      //   setInputColor("success");
-      // }, 0);
-
-      // setTimeout(() => {
-      //   clearInterval(intervalId);
-      //   setButtonClass("");
-      //   setInputColor("primary");
-      // }, 4000);
-
-      // setRenderInSuccess(false);
-
-      // setTimeout(() => { 
-      //   setRenderInSuccess(true);
-      // }, 4000);
 
       formRef.current.reset();
     }
