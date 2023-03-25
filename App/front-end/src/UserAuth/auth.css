@@ -29,12 +29,16 @@
     gap: 8px;
 }
 
+.p-error {
+  color: #f4f4f5;
+}
+
 .link-div > * {
   display: flex;
 }
 
 .divider-div {
-  padding-right: 6px;
+  padding-right: 8px;
 }
 
 @keyframes vibrate {

@@ -3,10 +3,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import Checkbox from '@mui/material/Checkbox';
+import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
+// import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
@@ -17,6 +18,7 @@ import { useState, useRef } from "react"
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Stack from '@mui/material/Stack';
+// import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 
 import "./auth.css"
 
@@ -97,29 +99,13 @@ export default function SignIn() {
         password: data.get('password'),
       });
 
-      // fetch('http://localhost:8000/api/userAuthController', {
-      //   method: 'GET',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     email: email,
-      //     password: password,
-      //   }),
-      // })
-      // .then(data => {
-      //   console.log(data);
-      // })
+      const url = `http://localhost:8000/api/userAuthControllerLogin?email=${email}&password=${password}`;
 
-      fetch('http://localhost:8000/api/userAuthControllerLogin', {
+      fetch(url, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
       })
       .then(response => {
         if (response.status === 404) {
@@ -142,36 +128,6 @@ export default function SignIn() {
         
         console.log("Error: " + error.message);
       });
-
-      // const url = `http://localhost:8000/api/userAuthControllerLogin?email=${email}&password=${password}`;
-
-      // fetch(url, {
-      //   method: 'GET',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      // })
-      // .then(response => {
-      //   if (response.status === 404) {
-      //     throw new Error("Access denied");
-      //   }
-      //   return response.json();
-      // })
-      // .then(data => {
-      //   if(data) { 
-
-      //     handleSuccess();
-
-      //     console.log("success");
-      //     console.log(data);
-      //   }
-      // })
-      // .catch(error => {
-
-      //   handleFailure();
-        
-      //   console.log("Error: " + error.message);
-      // });
 
 
       formRef.current.reset();
@@ -232,11 +188,10 @@ export default function SignIn() {
                 id="password"
                 autoComplete="current-password"
               />
-              <FormControlLabel
+              {/* <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
-              />
-              
+              /> */}         
               <Button
                 type="submit"
                 fullWidth
@@ -260,15 +215,31 @@ export default function SignIn() {
               }
               { renderInFail ? <></> :
                 <div className="alert-container">
-                  <Stack sx={{ width: '300px' }} spacing={2}>
-                    <Alert severity="error">
-                      <AlertTitle>Failed</AlertTitle>
-                      Email or password <strong>incorrect</strong>
+                  <Stack sx={{ width: '300px', borderRadius: '8px', border: '2px solid red' }} spacing={2}>
+                    <Alert severity="error" sx={{backgroundColor: 'rgb(105, 0, 0)'}}>
+                      <AlertTitle sx={{color: '#f4f4f5'}}>Failed</AlertTitle>
+                      <p className='p-error'>Email or password <strong>incorrect</strong></p>
                     </Alert>
                   </Stack>
                 </div>
               }
-              <Grid container>
+              <div className='link-div'>             
+                <div>
+                  <Link href="./Register" variant="body2">
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </div>
+                <div>
+                  <Divider orientation="vertical" sx={{ my: 0.5, backgroundColor: '#blue' }} />
+                </div>
+                <div className="divider-div">
+                  <Divider orientation="vertical" style={{ backgroundColor: '#1976d2', height: '25px', width:'1px' }} />
+                </div>
+                <div className='link'>
+                  <Home sx={{ mt: 4, mb: 4 }} />
+                </div>
+              </div>
+              {/* <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
                     Forgot password?
@@ -279,10 +250,10 @@ export default function SignIn() {
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
-              </Grid>
+              </Grid> */}
             </Box>
           </Box>
-          <Home sx={{ mt: 4, mb: 4 }} />
+          {/* <Home sx={{ mt: 4, mb: 4 }} /> */}
         </Container>
       </ThemeProvider>
     </div>
