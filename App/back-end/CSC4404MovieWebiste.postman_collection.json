@@ -11,9 +11,16 @@
 			"item": [
 				{
 					"name": "GetAllTest",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:8000/api/testController",
 							"protocol": "http",
@@ -258,23 +265,11 @@
 				},
 				{
 					"name": "LoginUserAuth",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"d\",\n    \"password\": \"testPassword\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:8000/api/userAuthControllerLogin",
+							"raw": "http://localhost:8000/api/userAuthControllerLogin?email=testEmail&password=testPassword",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -283,6 +278,16 @@
 							"path": [
 								"api",
 								"userAuthControllerLogin"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "testEmail"
+								},
+								{
+									"key": "password",
+									"value": "testPassword"
+								}
 							]
 						}
 					},
@@ -466,23 +471,11 @@
 				},
 				{
 					"name": "GetMovieReview",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"userId\": 1,\n    \"movieId\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:8000/api/movieReviewController",
+							"raw": "http://localhost:8000/api/movieReviewController?userId=1&movieId=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -491,6 +484,16 @@
 							"path": [
 								"api",
 								"movieReviewController"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "movieId",
+									"value": "1"
+								}
 							]
 						}
 					},
