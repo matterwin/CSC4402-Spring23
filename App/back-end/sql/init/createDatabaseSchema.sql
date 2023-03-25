@@ -10,8 +10,8 @@ CREATE TABLE testTable(
 );
 
 CREATE TABLE userAuthTable(
-    id INT NOT NULL AUTO_INCREMENT,
-    username VARCHAR(255) UNIQUE NOT NULL,
+    id INT UNIQUE NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     
@@ -30,4 +30,18 @@ CREATE TABLE movieTable (
     filepath VARCHAR(1024) NOT NULL,
 
     PRIMARY KEY (id)
+);
+
+
+CREATE TABLE movieReviewTable (
+    userId INT NOT NULL,
+    movieId INT NOT NULL,
+    
+    /*NOTE: based on max tweet length not sure if we should make it longer???*/
+    review VARCHAR(280) NOT NULL,
+    rating DECIMAL(2, 1) NOT NULL,
+
+    PRIMARY KEY (userId, movieId),
+    FOREIGN KEY (userId) REFERENCES userAuthTable(id) ON DELETE CASCADE,
+    FOREIGN KEY (movieId) REFERENCES movieTable(id) ON DELETE CASCADE
 );

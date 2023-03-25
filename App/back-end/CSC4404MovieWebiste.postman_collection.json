@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "812ddcea-fc9c-43f1-8e9f-e2d1a6aebf98",
-		"name": "CSC4404MovieWebiste",
+		"_postman_id": "9cccd4a1-31f1-403d-96d4-1ade3bb8af5a",
+		"name": "CSC4404MovieWebsite",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23224517"
 	},
@@ -234,7 +234,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"testEmail\",\r\n    \"password\": \"testPassword\"\r\n}",
+							"raw": "{\r\n    \"username\": \"testUsername\",\r\n    \"email\": \"testEmail\",\r\n    \"password\": \"testPassword\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -251,6 +251,38 @@
 							"path": [
 								"api",
 								"userAuthController"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginUserAuth",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"d\",\n    \"password\": \"testPassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/userAuthControllerLogin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"userAuthControllerLogin"
 							]
 						}
 					},
@@ -373,6 +405,192 @@
 								"api",
 								"movieController",
 								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MovieReview",
+			"item": [
+				{
+					"name": "PostMovieReview",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movieId\": 1,\n    \"userId\": 1,\n    \"review\": \"testReview\",\n    \"rating\": 4.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/movieReviewController",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieReviewController"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllMovieReview",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/movieReviewControllerAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieReviewControllerAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMovieReview",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 1,\n    \"movieId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/movieReviewController",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieReviewController"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteMovieReview",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 1,\n    \"movieId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/movieReviewController",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieReviewController"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllUserMovieReview",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/movieReviewControllerUser/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieReviewControllerUser",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMovieReviewAvgRating",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/movieReviewControllerAvgRating/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieReviewControllerAvgRating",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutMovieReview",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movieId\": 1,\n    \"userId\": 1,\n    \"review\": \"newTestReview\",\n    \"rating\": 4.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/movieReviewController",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieReviewController"
 							]
 						}
 					},

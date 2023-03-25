@@ -24,14 +24,10 @@ const postMovieHandler = (req, res) => {
     return;
   }
 
-  console.log(file);
-
   const splitFilePath = file.destination.split("/");
   const endFilePath = `${splitFilePath[splitFilePath.length - 2]}/${
     splitFilePath[splitFilePath.length - 1]
   }/${file.originalname}`;
-
-  console.log(body);
 
   executeQuery(
     "sql/movie/postMovie.sql",
@@ -124,4 +120,3 @@ module.exports = {
   getMovieHandler,
   deleteMovieHandler,
 };
-

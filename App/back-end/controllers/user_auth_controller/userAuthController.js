@@ -1,5 +1,4 @@
 const express = require("express");
-const cors = require("cors");
 const {
   postUserAuthHandler,
   getUserAuthHandler,
@@ -17,12 +16,6 @@ const deleteUserAuth = `/${_BASE_PATH}/:_id`;
 const postUserAuth = `/${_BASE_PATH}`;
 const loginUserAuth = `/${_BASE_PATH}Login`;
 const router = express.Router();
-
-router.use(
-  cors({
-    origin: "*",
-  })
-);
 
 router.post(postUserAuth, (req, res) => {
   postUserAuthHandler(req, res);
