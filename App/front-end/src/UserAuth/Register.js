@@ -3,10 +3,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import Checkbox from '@mui/material/Checkbox';
+import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
+// import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
@@ -43,10 +44,12 @@ export default function SignIn() {
   const [renderInSuccess, setRenderInSuccess] = useState(true);
   const [renderInFail, setRenderInFail] = useState(true);
 
+  const [isValidEmail, setIsValidEmail] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
   const formRef = useRef(null);
 
   function handleFailure() {
-
     const intervalId = setInterval(() => {
       setButtonClass("inputInvalid");
       setInputColor("error");
@@ -66,7 +69,6 @@ export default function SignIn() {
   }
 
   function handleSuccess() {
-
     const intervalId = setInterval(() => {
       setButtonClass("inputSuccess");
       setInputColor("success");
@@ -85,6 +87,33 @@ export default function SignIn() {
     }, 4000); 
   }
 
+  function handleInValidEmail() {
+    const intervalId = setInterval(() => {
+      setButtonClass("inputInvalid");
+      setInputColor("error");
+    }, 0);
+
+    setTimeout(() => {
+        clearInterval(intervalId);
+        setButtonClass("");
+        setInputColor("primary");
+    }, 500);
+
+    console.log('email is invalid')
+  }
+
+  function handleEmailChange(event) {
+    const emailInput = event.target.value;
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValid = emailRegex.test(emailInput);
+
+    setIsValidEmail(isValid);
+
+    if(!isValid)
+      setFormSubmitted(false);
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -94,6 +123,14 @@ export default function SignIn() {
     let password = data.get('password');
 
     if ((username.trim().length !== 0) && (email.trim().length !== 0) && (password.trim().length !== 0)) {
+
+      if(!isValidEmail) {
+        setFormSubmitted(true);
+        handleInValidEmail();
+        return;
+      }
+      else
+        setFormSubmitted(false);
 
       console.log({
         username: data.get('username'),
@@ -189,6 +226,7 @@ export default function SignIn() {
                 id="email"
                 label="Email Address"
                 name="email"
+                onChange={handleEmailChange}
               />
               <TextField
                 margin="normal"
@@ -200,10 +238,11 @@ export default function SignIn() {
                 id="password"
                 autoComplete="current-password"
               />
-              <FormControlLabel
+              {formSubmitted && <p className="invalid-email-msg">Please enter a valid email address.</p>}
+              {/* <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
-              />
+              /> */}
               <Button
                 type="submit"
                 fullWidth
@@ -232,10 +271,26 @@ export default function SignIn() {
                       <AlertTitle>Failed</AlertTitle>
                       Username or email <strong>already taken!</strong>
                     </Alert>
-                  </Stack>
+                  </Stack> 
                 </div>
               }
-              <Grid container>
+              <div className='link-div'>             
+                <div>
+                  <Link href="./Login" variant="body2">
+                    {"Already have an account? Log In"}
+                  </Link>
+                </div>
+                <div>
+                  <Divider orientation="vertical" sx={{ my: 0.5, backgroundColor: '#blue' }} />
+                </div>
+                <div className="divider-div">
+                  <Divider orientation="vertical" style={{ backgroundColor: '#1976d2', height: '25px', width:'1px' }} />
+                </div>
+                <div className='link'>
+                  <Home sx={{ mt: 4, mb: 4 }} />
+                </div>
+              </div>
+              {/* <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
                     Forgot password?
@@ -246,10 +301,10 @@ export default function SignIn() {
                     {"Already have an account? Log In"}
                   </Link>
                 </Grid>
-              </Grid>
+              </Grid> */}
             </Box>
           </Box>
-          <Home sx={{ mt: 4, mb: 4 }} />
+          {/* <Home sx={{ mt: 4, mb: 4 }} /> */}
         </Container>
       </ThemeProvider>
     </div>

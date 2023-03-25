@@ -16,6 +16,27 @@
     animation: vibrate 0.2s ease-in-out infinite;
   }
 
+.invalid-email-msg {
+  color: red;
+}
+
+.link-div {
+  text-decoration: none;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.link-div > * {
+  display: flex;
+}
+
+.divider-div {
+  padding-right: 6px;
+}
+
 @keyframes vibrate {
     0% {
       transform: translateX(0);
