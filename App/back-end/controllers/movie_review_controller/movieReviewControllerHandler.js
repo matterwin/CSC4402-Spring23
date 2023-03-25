@@ -4,8 +4,8 @@ const _verifyPostMovieReview = (body) => {
   return body && body.userId && body.movieId && body.review && body.rating;
 };
 
-const _verifyGetMovieReview = (body) => {
-  return body && body.userId && body.movieId;
+const _verifyGetMovieReview = (query) => {
+  return query && query.userId && query.movieId;
 };
 
 const _verifyDeleteMovieReview = (body) => {
@@ -113,16 +113,16 @@ const getAllUserMovieReviewHandler = (req, res) => {
 };
 
 const getMovieReviewHandler = (req, res) => {
-  const body = req.body;
+  const query = req.query;
 
-  if (!_verifyGetMovieReview(body)) {
+  if (!_verifyGetMovieReview(query)) {
     res.status(403).send();
     return;
   }
 
   executeQuery(
     "sql/movieReview/getMovieReview.sql",
-    [body.userId, body.movieId],
+    [query.userId, query.movieId],
     (queryResult) => {
       if (!queryResult.length) {
         res.status(404).send();

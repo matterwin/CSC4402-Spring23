@@ -4,8 +4,8 @@ const _verifyPost = (body) => {
   return body && body.username && body.email && body.password;
 };
 
-const _verifyLogin = (body) => {
-  return body && body.email && body.password;
+const _verifyLogin = (query) => {
+  return query && query.email && query.password;
 };
 
 const _verifyPut = (body) => {
@@ -37,7 +37,7 @@ const postUserAuthHandler = (req, res) => {
 };
 
 const loginUserAuthHandler = (req, res) => {
-  const body = req.body;
+  const query = req.query;
 
   if (!_verifyLogin) {
     res.status(400).send();
@@ -46,7 +46,7 @@ const loginUserAuthHandler = (req, res) => {
 
   executeQuery(
     "sql/userAuth/loginUserAuth.sql",
-    [body.email, body.password],
+    [query.email, query.password],
     (queryresult) => {
       if (queryresult.length < 1) {
         res.status(404).send();
