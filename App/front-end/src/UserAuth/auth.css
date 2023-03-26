@@ -10,6 +10,7 @@
 
 .auth-title {
     font-family: 'Baloo 2', cursive;
+    color: #f4f4f5;
 }
 
 .inputInvalid {
@@ -17,7 +18,7 @@
   }
 
 .invalid-email-msg {
-  color: red;
+  color: rgb(255, 68, 68);
 }
 
 .link-div {
@@ -88,4 +89,8 @@
     transform: translate(-50%, -50%);
     z-index: 9999;
   }
-  
+
+  .alert-div {
+    padding-top: 20px;
+    width: 100%;
+  }

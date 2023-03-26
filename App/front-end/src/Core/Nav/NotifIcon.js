@@ -106,8 +106,8 @@ const StyledNotificationsNoneIcon = styled(NotificationsNoneIcon)({
               >   
               <div>
               <IconButton aria-label="cart">
-                <StyledBadge badgeContent={4} color="secondary">
-                  <Tooltip title="Notifications">
+                <StyledBadge badgeContent={4} color="secondary" >
+                  <Tooltip title="Notifications" >
                     <StyledNotificationsNoneIcon />
                   </Tooltip>
                 </StyledBadge>

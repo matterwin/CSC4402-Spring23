@@ -3,21 +3,19 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
 import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
-// import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState, useRef } from "react"
-
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Stack from '@mui/material/Stack';
+import CloseIcon from '@mui/icons-material/Close';
+import IconButton from '@mui/material/IconButton';
 
 import "./auth.css"
 
@@ -32,9 +30,13 @@ function Home(props) {
   );
 }
 
-
-
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    background: {
+      default: "#2a3038"
+    }
+  }
+});
 
 export default function SignIn() {
 
@@ -62,10 +64,6 @@ export default function SignIn() {
     }, 500);
 
     setRenderInFail(false);
-  
-    setTimeout(() => { 
-      setRenderInFail(true);
-    }, 4000);
   }
 
   function handleSuccess() {
@@ -208,6 +206,47 @@ export default function SignIn() {
             <Typography component="h1" variant="h5">
               <div className="auth-title">Register</div>
             </Typography>
+            { !renderInFail &&
+                <div className="alert-div">         
+                    <Alert 
+                      variant="outlined" 
+                      severity="error" 
+                      sx={{
+                        color: 'white', backgroundColor: 'rgb(105, 0, 0)', 
+                        paddingTop: '15px', paddingBottom: '15px', paddingLeft: '30px', paddingRight: '50px',
+                        width: '100%',
+                        borderRadius: '7px',
+                        borderWidth: '2px',
+                        borderColor: 'primary',
+                        position: 'relative',                      
+                      }}
+                      action={
+                        <IconButton
+                          aria-label="close"
+                          color="inherit"
+                          size="small"
+                          onClick={() => {
+                            setRenderInFail(true);
+                          }}
+                          sx={{
+                            padding: '10px',
+                            '&:hover': {
+                              backgroundColor: '#f4f4f542'
+                            },
+                            position: 'absolute',
+                            right: '10px',
+                            top: '50%',
+                            transform: 'translateY(-50%)'
+                          }}
+                        >
+                          <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                    }
+                    >
+                      Username or email <strong>already taken</strong>!
+                    </Alert>   
+                </div>
+            }
             <Box component="form" ref={formRef} onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
@@ -218,6 +257,20 @@ export default function SignIn() {
                 name="username"
                 autoComplete="username"
                 autoFocus
+                sx={{
+                  '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#1976d2',
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#f4f4f5',
+                  },
+                }}
+                InputLabelProps={{
+                  style: { color: '#f4f4f5' }
+                }}
+                InputProps={{
+                  style: { color: '#f4f4f5' }
+                }}      
               />
               <TextField
                 margin="normal"
@@ -227,6 +280,20 @@ export default function SignIn() {
                 label="Email Address"
                 name="email"
                 onChange={handleEmailChange}
+                sx={{
+                  '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#1976d2',
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#f4f4f5',
+                  },
+                }}
+                InputLabelProps={{
+                  style: { color: '#f4f4f5' }
+                }}
+                InputProps={{
+                  style: { color: '#f4f4f5' }
+                }}      
               />
               <TextField
                 margin="normal"
@@ -237,12 +304,22 @@ export default function SignIn() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                sx={{
+                  '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#1976d2',
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#f4f4f5',
+                  },
+                }}
+                InputLabelProps={{
+                  style: { color: '#f4f4f5' }
+                }}
+                InputProps={{
+                  style: { color: '#f4f4f5' }
+                }}      
               />
               {formSubmitted && <p className="invalid-email-msg">Please enter a valid email address.</p>}
-              {/* <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              /> */}
               <Button
                 type="submit"
                 fullWidth
@@ -264,19 +341,9 @@ export default function SignIn() {
                   </Stack>
                 </div>
               }
-              { renderInFail ? <></> :
-                <div className="alert-container">
-                  <Stack sx={{ width: '300px' }} spacing={2}>
-                    <Alert severity="error">
-                      <AlertTitle>Failed</AlertTitle>
-                      Username or email <strong>already taken!</strong>
-                    </Alert>
-                  </Stack> 
-                </div>
-              }
               <div className='link-div'>             
                 <div>
-                  <Link href="./Login" variant="body2">
+                  <Link href="./Login" variant="body2" sx={{ color:"#218ffd", textShadow: "0 0 8px rgba(25, 118, 210, 0.6)" }}>
                     {"Already have an account? Log In"}
                   </Link>
                 </div>
@@ -287,24 +354,11 @@ export default function SignIn() {
                   <Divider orientation="vertical" style={{ backgroundColor: '#1976d2', height: '25px', width:'1px' }} />
                 </div>
                 <div className='link'>
-                  <Home sx={{ mt: 4, mb: 4 }} />
+                  <Home sx={{ mt: 4, mb: 4, color: '#dbdbdb' }} />
                 </div>
               </div>
-              {/* <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="./Login" variant="body2">
-                    {"Already have an account? Log In"}
-                  </Link>
-                </Grid>
-              </Grid> */}
             </Box>
           </Box>
-          {/* <Home sx={{ mt: 4, mb: 4 }} /> */}
         </Container>
       </ThemeProvider>
     </div>
