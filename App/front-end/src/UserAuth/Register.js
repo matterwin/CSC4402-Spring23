@@ -85,6 +85,10 @@ export default function SignIn() {
     setTimeout(() => { 
       setRenderInSuccess(true);
     }, 4000); 
+
+    setTimeout(() => {
+      window.location = '/';
+    }, 4000);
   }
 
   function handleInValidEmail() {

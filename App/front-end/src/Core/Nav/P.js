@@ -1,4 +1,5 @@
 import * as React from 'react';
+// import { useState, useEffect } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -9,6 +10,9 @@ import Pika from "../Videos/pika.png";
 import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
 import { NavLink } from "react-router-dom";
+
+import deleteCookies from '../../Hooks/deleteCookies';
+// import readCookies from '../../Hooks/readCookies';
 
   const StyledKeyboardArrowDownIcon = styled(KeyboardArrowDownIcon)({
     color: '#8f8f8f',
@@ -75,12 +79,24 @@ const StyledMenu = styled((props) => (
   },
 }));
 
+
+
 export default function CustomizedMenus() {
 
     const [showArrowDown, setShowArrowDown] = React.useState(true);
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+
+    // const [userId, setUserId] = useState('');
+
+    // useEffect(() => {
+    //   setUserId(readCookies());
+    // }, []);
+
+    function handleLogOut() {
+      deleteCookies();
+    }
 
     const handleClick = (event) => {
         setShowArrowDown(!showArrowDown);
@@ -149,7 +165,7 @@ export default function CustomizedMenus() {
        
 
         <MenuItem onClick={handleClose} disableRipple >
-          <a href="/Login"><Button variant="contained" sx={{ padding: '5px', paddingRight: '50px', paddingLeft: '50px' }}>Log In</Button></a>
+          <a href="/"><Button variant="contained" sx={{ padding: '5px', paddingRight: '45px', paddingLeft: '45px' }} onClick={handleLogOut} >Log Out</Button></a>
         </MenuItem>
             </StyledMenu>
         </div>

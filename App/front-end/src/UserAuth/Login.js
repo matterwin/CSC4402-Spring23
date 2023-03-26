@@ -84,6 +84,10 @@ export default function SignIn() {
     setTimeout(() => { 
       setRenderInSuccess(true);
     }, 4000); 
+
+    setTimeout(() => {
+      window.location = '/';
+    }, 4000);
   }
 
   const handleSubmit = (event) => {
@@ -269,7 +273,6 @@ export default function SignIn() {
                 sx={{ mt: 3, mb: 2 }} 
                 className={buttonClass}
                 color={inputColor}
-                // href={isInputValid}
               >
                 Sign in
               </Button>
