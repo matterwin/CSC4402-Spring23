@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 // import Pika from "../Videos/pika.png";
 import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
@@ -9,9 +10,45 @@ import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 import DefaultPic from "../Videos/defaultPic.png";
 
+import readCookies from '../../Hooks/readCookies';
+
 import './Prof.css'
 
 function Prof() {
+
+    const userId = readCookies();
+    const [username, setUsername] = useState('');
+    const [userProfilePic, setUserProfilePic] = useState("");
+
+    useEffect(() => {
+
+      const url = `http://localhost:8000/api/userAuthControllerInfo?id=${userId}`;
+
+      fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(response => {
+        if (response.status === 404) {
+          throw new Error("User not found");
+        }
+        return response.json();     
+      })
+      .then(data => {
+        if(data) { 
+          console.log(data);   
+          setUsername(data.username);
+          if(data.url == null)
+            setUserProfilePic(DefaultPic);
+        }
+      })
+      .catch(error => {       
+        console.log("Error: " + error.message);
+      });
+
+    },[userId])
 
   return (
     <div className='profile-container'>
@@ -19,12 +56,12 @@ function Prof() {
             <div className='pic-and-name'>
                 <div className="prof-pfp-div">             
                     <Tooltip title="Profile pic">
-                        <img className="prof-profile-pic" src={DefaultPic} alt="ProfilePicture" />      
+                        <img className="prof-profile-pic" src={userProfilePic} alt="ProfilePicture" />      
                     </Tooltip>             
                 </div>
                 <div className="name-and-username">
-                    <h1 className='prof-name'>Matthew Erwin</h1>
-                    <h2 className='prof-username'>matterwin</h2>
+                    <h1 className='prof-name'>n/a</h1>
+                    <h2 className='prof-username'>{username}</h2>
                 </div>
             </div>
             
@@ -51,7 +88,7 @@ function Prof() {
                 </div>
                 <div className='small-row'>
                     <VerifiedUserIcon sx={{color: '#2a3038'}}/>
-                    <p>@m3ttwin</p>
+                    <p>@{username}</p>
                 </div>
                 
             </div>

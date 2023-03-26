@@ -7,7 +7,7 @@ import Menu from './Menu';
 import P from './P';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 
-import readCookies from '../../Hooks/readCookies';
+// import readCookies from '../../Hooks/readCookies';
 
 import './Navbar.css'
 
@@ -15,40 +15,40 @@ function Navbar() {
 
   const location = useLocation();
   const [pathname, setPathname] = useState("");
-  const [userData, setUserData] = useState(null);
+  // const [userData, setUserData] = useState([]);
 
-  const userId = readCookies();
+  // const userId = readCookies();
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const url = `http://localhost:8000/api/userAuthControllerInfo?id=${userId}`;
+  //   const url = `http://localhost:8000/api/userAuthControllerInfo?id=${userId}`;
 
-    fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    .then(response => {
-      if (response.status === 404) {
-        throw new Error("User not found");
-      }
-      return response.json();     
-    })
-    .then(data => {
-      if(data) { 
-        console.log(data);   
-        setUserData(data);
-        // console.log("userdate:    " + userData);
-      }
-    })
-    .catch(error => {       
-      console.log("Error: " + error.message);
-    });
+  //   fetch(url, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  //   .then(response => {
+  //     if (response.status === 404) {
+  //       throw new Error("User not found");
+  //     }
+  //     return response.json();     
+  //   })
+  //   .then(data => {
+  //     if(data) { 
+  //       console.log(data);   
+  //       console.log(data.id);
+  //       setUserData(data);
+  //     }
+  //   })
+  //   .catch(error => {       
+  //     console.log("Error: " + error.message);
+  //   });
 
-  },[userId])
+  // },[userId])
 
-  // console.log("testing userId from navbar " + userId)
+  // console.log("testing username from userData " + userData.username)
 
   useEffect(() => {
     let currentPathname = location.pathname.substring(1);
@@ -95,7 +95,8 @@ function Navbar() {
               <Notify/>
           </div>
           
-          <P userData={userData}/>
+          {/* <P userData={JSON.stringify(userData)}/> */}
+          <P />
           
         </div>
 

@@ -106,7 +106,7 @@ const StyledNotificationsNoneIcon = styled(NotificationsNoneIcon)({
               <div>
               <IconButton 
               aria-label="cart" 
-              sx={{ '&:hover': { backgroundColor: '#f4f4f52a' } }}
+              sx={{ '&:hover': { backgroundColor: '#f4f4f542' }  }}
               >
                 <StyledBadge badgeContent={4} color="secondary" >
                   <Tooltip title="Notifications" >

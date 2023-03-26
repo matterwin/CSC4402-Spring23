@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -7,12 +8,13 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 // import Pika from "../Videos/pika.png";
 import DefaultPic from "../Videos/defaultPic.png";
+// import "../Videos/defaultPic.png";
 import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
 import { NavLink } from "react-router-dom";
 
 import deleteCookies from '../../Hooks/deleteCookies';
-// import readCookies from '../../Hooks/readCookies';
+import readCookies from '../../Hooks/readCookies';
 
   const StyledKeyboardArrowDownIcon = styled(KeyboardArrowDownIcon)({
     color: '#8f8f8f',
@@ -81,27 +83,59 @@ const StyledMenu = styled((props) => (
 
 
 
-export default function CustomizedMenus(props) {
+export default function CustomizedMenus() {
 
     const [showArrowDown, setShowArrowDown] = React.useState(true);
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
 
-    console.log(props);
+    const userId = readCookies();
+    const [username, setUsername] = useState('');
+    const [userProfilePic, setUserProfilePic] = useState("");
+
+    useEffect(() => {
+
+      const url = `http://localhost:8000/api/userAuthControllerInfo?id=${userId}`;
+
+      fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(response => {
+        if (response.status === 404) {
+          throw new Error("User not found");
+        }
+        return response.json();     
+      })
+      .then(data => {
+        if(data) { 
+          console.log(data);   
+          setUsername(data.username);
+          if(data.url == null)
+            setUserProfilePic(DefaultPic);
+        }
+      })
+      .catch(error => {       
+        console.log("Error: " + error.message);
+      });
+
+  },[userId])
 
     function handleLogOut() {
       deleteCookies();
     }
 
     const handleClick = (event) => {
-        setShowArrowDown(!showArrowDown);
-        setAnchorEl(event.currentTarget);
+      setShowArrowDown(!showArrowDown);
+      setAnchorEl(event.currentTarget);
     };
 
     const handleClose = () => {
-        setAnchorEl(null);
-        setShowArrowDown(false);
+      setShowArrowDown(!showArrowDown);
+      setAnchorEl(null);
     };
 
     return (
@@ -117,7 +151,7 @@ export default function CustomizedMenus(props) {
             >   
             <div className="pfp-div">
                 <Tooltip title="Profile">
-                    <img className="profile-pic" src={DefaultPic} alt="ProfilePicture" />      
+                    <img className="profile-pic" src={userProfilePic} alt="ProfilePicture" />      
                 </Tooltip>            
             </div> 
             <div>
@@ -135,9 +169,9 @@ export default function CustomizedMenus(props) {
             disableScrollLock={true}
             sx={{position: 'absolute'}}
             >
-
+            
           <MenuItem disableRipple>
-              <div>{props.username}</div> 
+              <div>@{username}</div> 
           </MenuItem>
 
         <Divider sx={{ my: 0.5, backgroundColor: '#fff' }} />
