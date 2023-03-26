@@ -17,6 +17,7 @@ import Alert from '@mui/material/Alert';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 import Ani from '../Core/Videos/success.gif';
+import createCookies from '../Hooks/createCookies';
 
 import "./auth.css"
 
@@ -161,6 +162,8 @@ export default function SignIn() {
 
           console.log("success");
           console.log(data);
+
+          createCookies(data);
         }
       })
       .catch(error => {
