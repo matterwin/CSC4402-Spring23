@@ -47,10 +47,8 @@ function OtherNav() {
                 <NavLink end to="/Feed" className={({ isActive }) => (isActive ? 'navActive' : 'navInactive')}>
                     FEED
                 </NavLink>  
-
-                <NavLink end to="/Rate&Review" className={({ isActive }) => (isActive ? 'navActive' : 'navInactive')}>
-                    RATE&REVIEW
-                </NavLink>
+ 
+                <a href="/Login" className='navInactive'>RATE&REVIEW</a>
             </div>
                       
             <a href="/Login"><Button variant="contained" sx={{ paddingRight: '30px', paddingLeft: '30px' }}>Log In</Button></a>

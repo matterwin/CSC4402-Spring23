@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Pika from "../Videos/pika.png";
+// import Pika from "../Videos/pika.png";
 import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
 import { NavLink } from "react-router-dom";
@@ -7,6 +7,7 @@ import ReviewsIcon from '@mui/icons-material/Reviews';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
+import DefaultPic from "../Videos/defaultPic.png";
 
 import './Prof.css'
 
@@ -18,7 +19,7 @@ function Prof() {
             <div className='pic-and-name'>
                 <div className="prof-pfp-div">             
                     <Tooltip title="Profile pic">
-                        <img className="prof-profile-pic" src={Pika} alt="ProfilePicture" />      
+                        <img className="prof-profile-pic" src={DefaultPic} alt="ProfilePicture" />      
                     </Tooltip>             
                 </div>
                 <div className="name-and-username">

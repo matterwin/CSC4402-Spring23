@@ -22,10 +22,9 @@ const StyledNotificationsNoneIcon = styled(NotificationsNoneIcon)({
     color: '#8f8f8f',
     fontSize: 28,
     '&:hover': {
-      color: '#1976d2',
+      color: '#f4f4f5',
     },
   });
-  
 
   const StyledMenu = styled((props) => (
     <Menu
@@ -102,10 +101,13 @@ const StyledNotificationsNoneIcon = styled(NotificationsNoneIcon)({
               aria-expanded={open ? 'true' : undefined}
               variant="contained"
               onClick={handleClick}
-              className='parent-div-pfp'
+              className='parent-div-pfp'   
               >   
               <div>
-              <IconButton aria-label="cart">
+              <IconButton 
+              aria-label="cart" 
+              sx={{ '&:hover': { backgroundColor: '#f4f4f52a' } }}
+              >
                 <StyledBadge badgeContent={4} color="secondary" >
                   <Tooltip title="Notifications" >
                     <StyledNotificationsNoneIcon />

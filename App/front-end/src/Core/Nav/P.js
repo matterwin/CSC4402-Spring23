@@ -5,7 +5,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import Pika from "../Videos/pika.png";
+// import Pika from "../Videos/pika.png";
+import DefaultPic from "../Videos/defaultPic.png";
 import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
 import { NavLink } from "react-router-dom";
@@ -116,7 +117,7 @@ export default function CustomizedMenus(props) {
             >   
             <div className="pfp-div">
                 <Tooltip title="Profile">
-                    <img className="profile-pic" src={Pika} alt="ProfilePicture" />      
+                    <img className="profile-pic" src={DefaultPic} alt="ProfilePicture" />      
                 </Tooltip>            
             </div> 
             <div>
