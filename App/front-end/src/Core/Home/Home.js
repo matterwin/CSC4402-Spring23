@@ -1,9 +1,9 @@
 import React from 'react';
 import Divider from '@mui/material/Divider';
-import marvel from '../Videos/marvel.mp4'
-import mario from '../Videos/mario.mp4'
-import nemo from '../Videos/nemo.mp4'
-import StarWarsIntro from './StarWarsIntro'
+import marvel from '../Videos/marvel.mp4';
+import mario from '../Videos/mario.mp4';
+import nemo from '../Videos/nemo.mp4';
+// import StarWarsIntro from './StarWarsIntro';
 
 import './Home.css'
 

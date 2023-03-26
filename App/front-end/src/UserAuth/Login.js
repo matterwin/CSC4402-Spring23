@@ -12,10 +12,11 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState, useRef } from "react"
 import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
-import Stack from '@mui/material/Stack';
+// import AlertTitle from '@mui/material/AlertTitle';
+// import Stack from '@mui/material/Stack';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
+import Ani from '../Core/Videos/success2.gif';
 
 import "./auth.css"
 
@@ -220,6 +221,7 @@ export default function SignIn() {
                 sx={{
                   '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
                     borderColor: '#1976d2',
+                    boxShadow: "0 0 8px rgba(25, 118, 210, 0.6)"
                   },
                   '& .MuiOutlinedInput-notchedOutline': {
                     borderColor: '#f4f4f5',
@@ -244,6 +246,7 @@ export default function SignIn() {
                 sx={{
                   '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
                     borderColor: '#1976d2',
+                    boxShadow: "0 0 8px rgba(25, 118, 210, 0.6)"
                   },
                   '& .MuiOutlinedInput-notchedOutline': {
                     borderColor: '#f4f4f5',
@@ -269,12 +272,14 @@ export default function SignIn() {
               </Button>
               { renderInSuccess ? <></> :
                 <div className="alert-container">
-                  <Stack sx={{ width: '300px' }} spacing={2}>
+                  {/* <Stack sx={{ width: '300px' }} spacing={2}>
                     <Alert severity="success">
                       <AlertTitle>Success</AlertTitle>
                       You have successfully <strong>signed in!</strong>
+                      <img src={Ani} />
                     </Alert>
-                  </Stack>
+                  </Stack> */}
+                  <img src={Ani} alt="success"/>
                 </div>
               }
               <div className='link-div'>             
