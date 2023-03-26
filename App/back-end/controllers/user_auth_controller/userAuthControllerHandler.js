@@ -89,11 +89,11 @@ const getAllUserAuthHandler = (req, res) => {
 };
 
 const getUserAuthHandler = (req, res) => {
-  const id = req.params._id;
+  const query = req.query;
 
   executeQuery(
     "sql/userAuth/getUserAuth.sql",
-    [id],
+    [query.id],
     (queryResult) => {
       if (!queryResult.length) {
         res.status(404).send();

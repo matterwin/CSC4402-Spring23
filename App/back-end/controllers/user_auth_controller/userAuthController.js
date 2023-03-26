@@ -10,7 +10,7 @@ const {
 
 const _BASE_PATH = `userAuthController`;
 const getAllUserAuth = `/${_BASE_PATH}`;
-const getUserAuth = `/${_BASE_PATH}/:_id`;
+const getUserAuth = `/${_BASE_PATH}Info`;
 const putUserAuth = `/${_BASE_PATH}/:_id`;
 const deleteUserAuth = `/${_BASE_PATH}/:_id`;
 const postUserAuth = `/${_BASE_PATH}`;

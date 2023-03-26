@@ -7,23 +7,48 @@ import Menu from './Menu';
 import P from './P';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 
+import readCookies from '../../Hooks/readCookies';
+
 import './Navbar.css'
 
 function Navbar() {
 
   const location = useLocation();
   const [pathname, setPathname] = useState("");
-  // const [showPMenu, setShowPMenu] = useState(false);
+  const [userData, setUserData] = useState(null);
 
-  // const showProfileMenu = (event) => {
-  //   setShowPMenu(!showPMenu);
-  //   console.log("test");
-  // };
+  const userId = readCookies();
 
-  // const hideProfileMenu = () => {
-  //   setShowPMenu(false);
-  //   console.log("test");
-  // };
+  useEffect(() => {
+
+    const url = `http://localhost:8000/api/userAuthControllerInfo?id=${userId}`;
+
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then(response => {
+      if (response.status === 404) {
+        throw new Error("User not found");
+      }
+      return response.json();     
+    })
+    .then(data => {
+      if(data) { 
+        console.log(data);   
+        setUserData(data);
+        // console.log("userdate:    " + userData);
+      }
+    })
+    .catch(error => {       
+      console.log("Error: " + error.message);
+    });
+
+  },[userId])
+
+  // console.log("testing userId from navbar " + userId)
 
   useEffect(() => {
     let currentPathname = location.pathname.substring(1);
@@ -70,7 +95,7 @@ function Navbar() {
               <Notify/>
           </div>
           
-          <P/>
+          <P userData={userData}/>
           
         </div>
 

@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import { useState, useEffect } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -81,18 +80,14 @@ const StyledMenu = styled((props) => (
 
 
 
-export default function CustomizedMenus() {
+export default function CustomizedMenus(props) {
 
     const [showArrowDown, setShowArrowDown] = React.useState(true);
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
 
-    // const [userId, setUserId] = useState('');
-
-    // useEffect(() => {
-    //   setUserId(readCookies());
-    // }, []);
+    console.log(props);
 
     function handleLogOut() {
       deleteCookies();
@@ -141,7 +136,7 @@ export default function CustomizedMenus() {
             >
 
           <MenuItem disableRipple>
-              <div>@matterwin</div> 
+              <div>{props.username}</div> 
           </MenuItem>
 
         <Divider sx={{ my: 0.5, backgroundColor: '#fff' }} />

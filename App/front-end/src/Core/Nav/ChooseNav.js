@@ -4,15 +4,15 @@ import OtherNav from './OtherNav';
 import readCookies from '../../Hooks/readCookies';
 
 function ChooseNav() {
-  const [userId, setUserId] = useState('');
+  const [userLoggedIn, setUserLoggedId] = useState('');
 
   useEffect(() => {
-    setUserId(readCookies());
+    setUserLoggedId(readCookies());
   }, []);
 
   return (
     <div>
-      {userId ? (
+      {userLoggedIn ? (
         <Navbar />
       ) : (
         <OtherNav />
