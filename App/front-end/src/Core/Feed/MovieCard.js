@@ -25,8 +25,8 @@ function MovieCard() {
             <StarsIcon sx={{color: "#1976d2"}}/> */}
             <Stars value={4.5}/>
             <p className='movie-title'>Kung Fu Panda</p>
-            <p className='last-review'>Last Review: 12/2/23</p>
-        </div>   
+            <p className='last-review'>Released on: 12/2/23</p>
+        </div>
         <div className='movie-review-div'>
             <img alt="pic of movie" src={superbad} className="movie-pic"></img>
             {/* <StarsIcon sx={{color: "#1976d2"}}/>
@@ -35,7 +35,7 @@ function MovieCard() {
             <StarsIcon sx={{color: "#1976d2"}}/> */}
             <Stars value={5}/>
             <p className='movie-title'>Superbad</p>
-            <p className='last-review'>Last Review: 1/9/23</p>
+            <p className='last-review'>Released on: 1/9/23</p>
         </div>     
         <div className='movie-review-div'>
             <img alt="pic of movie" src={fb} className="movie-pic"></img>
@@ -46,14 +46,14 @@ function MovieCard() {
             <StarsIcon sx={{color: "#1976d2"}}/> */}
             <Stars value={3}/>
             <p className='movie-title'>The Social Network</p>
-            <p className='last-review'>Last Review: 10/20/23</p>
+            <p className='last-review'>Released on: 10/20/23</p>
         </div>  
         <div className='movie-review-div'>
             <img alt="pic of movie" src={mariobros} className="movie-pic"></img>
             {/* <StarsIcon sx={{color: "#1976d2"}}/> */}
             <Stars value={1}/>
             <p className='movie-title'>The Super Mariobros</p>
-            <p className='last-review'>Last Review: 10/20/23</p>
+            <p className='last-review'>Released on: 10/20/23</p>
         </div>  
         <div className='movie-review-div'>
             <img alt="pic of movie" src={nuke} className="movie-pic"></img>
@@ -62,7 +62,7 @@ function MovieCard() {
             <StarsIcon sx={{color: "#1976d2"}}/> */}
             <Stars value={3}/>
             <p className='movie-title'>Oppenheimer</p>
-            <p className='last-review'>Last Review: 10/20/23</p>
+            <p className='last-review'>Released on: 10/20/23</p>
         </div>  
         <div className='movie-review-div'>
             <img alt="pic of movie" src={bear} className="movie-pic"></img>
@@ -73,7 +73,7 @@ function MovieCard() {
             <StarsIcon sx={{color: "#1976d2"}}/> */}
             <Stars value={5}/>
             <p className='movie-title'>Cocaine Bear</p>
-            <p className='last-review'>Last Review: 10/20/23</p>
+            <p className='last-review'>Released on: 10/20/23</p>
         </div>
         <div className='movie-review-div'>
             <img alt="pic of movie" src={wolf} className="movie-pic"></img>
@@ -83,7 +83,7 @@ function MovieCard() {
             <StarsIcon sx={{color: "#1976d2"}}/> */}
             <Stars value={0}/>
             <p className='movie-title'>The Wolf of Wallstreet</p>
-            <p className='last-review'>Last Review: 10/20/23</p>
+            <p className='last-review'>Released on: 10/20/23</p>
         </div>  
         <div className='movie-review-div'>
             <img alt="pic of movie" src={transformers} className="movie-pic"></img>
@@ -91,7 +91,7 @@ function MovieCard() {
             <StarsIcon sx={{color: "#1976d2"}}/> */}
             <Stars value={2}/>
             <p className='movie-title'>Transformers: Rise of The Beasts</p>
-            <p className='last-review'>Last Review: 10/20/23</p>
+            <p className='last-review'>Released on: 10/20/23</p>
         </div>  
     </div>
   );

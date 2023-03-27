@@ -13,7 +13,6 @@ const ITEM_PADDING_TOP = 8;
 const MenuProps = {
   disableScrollLock: true,
   position: 'absolute',
-  paddingRight: '50px',
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
@@ -54,6 +53,14 @@ export default function MultipleSelectChip() {
       typeof value === 'string' ? value.split(',') : value,
     );
   };
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setPersonName([]);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div>
