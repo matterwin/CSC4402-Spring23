@@ -1,0 +1,12 @@
+[package]
+name = "seed_database"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dotenv = "0.15.0"
+envy = "0.4.2"
+serde = { version = "1.0.158", features = ["derive"] }
+mysql = "23.0.1"

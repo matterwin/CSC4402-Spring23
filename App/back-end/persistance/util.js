@@ -13,12 +13,16 @@ const readSqlFile = (path) => {
 const executeQuery = (path, params, callback, res) => {
   let result = undefined;
 
-  const connection = mysql.createConnection({
-    host: process.env.HOST,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE,
-  });
+  const configSql = {
+    host: process.env.SQL_HOST,
+    user: process.env.SQL_USER,
+    password: process.env.SQL_PASSWORD,
+    database: process.env.SQL_DATABASE,
+  };
+
+  const connection = mysql.createConnection(configSql);
+
+  console.log(JSON.stringify(configSql));
 
   connection.connect((err) => {
     if (err) throw err;
