@@ -55,6 +55,7 @@ NavLink {
     font-family: 'Comfortaa', cursive;
     /* font-family: 'Righteous', cursive; */
     font-family: 'Baloo 2', cursive;
+    font-weight: 600;
     text-decoration: none;
 }
 
@@ -230,6 +231,7 @@ NavLink {
     color: rgb(255, 255, 255);
     font-size: 1.2rem;
     font-family: 'Baloo 2', cursive;
+    font-weight: 600;
   }
 
   .burger {

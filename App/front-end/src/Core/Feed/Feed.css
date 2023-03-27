@@ -36,7 +36,9 @@
     color: rgb(255, 255, 255);
     font-size: 1.7rem;
     font-family: 'Baloo 2', cursive;
-    color: #1d1d20;
+    color: #fff;
+    outline: #2a3038;
+    text-shadow: 1px 1px 0px #000;
     /* margin-left: 150px;
     margin-right: 150px; */
     font-weight: bold;
