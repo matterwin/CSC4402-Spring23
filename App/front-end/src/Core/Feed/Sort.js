@@ -8,6 +8,8 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 
+import './Sort.css';
+
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -44,8 +46,10 @@ function getStyles(name, personName, theme) {
 export default function MultipleSelectChip() {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
+  const [showReset, setShowReset] = React.useState(false);
 
   const handleChange = (event) => {
+    setShowReset(true);
     const {
       target: { value },
     } = event;
@@ -57,42 +61,55 @@ export default function MultipleSelectChip() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setPersonName([]);
+      setPersonName([...personName]);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  });
+
+  function handleReset() {
+    setShowReset(false);
+    setPersonName([]);
+    console.log("test");
+  }
 
   return (
-    <div>
-      <FormControl sx={{ m: 0.1, width: 150, borderBottom: '0px'}}>
-        <InputLabel id="demo-multiple-chip-label">SORT</InputLabel>
-        <Select
-          labelId="demo-multiple-chip-label"
-          id="demo-multiple-chip"
-          value={personName}
-          onChange={handleChange}
-          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-          renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} />
-              ))}
-            </Box>
-          )}
-          MenuProps={MenuProps}
-        >
-          {names.map((name) => (
-            <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, personName, theme)}
-            >
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+    <div className="feed-bar-actual">
+      <div>
+        <FormControl sx={{ m: 0.1, width: 150, borderBottom: '0px'}}>
+          <InputLabel id="demo-multiple-chip-label">SORT</InputLabel>
+          <Select
+            labelId="demo-multiple-chip-label"
+            id="demo-multiple-chip"
+            value={personName}
+            onChange={handleChange}
+            input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+            renderValue={(selected) => (
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                {selected.map((value) => (
+                  <Chip key={value} label={value} />
+                ))}
+              </Box>
+            )}
+            MenuProps={MenuProps}
+          >
+            {names.map((name) => (
+              <MenuItem
+                key={name}
+                value={name}
+                style={getStyles(name, personName, theme)}
+              >
+                {name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
+      { showReset && 
+        <div onClick={handleReset} className='reset'>
+          <p>RESET</p>
+        </div>
+      }
     </div>
   );
 }

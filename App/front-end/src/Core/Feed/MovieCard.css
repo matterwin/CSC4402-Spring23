@@ -8,6 +8,9 @@
     align-content: flex-start;
     flex-wrap: wrap;
 }
+    
+    /* align-items:center;
+    justify-content: flex-start; */
 
 .movie-review-div {
     width: 160px;
@@ -46,6 +49,7 @@
     margin-bottom: 5px;
     font-family: 'Baloo 2', cursive;
     font-weight: 400;
+    font-size: 14.5px;
     line-height: 1;
     padding-top: 3px;
     padding-bottom: 2px;

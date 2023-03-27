@@ -259,7 +259,7 @@ NavLink {
     border-radius: 3px;
   }
 
-  @media(max-width: 1110px) {
+  @media(max-width: 1207px) {
     .pos {
       display: none;
     }

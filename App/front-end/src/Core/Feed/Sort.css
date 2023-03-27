@@ -1,0 +1,16 @@
+.reset {
+    margin-left: auto;
+}
+
+.reset > p {
+    color: #1976d2;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding:10px;
+    margin: 0;
+}
+
+.reset > p:hover {
+    color: #0c3a68;
+}

@@ -1,8 +1,6 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from 'react'
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from './Core/Home/Home'
-// import Navbar from './Core/Nav/Navbar'
 import Login from './UserAuth/Login'
 import Register from './UserAuth/Register'
 import Prof from './Core/Profile/Prof'
@@ -10,8 +8,10 @@ import RateReview from './Core/RateReview/RateReview'
 import Feed from './Core/Feed/Feed'
 import ScrollButton from './Core/Nav/ScrollButton'
 import UserSettings from './Core/Profile/UserSettings'
-import './App.css';
+import MovieReview from './Core/Feed/MovieReview/MovieReview'
 import ChooseNav from "./Core/Nav/ChooseNav";
+
+import './App.css';
 
 function App() {
 
@@ -36,6 +36,7 @@ function App() {
             <Route path="/Rate&Review" element={<RateReview/>}/>
             <Route path="/Feed" element={<Feed/>}/>
             <Route path="/Settings" element={<UserSettings/>}/>
+            <Route path="/MovieReview" element={<MovieReview/>}/> {/* will change to the actual id of movie */}
           </Routes>
 
         </Router>

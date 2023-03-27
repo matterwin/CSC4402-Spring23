@@ -4,9 +4,9 @@ import Sort from './Sort'
 
 function FeedNav() {
 
-  function handleReset() {
-    console.log("test");
-  }
+  // function handleReset() {
+  //   console.log("test");
+  // }
 
   return (
     <div>
@@ -14,9 +14,9 @@ function FeedNav() {
             <div className='buttons'>
                 <Sort />
             </div>
-            <div onClick={handleReset} className='reset'>
+            {/* <div onClick={handleReset} className='reset'>
                 <p>RESET</p>
-            </div>
+            </div> */}
         </div>
     </div>
   );
