@@ -78,12 +78,58 @@ const getAllMovieHandler = (req, res) => {
   );
 };
 
+const getAllMovieFeedHandler = (req, res) => {
+  executeQuery(
+    "sql/movie/getAllMovieFeed.sql",
+    undefined,
+    (queryResult) => {
+      if(!queryResult.length) {
+        res.status(404).send();
+        return;
+      }
+
+      const resultDTO = [];
+
+      queryResult.forEach((row) => {
+        resultDTO.push({
+          id: row.id,
+          name: row.name,
+          releaseDate: row.releaseDate,
+          filepath: row.filepath,
+          avg: row.avg,
+        });
+      });
+
+      res.json(resultDTO);
+    },
+    res
+  );
+};
+
 const getMovieHandler = (req, res) => {
   const id = req.params._id;
 
   executeQuery(
     "sql/movie/getMovie.sql",
     [id],
+    (queryResult) => {
+      if (!queryResult.length) {
+        res.status(404).send();
+        return;
+      }
+
+      res.status(200).json(queryResult[0]);
+    },
+    res
+  );
+};
+
+const getMovieFeedHandler= (req, res) => {
+  const id = req.params._id;
+
+  executeQuery(
+    "sql/movie/getMovieFeed.sql",
+    [id, id],
     (queryResult) => {
       if (!queryResult.length) {
         res.status(404).send();
@@ -118,5 +164,7 @@ module.exports = {
   postMovieHandler,
   getAllMovieHandler,
   getMovieHandler,
+  getMovieFeedHandler,
+  getAllMovieFeedHandler,
   deleteMovieHandler,
 };
