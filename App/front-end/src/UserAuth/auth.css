@@ -23,11 +23,11 @@
 
 .link-div {
   text-decoration: none;
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content: center;
-    gap: 8px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .p-error {

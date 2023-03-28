@@ -81,14 +81,16 @@ function Prof() {
             </div>
             <div className='small-info'>
                 <div className='small-row'>
-                    <Tooltip title="Reviews">
-                        <ReviewsIcon sx={{color: '#2a3038'}}/></Tooltip>
-                        <p>0</p>
-                    
+                  <Tooltip title="Reviews">
+                      <ReviewsIcon sx={{color: '#2a3038'}}/>
+                  </Tooltip>
+                  <p>0</p>
                 </div>
                 <div className='small-row'>
+                  <Tooltip title="Username">
                     <VerifiedUserIcon sx={{color: '#2a3038'}}/>
-                    <p>@{username}</p>
+                  </Tooltip>
+                  <p>@{username}</p>
                 </div>
                 
             </div>

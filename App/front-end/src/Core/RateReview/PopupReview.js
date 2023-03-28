@@ -1,8 +1,12 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import CloseIcon from '@mui/icons-material/Close';
+import { useState } from "react"
+import MovieSelection from './MovieSelection';
+import Tooltip from '@mui/material/Tooltip';
+import NavButtons from './NavButtons';
 
 import './PopupReview.css';
 
@@ -11,19 +15,36 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
-  height: 400,
+  width: 500,
+  height: 700,
   bgcolor: 'background.paper',
   border: '2px solid #1976d2;',
   borderRadius: '10px',
   boxShadow: 24,
   p: 4,
+  paddingTop: '-0px'
 };
 
 export default function PopupReview() {
+
   const [open, setOpen] = React.useState(false);
+  const [buttonClass, setButtonClass] = useState("");
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  function tellUser() {
+    const intervalId = setInterval(() => {
+        setButtonClass("shakeshakeshake");
+      }, 0);
+  
+      setTimeout(() => {
+          clearInterval(intervalId);
+          setButtonClass("");
+      }, 500);
+  }
+
+  //Note to future self: look into materialUI breadcrumbs to go back to prev slide
 
   return (
     <div>
@@ -44,17 +65,27 @@ export default function PopupReview() {
         </Button>
         <Modal
             open={open}
-            onClose={handleClose}
+            onClose={tellUser}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
             <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-                Rate a movie down below:
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2, fontFamily: 'Baloo 2' }}>
-                Not implemented yet
-            </Typography>
+                <div className='first-container'>
+                    <div className='title-popup'>
+                        <h6 className='opening-msg'><u>Rate a movie</u></h6>
+                    </div>
+                    <div className='close-icon'>
+                        <Tooltip title="Click to exit">
+                            <CloseIcon onClick={handleClose} className={buttonClass} sx={{ color: '#fff', fontSize: 40 }}/>
+                        </Tooltip>
+                    </div>  
+                </div>
+                <div>
+                    <MovieSelection />
+                </div>
+                <div className='navbutts'>
+                    <NavButtons />
+                </div>
             </Box>
         </Modal>
     </div>

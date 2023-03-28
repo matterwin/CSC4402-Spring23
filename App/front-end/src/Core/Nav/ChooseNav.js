@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavLoggedIn from './NavLoggedIn';
-import NavLoggedOu from './NavLoggedOut';
+import NavLoggedOut from './NavLoggedOut';
 import readCookies from '../../Hooks/readCookies';
 
 function ChooseNav() {
@@ -15,7 +15,7 @@ function ChooseNav() {
       {userLoggedIn ? (
         <NavLoggedIn />
       ) : (
-        <NavLoggedOu/>
+        <NavLoggedOut/>
       )}
     </div>
   );
