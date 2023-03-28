@@ -63,7 +63,7 @@ const getAllMovieHandler = (req, res) => {
       queryResult.forEach((row) => {
         resultDTO.push({
           id: row.id,
-          name: row.testMessage,
+          name: row.name,
           description: row.description,
           length: row.length,
           releaseDate: row.releaseDate,
