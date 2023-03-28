@@ -34,7 +34,7 @@ function MovieCard() {
 
   movies.forEach((movie) => {
     jsxMovies.push(
-        <div key={ movie.name } className='movie-review-div' id={ movie.id }>
+        <div key={ movie.name } className='movie-review-div' data={ movie.id }>
             <img alt={ movie.name } src={ movie.filepath } className="movie-pic"></img>
             <Stars value={movie.avg}/>
             <p className='movie-title'>{ movie.name }</p>
