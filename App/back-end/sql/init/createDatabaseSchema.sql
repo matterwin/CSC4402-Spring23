@@ -36,9 +36,8 @@ CREATE TABLE movieTable (
 CREATE TABLE movieReviewTable (
     userId INT NOT NULL,
     movieId INT NOT NULL,
-    
-    /*NOTE: based on max tweet length not sure if we should make it longer???*/
-    review VARCHAR(280) NOT NULL,
+
+    review VARCHAR(1024) NOT NULL,
     rating DECIMAL(2, 1) NOT NULL,
 
     PRIMARY KEY (userId, movieId),
