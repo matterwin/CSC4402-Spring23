@@ -16,7 +16,7 @@ function MovieCard() {
   const [movies, setMovies] = useState(undefined);
  
   useEffect(() => {
-    fetch('http://localhost:8000/api/movieController')
+    fetch('http://localhost:8000/api/movieControllerFeed')
       .then(res => res.json())
       .then(json => setMovies(json))
       .catch(err => console.error(err));
@@ -34,14 +34,9 @@ function MovieCard() {
 
   movies.forEach((movie) => {
     jsxMovies.push(
-        <div key={ movie.name } className='movie-review-div'>
-            <img alt="pic of movie" src={ movie.filepath } className="movie-pic"></img>
-            {/* <StarsIcon sx={{color: "#1976d2"}}/>
-            <StarsIcon sx={{color: "#1976d2"}}/>
-            <StarsIcon sx={{color: "#1976d2"}}/>
-            <StarsIcon sx={{color: "#1976d2"}}/>
-            <StarsIcon sx={{color: "#1976d2"}}/> */}
-            <Stars value={4.5}/>
+        <div key={ movie.name } className='movie-review-div' id={ movie.id }>
+            <img alt={ movie.name } src={ movie.filepath } className="movie-pic"></img>
+            <Stars value={movie.avg}/>
             <p className='movie-title'>{ movie.name }</p>
             <p className='last-review'>Released on: { movie.releaseDate }</p>
         </div>

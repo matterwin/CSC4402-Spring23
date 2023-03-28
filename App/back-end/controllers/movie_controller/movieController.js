@@ -2,6 +2,8 @@ const express = require('express');
 const { postMovieHandler, 
         getAllMovieHandler, 
         getMovieHandler, 
+        getMovieFeedHandler,
+        getAllMovieFeedHandler,
         deleteMovieHandler } = require('./movieControllerHandler');
 
 const _BASE_PATH = `movieController`;
@@ -9,6 +11,8 @@ const router = express.Router();
 
 const getAllMovie = `/${_BASE_PATH}`;
 const getMovie = `/${_BASE_PATH}/:_id`;
+const getMovieFeed = `/${_BASE_PATH}Feed/:_id`;
+const getAllMovieFeed = `/${_BASE_PATH}Feed`;
 const deleteMovie = `/${_BASE_PATH}/:_id`;
 const postMovie = `/${_BASE_PATH}`;
 
@@ -20,7 +24,13 @@ router.get(getAllMovie, (req, res) => {
 });
 router.get(getMovie, (req, res) => {
     getMovieHandler(req, res);
-})
+});
+router.get(getAllMovieFeed, (req, res) => {
+    getAllMovieFeedHandler(req, res);
+});
+router.get(getMovieFeed, (req, res) => {
+    getMovieFeedHandler(req, res);
+});
 router.delete(deleteMovie, (req, res) => {
     deleteMovieHandler(req, res);
 });
@@ -32,6 +42,8 @@ module.exports = {
         { path: postMovie, type: 'post' },
         { path: getAllMovie, type: 'get' },
         { path: getMovie, type: 'get' },
+        { path: getMovieFeed, type: 'get' },
+        { path: getAllMovieFeed, type: 'get' },
         { path: deleteMovie, type: 'delete' },
     ]
 }
