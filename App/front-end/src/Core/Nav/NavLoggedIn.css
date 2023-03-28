@@ -204,8 +204,9 @@ NavLink {
 
   .notif {
     border-radius: 50px;
-    padding: 5px;
+    /* padding: 5px; */
     cursor: pointer;
+    margin-left: -13px;
   }
 
 
@@ -268,6 +269,10 @@ NavLink {
   @media(max-width: 695px) {
     .burger {
       display:flex;
+    }
+
+    .hide-for-hamburger-menu {
+      display: none;
     }
 
     .nav-container {

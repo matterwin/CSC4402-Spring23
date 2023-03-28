@@ -5,8 +5,9 @@ import Tooltip from '@mui/material/Tooltip';
 import Menu from './Menu';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 
-import './Navbar.css'
+import './NavLoggedIn.css'
 
 function OtherNav() {
 
@@ -50,8 +51,14 @@ function OtherNav() {
  
                 <a href="/Login" className='navInactive'>RATE&REVIEW</a>
             </div>
-                      
-            <a href="/Login"><Button variant="contained" sx={{ paddingRight: '30px', paddingLeft: '30px' }}>Log In</Button></a>
+
+            <div className="hide-for-hamburger-menu">
+              <Divider orientation="vertical" style={{ backgroundColor: '#f4f4f5', height: '25px', width:'1px' }} />
+            </div>
+
+            <div className="hide-for-hamburger-menu">
+              <a href="/Login"><Button variant="contained" sx={{ paddingRight: '20px', paddingLeft: '20px', paddingTop: '10px', paddingBottom: '10px' }}>Log In</Button></a>
+            </div>
           
         </div>
 

@@ -4,51 +4,16 @@ import SearchBar from "./SearchBar";
 import Tooltip from '@mui/material/Tooltip';
 import Notify from './NotifIcon';
 import Menu from './Menu';
-import P from './P';
+import ProfileMenu from './ProfileMenu';
 import WidgetsIcon from '@mui/icons-material/Widgets';
+import Divider from '@mui/material/Divider';
 
-// import readCookies from '../../Hooks/readCookies';
+import './NavLoggedIn.css'
 
-import './Navbar.css'
-
-function Navbar() {
+function NavLoggedIn() {
 
   const location = useLocation();
   const [pathname, setPathname] = useState("");
-  // const [userData, setUserData] = useState([]);
-
-  // const userId = readCookies();
-
-  // useEffect(() => {
-
-  //   const url = `http://localhost:8000/api/userAuthControllerInfo?id=${userId}`;
-
-  //   fetch(url, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   })
-  //   .then(response => {
-  //     if (response.status === 404) {
-  //       throw new Error("User not found");
-  //     }
-  //     return response.json();     
-  //   })
-  //   .then(data => {
-  //     if(data) { 
-  //       console.log(data);   
-  //       console.log(data.id);
-  //       setUserData(data);
-  //     }
-  //   })
-  //   .catch(error => {       
-  //     console.log("Error: " + error.message);
-  //   });
-
-  // },[userId])
-
-  // console.log("testing username from userData " + userData.username)
 
   useEffect(() => {
     let currentPathname = location.pathname.substring(1);
@@ -90,13 +55,16 @@ function Navbar() {
                 RATE&REVIEW
             </NavLink>
           </div>
+
+          <div className='hide-for-hamburger-menu'>
+              <Divider orientation="vertical" style={{ backgroundColor: '#f4f4f5', height: '25px', width:'1px' }} />
+          </div>
                     
           <div className='notif'>
               <Notify/>
           </div>
           
-          {/* <P userData={JSON.stringify(userData)}/> */}
-          <P />
+          <ProfileMenu />
           
         </div>
 
@@ -109,4 +77,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavLoggedIn;

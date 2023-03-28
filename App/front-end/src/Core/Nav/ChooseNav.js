@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar';
-import OtherNav from './OtherNav';
+import NavLoggedIn from './NavLoggedIn';
+import NavLoggedOu from './NavLoggedOut';
 import readCookies from '../../Hooks/readCookies';
 
 function ChooseNav() {
@@ -13,9 +13,9 @@ function ChooseNav() {
   return (
     <div>
       {userLoggedIn ? (
-        <Navbar />
+        <NavLoggedIn />
       ) : (
-        <OtherNav />
+        <NavLoggedOu/>
       )}
     </div>
   );
