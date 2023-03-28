@@ -57,8 +57,12 @@ fn copy_images(bucket_dir: &str) {
     for path in paths {
         let file_str = path.unwrap().path().into_os_string().into_string().unwrap();
         let file_path = Path::new(&file_str); 
+        let file_movie_folder = file_path.file_stem().unwrap().to_str().unwrap();
+
+        let rel_file_path = format!("{}/{}", bucket_dir, file_movie_folder);
+        fs::create_dir(&rel_file_path).unwrap();
         
-        let bucket_file = format!("{}/{}", bucket_dir, file_path.file_name().unwrap().to_str().unwrap());
+        let bucket_file = format!("{}/{}/{}", bucket_dir, file_movie_folder, file_path.file_name().unwrap().to_str().unwrap());
         let bucket_file_path = Path::new(&bucket_file);
 
         println!("Copying: {:?} to: {:?}", file_path, bucket_file_path);
