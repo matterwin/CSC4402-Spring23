@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+  "seed_database",
+  "env_setup",
+]

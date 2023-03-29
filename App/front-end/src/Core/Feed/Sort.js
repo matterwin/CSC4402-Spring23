@@ -31,7 +31,6 @@ const names = [
   'Highest Rating',
   'Lowest Rating',
   'Newest',
-  ''
 ];
 
 function getStyles(name, personName, theme) {

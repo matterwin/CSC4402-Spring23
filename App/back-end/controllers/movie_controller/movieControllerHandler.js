@@ -48,6 +48,28 @@ const postMovieHandler = (req, res) => {
   );
 };
 
+const getAllMovieNameHandler = (req, res) => {
+  executeQuery(
+    "sql/movie/getAllMovieName.sql",
+    undefined,
+    (queryResult) => {
+      if (!queryResult.length) {
+        res.status(404).send();
+        return;
+      }
+
+      const resultDTO = [];
+
+      queryResult.forEach((row) => {
+        resultDTO.push(row.name);
+      });
+
+      res.json(resultDTO);
+    },
+    res
+  );
+};
+
 const getAllMovieHandler = (req, res) => {
   executeQuery(
     "sql/movie/getAllMovie.sql",
@@ -166,5 +188,6 @@ module.exports = {
   getMovieHandler,
   getMovieFeedHandler,
   getAllMovieFeedHandler,
+  getAllMovieNameHandler,
   deleteMovieHandler,
 };

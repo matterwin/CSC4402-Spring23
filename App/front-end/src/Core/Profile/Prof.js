@@ -9,8 +9,8 @@ import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 import DefaultPic from "../Videos/defaultPic.png";
-
 import readCookies from '../../Hooks/readCookies';
+import Profile from './Profile';
 
 import './Prof.css'
 
@@ -97,7 +97,7 @@ function Prof() {
             
         </div>
         <div className="profile-info">
-            
+            <Profile /> 
             <h2 className='reviews'>Reviews</h2>
             <div className='review-box'>
                 <TheaterComedyIcon sx={{ fontSize: 50, color: '#2a3038' }}/>
