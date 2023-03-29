@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import './MovieCard.css';
-// import StarsIcon from '@mui/icons-material/Stars';
-import screenPic from '../Videos/poe.jpg';
-import superbad from '../Videos/superbad.jpg';
-import fb from '../Videos/fb.jpg';
-import nuke from '../Videos/nuke.jpg';
-import mariobros from '../Videos/mariobros.jpg';
-import wolf from '../Videos/wolf.jpg';
-import transformers from '../Videos/transformers.jpg';
-import bear from '../Videos/bear.jpg';
 import Stars from './Stars';
 
 function MovieCard() {
