@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import Loading from '../Loading/Loading';
 
 export default function ComboBox() {
   const [movieNames, setMovieNames] = useState(undefined);
@@ -14,7 +15,7 @@ export default function ComboBox() {
 
   if(!movieNames) {
     return (
-      <h1>Loading</h1>
+      <Loading />
     );
   }
 

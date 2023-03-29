@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import './MovieCard.css';
 import Stars from './Stars';
+import Loading from '../Loading/Loading'
 
 function MovieCard() {
   const [movies, setMovies] = useState(undefined);
@@ -15,8 +16,8 @@ function MovieCard() {
     
   if(!movies) {
     return (
-      <div>
-        <h1>Loading</h1>
+      <div className='loading'>
+        <Loading />
       </div>
     );
   }

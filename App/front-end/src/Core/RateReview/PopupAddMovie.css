@@ -1,0 +1,68 @@
+.opening-msg {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    color: #2a3038;
+}
+
+.review-popup-container {
+position: 'absolute';
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500;
+  height: 700;
+  border: 2px solid #1976d2;;
+}
+
+.first-container {
+    margin-top: -15px;
+    text-decoration: none;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: flex-start;
+    padding-bottom: 0px;
+}
+
+.close-icon {
+    display: flex;
+    margin-left: auto;
+    background-color: #1976d2;
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+.title-popup {
+    display: flex;
+}
+
+.close-icon:hover {
+    background-color: #ef5350;
+    cursor: pointer;
+}
+
+.navbutts {
+    margin-bottom: 100;
+}
+
+.shakeshakeshake {
+    animation: vibrate 0.2s ease-in-out infinite;
+}
+
+@keyframes vibrateUp {
+    0% {
+      transform: translatey(0);
+    }
+    25% {
+      transform: translateY(-5px);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+    75% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }

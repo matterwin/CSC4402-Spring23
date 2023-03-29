@@ -23,6 +23,13 @@
     animation: loadingtransition 500ms ease-in;
 }
 
+.loading {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .movie-review-div:hover .movie-title {
     color:  #1976d2;
 }

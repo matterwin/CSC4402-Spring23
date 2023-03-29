@@ -1,0 +1,217 @@
+.review-container {
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 250px;
+    margin-right: 250px;
+    /* padding-top: 10px; */
+    margin-top: 50px;
+    padding-bottom: 200px;
+    position: static;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1100px;
+    padding-top: 10px;
+  }
+
+  .feed-container {
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 250px;
+    margin-right: 250px;
+    /* padding-top: 10px; */
+    margin-top: 50px;
+    padding-bottom: 200px;
+    position: static;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1100px;
+    padding-top: 10px;
+  }
+  
+  .movie-container {
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 250px;
+    margin-right: 250px;
+    padding-top: 10px;
+    padding-bottom: 500px;
+    border-radius: 10px;
+    background-color: #fff;
+    position: static;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    border: 1px solid #1976d2;
+    border-top: 0px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    padding-top: 10px;
+  }
+  
+  .popcorn-img {
+    height: 50px;
+    width: 50px;
+  }
+  
+  .feed-welcome-title {
+      color: rgb(255, 255, 255);
+      font-size: 1.7rem;
+      font-family: 'Baloo 2', cursive;
+      color: #fff;
+      outline: #2a3038;
+      text-shadow: 1px 1px 0px #000;
+      /* margin-left: 150px;
+      margin-right: 150px; */
+      font-weight: bold;
+  }
+  
+  .blue-box {
+    width: 100%;
+    /* height: 100px; */
+    /* margin-top: 50px; */
+    background-color: #A1C7ED;
+    border: 1px solid #A1C7ED;
+  }
+  
+  .feed-nav-div {
+    margin-right: 20px;
+    margin-left: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #fff;
+  }
+  
+  .movies-div {
+    margin-top: 10px;
+  }
+  
+  .feed-opening-div {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+    display:flex;
+    flex-direction:row;
+    align-items:left;
+    justify-content: flex-start;
+    gap: 0px;
+  }
+  
+  .feed-opening-title, .movie-icon {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .feed-welcome-msg {
+      padding-top: 0px;
+      margin-top: 0px;
+      color: rgb(255, 255, 255);
+      font-family: 'Baloo 2', cursive;
+      margin-bottom: 0;
+      color: #1d1d20;
+      padding-bottom: 10px;
+      margin-left: 150px;
+      margin-right: 150px;
+      font-weight: bold;
+      color: #727272;
+      font-family: 'Source Sans Pro', sans-serif;
+      padding: 0;
+      margin: 0;
+      font-size: 18px;
+      padding-bottom: 10px;
+  }
+  
+  .feed-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background-color: #f4f4f5;
+    }
+  
+    
+  
+    @media(max-width: 765px) {
+      .feed-welcome-title {
+          font-size: 1.3rem;
+      }
+      
+      .feed-welcome-msg {
+          font-size: 13px;
+      }
+    }
+  
+    @media(max-width: 1181px) {
+      .feed-welcome-title, .feed-welcome-msg {
+          margin-left: 100px;
+          margin-right: 100px;
+      }
+    }
+  
+    @media(max-width: 1290px) {
+      .feed-container {
+          width: 90%;
+      }
+    }
+  
+    @media(max-width: 360px) {
+      .feed-bar {
+          display: none;
+      }
+    }
+  
+    @media(max-width: 425px) {
+      .feed-container {
+          width: 100%;
+          border: none;
+      }
+  
+      .feed-bar, .feed-bar-actual {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        border-bottom: 1px solid #1976d2;
+      }
+  
+      .movie-review-div {
+        padding-bottom: 80px;
+      }
+    }
+  
+    @media(max-width: 635px) {
+      .feed-welcome-title, .feed-welcome-msg {
+          margin-left: 70px;
+          margin-right: 70px;
+      }
+    }
+  
+    @media(max-width: 565px) {
+      .feed-welcome-title, .feed-welcome-msg {
+          margin-left: 40px;
+          margin-right: 40px;
+      }
+    }
+  
+    @media(max-width: 505px) {
+      .feed-welcome-title, .feed-welcome-msg {
+          margin-left: 10px;
+          margin-right: 10px;
+      }
+    }
+  
+    @media(max-width: 435px) {
+      .feed-welcome-title {
+          font-size: 1.1rem;
+      }
+    }
+  
+    @media(max-width: 330px) {
+      .feed-welcome-title {
+          font-size: 1rem;
+      }
+      
+      .feed-welcome-msg {
+          font-size: 13px;
+      }
+    }

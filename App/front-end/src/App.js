@@ -8,7 +8,7 @@ import RateReview from './Core/RateReview/RateReview'
 import Feed from './Core/Feed/Feed'
 import ScrollButton from './Core/Nav/ScrollButton'
 import UserSettings from './Core/Profile/UserSettings'
-import MovieReview from './Core/Feed/MovieReview/MovieReview'
+import Movie from './Core/Feed/MovieReview/Movie'
 import ChooseNav from "./Core/Nav/ChooseNav";
 
 import './App.css';
@@ -36,7 +36,7 @@ function App() {
             <Route path="/Rate&Review" element={<RateReview/>}/>
             <Route path="/Feed" element={<Feed/>}/>
             <Route path="/Settings" element={<UserSettings/>}/>
-            <Route path="/MovieReview" element={<MovieReview/>}/> {/* will change to the actual id of movie */}
+            <Route path="/Feed/Movie" element={<Movie/>}/> {/* will change to the actual id of movie */}
           </Routes>
 
         </Router>

@@ -2,6 +2,7 @@ import React from 'react';
 import FeedNav from './FeedNav'
 import MovieCard from './MovieCard'
 import './Feed.css'
+import { NavLink } from 'react-router-dom';
 // import icon from '../Videos/popcorn.png'
 // import MovieFilterIcon from '@mui/icons-material/MovieFilter';
 
@@ -20,6 +21,7 @@ function Feed() {
             </div> */}
             <div className='feed-opening-title'>
               <p className='feed-welcome-title'>Movies Across the Globe</p>
+              <NavLink end to="Movie">See movie</NavLink>
             </div>
           </div>
         </div>

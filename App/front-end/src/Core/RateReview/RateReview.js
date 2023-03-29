@@ -4,7 +4,8 @@ import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import Button from '@mui/material/Button';
 import { NavLink } from "react-router-dom";
 import PopupReview from './PopupReview';
-import Divider from '@mui/material/Divider';
+import PopupAddMovie from './PopupAddMovie';
+// import Divider from '@mui/material/Divider';
 
 import './RateReview.css'
 import '../../Hooks/readCookies'
@@ -24,11 +25,11 @@ function RateReview() {
     <div>
         <div className="profile-container">
           <div className='review-buttons-div'>
-            <div className='buttons-review'>
+            <div className='review-btn'>
               <PopupReview />
             </div>
-            <Divider orientation="vertical" style={{ backgroundColor: '#A1C7ED', height: '38px', width:'1px' }} />
-            <div className='buttons-review'>
+            {/* <Divider orientation="vertical" style={{ backgroundColor: '#A1C7ED', height: '38px', width:'1px' }} /> */}
+            <div className='feed-btn'>
               <NavLink end to='/Feed'>
                 <Button 
                 sx={{
@@ -43,7 +44,11 @@ function RateReview() {
                   Feed
                 </Button>
               </NavLink>
-            </div>           
+            </div>   
+            {/* <Divider orientation="vertical" style={{ backgroundColor: '#A1C7ED', height: '38px', width:'1px' }} /> */}
+            <div className='up-btn'>
+              <PopupAddMovie />
+            </div>        
           </div>
           <div className='no-vid-msg'>
               <TheaterComedyIcon sx={{ fontSize: 50, color: '#1d1d20' }}/>
