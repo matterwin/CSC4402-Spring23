@@ -1,18 +1,3 @@
-.review-container {
-    text-align: center;
-    margin: 0 auto;
-    margin-left: 250px;
-    margin-right: 250px;
-    /* padding-top: 10px; */
-    margin-top: 50px;
-    padding-bottom: 200px;
-    position: static;
-    margin-right: auto;
-    margin-left: auto;
-    width: 1100px;
-    padding-top: 10px;
-  }
-
   .feed-container {
     text-align: center;
     margin: 0 auto;
@@ -72,16 +57,7 @@
     background-color: #A1C7ED;
     border: 1px solid #A1C7ED;
   }
-  
-  .feed-nav-div {
-    margin-right: 20px;
-    margin-left: 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: #fff;
-  }
-  
+
   .movies-div {
     margin-top: 10px;
   }
@@ -102,33 +78,66 @@
     margin: 0;
     padding: 0;
   }
-  
-  .feed-welcome-msg {
-      padding-top: 0px;
-      margin-top: 0px;
-      color: rgb(255, 255, 255);
-      font-family: 'Baloo 2', cursive;
-      margin-bottom: 0;
-      color: #1d1d20;
-      padding-bottom: 10px;
-      margin-left: 150px;
-      margin-right: 150px;
-      font-weight: bold;
-      color: #727272;
-      font-family: 'Source Sans Pro', sans-serif;
-      padding: 0;
-      margin: 0;
-      font-size: 18px;
-      padding-bottom: 10px;
+      
+  .movie-and-info {
+    margin-right: 100px;
+    margin-left: 100px;
+    text-decoration: none;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: flex-start;
+    background-color: #c9303027;
+  }
+
+  .movie-div {
+    display: flex;
+    width: 160px;
+    height: 250px;
+    text-align: left;
+    padding-bottom: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   
-  .feed-bar {
-      position: sticky;
-      top: 0;
-      z-index: 1;
-      background-color: #f4f4f5;
-    }
+  .review-movie-pic {
+      width: 200px;
+      height: 275px;
+      border-radius: 10px;
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+  }
   
+  .review-movie-title {
+      margin-top: 0px;
+      margin-bottom: 5px;
+      font-family: 'Baloo 2', cursive;
+      font-weight: 400;
+      font-size: 14.5px;
+      line-height: 1;
+      padding-top: 3px;
+      padding-bottom: 2px;
+  }
+  
+  .review-last-review {
+      margin-top: -5px;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 13px
+  }
+  
+  .info-div {
+    text-decoration: none;
+    display:flex;
+    flex-direction:column;
+    align-items:left;
+    justify-content: flex-start;
+  }
+
+  .info-div > * {
+    display: flex;
+  }
+
+
     
   
     @media(max-width: 765px) {
