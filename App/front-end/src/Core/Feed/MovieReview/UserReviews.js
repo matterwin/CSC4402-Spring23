@@ -6,8 +6,16 @@ function UserReviews() {
 
   return (
     <div>
-      <p>This is where the user reviews for a particular movie will be.</p>
-      <p>You will import this into Movie.js</p>
+      <div className='comment-container'>
+          <div className='comment-flex-box'>
+            <div className='comment-div'>
+              Hi
+            </div>
+            <div className='comment-div'>
+              Hi
+            </div>
+          </div>
+        </div>
     </div>
   );
 }

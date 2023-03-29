@@ -56,6 +56,13 @@ function RateReview() {
               <p className='p-msg'>Add a new Movie Review by clicking the button down below</p>      
               <PopupReview />
           </div>
+          <div>
+          <div className='space'>&nbsp;</div>
+          <div className='space'>&nbsp;</div>
+          <div className='space'>&nbsp;</div>
+          <div className='space'>&nbsp;</div>
+          <div className='space'>&nbsp;</div>
+          </div>
         </div>
     </div>
   );

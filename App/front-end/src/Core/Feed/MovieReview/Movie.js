@@ -4,8 +4,10 @@ import '../MovieCard.css';
 // import StarsIcon from '@mui/icons-material/Stars';
 import screenPic from '../../Videos/poe.jpg';
 import Stars from '../Stars';
+// import Tooltip from '@mui/material/Tooltip';
 
 import './Movie.css'
+import UserReviews from './UserReviews';
 
 function Movie() {
 
@@ -13,12 +15,12 @@ function Movie() {
     <div>
       <div className="feed-container">
       <div className='blue-box'>
-          <div className="feed-opening-div">
-            <div className='feed-opening-title'>
-              <p className='feed-welcome-title'>Movies Across the Globe</p>
-            </div>
+        <div className="feed-opening-div">
+          <div className='feed-opening-title'>
+            <p className='feed-welcome-title'>Movies Across the Globe</p>
           </div>
         </div>
+      </div>
       <div className='movie-container'>
         <div className='movie-and-info-div'>
           <div className='movie-div'>
@@ -30,7 +32,7 @@ function Movie() {
                 <p>Kung Fu Panda</p>
               </div>
               <div className='stars-div'>
-                <Stars value={4.5}/>
+                <Stars value={4.5} />
               </div>
               <div>
                 <p className='review-movie-title'><b>Genre: </b>Comedy</p>
@@ -48,7 +50,7 @@ function Movie() {
           </div>
         </div>
         <div>
-          Comment Section
+          <UserReviews />
         </div>
       </div>
       </div>
