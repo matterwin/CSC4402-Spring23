@@ -49,13 +49,9 @@
       margin-right: 150px; */
       font-weight: bold;
   }
-  
-  .blue-box {
-    width: 100%;
-    /* height: 100px; */
-    /* margin-top: 50px; */
-    background-color: #A1C7ED;
-    border: 1px solid #A1C7ED;
+
+  .stars-div {
+    margin-bottom: 8px;
   }
 
   .movies-div {
@@ -79,15 +75,35 @@
     padding: 0;
   }
       
-  .movie-and-info {
-    margin-right: 100px;
-    margin-left: 100px;
+  .movie-and-info-div {
+    margin-top: 40px;
+    margin-right: 40px;
+    margin-left: 40px;
     text-decoration: none;
     display:flex;
     flex-direction:row;
     align-items:center;
-    justify-content: flex-start;
-    background-color: #c9303027;
+    justify-content:center;
+    background-color: #a1c7ed65;
+    padding: 20px;
+    gap: 100px;
+    margin-bottom: 40px;
+  }
+
+  .info-heading {
+    border-bottom: 5px solid #1976d2;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 10px;
+  }
+
+  .info-heading > p{
+    padding: 0px;
+    margin: 0px;
+    color: #2a3038;
+    font-size: 1.5rem;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 600;
   }
 
   .movie-div {
@@ -95,9 +111,19 @@
     width: 160px;
     height: 250px;
     text-align: left;
-    padding-bottom: 80px;
+    padding-bottom: 30px;
     padding-left: 10px;
     padding-right: 10px;
+    margin-right: 50px;
+  }
+
+  .info-div {
+    margin-right: auto;
+    text-decoration: none;
+    display:flex;
+    flex-direction:column;
+    align-items:left;
+    justify-content: flex-start;
   }
   
   .review-movie-pic {
@@ -123,14 +149,6 @@
       margin-top: -5px;
       font-family: 'Source Sans Pro', sans-serif;
       font-size: 13px
-  }
-  
-  .info-div {
-    text-decoration: none;
-    display:flex;
-    flex-direction:column;
-    align-items:left;
-    justify-content: flex-start;
   }
 
   .info-div > * {
