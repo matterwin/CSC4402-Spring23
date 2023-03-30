@@ -1,6 +1,8 @@
 use std::{thread, time};
 use time::Duration;
 use std::io::{stdout, Write, stdin};
+use std::fs::File;
+use std::path::Path;
 
 #[derive(Debug)]
 #[allow(dead_code)]
@@ -51,6 +53,8 @@ fn main() {
     let sql_database = get_strip_input(Some(String::from(DEFAULT_SQL_DATABASE)));
     robot_print(pause_time, "What sql scripts: ");
     let sql_scripts = get_strip_input(None);
+    robot_print(pause_time, "What is env folder path");
+    let env_path = get_strip_input(None);
 
     let new_config = Config {
        port,
@@ -64,8 +68,32 @@ fn main() {
        sql_scripts,
     };
 
+    let env_path = Path::new(&env_path);
+
+    if !env_path.is_dir() {
+        panic!("env path must be a created folder!");
+    } 
+
     robot_print(pause_time, "Here is your new env configuration: \n\n");
     println!("{:#?}", new_config);
+
+    println!("Path to env folder: {:?}", env_path);
+
+    let mut file = File::create(env_path.join(".env"))
+        .expect(&format!("Unable to create .env file at: {:?}", env_path));
+
+    file.write(format!("PORT={}\nAPP_URL={}\nAPI_BASE_ROUTE={}\nBUCKET_DIR={}\nSQL_HOST={}\nSQL_USER={}\nSQL_PASSWORD={}\nSQL_DATABASE={}\nSQL_SCRIPTS={}",
+            new_config.port, 
+            new_config.app_url,
+            new_config.api_base_route,
+            new_config.bucket_dir,
+            new_config.sql_host,
+            new_config.sql_user,
+            new_config.sql_password,
+            new_config.sql_database,
+            new_config.sql_scripts)
+        .as_bytes())
+        .expect("Error writing to file");
 }
 
 fn get_strip_input(default: Option<String>) -> String {

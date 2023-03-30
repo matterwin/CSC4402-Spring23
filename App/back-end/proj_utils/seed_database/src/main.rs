@@ -94,7 +94,7 @@ fn copy_images(bucket_dir: &str) {
             .unwrap()
             .to_owned();
         let dest_abs_file_path = Path::new(&dest_abs_folder)
-            .join(file_stem)
+            .join(file_path.file_name().unwrap())
             .to_str()
             .unwrap()
             .to_owned();
