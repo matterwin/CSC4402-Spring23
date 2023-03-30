@@ -5,9 +5,12 @@ import Stars from './Stars';
 import Loading from '../Loading/Loading'
 import Unknown from '../Videos/johncena.png';
 import { useNavigate } from "react-router-dom";
+import Tooltip from '@mui/material/Tooltip';
 
 function MovieCard() {
   const [movies, setMovies] = useState(undefined);
+  const [showToolTip, setShowToolTip] = useState(false);
+  const [toolTipMsg, setToolTipMsg] = useState("");
   const navigate = useNavigate();
  
   useEffect(() => {
@@ -16,6 +19,10 @@ function MovieCard() {
       .then(json => setMovies(json))
       .catch(err => console.error(err));
   }, []);
+
+  useEffect(() => {
+    setToolTipMsg("Can't see picture");
+  },[showToolTip])
     
   if(!movies) {
     return (
@@ -34,6 +41,7 @@ function MovieCard() {
   movies.forEach((movie) => {
     jsxMovies.push(
         <div key={ movie.name } className='movie-review-div' data={ movie.id }>
+          <Tooltip title={toolTipMsg}>
             <img 
               src={ movie.filepath } 
               alt={ movie.name } 
@@ -43,9 +51,10 @@ function MovieCard() {
               onError={(e) => {
                 e.target.onerror = null; 
                 e.target.src = Unknown;
+                setShowToolTip(true);
               }} 
               className="movie-pic"
-            />
+            /></Tooltip>
             <div className='rating-in-movie-div'>
               <Stars value={movie.avg}/>
               <div className='percentage'>
