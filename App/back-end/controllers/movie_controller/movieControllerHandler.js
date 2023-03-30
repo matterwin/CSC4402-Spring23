@@ -66,7 +66,7 @@ const getMovieWithAvgHandler = (req, res) => {
   );
 }
 
-const getAllMovieNameHandler = (res) => {
+const getAllMovieNameHandler = (req, res) => {
   executeQuery(
     "sql/movie/getAllMovieName.sql",
     undefined,
