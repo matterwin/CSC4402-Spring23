@@ -26,7 +26,7 @@
 
   .comment-div-info {
     border: 1.5px solid #1976d2;
-    background-color: #cccccc;
+    background-color: #e1e1e1;
     border-radius: 5px;
     display:flex;
     align-items:left;
@@ -67,8 +67,8 @@
     margin-right: auto;
     margin-top: 0px;
     padding-top: 0px;
-    padding-left: 5px;
-    border-left: 8px solid #2a3038;
+    padding-left: 8px;
+    border-left: 4px solid #2a3038;
   }
 
   .rating-inline {
