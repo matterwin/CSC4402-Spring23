@@ -3,11 +3,6 @@ import './FeedNav.css'
 import Sort from './Sort'
 
 function FeedNav() {
-
-  // function handleReset() {
-  //   console.log("test");
-  // }
-
   return (
     <div>
         <div className="feed-bar-actual">

@@ -69,7 +69,6 @@ export default function MultipleSelectChip() {
   function handleReset() {
     setShowReset(false);
     setPersonName([]);
-    console.log("test");
   }
 
   return (

@@ -106,7 +106,7 @@ export default function SignIn() {
         setInputColor("primary");
     }, 500);
 
-    console.log('email is invalid')
+    console.error('email is invalid')
   }
 
   function handleEmailChange(event) {
@@ -139,12 +139,6 @@ export default function SignIn() {
       else
         setFormSubmitted(false);
 
-      console.log({
-        username: data.get('username'),
-        email: data.get('email'),
-        password: data.get('password'),
-      });
-
       fetch('http://localhost:8000/api/userAuthController', {
         method: 'POST',
         headers: {
@@ -164,26 +158,18 @@ export default function SignIn() {
       })
       .then(data => {
         if(data) { 
-
           handleSuccess();
-
-          console.log("success");
-          console.log(data);
-
           createCookies(data);
         }
       })
       .catch(error => {
-
+        console.error(error);
         handleFailure();
-        
-        console.log("Error: " + error.message);
       });
-
       // formRef.current.reset();
     }
     else {
-      console.log("Invalid Input");
+      console.error("Invalid Input");
 
       const intervalId = setInterval(() => {
         setButtonClass("inputInvalid");

@@ -15,7 +15,7 @@ function RateReview() {
 
   useEffect(() => {
     if(readCookies())
-      console.log("is signed in");
+      console.warn("User signed in");
     else {
       window.location.href = "/Login";
     }

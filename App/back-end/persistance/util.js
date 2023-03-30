@@ -34,6 +34,8 @@ const executeQuery = (path, params, callback, res) => {
       } else {
         callback(queryResult);
       }
+
+      connection.end();
     });
   });
 };

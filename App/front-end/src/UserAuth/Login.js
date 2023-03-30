@@ -101,12 +101,6 @@ export default function SignIn() {
     let password = data.get('password');
 
     if ((email.trim().length !== 0) && (password.trim().length !== 0)) {
-
-      console.log({
-        email: data.get('email'),
-        password: data.get('password'),
-      });
-
       const url = `http://localhost:8000/api/userAuthControllerLogin?email=${email}&password=${password}`;
 
       fetch(url, {
@@ -124,28 +118,19 @@ export default function SignIn() {
       })
       .then(data => {
         if(data) { 
-
           handleSuccess();
-
-          console.log("success");
-          console.log(data);
-          
           createCookies(data);
         }
       })
       .catch(error => {
-
+        console.error(error);
         handleFailure();
-        
-        console.log("Error: " + error.message);
       });
 
 
       // formRef.current.reset();
     }
     else {
-      console.log("Invalid Input");
-
       const intervalId = setInterval(() => {
         setButtonClass("inputInvalid");
         setInputColor("error");

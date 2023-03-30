@@ -62,8 +62,6 @@ function MovieCard() {
     );
   });
 
-  movies.forEach((movie) => {console.log(movie.avg)});
-
   return (
     <div className='rows-of-movies'>
         { jsxMovies }

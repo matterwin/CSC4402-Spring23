@@ -32,14 +32,13 @@ function UserSettings() {
       })
       .then(data => {
         if(data) { 
-          console.log(data);   
           setUsername(data.username);
           if(data.url == null)
             setUserProfilePic(DefaultPic);
         }
       })
       .catch(error => {       
-        console.log("Error: " + error.message);
+        console.error(error);
       });
 
     },[userId])

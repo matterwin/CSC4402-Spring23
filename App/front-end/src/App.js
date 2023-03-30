@@ -14,9 +14,6 @@ import ChooseNav from "./Core/Nav/ChooseNav";
 import './App.css';
 
 function App() {
-
-  console.log("rendered");
-
   const { pathname } = window.location;
   const HideNav = pathname === '/Register' || pathname === '/Login' ? null : <ChooseNav />
 

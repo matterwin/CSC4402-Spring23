@@ -74,7 +74,7 @@ export default function CustomizedMenus() {
   const handleClose = () => {
     setAnchorEl(null);
     setIsOpen(false);
-    document.removeEventListener("keydown", console.log("event listener removed"));
+    document.removeEventListener("keydown", console.warn("event listener removed"));
   };
 
   return (

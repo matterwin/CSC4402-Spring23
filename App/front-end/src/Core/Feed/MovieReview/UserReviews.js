@@ -1,16 +1,11 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import readCookies from '../../../Hooks/readCookies';
 import DefaultPic from "../../Videos/defaultPic.png";
 import Tooltip from '@mui/material/Tooltip';
 
 import './UserReviews.css'
 
 function UserReviews(props) {
-  const userId = readCookies(); //change this to something else i.e.,
-  // const [reviewUserId, setReviewUserId] = useState(0);
-  const [username, setUsername] = useState('');
-  const [userProfilePic, setUserProfilePic] = useState("");
   const [movieReviews, setMovieReviews] = useState(undefined);
 
   useEffect(() => {
@@ -20,38 +15,8 @@ function UserReviews(props) {
     .catch(err => console.error(err));
   }, [props]);
 
-  //2nd fetch looks up the specific userId of review, and saves the user's profile pic and username
-  useEffect(() => {
-
-    const url = `http://localhost:8000/api/userAuthControllerInfo?id=${userId}`;
-
-    fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    .then(response => {
-      if (response.status === 404) {
-        throw new Error("User not found");
-      }
-      return response.json();     
-    })
-    .then(data => {
-      if(data) { 
-        setUsername(data.username);
-        if(data.url == null)
-          setUserProfilePic(DefaultPic);
-      }
-    })
-    .catch(error => {       
-      console.log("Error: " + error.message);
-    });
-
-  },[userId])
-
-  if(!username || !userProfilePic || !movieReviews) {
-    return (
+  if(!movieReviews) {
+    return(
       <h1>Loading</h1>
     );
   }
@@ -59,12 +24,11 @@ function UserReviews(props) {
   const reviewsJsx = [];
 
   movieReviews.forEach((movieReview) => {
-    console.log(movieReview);
     reviewsJsx.push(
             <div key={ movieReview.userId } className='comment-div'>
               <div className="comment-pfp-div">
                   <Tooltip title={ movieReview.username }>
-                      <img className="profile-pic" src={userProfilePic} alt="ProfilePicture" />      
+                      <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />      
                   </Tooltip>            
               </div>  
               <div>
@@ -80,7 +44,7 @@ function UserReviews(props) {
                   </div>
                 </div>
               </div>
-      </div>
+            </div>
     );
   });
 
