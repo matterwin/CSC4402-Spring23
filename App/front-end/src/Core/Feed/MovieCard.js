@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './MovieCard.css';
 import Stars from './Stars';
 import Loading from '../Loading/Loading'
-import Unknown from '../Videos/johncena.png';
+// import Unknown from '../Videos/johncena.png';
 
 function MovieCard() {
   const [movies, setMovies] = useState(undefined);
@@ -30,19 +30,26 @@ function MovieCard() {
         <div key={ movie.name } className='movie-review-div' data={ movie.id }>
             <img 
               src={ movie.filepath } 
-              alt={ movie.name } 
-              onError={(e) => {
-                e.target.onerror = null; 
-                e.target.src = Unknown;
-              }} 
+              alt={ movie.leftBlankOnPurpose } 
+              // onError={(e) => {
+              //   e.target.onerror = null; 
+              //   e.target.src = Unknown;
+              // }} 
               className="movie-pic"
             />
-            <Stars value={movie.avg}/>
+            <div className='rating-in-movie-div'>
+              <Stars value={movie.avg}/>
+              <div className='percentage'>
+                {(movie.avg/5*100).toFixed(0)}%
+              </div>
+            </div>
             <p className='movie-title'>{ movie.name }</p>
             <p className='last-review'>Released on: { movie.releaseDate }</p>
         </div>
     );
   });
+
+  movies.forEach((movie) => {console.log(movie.avg)});
 
   return (
     <div className='rows-of-movies'>

@@ -56,10 +56,25 @@
     margin-bottom: 5px;
     font-family: 'Baloo 2', cursive;
     font-weight: 400;
-    font-size: 14.5px;
+    font-size: 15.5px;
     line-height: 1;
     padding-top: 3px;
     padding-bottom: 2px;
+}
+
+.percentage {
+    font-family: 'Source Sans Pro', sans-serif;
+    /* font-size: 15px */
+    font-weight: 600;
+}
+
+.rating-in-movie-div {
+    text-decoration: none;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .last-review {
