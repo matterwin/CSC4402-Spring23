@@ -1,22 +1,19 @@
 import React, {useEffect, useState} from 'react';
-
 import '../MovieCard.css';
 import Stars from '../Stars';
 import Loading from '../../Loading/Loading';
 import Unknown from '../../Videos/johncena.png';
-
 import './Movie.css'
 import UserReviews from './UserReviews';
 
 function Movie() {
   const [movie, setMovie] = useState(undefined); 
 
-
   useEffect(() => {
     const params = new URLSearchParams(window.location.search); 
     const id = params.get('id');
 
-    fetch(`http://localhost:8000/api/movieController/${id}`)
+    fetch(`http://localhost:8000/api/movieControllerWithAvg/${id}`)
       .then(res => res.json())
       .then(json => setMovie(json))
       .catch(err => console.error(err));
@@ -60,7 +57,7 @@ function Movie() {
                 <p>{ movie.name }</p>
               </div>
               <div className='stars-div'>
-                <Stars value={4.5} />
+                <Stars value={movie.avg} />
               </div>
               <div>
                 <p className='review-movie-title'><b>Genre: </b>{ movie.genre }</p>
@@ -78,7 +75,7 @@ function Movie() {
           </div>
         </div>
         <div>
-          <UserReviews />
+          <UserReviews props={ movie.id }/>
         </div>
       </div>
       </div>
