@@ -2,7 +2,9 @@ const express = require("express");
 const {
   postMovieReviewHandler,
   getAllMovieReviewHandler,
+  getMovieReviewByMovieIdHandler,
   getAllUserMovieReviewHandler,
+  getMovieReviewByMovieIdWithUserHandler,
   getMovieReviewAvgRatingHandler,
   getMovieReviewHandler,
   deleteMovieReviewHandler,
@@ -16,7 +18,9 @@ const postMovieReview = `/${_BASE_PATH}`;
 const getAllMovieReview = `/${_BASE_PATH}All`;
 const getMovieReview = `/${_BASE_PATH}`;
 const getAllUserMovieReview = `/${_BASE_PATH}User/:_id`;
+const getMovieReviewByMovieIdWithUser = `/${_BASE_PATH}WithUser/:_id`;
 const getMovieReviewAvgRating = `/${_BASE_PATH}AvgRating/:_id`;
+const getMovieReviewByMovieId = `/${_BASE_PATH}ByMovieId/:_id`;
 const deleteMovieReview = `/${_BASE_PATH}`;
 const putMovieReview = `/${_BASE_PATH}`;
 
@@ -25,6 +29,12 @@ router.post(postMovieReview, (req, res) => {
 });
 router.get(getAllMovieReview, (req, res) => {
   getAllMovieReviewHandler(req, res);
+});
+router.get(getMovieReviewByMovieIdWithUser, (req, res) => {
+  getMovieReviewByMovieIdWithUserHandler(req, res);
+});
+router.get(getMovieReviewByMovieId, (req, res) => {
+  getMovieReviewByMovieIdHandler(req, res);
 });
 router.get(getMovieReview, (req, res) => {
   getMovieReviewHandler(req, res);
@@ -50,6 +60,8 @@ module.exports = {
     { path: getAllMovieReview, type: "get" },
     { path: getMovieReview, type: "get" },
     { path: getAllUserMovieReview, type: 'get' },
+    { path: getMovieReviewByMovieIdWithUser, type: 'get' },
+    { path: getMovieReviewByMovieId, type: 'get' },
     { path: getMovieReviewAvgRating, type: 'get' },
     { path: deleteMovieReview, type: "delete" },
     { path: putMovieReview, type: 'put' },

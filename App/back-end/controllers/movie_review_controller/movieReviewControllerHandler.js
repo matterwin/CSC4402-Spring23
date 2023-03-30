@@ -82,6 +82,42 @@ const getMovieReviewAvgRatingHandler = (req, res) => {
   );
 }
 
+const getMovieReviewByMovieIdWithUserHandler = (req, res) => {
+  const movieId = req.params._id;
+
+  executeQuery(
+    "sql/movieReview/getMovieReviewByMovieIdWithUser.sql",
+    [movieId],
+    (queryResult) => {
+      if(queryResult.length < 1) {
+        res.status(404).send();
+        return;
+      }
+
+      res.json(queryResult);
+    },
+    res
+  );
+};
+
+const getMovieReviewByMovieIdHandler = (req, res) => {
+  const movieId = req.params._id;
+
+  executeQuery(
+    "sql/movieReview/getMovieReviewByMovieId.sql",
+    [movieId],
+    (queryResult) => {
+      if(queryResult.length < 1) {
+        res.status(404).send();
+        return;
+      }
+
+      res.json(queryResult);
+    },
+    res
+  );
+}
+
 const getAllUserMovieReviewHandler = (req, res) => {
   const userId = req.params._id;
 
@@ -188,7 +224,9 @@ module.exports = {
   postMovieReviewHandler,
   getAllMovieReviewHandler,
   getAllUserMovieReviewHandler,
+  getMovieReviewByMovieIdWithUserHandler,
   getMovieReviewAvgRatingHandler,
+  getMovieReviewByMovieIdHandler,
   getMovieReviewHandler,
   deleteMovieReviewHandler,
   putMovieReviewHandler,

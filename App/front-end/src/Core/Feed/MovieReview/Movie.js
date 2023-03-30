@@ -75,7 +75,7 @@ function Movie() {
           </div>
         </div>
         <div>
-          <UserReviews props={ movie.id }/>
+          <UserReviews movieId={movie.id}/>
         </div>
       </div>
       </div>

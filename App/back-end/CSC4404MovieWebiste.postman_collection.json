@@ -414,6 +414,88 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "GetMovieFeed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/movieControllerFeed/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieControllerFeed",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllMovieFeed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/movieControllerFeed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieControllerFeed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllMovieName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/movieControllerName",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieControllerName"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMovieWithAvg",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/movieControllerFeed/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieControllerFeed",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -594,6 +676,27 @@
 							"path": [
 								"api",
 								"movieReviewController"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMovieReviewByMovieId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/movieReviewControllerByMovieId/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movieReviewControllerByMovieId",
+								"1"
 							]
 						}
 					},
