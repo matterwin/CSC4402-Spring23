@@ -25,7 +25,7 @@ const postMovieHandler = (req, res) => {
   }
 
   const splitFilePath = file.destination.split("/");
-  const endFilePath = `${splitFilePath[splitFilePath.length - 2]}/${
+  const endFilePath = `/${splitFilePath[splitFilePath.length - 2]}/${
     splitFilePath[splitFilePath.length - 1]
   }/${file.originalname}`;
 

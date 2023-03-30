@@ -3,10 +3,12 @@ import React, { useState, useEffect } from 'react';
 import './MovieCard.css';
 import Stars from './Stars';
 import Loading from '../Loading/Loading'
-// import Unknown from '../Videos/johncena.png';
+import Unknown from '../Videos/johncena.png';
+import { useNavigate } from "react-router-dom";
 
 function MovieCard() {
   const [movies, setMovies] = useState(undefined);
+  const navigate = useNavigate();
  
   useEffect(() => {
     fetch('http://localhost:8000/api/movieControllerFeed')
@@ -25,16 +27,27 @@ function MovieCard() {
 
   const jsxMovies = [];
 
+  const onClick = (id) => {
+    navigate(`/Feed/Movie?id=${id}`);
+  }
+
   movies.forEach((movie) => {
     jsxMovies.push(
         <div key={ movie.name } className='movie-review-div' data={ movie.id }>
             <img 
               src={ movie.filepath } 
-              alt={ movie.leftBlankOnPurpose } 
               // onError={(e) => {
               //   e.target.onerror = null; 
               //   e.target.src = Unknown;
               // }} 
+              alt={ movie.name } 
+              onClick={() => {
+                onClick(movie.id); 
+              }}
+              onError={(e) => {
+                e.target.onerror = null; 
+                e.target.src = Unknown;
+              }} 
               className="movie-pic"
             />
             <div className='rating-in-movie-div'>
