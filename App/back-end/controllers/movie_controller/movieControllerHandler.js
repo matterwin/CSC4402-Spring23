@@ -48,7 +48,25 @@ const postMovieHandler = (req, res) => {
   );
 };
 
-const getAllMovieNameHandler = (req, res) => {
+const getMovieWithAvgHandler = (req, res) => {
+  const id = req.params._id;
+
+  executeQuery(
+    "sql/movie/getMovieWithAvg.sql",
+    [id, id],
+    (queryResult) => {
+      if (!queryResult.length) {
+        res.status(404).send();
+        return;
+      }
+
+      res.json(queryResult[0]);
+    },
+    res
+  );
+}
+
+const getAllMovieNameHandler = (res) => {
   executeQuery(
     "sql/movie/getAllMovieName.sql",
     undefined,
@@ -187,6 +205,7 @@ module.exports = {
   getAllMovieHandler,
   getMovieHandler,
   getMovieFeedHandler,
+  getMovieWithAvgHandler,
   getAllMovieFeedHandler,
   getAllMovieNameHandler,
   deleteMovieHandler,
