@@ -194,13 +194,18 @@ NavLink {
     background-color: #f4f4f5;
     cursor: pointer; 
   }
-  
+
   .profile-pic {
     width: 100%;
     height: 100%;
     object-fit:contain;
+    transition: transform .2s;
     border-radius: 50%;
   }
+
+  .pfp-div:hover .profile-pic {
+    transform: scale(1.2);
+  }  
 
   .notif {
     border-radius: 50px;
