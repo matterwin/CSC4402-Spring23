@@ -36,10 +36,6 @@ function MovieCard() {
         <div key={ movie.name } className='movie-review-div' data={ movie.id }>
             <img 
               src={ movie.filepath } 
-              // onError={(e) => {
-              //   e.target.onerror = null; 
-              //   e.target.src = Unknown;
-              // }} 
               alt={ movie.name } 
               onClick={() => {
                 onClick(movie.id); 

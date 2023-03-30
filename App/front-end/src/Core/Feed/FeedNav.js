@@ -9,9 +9,6 @@ function FeedNav() {
             <div className='buttons'>
                 <Sort />
             </div>
-            {/* <div onClick={handleReset} className='reset'>
-                <p>RESET</p>
-            </div> */}
         </div>
     </div>
   );

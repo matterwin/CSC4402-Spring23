@@ -21,10 +21,11 @@
     align-items:flex-start;
     justify-content:center;
     gap: 10px;
+    margin-bottom: 40px;
   }
 
   .comment-div-info {
-    border: 1px solid #1976d2;
+    border: 1.5px solid #1976d2;
     background-color: #cccccc;
     border-radius: 5px;
     display:flex;
@@ -33,6 +34,10 @@
     flex-direction:column;
     padding: 10px;
     padding-top: 0px;
+  }
+
+  .comment-div-info:hover {
+    border-color: black;
   }
   
   .comment-pfp-div {

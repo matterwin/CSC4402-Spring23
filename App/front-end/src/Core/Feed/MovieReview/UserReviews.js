@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import DefaultPic from "../../Videos/defaultPic.png";
 import Tooltip from '@mui/material/Tooltip';
+import Loading from '../../Loading/Loading'
 
 import './UserReviews.css'
 
@@ -17,7 +18,9 @@ function UserReviews(props) {
 
   if(!movieReviews) {
     return(
-      <h1>Loading</h1>
+      <div className='loading'>
+        <Loading />
+      </div>
     );
   }
 
