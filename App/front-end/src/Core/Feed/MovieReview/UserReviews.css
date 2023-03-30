@@ -61,7 +61,8 @@
     margin-right: auto;
     margin-top: 0px;
     padding-top: 0px;
-    border-bottom: 1px solid #2a3038;
+    padding-left: 5px;
+    border-left: 8px solid #2a3038;
   }
 
   .username {
