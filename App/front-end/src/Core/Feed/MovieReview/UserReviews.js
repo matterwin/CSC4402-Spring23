@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import DefaultPic from "../../Videos/defaultPic.png";
 import Tooltip from '@mui/material/Tooltip';
 import Loading from '../../Loading/Loading'
+import StarIcon from '@mui/icons-material/Star';
 
 import './UserReviews.css'
 
@@ -27,6 +28,7 @@ function UserReviews(props) {
   const reviewsJsx = [];
 
   movieReviews.forEach((movieReview) => {
+    const ratingToolTip = `${movieReview.rating} out of 5`
     reviewsJsx.push(
             <div key={ movieReview.userId } className='comment-div'>
               <div className="comment-pfp-div">
@@ -43,7 +45,14 @@ function UserReviews(props) {
                       { movieReview.review }
                   </div>
                   <div className='usr-rating'>
-                    <b>Rating:&nbsp;</b> { movieReview.rating } 
+                    <Tooltip title={ratingToolTip}>
+                      <div className='rating-div'>
+                        <div className='rating-inline'>
+                          <b>Rating:&nbsp;</b> { movieReview.rating }
+                          <StarIcon sx={{ color: '#1976d2', fontSize: '18px' }}/>
+                        </div>
+                      </div>
+                    </Tooltip> 
                   </div>
                 </div>
               </div>

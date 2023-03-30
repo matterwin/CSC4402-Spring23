@@ -37,7 +37,8 @@
   }
 
   .comment-div-info:hover {
-    border-color: black;
+    border: 1.5px solid black;
+    box-shadow: 0px 5px 100px rgba(0, 0, 0, 0.10), 0 6px 6px rgba(0, 0, 0, 0.10);
   }
   
   .comment-pfp-div {
@@ -68,6 +69,23 @@
     padding-top: 0px;
     padding-left: 5px;
     border-left: 8px solid #2a3038;
+  }
+
+  .rating-inline {
+    text-decoration: none;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .rating-inline > * {
+    display: inline-flex;
+  }
+
+  .rating-div {
+    cursor: pointer;
   }
 
   .username {
@@ -113,4 +131,14 @@
     text-align: left;
     cursor: pointer;
     font-weight: 600;
+  }
+
+  @media(max-width: 340px) {
+    .comment-div {
+      display:flex;
+      flex-direction:column;
+      align-items:left;
+      justify-content:center;
+      margin-bottom: 50px;
+    }
   }
