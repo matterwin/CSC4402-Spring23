@@ -21,7 +21,6 @@ function Feed() {
             </div> */}
             <div className='feed-opening-title'>
               <p className='feed-welcome-title'>Movies Across the Globe</p>
-              <NavLink end to="Movie">See movie</NavLink>
             </div>
           </div>
         </div>

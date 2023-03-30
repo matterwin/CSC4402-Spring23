@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
 
 import '../MovieCard.css';
-// import StarsIcon from '@mui/icons-material/Stars';
-import screenPic from '../../Videos/poe.jpg';
 import Stars from '../Stars';
-// import Tooltip from '@mui/material/Tooltip';
+import Loading from '../../Loading/Loading';
+import Unknown from '../../Videos/johncena.png';
 
 import './Movie.css'
 import UserReviews from './UserReviews';
@@ -25,7 +24,9 @@ function Movie() {
 
   if(!movie) {
     return(
-      <h1>Loading</h1>
+      <div className='loading'>
+        <Loading />
+      </div>
     );
   }
 
@@ -42,7 +43,16 @@ function Movie() {
       <div className='movie-container'>
         <div className='movie-and-info-div'>
           <div className='movie-div'>
-              <img alt="pic of movie" src={ movie.filepath } className="review-movie-pic"></img>        
+              <img 
+                alt="pic of movie" 
+                src={ movie.filepath } 
+                className="review-movie-pic"
+                onError={(e) => {
+                  e.target.onerror = null; 
+                  e.target.src = Unknown;
+                }} 
+              >
+              </img>        
           </div>
           <div className='information'>
             <div className='info-div'>
