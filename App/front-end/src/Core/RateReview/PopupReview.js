@@ -3,12 +3,15 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import CloseIcon from '@mui/icons-material/Close';
-import { useState } from "react"
+import { useEffect, useState } from "react";
 import MovieSelection from './MovieSelection';
 import Tooltip from '@mui/material/Tooltip';
-import NavButtons from './NavButtons';
+import DefaultPic from "../Videos/defaultPic.png";
+// import NavButtons from './NavButtons';
 
+import readCookies from '../../Hooks/readCookies';
 import './PopupReview.css';
+
 
 const style = {
   position: 'absolute',
@@ -17,9 +20,9 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 500,
   height: 700,
-  bgcolor: 'background.paper',
-  border: '2px solid #1976d2;',
-  borderRadius: '10px',
+  bgcolor: '#2a3038',
+//   border: '2px solid #1976d2;',
+  borderRadius: '25px',
   boxShadow: 24,
   p: 4,
   paddingTop: '-0px'
@@ -27,26 +30,49 @@ const style = {
 
 export default function PopupReview() {
 
-  const [open, setOpen] = React.useState(false);
-  const [buttonClass, setButtonClass] = useState("");
+    const [open, setOpen] = React.useState(false);
+    const [buttonClass, setButtonClass] = useState("");
+    const userId = readCookies();
+    const [userProfilePic, setUserProfilePic] = useState("");
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
-  function tellUser() {
-    const intervalId = setInterval(() => {
-        setButtonClass("shakeshakeshake");
-      }, 0);
-  
-      setTimeout(() => {
-          clearInterval(intervalId);
-          setButtonClass("");
-      }, 500);
-  }
+    useEffect(() => {
 
-  //Note to future self: look into materialUI breadcrumbs to go back to prev slide
+    const url = `http://localhost:8000/api/userAuthControllerInfo?id=${userId}`;
 
-  return (
+    fetch(url, {})
+    .then(response => {
+      if (response.status === 404) {
+        throw new Error("User not found");
+      }
+      return response.json();     
+    })
+    .then(data => {
+      if(data) { 
+        if(data.url == null)
+          setUserProfilePic(DefaultPic);
+      }
+    })
+    .catch(error => {       
+      console.error(error);
+    });
+
+    },[userId])
+
+    function tellUser() {
+        const intervalId = setInterval(() => {
+            setButtonClass("shakeshakeshake");
+        }, 0);
+
+        setTimeout(() => {
+            clearInterval(intervalId);
+            setButtonClass("");
+        }, 500);
+    }
+
+    return (
     <div>
         <Button 
             onClick={handleOpen}
@@ -71,9 +97,12 @@ export default function PopupReview() {
         >
             <Box sx={style}>
                 <div className='first-container'>
-                    <div className='title-popup'>
-                        <h6 className='opening-msg'><u>Rate a movie</u></h6>
+                    <div className="popup-pfp-div">
+                        <img className="popup-profile-pic" src={userProfilePic} alt="ProfilePicture" />                 
                     </div>
+                    <div className='title-popup'>
+                        <h6 className='opening-msg'>Rate a movie</h6>
+                    </div> 
                     <div className='close-icon'>
                         <Tooltip title="Click to exit">
                             <CloseIcon onClick={handleClose} className={buttonClass} sx={{ color: '#fff', fontSize: 40 }}/>
@@ -84,10 +113,10 @@ export default function PopupReview() {
                     <MovieSelection />
                 </div>
                 <div className='navbutts'>
-                    <NavButtons />
+                    {/* <NavButtons /> */}
                 </div>
             </Box>
         </Modal>
     </div>
-  );
+    );
 }

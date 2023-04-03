@@ -1,11 +1,12 @@
 .opening-msg {
     font-family: 'Baloo 2', cursive;
     font-size: 1.3rem;
-    color: #2a3038;
+    color: #fff;
+    margin: 0;
 }
 
 .review-popup-container {
-position: 'absolute';
+  position: 'absolute';
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -15,24 +16,45 @@ position: 'absolute';
 }
 
 .first-container {
-    margin-top: -15px;
+    margin-top: 15px;
     text-decoration: none;
     display:flex;
     flex-direction:row;
     align-items:center;
     justify-content: flex-start;
     padding-bottom: 0px;
+    margin-bottom: 15px;
+}
+
+.popup-pfp-div {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f4f4f5;
+  cursor: pointer; 
+}
+
+.popup-profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit:contain;
+  transition: transform .2s;
+  border-radius: 50%;
 }
 
 .close-icon {
     display: flex;
     margin-left: auto;
-    background-color: #1976d2;
-    padding-right: 3px;
-    padding-left: 3px;
+    /* background-color: #1976d2; */
+    /* padding-right: 3px;
+    padding-left: 3px; */
+    padding: 3px;
+    border-radius: 50%;
 }
 
 .title-popup {
+  margin-left: 15px;
     display: flex;
 }
 

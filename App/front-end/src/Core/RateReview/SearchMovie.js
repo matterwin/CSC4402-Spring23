@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Loading from '../Loading/Loading';
 
-export default function ComboBox() {
+export default function SearchMovie(props) {
   const [movieNames, setMovieNames] = useState(undefined);
 
   useEffect(() => {
@@ -13,19 +13,29 @@ export default function ComboBox() {
       .catch(err => console.error(err));
   }, []);
 
+  // console.log(movieNames);
+
   if(!movieNames) {
     return (
       <Loading />
     );
   }
 
+  const handleMovieSelection = (event, value) => {
+    // console.log(props)
+    var index = movieNames.indexOf(value);
+    // console.log(index);
+    props.onMovieSelection(++index);
+  };
+
   return (
     <Autocomplete
       disablePortal
       id="combo-box-demo"
       options={movieNames}
-      sx={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label="Movie" />}
+      sx={{ width: 300, backgroundColor: '#fff', borderRadius: '5px', outline: 'none' }}
+      renderInput={(params) => <TextField {...params} placeholder='Movie'/>}
+      onChange={handleMovieSelection}
     />
   );
 }
