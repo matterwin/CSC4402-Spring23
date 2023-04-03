@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import MovieSelection from './MovieSelection';
 import Tooltip from '@mui/material/Tooltip';
 import DefaultPic from "../Videos/defaultPic.png";
-// import NavButtons from './NavButtons';
+import NavButtons from './NavButtons';
 
 import readCookies from '../../Hooks/readCookies';
 import './PopupReview.css';
@@ -42,7 +42,7 @@ export default function PopupReview() {
 
     const url = `http://localhost:8000/api/userAuthControllerInfo?id=${userId}`;
 
-    fetch(url, {})
+    fetch(url)
     .then(response => {
       if (response.status === 404) {
         throw new Error("User not found");
@@ -112,8 +112,10 @@ export default function PopupReview() {
                 <div>
                     <MovieSelection />
                 </div>
-                <div className='navbutts'>
-                    {/* <NavButtons /> */}
+                <div className='other-div'>
+                    <div className='navbutts'>
+                        <NavButtons />
+                    </div>
                 </div>
             </Box>
         </Modal>

@@ -26,6 +26,20 @@
     margin-bottom: 15px;
 }
 
+.other-div {
+  margin-top: 90px;
+  text-decoration: none;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+}
+
+.navbutts {
+  display: flex;
+  background-color: red;
+}
+
 .popup-pfp-div {
   width: 45px;
   height: 45px;
@@ -51,6 +65,7 @@
     padding-left: 3px; */
     padding: 3px;
     border-radius: 50%;
+
 }
 
 .title-popup {
@@ -60,11 +75,8 @@
 
 .close-icon:hover {
     background-color: #ef5350;
+    background-color: #f4f4f542;
     cursor: pointer;
-}
-
-.navbutts {
-    margin-bottom: 100;
 }
 
 .shakeshakeshake {

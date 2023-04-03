@@ -1,12 +1,9 @@
-.nav-buttons-container {
+.nav-buttons-div {
     text-decoration: none;
     display:flex;
     flex-direction:row;
     align-items:center;
     justify-content: center;
     gap: 8px;
-}
-
-.nav-buttons-container > * {
-    display: flex;
+    /* color: #114d8a; */
 }

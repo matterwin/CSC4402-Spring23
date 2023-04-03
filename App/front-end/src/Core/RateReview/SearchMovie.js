@@ -34,7 +34,7 @@ export default function SearchMovie(props) {
       id="combo-box-demo"
       options={movieNames}
       sx={{ width: 300, backgroundColor: '#fff', borderRadius: '5px', outline: 'none' }}
-      renderInput={(params) => <TextField {...params} placeholder='Movie'/>}
+      renderInput={(params) => <TextField {...params} placeholder='Search movie'/>}
       onChange={handleMovieSelection}
     />
   );

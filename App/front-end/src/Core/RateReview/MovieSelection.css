@@ -9,9 +9,26 @@
 
 .movie-selection-div {
     display: flex;
-    /* margin-left: -10px;
-    margin-top: -30px; */
 }
+
+.flex-div-select {
+    display: flex;
+    text-decoration: none;
+    display:flex;
+    flex-direction:column;
+    align-items:left;
+    justify-content: flex-start;
+    gap: 0px;
+}
+
+.selected-movie-title {
+    padding: 0px;
+    margin: 0px;
+    color: #fff;
+    font-size: 1.8rem;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 600;
+  }
 
 .search-movie {
     display: flex;
@@ -24,6 +41,7 @@
     padding-bottom: 0px;
     margin-bottom: 0px;
     border: 1px solid #fff;
+    cursor: pointer;
 }
 
 .movie-title-selection {
@@ -36,3 +54,12 @@
     padding-top: 3px;
     padding-bottom: 2px;
 }
+
+.slide-in {
+    transform: translateX(100%); /* Start the image offscreen to the right */
+    transition: transform 0.5s ease-out; /* Animate the transform property over 0.5 seconds */
+  }
+
+  .movie-pic-selection.slide-in {
+    transform: translateX(0); /* Move the image back to its original position */
+  }
