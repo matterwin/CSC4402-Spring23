@@ -54,12 +54,3 @@
     padding-top: 3px;
     padding-bottom: 2px;
 }
-
-.slide-in {
-    transform: translateX(100%); /* Start the image offscreen to the right */
-    transition: transform 0.5s ease-out; /* Animate the transform property over 0.5 seconds */
-  }
-
-  .movie-pic-selection.slide-in {
-    transform: translateX(0); /* Move the image back to its original position */
-  }

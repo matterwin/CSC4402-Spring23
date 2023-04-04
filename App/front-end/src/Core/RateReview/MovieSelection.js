@@ -3,7 +3,7 @@ import SearchMovie from './SearchMovie';
 import { useEffect, useState } from "react";
 import Unknown from '../Videos/johncena.png';
 import Tooltip from '@mui/material/Tooltip';
-import superbad from '../Videos/superbad.jpg';
+import johncena from '../Videos/johncena.png';
 
 import './MovieSelection.css';
 
@@ -11,18 +11,13 @@ function MovieSelection() {
 
   const [movieId, setMovieId] = useState(-1);
   const [movie, setMovie] = useState(undefined); 
-  const [slideIn, setSlideIn] = useState(false);
 
   useEffect(() => {
     if (movieId > 0) {
       fetch(`http://localhost:8000/api/movieControllerWithAvg/${movieId}`)
         .then((res) => res.json())
         .then((json) => {
-          setSlideIn(true); // Add the slide-in class to the img element
           setMovie(json);
-          setTimeout(() => {
-            setSlideIn(false); // Remove the slide-in class after the animation is complete
-          }, 500);
         })
         .catch((err) => console.error(err));
     }
@@ -44,11 +39,11 @@ function MovieSelection() {
           <div> 
               <img 
                 alt="Movie pic" 
-                className={`movie-pic-selection ${slideIn ? "slide-in" : ""}`} // Add the slide-in class conditionally
+                className='movie-pic-selection'
                 src={ movie.filepath } 
                 onError={(e) => {
                   e.target.onerror = null; 
-                  e.target.src = superbad;
+                  e.target.src = johncena;
                 }} 
               />
           </div>
@@ -71,7 +66,5 @@ function MovieSelection() {
     </div>
   );
 }
-
-//will be doing a different layout
 
 export default MovieSelection;

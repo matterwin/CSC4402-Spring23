@@ -36,6 +36,7 @@
     flex-direction:column;
     padding: 10px;
     padding-top: 0px;
+    padding-bottom: 40px;
   }
 
   /* .comment-div-info:hover {
