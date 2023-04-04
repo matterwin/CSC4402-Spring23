@@ -70,7 +70,21 @@ function RateReview() {
               <TheaterComedyIcon sx={{ fontSize: 50, color: '#1d1d20' }}/>
               <p className='h1-msg'>You don't have any Movie Reviews</p>
               <p className='p-msg'>Add a new Movie Review by clicking the button down below</p>      
-              <PopupReview />
+              <Button 
+                sx={{
+                    backgroundColor: '#A1C7ED',
+                    color: "#1976d2",
+                    border: '0.5px solid #2a3038',
+                    boxShadow: "0 0 5px rgba(0, 0, 0, 0.6)",
+                    '&:hover': {
+                        backgroundColor: '#fff',
+                        color: "#1976d2"
+                    }
+                }}
+                href="/Rate&Review/create"
+              >
+                    RATE A MOVIE
+              </Button>
           </div>
           <div>
           <div className='space'>&nbsp;</div>
