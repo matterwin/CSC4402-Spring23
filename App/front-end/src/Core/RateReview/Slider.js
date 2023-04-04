@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { styled, alpha, Box } from '@mui/system';
 import SliderUnstyled, { sliderUnstyledClasses } from '@mui/base/SliderUnstyled';
 import { useState } from 'react';
-// import PostReview from './PostReview';
 import updateRating from './InputHooks/updateRating';
 
 import './Slider.css'
@@ -133,7 +132,7 @@ SliderValueLabel.propTypes = {
 
 export default function LabeledValuesSlider() {
 
-    const [value, setValue] = useState(1);
+    const [value, setValue] = useState(0);
 
     // useEffect(() => {
     //     console.log(value);
@@ -163,7 +162,6 @@ export default function LabeledValuesSlider() {
                 <div className='actual-value'>{value}/100</div>
             </div>
         </div>
-        {/* <PostReview rating={value} />  */}
     </Box>
   );
 }

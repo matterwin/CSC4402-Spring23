@@ -1,4 +1,3 @@
-
 import readCookies from '../../../Hooks/readCookies';
 import getMovieId from './getMovieId';
 import getRating from './getRating';
@@ -6,6 +5,7 @@ import getReview from './getReview';
 
 function postReview() {
     const userId = readCookies();
+
     const userInputData = {
         movieId: getMovieId(),
         userId: userId,
@@ -33,9 +33,9 @@ function postReview() {
             console.log("200 Success");
         }
         else if (response.status === 403) {
-            console.log("403 Forbidden");
+            throw new Error("403 Forbidden");
         }
-        return response.json();     
+        return; 
       })
     .catch(error => console.error(error));
 }

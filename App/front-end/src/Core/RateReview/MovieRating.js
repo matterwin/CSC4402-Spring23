@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Slider from './Slider';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import Tooltip from '@mui/material/Tooltip';
-// import PostReview from './PostReview';
 import updateReview from './InputHooks/updateReview';
 
 import './MovieRating.css'

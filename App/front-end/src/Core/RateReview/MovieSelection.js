@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Unknown from '../Videos/johncena.png';
 import Tooltip from '@mui/material/Tooltip';
 import johncena from '../Videos/johncena.png';
-// import PostReview from './PostReview';
 import updateMovieId from './InputHooks/updateMovieId';
 
 import './MovieSelection.css';
@@ -53,7 +52,6 @@ function MovieSelection() {
                 }} 
               />
           </div>
-          {/* <PostReview movieId={movieId} />  */}
           <div>
             <p className='selected-movie-title'>{movie.name}</p>
           </div>
