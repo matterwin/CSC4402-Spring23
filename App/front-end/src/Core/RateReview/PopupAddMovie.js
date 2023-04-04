@@ -56,6 +56,7 @@ export default function PopupReview() {
                     color: "#1976d2"
                 }
             }}
+            disabled
         >
             UPLOAD MOVIE
         </Button>

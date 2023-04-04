@@ -10,12 +10,13 @@ import ScrollButton from './Core/Nav/ScrollButton'
 import UserSettings from './Core/Profile/UserSettings'
 import Movie from './Core/Feed/MovieReview/Movie'
 import ChooseNav from "./Core/Nav/ChooseNav";
+import ReviewPage from './Core/RateReview/ReviewPage';
 
 import './App.css';
 
 function App() {
   const { pathname } = window.location;
-  const HideNav = pathname === '/Register' || pathname === '/Login' ? null : <ChooseNav />
+  const HideNav = pathname === '/Register' || pathname === '/Login' || pathname === '/Rate&Review/create' ? null : <ChooseNav />
 
   return (
     <div>
@@ -31,6 +32,7 @@ function App() {
             <Route path="/Register" element={<Register/>}/>
             <Route path="/Profile" element={<Profile/>}/>
             <Route path="/Rate&Review" element={<RateReview/>}/>
+            <Route path="/Rate&Review/create" element={<ReviewPage/>}/>
             <Route path="/Feed" element={<Feed/>}/>
             <Route path="/Settings" element={<UserSettings/>}/>
             <Route path="/Feed/Movie" element={<Movie/>}/> {/* will change to the actual id of movie */}

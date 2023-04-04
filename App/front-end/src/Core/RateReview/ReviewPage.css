@@ -1,0 +1,90 @@
+.create-container {
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 250px;
+    margin-right: 250px;
+    margin-top: 50px;
+    padding-bottom: 200px;
+    position: static;
+    margin-right: auto;
+    margin-left: auto;
+    width: 700px;
+    padding-top: 10px;
+    /* border: 1px solid white; */
+}
+
+.flex-box-review-page {
+    text-decoration: none;
+    display:flex;
+    flex-direction:column;
+    gap: 20px;
+}
+
+.juicy-stuff {
+    text-decoration: none;
+    display:flex;
+    flex-direction:row;
+    align-items:flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.popup-pfp-div {
+    /* margin-left: 5px; */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f4f4f5;
+    cursor: pointer; 
+  }
+  
+  .popup-profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+    transition: transform .2s;
+    border-radius: 50%;
+  }
+
+.selection-container {
+    width: 90%;
+    /* background-color: red; */
+}
+
+.selection-div {
+    text-decoration: none;
+    display:flex;
+    flex-direction:column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.buttons-div {
+    text-decoration: none;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: flex-start;
+}
+
+.exit-div, .submit-div {
+    display: inline;
+}
+
+.submit-div {
+    margin-left: auto;
+}
+
+.arrow-div {
+    cursor: pointer;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 100%;
+}
+
+.arrow-div:hover {
+    background-color: #f4f4f542;
+}

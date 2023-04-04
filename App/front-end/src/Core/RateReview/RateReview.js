@@ -26,7 +26,23 @@ function RateReview() {
         <div className="profile-container">
           <div className='review-buttons-div'>
             <div className='review-btn'>
-              <PopupReview />
+              {/* <NavLink end to="/Rate&Review/create"> */}
+                <Button 
+                sx={{
+                    backgroundColor: '#A1C7ED',
+                    color: "#1976d2",
+                    border: '0.5px solid #2a3038',
+                    boxShadow: "0 0 5px rgba(0, 0, 0, 0.6)",
+                    '&:hover': {
+                        backgroundColor: '#fff',
+                        color: "#1976d2"
+                    }
+                }}
+                href="/Rate&Review/create"
+                >
+                    RATE A MOVIE
+                </Button>
+              {/* </NavLink> */}
             </div>
             {/* <Divider orientation="vertical" style={{ backgroundColor: '#A1C7ED', height: '38px', width:'1px' }} /> */}
             <div className='feed-btn'>
@@ -47,7 +63,7 @@ function RateReview() {
             </div>   
             {/* <Divider orientation="vertical" style={{ backgroundColor: '#A1C7ED', height: '38px', width:'1px' }} /> */}
             <div className='up-btn'>
-              <PopupAddMovie />
+              <PopupAddMovie/>
             </div>        
           </div>
           <div className='no-vid-msg'>
