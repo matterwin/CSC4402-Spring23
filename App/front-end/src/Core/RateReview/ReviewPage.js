@@ -13,12 +13,12 @@ function ReviewPage() {
 
   const userId = readCookies();
   const [userProfilePic, setUserProfilePic] = useState("");
-  const [isDisabled, setIsDisabled] = useState(true);
+  const [isDisabled, setIsDisabled] = useState(false);
   
   useEffect(() => {
 
     document.body.style.backgroundColor = '#2a3038';
-    setIsDisabled(true); //bs line
+    setIsDisabled(false); //bs line
     if(readCookies())
       console.warn("User signed in");
     else {
@@ -42,6 +42,10 @@ function ReviewPage() {
       .catch(error => console.error(error));
 
     },[userId])
+
+    function handleSubmit() {
+      alert("send data to PostReview.js")
+    }
 
   return (
     <div>
@@ -67,8 +71,8 @@ function ReviewPage() {
                 </a>
               </div>
               <div className='submit-div'>
-                <Tooltip title="Submit review">
-                <span>
+                {/* <Tooltip title="Submit review"> */}
+                {/* <span> */}
                   <Button 
                       sx={{
                           backgroundColor: isDisabled ? '#d9d9d9' : '#1976d2',
@@ -77,14 +81,16 @@ function ReviewPage() {
                           borderRadius: '50px',
                           '&:hover': {
                             backgroundColor: isDisabled ? '#d9d9d9' : '#114d8a',
-                          }
+                          },
+                          padding: '8px'
                       }}
                       disabled={isDisabled}
+                      onClick={handleSubmit}
                   >
                     Post
                   </Button>
-                 </span>
-                </Tooltip>
+                 {/* </span> */}
+                {/* </Tooltip> */}
               </div>
             </div>
             <div>
@@ -101,10 +107,8 @@ function ReviewPage() {
                       <MovieRating />
                     </div>
                   </div>
-                  
                 </div>
-              </div>
-              
+              </div>        
             </div>
           </div>
         </div>

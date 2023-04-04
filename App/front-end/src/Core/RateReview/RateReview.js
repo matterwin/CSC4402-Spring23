@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import Button from '@mui/material/Button';
 import { NavLink } from "react-router-dom";
-import PopupReview from './PopupReview';
+// import PopupReview from './PopupReview';
 import PopupAddMovie from './PopupAddMovie';
 // import Divider from '@mui/material/Divider';
 
