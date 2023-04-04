@@ -5,6 +5,7 @@ import getReview from './getReview';
 
 function postReview() {
     const userId = readCookies();
+    var statusCode = 0;
 
     const userInputData = {
         movieId: getMovieId(),
@@ -35,9 +36,12 @@ function postReview() {
         else if (response.status === 403) {
             throw new Error("403 Forbidden");
         }
+        statusCode = response.status;
         return; 
       })
     .catch(error => console.error(error));
+
+    return statusCode;
 }
 
 export default postReview;

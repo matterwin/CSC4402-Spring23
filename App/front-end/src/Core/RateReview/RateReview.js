@@ -4,8 +4,7 @@ import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import Button from '@mui/material/Button';
 import { NavLink } from "react-router-dom";
 // import PopupReview from './PopupReview';
-import PopupAddMovie from './PopupAddMovie';
-// import Divider from '@mui/material/Divider';
+import Divider from '@mui/material/Divider';
 
 import './RateReview.css'
 import '../../Hooks/readCookies'
@@ -29,22 +28,20 @@ function RateReview() {
               {/* <NavLink end to="/Rate&Review/create"> */}
                 <Button 
                 sx={{
+                  backgroundColor: '#fff',
+                  border: '0.5px solid #2a3038',
+                  '&:hover': {
                     backgroundColor: '#A1C7ED',
-                    color: "#1976d2",
-                    border: '0.5px solid #2a3038',
-                    boxShadow: "0 0 5px rgba(0, 0, 0, 0.6)",
-                    '&:hover': {
-                        backgroundColor: '#fff',
-                        color: "#1976d2"
-                    }
+                    color: "#1976d2"
+                  }
                 }}
                 href="/Rate&Review/create"
                 >
-                    RATE A MOVIE
+                    RATE
                 </Button>
               {/* </NavLink> */}
             </div>
-            {/* <Divider orientation="vertical" style={{ backgroundColor: '#A1C7ED', height: '38px', width:'1px' }} /> */}
+            <Divider orientation="vertical" style={{ backgroundColor: '#8f8f8f', height: '38px', width:'1px' }} />
             <div className='feed-btn'>
               <NavLink end to='/Feed'>
                 <Button 
@@ -61,10 +58,7 @@ function RateReview() {
                 </Button>
               </NavLink>
             </div>   
-            {/* <Divider orientation="vertical" style={{ backgroundColor: '#A1C7ED', height: '38px', width:'1px' }} /> */}
-            <div className='up-btn'>
-              <PopupAddMovie/>
-            </div>        
+            {/* <Divider orientation="vertical" style={{ backgroundColor: '#A1C7ED', height: '38px', width:'1px' }} /> */}      
           </div>
           <div className='no-vid-msg'>
               <TheaterComedyIcon sx={{ fontSize: 50, color: '#1d1d20' }}/>
@@ -75,10 +69,10 @@ function RateReview() {
                     backgroundColor: '#A1C7ED',
                     color: "#1976d2",
                     border: '0.5px solid #2a3038',
-                    boxShadow: "0 0 5px rgba(0, 0, 0, 0.6)",
                     '&:hover': {
                         backgroundColor: '#fff',
-                        color: "#1976d2"
+                        color: "#1976d2",
+                        boxShadow: "0 0 5px rgba(0, 0, 0, 0.6)"
                     }
                 }}
                 href="/Rate&Review/create"

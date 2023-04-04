@@ -8,6 +8,8 @@ import DefaultPic from "../Videos/defaultPic.png";
 import MovieSelection from './MovieSelection';
 import MovieRating from './MovieRating';
 import postReview from './InputHooks/postReview';
+import getMovieId from './InputHooks/getMovieId';
+import getReview from './InputHooks/getReview';
 
 function ReviewPage() {
 
@@ -44,6 +46,12 @@ function ReviewPage() {
     },[userId])
 
     function handleSubmit() {
+
+      //need to implement safety checks for invalid input; will do later tonight
+
+      console.log("movieId from Reviewpage             " + getMovieId());
+      console.log("review from Reviewpage             " + getReview());
+
       postReview();
     }
 
