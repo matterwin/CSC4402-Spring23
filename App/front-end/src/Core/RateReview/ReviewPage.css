@@ -10,7 +10,11 @@
     margin-left: auto;
     width: 700px;
     padding-top: 10px;
-    /* border: 1px solid white; */
+    /* border-left: 1px solid #8f8f8f;
+    border-right: 1px solid #8f8f8f; */
+    /* background-color: red; */
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .flex-box-review-page {

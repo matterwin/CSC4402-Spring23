@@ -5,9 +5,9 @@ import readCookies from '../../Hooks/readCookies';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import DefaultPic from "../Videos/defaultPic.png";
-// import SearchMovie from './SearchMovie';
 import MovieSelection from './MovieSelection';
 import MovieRating from './MovieRating';
+import postReview from './InputHooks/postReview';
 
 function ReviewPage() {
 
@@ -44,7 +44,7 @@ function ReviewPage() {
     },[userId])
 
     function handleSubmit() {
-      alert("send data to PostReview.js")
+      postReview();
     }
 
   return (

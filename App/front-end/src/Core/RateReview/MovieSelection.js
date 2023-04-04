@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Unknown from '../Videos/johncena.png';
 import Tooltip from '@mui/material/Tooltip';
 import johncena from '../Videos/johncena.png';
+// import PostReview from './PostReview';
+import updateMovieId from './InputHooks/updateMovieId';
 
 import './MovieSelection.css';
 
@@ -24,9 +26,13 @@ function MovieSelection() {
   }, [movieId]);
  
   function handleMovieSelection(movieId) {
-    // console.log(movieId);
     setMovieId(movieId);
+    updateMovieId(movieId);
   }
+
+  // useEffect(() => {
+  //   console.log(movieId);
+  // },[movieId])
 
   return (
     <div className='movie-selection-container'>
@@ -47,6 +53,7 @@ function MovieSelection() {
                 }} 
               />
           </div>
+          {/* <PostReview movieId={movieId} />  */}
           <div>
             <p className='selected-movie-title'>{movie.name}</p>
           </div>
@@ -62,7 +69,7 @@ function MovieSelection() {
           </Tooltip>
         </div>
       )}
-      </div> 
+      </div>   
     </div>
   );
 }

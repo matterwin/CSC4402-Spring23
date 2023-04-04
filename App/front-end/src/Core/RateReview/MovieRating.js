@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from './Slider';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import Tooltip from '@mui/material/Tooltip';
+// import PostReview from './PostReview';
+import updateReview from './InputHooks/updateReview';
 
 import './MovieRating.css'
 
 function MovieRating() {
 
-  return (
+    const [userText, setUserText] = useState("");
+
+    // useEffect(() => {
+    //     console.log(userText);
+    // },[userText])
+
+    const handleTextareaChange = (event) => {
+        setUserText(event.target.value);
+        updateReview(userText);
+    }
+
+    return (
     <div>
         <div className='writing-review-div'>
             <div className='rating-div'>
@@ -27,12 +40,12 @@ function MovieRating() {
                 <textarea
                     className='text-area'
                     placeholder='Write up a review'
+                    onChange={handleTextareaChange}
                 />
-            </div>
-           
+            </div>  
         </div>
     </div>
-  );
+    );
 }
 
 export default MovieRating;
