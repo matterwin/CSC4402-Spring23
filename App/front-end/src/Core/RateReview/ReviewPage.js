@@ -68,6 +68,7 @@ function ReviewPage() {
               </div>
               <div className='submit-div'>
                 <Tooltip title="Submit review">
+                <span>
                   <Button 
                       sx={{
                           backgroundColor: isDisabled ? '#d9d9d9' : '#1976d2',
@@ -82,6 +83,7 @@ function ReviewPage() {
                   >
                     Post
                   </Button>
+                 </span>
                 </Tooltip>
               </div>
             </div>

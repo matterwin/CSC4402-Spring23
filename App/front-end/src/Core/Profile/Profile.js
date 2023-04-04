@@ -101,15 +101,16 @@ function Profile() {
                 <TheaterComedyIcon sx={{ fontSize: 50, color: '#2a3038' }}/>
                 <p className='h1-msg'>You don't have any Movie Reviews</p>
                 <p className='p-msg'>Add a new Movie Review by clicking the button down below</p>
-                <NavLink className="title" end to="/Rate&Review">
+                {/* <NavLink className="title"> */}
                     <Button 
                         variant="outlined" 
                         startIcon={<AddToPhotosIcon  />}
                         style={{ backgroundColor: '#e7e7e7' }}
+                        href="/Rate&Review/create"
                     >
                         Rate A Movie
                     </Button>
-                </NavLink>
+                {/* </NavLink> */}
             </div>
         </div>        
     </div>

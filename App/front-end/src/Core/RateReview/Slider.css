@@ -1,0 +1,15 @@
+.rating-box {
+    text-decoration: none;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: flex-start;
+  }
+
+  .actual-value {
+    display: flex;
+    color: #fff;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.2rem;
+    margin-left: 15px;
+  }

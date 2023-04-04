@@ -2,6 +2,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { styled, alpha, Box } from '@mui/system';
 import SliderUnstyled, { sliderUnstyledClasses } from '@mui/base/SliderUnstyled';
+import { useState } from 'react';
+
+import './Slider.css'
 
 const blue = {
   100: '#DAECFF',
@@ -127,9 +130,33 @@ SliderValueLabel.propTypes = {
 };
 
 export default function LabeledValuesSlider() {
-  return (
-    <Box sx={{ width: 300 }}>
-      <StyledSlider defaultValue={10} slots={{ valueLabel: SliderValueLabel }} />
+
+    const [value, setValue] = useState(1);
+
+    const handleSliderChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
+    //620 is a good width too
+    return (
+    <Box sx={{ width: 305 }}>
+        <div>
+            <div className='rating-box'>
+                <StyledSlider
+                    value={value}
+                    onChange={handleSliderChange}
+                    defaultValue={1}
+                    slots={{
+                    valueLabel: (props) => (
+                        <SliderValueLabel {...props}><span>{value}</span></SliderValueLabel>
+                    ),
+                    }}
+                    sx={{ fontFamily: 'Source Sans Pro' }}
+                />                
+                <div className='actual-value'>{value}/100</div>
+            </div>
+        </div>
+      
     </Box>
   );
 }
