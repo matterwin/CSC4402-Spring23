@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from './Core/Home/Home'
 import Login from './UserAuth/Login'
@@ -11,12 +11,43 @@ import UserSettings from './Core/Profile/UserSettings'
 import Movie from './Core/Feed/MovieReview/Movie'
 import ChooseNav from "./Core/Nav/ChooseNav";
 import ReviewPage from './Core/RateReview/ReviewPage';
+import LoadingPic from './Core/LoadingScreen/LoadingPic';
+import LoadingCircle from './Core/LoadingScreen/LoadingCircle';
 
 import './App.css';
 
 function App() {
   const { pathname } = window.location;
   const HideNav = pathname === '/Register' || pathname === '/Login' || pathname === '/Rate&Review/create' ? null : <ChooseNav />
+
+  const [isLoadingScreen, setIsLoadingScreen] = useState(true);
+  const [isLoadingContent, setIsLoadingContent] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoadingScreen(false);
+      setIsLoadingContent(true);
+      setTimeout(() => {
+        setIsLoadingContent(false);
+      }, 300);
+    }, 500);
+  }, []);
+
+  if (isLoadingScreen) {
+    return (
+      <div className='center-of-screen'>
+        <LoadingPic />
+      </div>
+    );
+  }
+
+  if (isLoadingContent) {
+    return (
+      <div className='center-of-screen'>
+        <LoadingCircle />
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -35,7 +66,7 @@ function App() {
             <Route path="/Rate&Review/create" element={<ReviewPage/>}/>
             <Route path="/Feed" element={<Feed/>}/>
             <Route path="/Settings" element={<UserSettings/>}/>
-            <Route path="/Feed/Movie" element={<Movie/>}/> {/* will change to the actual id of movie */}
+            <Route path="/Feed/Movie" element={<Movie/>}/>
           </Routes>
 
         </Router>

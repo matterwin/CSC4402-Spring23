@@ -24,7 +24,6 @@ function ReviewPage() {
   // const [renderInSuccess, setRenderInSuccess] =  useState(false);
   const [buttonColor, setButtonColor] =  useState("#1976d2");
   const [enableHover, setEnableHover] = useState(true);
-  // const [status, setStatus] = useState("");
 
   function handleFailure() {
 

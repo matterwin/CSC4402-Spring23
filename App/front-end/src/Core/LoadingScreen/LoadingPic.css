@@ -1,0 +1,15 @@
+.loading-pfp-div {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f4f4f5;
+    cursor: pointer; 
+  }
+  
+  .loading-profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    border-radius: 50%;
+  }
