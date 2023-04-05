@@ -1,37 +1,3 @@
-  .feed-container {
-    text-align: center;
-    margin: 0 auto;
-    margin-left: 250px;
-    margin-right: 250px;
-    /* padding-top: 10px; */
-    margin-top: 50px;
-    padding-bottom: 200px;
-    position: static;
-    margin-right: auto;
-    margin-left: auto;
-    width: 1100px;
-    padding-top: 10px;
-  }
-  
-  .movie-container {
-    text-align: center;
-    margin: 0 auto;
-    margin-left: 250px;
-    margin-right: 250px;
-    padding-top: 10px;
-    padding-bottom: 500px;
-    border-radius: 10px;
-    background-color: #fff;
-    position: static;
-    margin-right: auto;
-    margin-left: auto;
-    width: 100%;
-    border: 1px solid #1976d2;
-    border-top: 0px;
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px;
-    padding-top: 10px;
-  }
 
   .popcorn-img {
     height: 50px;
@@ -46,7 +12,7 @@
       outline: #2a3038;
       text-shadow: 1px 1px 0px #000;
       font-weight: bold;
-  }
+  } 
 
   .stars-div {
     margin-bottom: 8px;
@@ -106,8 +72,6 @@
 
   .movie-div {
     display: flex;
-    width: 160px;
-    height: 250px;
     text-align: left;
     padding-bottom: 30px;
     padding-left: 10px;

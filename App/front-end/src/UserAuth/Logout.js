@@ -67,7 +67,7 @@ function Logout() {
                                         width: '100%',
                                         border: '0.5px solid #2a3038',
                                         '&:hover': {
-                                            backgroundColor: '#fff',
+                                            backgroundColor: '#cccccc;',
                                             color: "#1976d2"
                                         },
                                         borderRadius: '20px'

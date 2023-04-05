@@ -1,10 +1,10 @@
 .loading-pfp-div {
-    width: 75px;
-    height: 75px;
+    width: 85px;
+    height: 85px;
     border-radius: 50%;
     overflow: hidden;
     background-color: #f4f4f5;
-    cursor: pointer; 
+    background-color: transparent;
   }
   
   .loading-profile-pic {

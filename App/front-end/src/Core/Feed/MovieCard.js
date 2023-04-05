@@ -62,7 +62,7 @@ function MovieCard() {
               </div>
             </div>
             <p className='movie-title'>{ movie.name }</p>
-            <p className='last-review'>Released on: { movie.releaseDate }</p>
+            <p className='last-review'>Released { movie.releaseDate }</p>
         </div>
     );
   });

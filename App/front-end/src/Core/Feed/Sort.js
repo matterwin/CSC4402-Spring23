@@ -74,7 +74,7 @@ export default function MultipleSelectChip() {
   return (
     <div className="feed-bar-actual">
       <div>
-        <FormControl sx={{ m: 0.1, width: 150, borderBottom: '0px'}}>
+        <FormControl sx={{ m: 0.1, width: 150, fontSize: 14, borderBottom: '0px'}}>
           <InputLabel id="demo-multiple-chip-label">SORT</InputLabel>
           <Select
             labelId="demo-multiple-chip-label"
