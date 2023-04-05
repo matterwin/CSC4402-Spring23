@@ -13,12 +13,17 @@ import ChooseNav from "./Core/Nav/ChooseNav";
 import ReviewPage from './Core/RateReview/ReviewPage';
 import LoadingPic from './Core/LoadingScreen/LoadingPic';
 import LoadingCircle from './Core/LoadingScreen/LoadingCircle';
+import Logout from './UserAuth/Logout';
 
 import './App.css';
 
 function App() {
   const { pathname } = window.location;
-  const HideNav = pathname === '/Register' || pathname === '/Login' || pathname === '/Rate&Review/create' ? null : <ChooseNav />
+  const HideNav = pathname === '/Register' 
+                || pathname === '/Login' 
+                || pathname === '/Rate&Review/create' 
+                || pathname === '/Logout'
+  ? null : <ChooseNav />
 
   const [isLoadingScreen, setIsLoadingScreen] = useState(true);
   const [isLoadingContent, setIsLoadingContent] = useState(true);
@@ -29,11 +34,14 @@ function App() {
       setIsLoadingContent(true);
       setTimeout(() => {
         setIsLoadingContent(false);
-      }, 300);
-    }, 500);
+      }, 200);
+    }, 400);
   }, []);
 
-  if (isLoadingScreen) {
+  if (isLoadingScreen && pathname !== '/Logout' 
+                      && pathname !== '/Rate&Review/create'
+                      && pathname !== '/Register' 
+                      && pathname !== '/Login' ){
     return (
       <div className='center-of-screen'>
         <LoadingPic />
@@ -41,7 +49,10 @@ function App() {
     );
   }
 
-  if (isLoadingContent) {
+  if (isLoadingContent && pathname !== '/Logout' 
+                       && pathname !== '/Rate&Review/create'
+                       && pathname !== '/Register' 
+                       && pathname !== '/Login' ){
     return (
       <div className='center-of-screen'>
         <LoadingCircle />
@@ -67,6 +78,7 @@ function App() {
             <Route path="/Feed" element={<Feed/>}/>
             <Route path="/Settings" element={<UserSettings/>}/>
             <Route path="/Feed/Movie" element={<Movie/>}/>
+            <Route path="/Logout" element={<Logout/>}/>
           </Routes>
 
         </Router>

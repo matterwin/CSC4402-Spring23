@@ -11,7 +11,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
 import { NavLink } from "react-router-dom";
 
-import deleteCookies from '../../Hooks/deleteCookies';
+// import deleteCookies from '../../Hooks/deleteCookies';
 import readCookies from '../../Hooks/readCookies';
 
   const StyledKeyboardArrowDownIcon = styled(KeyboardArrowDownIcon)({
@@ -121,9 +121,9 @@ export default function CustomizedMenus() {
 
   },[userId])
 
-    function handleLogOut() {
-      deleteCookies();
-    }
+    // function handleLogOut() {
+    //   deleteCookies();
+    // }
 
     const handleClick = (event) => {
       setShowArrowDown(!showArrowDown);
@@ -189,11 +189,19 @@ export default function CustomizedMenus() {
 
         <Divider sx={{ my: 0.5, backgroundColor: '#fff' }} />
 
-       
+        {/* <NavLink end to="/Logout" className="navlink">
+          <MenuItem onClick={handleClose} disableRipple>
+            <Button variant="contained" sx={{ padding: '5px', paddingRight: '45px', paddingLeft: '45px' }}>Log Out</Button>
+          </MenuItem>
+        </NavLink> */}
 
         <MenuItem onClick={handleClose} disableRipple >
-          <a href="/"><Button variant="contained" sx={{ padding: '5px', paddingRight: '45px', paddingLeft: '45px' }} onClick={handleLogOut} >Log Out</Button></a>
+          <a href="/Logout"><Button variant="contained" sx={{ padding: '5px', paddingRight: '45px', paddingLeft: '45px' }}>Log Out</Button></a>
         </MenuItem>
+
+        {/* <MenuItem onClick={handleClose} disableRipple >
+          <a href="/"><Button variant="contained" sx={{ padding: '5px', paddingRight: '45px', paddingLeft: '45px' }} onClick={handleLogOut} >Log Out</Button></a>
+        </MenuItem> */}
             </StyledMenu>
         </div>
     );
