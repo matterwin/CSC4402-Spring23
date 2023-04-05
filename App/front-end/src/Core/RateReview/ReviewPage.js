@@ -10,7 +10,6 @@ import MovieRating from './MovieRating';
 import postReview from './InputHooks/postReview';
 import getMovieId from './InputHooks/getMovieId';
 import getReview from './InputHooks/getReview';
-
 import Alert from '@mui/material/Alert';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
@@ -25,6 +24,7 @@ function ReviewPage() {
   // const [renderInSuccess, setRenderInSuccess] =  useState(false);
   const [buttonColor, setButtonColor] =  useState("#1976d2");
   const [enableHover, setEnableHover] = useState(true);
+  // const [status, setStatus] = useState("");
 
   function handleFailure() {
 
@@ -41,7 +41,6 @@ function ReviewPage() {
         setEnableHover(true);
     }, 500);
 
-    setRenderInFail(true);
   }
 
   function handleSuccess() {
@@ -61,9 +60,9 @@ function ReviewPage() {
       setEnableHover(true);
     }, 1000);
 
-    // setTimeout(() => {
-    //   window.location = '/Rate&Review';
-    // }, 1000);
+    setTimeout(() => {
+      window.location = '/Rate&Review';
+    }, 1000);
   }
 
   useEffect(() => {
@@ -99,8 +98,19 @@ function ReviewPage() {
         handleFailure();
         return;
       }
-      handleSuccess();
-      postReview(); 
+
+
+      postReview()
+      .then(statusCode => {
+        console.log(`Status Code: ${statusCode}`);
+        if(statusCode === '200') {
+          handleSuccess();
+          return;
+        }      
+        setRenderInFail(true);
+        handleFailure();  
+      });        
+      return;   
     }
 
   return (
@@ -121,7 +131,6 @@ function ReviewPage() {
                         '&:hover': {
                           backgroundColor: '#f4f4f542'
                         } }}
-                        
                     /> 
                   </Tooltip>
                 </a>

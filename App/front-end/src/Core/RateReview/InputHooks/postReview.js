@@ -5,7 +5,7 @@ import getReview from './getReview';
 
 function postReview() {
     const userId = readCookies();
-    var statusCode = 0;
+    let statusCode = 0;
 
     const userInputData = {
         movieId: getMovieId(),
@@ -13,8 +13,6 @@ function postReview() {
         review: getReview(),
         rating: getRating()
     };
-
-    console.log(userInputData)
 
     const url = `http://localhost:8000/api/movieReviewController`;
     const options = {
@@ -25,7 +23,7 @@ function postReview() {
         body: JSON.stringify(userInputData)
     };
 
-    fetch(url, options)
+    return fetch(url, options)
     .then(response => {
         statusCode = response.status;
 
@@ -38,10 +36,14 @@ function postReview() {
         else if (response.status === 403) {
             throw new Error("403 Forbidden");
         }
+        return statusCode.toString();
       })
-    .catch(error => console.error(error));
+    .catch(error => {
+        console.error(error);
+        return statusCode.toString();
+    });
 
-    return statusCode;
+    
 }
 
 export default postReview;
