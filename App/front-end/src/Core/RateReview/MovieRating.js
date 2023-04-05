@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from './Slider';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import Tooltip from '@mui/material/Tooltip';
@@ -10,13 +10,12 @@ function MovieRating() {
 
     const [userText, setUserText] = useState("");
 
-    // useEffect(() => {
-    //     console.log(userText);
-    // },[userText])
+    useEffect(() => {
+        updateReview(userText);
+    },[userText])
 
     const handleTextareaChange = (event) => {
         setUserText(event.target.value);
-        updateReview(userText);
     }
 
     return (

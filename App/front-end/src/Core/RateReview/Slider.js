@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { styled, alpha, Box } from '@mui/system';
 import SliderUnstyled, { sliderUnstyledClasses } from '@mui/base/SliderUnstyled';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import updateRating from './InputHooks/updateRating';
 
 import './Slider.css'
@@ -138,9 +138,12 @@ export default function LabeledValuesSlider() {
     //     console.log(value);
     // },[value])
 
+    useEffect(() => {
+      updateRating(value);
+    },[value])
+
     const handleSliderChange = (event, newValue) => {
         setValue(newValue);
-        updateRating(value);
     };
 
     //620 is a good width too
