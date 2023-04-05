@@ -66,14 +66,13 @@ function RateReview() {
               <p className='p-msg'>Add a new Movie Review by clicking the button down below</p>      
               <Button 
                 sx={{
+                  backgroundColor: '#fff',
+                  border: '0.5px solid #2a3038',
+                  '&:hover': {
                     backgroundColor: '#A1C7ED',
-                    color: "#1976d2",
-                    border: '0.5px solid #2a3038',
-                    '&:hover': {
-                        backgroundColor: '#fff',
-                        color: "#1976d2",
-                        boxShadow: "0 0 5px rgba(0, 0, 0, 0.6)"
-                    }
+                    boxShadow: "0 0 5px rgba(0, 0, 0, 0.6)",
+                    color: "#1976d2"
+                  }
                 }}
                 href="/Rate&Review/create"
               >

@@ -27,6 +27,8 @@ function postReview() {
 
     fetch(url, options)
     .then(response => {
+        statusCode = response.status;
+
         if (response.status === 400) {
           throw new Error("400 Bad Request");
         }
@@ -36,8 +38,6 @@ function postReview() {
         else if (response.status === 403) {
             throw new Error("403 Forbidden");
         }
-        statusCode = response.status;
-        return; 
       })
     .catch(error => console.error(error));
 

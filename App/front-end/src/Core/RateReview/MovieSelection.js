@@ -10,7 +10,7 @@ import './MovieSelection.css';
 
 function MovieSelection() {
 
-  const [movieId, setMovieId] = useState(-2);
+  const [movieId, setMovieId] = useState(0);
   const [movie, setMovie] = useState(undefined); 
 
   useEffect(() => {

@@ -11,12 +11,61 @@ import postReview from './InputHooks/postReview';
 import getMovieId from './InputHooks/getMovieId';
 import getReview from './InputHooks/getReview';
 
+import Alert from '@mui/material/Alert';
+import CloseIcon from '@mui/icons-material/Close';
+import IconButton from '@mui/material/IconButton';
+
 function ReviewPage() {
 
   const userId = readCookies();
   const [userProfilePic, setUserProfilePic] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
-  
+  const [renderInFail, setRenderInFail] = useState(false);
+  const [buttonClass, setButtonClass] = useState("");
+  // const [renderInSuccess, setRenderInSuccess] =  useState(false);
+  const [buttonColor, setButtonColor] =  useState("#1976d2");
+  const [enableHover, setEnableHover] = useState(true);
+
+  function handleFailure() {
+
+    const intervalId = setInterval(() => {
+      setButtonClass("inputInvalid");
+      setButtonColor("#ff4444");
+      setEnableHover(false);
+    }, 0);
+
+    setTimeout(() => {
+        clearInterval(intervalId);
+        setButtonClass("");
+        setButtonColor("#1976d2");
+        setEnableHover(true);
+    }, 500);
+
+    setRenderInFail(true);
+  }
+
+  function handleSuccess() {
+
+    const intervalId = setInterval(() => {
+      setButtonClass("inputSuccess");
+      setButtonColor("#00ce8d");
+      // setRenderInSuccess(true);
+      setEnableHover(false);
+    }, 0);
+
+    setTimeout(() => {
+      clearInterval(intervalId);
+      setButtonClass("");
+      setButtonColor("#1976d2b");
+      // setRenderInSuccess(false);
+      setEnableHover(true);
+    }, 1000);
+
+    // setTimeout(() => {
+    //   window.location = '/Rate&Review';
+    // }, 1000);
+  }
+
   useEffect(() => {
 
     document.body.style.backgroundColor = '#2a3038';
@@ -46,13 +95,12 @@ function ReviewPage() {
     },[userId])
 
     function handleSubmit() {
-
-      //need to implement safety checks for invalid input; will do later tonight
-
-      console.log("movieId from Reviewpage             " + getMovieId());
-      console.log("review from Reviewpage             " + getReview());
-
-      postReview();
+      if(getReview() === '' || getMovieId() === 0) {
+        handleFailure();
+        return;
+      }
+      handleSuccess();
+      postReview(); 
     }
 
   return (
@@ -69,7 +117,7 @@ function ReviewPage() {
                         cursor: 'pointer',
                         color: '#fff', 
                         padding: '8px', 
-                        borderRadius: '100%', 
+                        borderRadius: '90%', 
                         '&:hover': {
                           backgroundColor: '#f4f4f542'
                         } }}
@@ -83,17 +131,19 @@ function ReviewPage() {
                 {/* <span> */}
                   <Button 
                       sx={{
-                          backgroundColor: isDisabled ? '#d9d9d9' : '#1976d2',
-                          color: isDisabled ? '#a6a6a6' : '#fff',
+                          backgroundColor: buttonColor,
+                          color: '#fff',
                           border: '0.5px solid #2a3038',
                           borderRadius: '50px',
                           '&:hover': {
-                            backgroundColor: isDisabled ? '#d9d9d9' : '#114d8a',
+                            backgroundColor: enableHover ? '#114d8a' : buttonColor
                           },
                           padding: '8px'
                       }}
                       disabled={isDisabled}
                       onClick={handleSubmit}
+                      className={buttonClass}
+                      type="submit"
                   >
                     Post
                   </Button>
@@ -101,6 +151,47 @@ function ReviewPage() {
                 {/* </Tooltip> */}
               </div>
             </div>
+            { renderInFail &&
+                <div className="review-alert-div">         
+                    <Alert 
+                      variant="outlined" 
+                      severity="error" 
+                      sx={{
+                        color: 'white', backgroundColor: 'rgb(105, 0, 0)', 
+                        paddingTop: '15px', paddingBottom: '15px', paddingLeft: '30px', paddingRight: '40px',
+                        width: '75%',
+                        borderRadius: '7px',
+                        borderWidth: '2px',
+                        borderColor: 'primary', 
+                        position: 'relative'               
+                      }}
+                      action={
+                        <IconButton
+                          aria-label="close"
+                          color="inherit"
+                          size="small"
+                          onClick={() => {
+                            setRenderInFail(false);
+                          }}
+                          sx={{
+                            padding: '10px',
+                            '&:hover': {
+                              backgroundColor: '#f4f4f542'
+                            },
+                            position: 'absolute',
+                            right: '10px',
+                            top: '50%',
+                            transform: 'translateY(-50%)'
+                          }}
+                        >
+                          <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                    }
+                    >
+                      Already reviewed this <strong>movie</strong>.
+                    </Alert>   
+                </div>
+            }
             <div>
               <div className='juicy-stuff'>
                 <div className="popup-pfp-div">
