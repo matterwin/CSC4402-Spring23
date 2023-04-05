@@ -94,7 +94,9 @@ function ReviewPage() {
     },[userId])
 
     function handleSubmit() {
-      if(getReview() === '' || getMovieId() === 0) {
+
+      console.log("review:           " + getReview().length);
+      if(getReview().length === 1 || getMovieId() === 0) {
         handleFailure();
         return;
       }
