@@ -62,6 +62,14 @@
     padding-bottom: 4px;
 }
 
+.movie-review-div:active > .movie-title {
+    text-decoration: underline;
+}
+
+.movie-review-div:active > .last-review {
+    text-decoration: underline;
+}
+
 .percentage {
     font-family: 'Source Sans Pro', sans-serif;
     /* font-size: 15px */

@@ -11,6 +11,7 @@ import './UserReviews.css'
 
 function UserReviews(props) {
   const [movieReviews, setMovieReviews] = useState(undefined);
+  const userId = readCookies();
 
   useEffect(() => {
     fetch(`http://localhost:8000/api/movieReviewControllerWithUser/${props.movieId}`)
@@ -33,15 +34,18 @@ function UserReviews(props) {
 
   reversedReviews.forEach((movieReview) => {
     const ratingToolTip = `${movieReview.rating} out of 5`
+    const checkUserIds = (movieReview.userId == userId);
+    const borderColor = checkUserIds ? 'black' : '#1976d2';
+    const cursor = checkUserIds ? 'pointer' : '';
     reviewsJsx.push(
             <div key={ movieReview.userId } className='comment-div'>
-              <div className="comment-pfp-div">
+              <div className="comment-pfp-div" style={{ borderColor: borderColor }}>
                   <Tooltip title={ movieReview.username }>
                       <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />      
                   </Tooltip>            
               </div>  
               <div>
-                <div className='comment-div-info'>
+                <div className='comment-div-info' style={{ borderColor: borderColor, cursor: cursor }}>
                   <div className='username'>
                     { movieReview.username }
                   </div> 
@@ -52,7 +56,7 @@ function UserReviews(props) {
                     <Tooltip title={ratingToolTip}>
                       <div className='rating-div'>
                         <div className='rating-inline'>
-                          <b>Rating:&nbsp;</b> { movieReview.rating }
+                          { movieReview.rating }
                           <StarIcon sx={{ color: '#1976d2', fontSize: '18px' }}/>
                         </div>
                       </div>
