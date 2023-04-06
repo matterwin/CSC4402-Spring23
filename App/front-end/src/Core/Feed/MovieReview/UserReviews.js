@@ -26,9 +26,11 @@ function UserReviews(props) {
     );
   }
 
+  const reversedReviews = movieReviews.reverse();
+
   const reviewsJsx = [];
 
-  movieReviews.forEach((movieReview) => {
+  reversedReviews.forEach((movieReview) => {
     const ratingToolTip = `${movieReview.rating} out of 5`
     reviewsJsx.push(
             <div key={ movieReview.userId } className='comment-div'>

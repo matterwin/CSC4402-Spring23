@@ -29,7 +29,7 @@ function InternalReviewPage() {
                     <p className='internal-rating-note'>Rating</p>
                 </div>
                 <div className='internal-info-icon-div'>
-                    <Tooltip title="Rate your movie out of 100">
+                    <Tooltip title="Rate out of 100">
                         <InfoOutlinedIcon sx={{ color: "#2c323a", padding: '0', margin: '0', cursor: 'pointer' }}/>
                     </Tooltip>
                 </div>
