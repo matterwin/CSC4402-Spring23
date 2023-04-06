@@ -1,0 +1,48 @@
+.internal-writing-review-div {
+    text-decoration: none;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content: center;
+    gap: 20px;
+}
+
+.internal-text-area {
+    padding: 10px;
+    text-decoration: none;
+    outline: none;
+    width: 600px;
+    height: 50px;
+    resize: none;
+    overflow-y: scroll;
+    font-family: 'Baloo 2', cursive;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 8px;
+    line-height: 25px;
+}
+
+.internal-rating-div {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -20px;
+    gap: 5px;
+  }
+
+.internal-rating-note {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    display: inline;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.2rem;
+    color: #2c323a;
+}
+
+.internal-info-icon-div {
+    display: inline-flex;
+}

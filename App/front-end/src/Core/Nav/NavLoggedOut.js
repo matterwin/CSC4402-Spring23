@@ -49,7 +49,7 @@ function OtherNav() {
                     FEED
                 </NavLink>  
  
-                <a href="/Login" className='navInactive'>RATE&REVIEW</a>
+                {/* <a href="/Login" className='navInactive'>RATE&REVIEW</a> */}
             </div>
 
             <div className="hide-for-hamburger-menu">

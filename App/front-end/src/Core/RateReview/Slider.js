@@ -130,7 +130,7 @@ SliderValueLabel.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export default function LabeledValuesSlider() {
+export default function LabeledValuesSlider(props) {
 
     const [value, setValue] = useState(0);
 
@@ -162,7 +162,7 @@ export default function LabeledValuesSlider() {
                     }}
                     sx={{ fontFamily: 'Source Sans Pro' }}
                 />                
-                <div className='actual-value'>{value}/100</div>
+                <div className='actual-value' style={{ color: `${props.tcolor}` }}>{value}/100</div>
             </div>
         </div>
     </Box>
