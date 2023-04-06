@@ -5,6 +5,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Loading from '../../Loading/Loading'
 import StarIcon from '@mui/icons-material/Star';
 import InternalReview from './InternalReview';
+import readCookies from '../../../Hooks/readCookies';
 
 import './UserReviews.css'
 
@@ -68,7 +69,7 @@ function UserReviews(props) {
       <div className='comment-container'>
           <div className='comment-flex-box'>
             <h2 className='reviews-heading'>Reviews</h2>
-            <InternalReview movieId={props.movieId} />
+            { readCookies() && <InternalReview movieId={props.movieId} /> }
             { reviewsJsx }
           </div>
         </div>
