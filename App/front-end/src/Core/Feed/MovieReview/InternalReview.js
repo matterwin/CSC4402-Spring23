@@ -14,6 +14,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 import { NavLink } from "react-router-dom";
 import InternalReviewPage from '../../RateReview/InternalReviewPage';
+import Loading from '../../Loading/Loading';
 
 function InternalReview(props) {
 
@@ -25,6 +26,7 @@ function InternalReview(props) {
     const [buttonColor, setButtonColor] =  useState("");
     const [enableHover, setEnableHover] = useState(true);
     const [changeToWhite, setChangeToWhite] = useState(false);
+    const [successfulLoad, setSuccessfulLoad] = useState(false);
 
   function handleFailure() {
 
@@ -45,6 +47,19 @@ function InternalReview(props) {
 
   }
 
+  function handleSuccessLoading() {
+
+    const intervalId = setInterval(() => {
+      setSuccessfulLoad(true);
+    }, 0);
+
+    setTimeout(() => {
+      clearInterval(intervalId);
+      setSuccessfulLoad(false);
+    }, 1000);
+
+  }
+
   function handleSuccess() {
 
     const intervalId = setInterval(() => {
@@ -60,11 +75,11 @@ function InternalReview(props) {
       setButtonColor("#1976d2b");
       setChangeToWhite(false);
       setEnableHover(true);
-    }, 1000);
-
-    // setTimeout(() => {
-    //   window.location = '/Rate&Review';
-    // }, 1000);
+      setTimeout(() => {
+        handleSuccessLoading();
+      }, 300);
+    }, 1000); 
+    
   }
 
   useEffect(() => {
@@ -142,80 +157,88 @@ function InternalReview(props) {
   return (
     <div>
         <div className='internal-comment-div'>
-            <div className="internal-pfp-div">
-                <Tooltip title={username}>
-                    <img className="internal-profile-pic" src={userProfilePic} alt="ProfilePicture" />      
-                </Tooltip>            
-            </div>
-            <div className='new-review-div'>
-                { renderInFail &&
-                    <div className="internal-review-alert-div">         
-                        <Alert 
-                        variant="outlined" 
-                        severity="error" 
-                        sx={{
-                            color: 'white', backgroundColor: 'rgb(105, 0, 0)', 
-                            paddingTop: '15px', paddingBottom: '15px', paddingLeft: '30px', paddingRight: '40px',
-                            width: '50%',
-                            borderRadius: '7px',
-                            borderWidth: '2px',
-                            borderColor: 'primary', 
-                            position: 'relative'               
-                        }}
-                        action={
-                            <IconButton
-                            aria-label="close"
-                            color="inherit"
-                            size="small"
-                            onClick={() => {
-                                setRenderInFail(false);
-                            }}
-                            sx={{
-                                padding: '10px',
-                                '&:hover': {
-                                backgroundColor: '#f4f4f542'
-                                },
-                                position: 'absolute',
-                                right: '10px',
-                                top: '50%',
-                                transform: 'translateY(-50%)'
-                            }}
-                            >
-                            <CloseIcon fontSize="inherit" />
-                            </IconButton>
-                        }
-                        >
-                        Already reviewed this <strong>movie</strong>.
-                        </Alert>   
-                    </div>
-                }
-                <div className='comment-as-div'>
-                    comment as <NavLink end to="/Profile"><span className='comment-as'>{username}</span></NavLink>
-                </div>
-                <div className='internal-comment-div-info'>
-                    <InternalReviewPage />
-                    <div className='internal-btn'>
-                        <Button 
-                        sx={{
-                            backgroundColor: buttonColor,
-                            color: changeToWhite ? '#fff' : '#2c323a',
-                            '&:hover': {
-                                backgroundColor: enableHover ? '#e1e1e1' : buttonColor,
-                                color: changeToWhite ? '#fff' : '#1976d2'
-                            },
-                            padding: '8px',
-                            borderBottomRightRadius:'0px',
-                            borderBottomLeftRadius:'0px'
-                        }}
-                        onClick={handleSubmit}
-                        className={buttonClass}
-                        type="submit"
-                        >
-                            Post
-                        </Button>
-                    </div>
-                </div>
-            </div>
+          {successfulLoad ? (
+            <div className='internal-loading'>
+              <Loading />
+            </div>  
+            ) : (
+            <>
+              <div className="internal-pfp-div">
+                  <Tooltip title={username}>
+                      <img className="internal-profile-pic" src={userProfilePic} alt="ProfilePicture" />      
+                  </Tooltip>            
+              </div>
+              <div className='new-review-div'>
+                  { renderInFail &&
+                      <div className="internal-review-alert-div">         
+                          <Alert 
+                          variant="outlined" 
+                          severity="error" 
+                          sx={{
+                              color: 'white', backgroundColor: 'rgb(105, 0, 0)', 
+                              paddingTop: '15px', paddingBottom: '15px', paddingLeft: '30px', paddingRight: '40px',
+                              width: '50%',
+                              borderRadius: '7px',
+                              borderWidth: '2px',
+                              borderColor: 'primary', 
+                              position: 'relative'               
+                          }}
+                          action={
+                              <IconButton
+                              aria-label="close"
+                              color="inherit"
+                              size="small"
+                              onClick={() => {
+                                  setRenderInFail(false);
+                              }}
+                              sx={{
+                                  padding: '10px',
+                                  '&:hover': {
+                                  backgroundColor: '#f4f4f542'
+                                  },
+                                  position: 'absolute',
+                                  right: '10px',
+                                  top: '50%',
+                                  transform: 'translateY(-50%)'
+                              }}
+                              >
+                              <CloseIcon fontSize="inherit" />
+                              </IconButton>
+                          }
+                          >
+                          Already reviewed this <strong>movie</strong>.
+                          </Alert>   
+                      </div>
+                  }
+                  <div className='comment-as-div'>
+                      comment as <NavLink end to="/Profile"><span className='comment-as'>{username}</span></NavLink>
+                  </div>
+                  <div className='internal-comment-div-info'>
+                      <InternalReviewPage />
+                      <div className='internal-btn'>
+                          <Button 
+                          sx={{
+                              backgroundColor: buttonColor,
+                              color: changeToWhite ? '#fff' : '#2c323a',
+                              '&:hover': {
+                                  backgroundColor: enableHover ? '#e1e1e1' : buttonColor,
+                                  color: changeToWhite ? '#fff' : '#1976d2'
+                              },
+                              padding: '8px',
+                              borderBottomRightRadius:'0px',
+                              borderBottomLeftRadius:'0px'
+                          }}
+                          onClick={handleSubmit}
+                          className={buttonClass}
+                          type="submit"
+                          >
+                              Post
+                          </Button>
+                      </div>
+                  </div>
+              </div>
+            </>)
+          }
         </div>
     </div>
   );
