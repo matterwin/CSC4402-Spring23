@@ -44,7 +44,7 @@ function UserReviews(props) {
                       <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />      
                   </Tooltip>            
               </div>  
-              <div>
+         
                 <div className='comment-div-info' style={{ borderColor: borderColor, cursor: cursor }}>
                   <div className='username'>
                     { movieReview.username }
@@ -63,7 +63,7 @@ function UserReviews(props) {
                     </Tooltip> 
                   </div>
                 </div>
-              </div>
+            
             </div>
     );
   });
@@ -71,12 +71,12 @@ function UserReviews(props) {
   return (
     <div>
       <div className='comment-container'>
-          <div className='comment-flex-box'>
-            <h2 className='reviews-heading'>Reviews</h2>
-            { readCookies() && <InternalReview movieId={props.movieId} /> }
-            { reviewsJsx }
-          </div>
+        <div className='comment-flex-box'>
+          <h2 className='reviews-heading'>Reviews</h2>
+          { readCookies() && <InternalReview movieId={props.movieId} /> }
+          { reviewsJsx }
         </div>
+      </div>
     </div>
   );
 }

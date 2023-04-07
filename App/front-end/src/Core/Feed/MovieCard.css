@@ -73,7 +73,8 @@
 .percentage {
     font-family: 'Source Sans Pro', sans-serif;
     /* font-size: 15px */
-    font-weight: 600;
+    font-weight: 800;
+    /* font-size: 1.1rem; */
 }
 
 .rating-in-movie-div {

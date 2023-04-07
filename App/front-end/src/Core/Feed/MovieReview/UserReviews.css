@@ -13,6 +13,7 @@
     align-items:flex-start;
     justify-content:flex-start;
     margin-bottom: 50px;
+    width: 100%;
   }
 
   .comment-div {
@@ -22,9 +23,7 @@
     justify-content:flex-start;
     gap: 10px;
     margin-bottom: 20px;
-    /* padding-bottom: 40px; */
-    /* border-bottom: 1px solid #8f8f8f; */
-    width:fit-content;
+    width: 100%;
   }
 
   .comment-div-info {
@@ -39,8 +38,7 @@
     padding-top: 0px;
     padding-bottom: 40px;
     display: flex;
-    /* width: 100%; */
-    min-width: 100px
+    width: 100%;
   }
   
   .comment-pfp-div {
@@ -150,6 +148,6 @@
       flex-direction:column;
       align-items:left;
       justify-content:center;
-      margin-bottom: 50px;
+      /* margin-bottom: 50px; */
     }
   }
