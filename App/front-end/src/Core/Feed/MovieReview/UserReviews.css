@@ -47,13 +47,14 @@
 
   .left-div {
     display:flex;
-    align-items:flex-start;
-    justify-content:flex-start;
+    align-items:center;
+    justify-content:center;
     flex-direction:column;
     gap: 2px;
   }
   
   .comment-pfp-div {
+    display: block;
     border: 1.5px solid #1976d2;
     width: 45px;
     height: 45px;
@@ -158,6 +159,14 @@
     font-weight: 600;
   }
 
+ .horizIcon-div {
+  display: none;
+ }
+
+ .vertIcon-div {
+  display: inline-flex;
+ }
+
   @media(max-width: 400px) {
     .comment-div {
       display:flex;
@@ -166,6 +175,19 @@
       justify-content:center;
       /* margin-bottom: 50px; */
     }
+
+    .left-div {
+      flex-direction:row;
+      gap:0px;
+    }
+
+    .horizIcon-div {
+      display: flex;
+     }
+    
+     .vertIcon-div {
+      display: none;
+     }
   }
   
   @media(max-width: 500px) {

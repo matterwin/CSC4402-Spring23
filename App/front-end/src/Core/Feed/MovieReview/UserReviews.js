@@ -10,6 +10,9 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { styled, alpha } from '@mui/material/styles';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import DeleteAlert from './DeleteAlert';
+import updateDelDisplay from './ReviewHooks/updateDelDisplay';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 import './UserReviews.css'
 
@@ -65,7 +68,7 @@ const StyledMenu = styled((props) => (
 function UserReviews(props) {
   const [movieReviews, setMovieReviews] = useState(undefined); 
   const userId = readCookies();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -75,6 +78,11 @@ function UserReviews(props) {
   const handleClose = () => {
       setAnchorEl(null);
   };
+
+  const handleDelete = () => {
+    handleClose();
+    updateDelDisplay(true);
+  }
 
   useEffect(() => {
     const preventScrolling = e => e.preventDefault()
@@ -97,98 +105,6 @@ function UserReviews(props) {
       </div>
     );
   }
-
-  // const reversedReviews = movieReviews.reverse();
-
-  // const reviewsJsx = [];
-
-  // movieReviews.forEach((movieReview, index) => {
-  //   const ratingToolTip = `${movieReview.rating} out of 5`
-  //   const checkUserIds = (movieReview.userId == userId);
-  //   const borderColor = checkUserIds ? 'black' : '#1976d2';
-  //   const cursor = checkUserIds ? 'pointer' : '';
-  //   const alterBg = index % 2 ? '#fff' : '#dae9f8';
-  //   reviewsJsx.push(
-  //           <div 
-  //             key={ movieReview.userId } 
-  //             className='comment-div' 
-  //             style={{ backgroundColor: checkUserIds ? '#f3f3f3' : alterBg }} 
-  //           >
-  //             <div className='left-div'>
-  //               <div className="comment-pfp-div" style={{ borderColor: borderColor }}>
-  //                   <Tooltip title={ movieReview.username }>
-  //                       <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />      
-  //                   </Tooltip>            
-  //               </div>
-  //               { checkUserIds && 
-  //                 <div>
-  //                   <div
-  //                     id="demo-customized-button"
-  //                     aria-controls={open ? 'demo-customized-menu' : undefined}
-  //                     aria-haspopup="true"
-  //                     aria-expanded={open ? 'true' : undefined}
-  //                     variant="contained"
-  //                     onClick={handleClick} 
-  //                   >   
-  //                     <div>
-  //                         <MoreVertIcon 
-  //                           sx={{ 
-  //                           padding: '10px', 
-  //                           cursor: 'pointer', 
-  //                           borderRadius: '100%',
-  //                           color: '#8f8f8f',
-  //                           '&:hover': {
-  //                             backgroundColor: '#e1e1e1'
-  //                           }
-  //                           }}
-  //                           aria-label="cart"
-  //                         />
-  //                     </div>         
-  //                   </div>
-  //                   <StyledMenu
-  //                     id="demo-customized-menu"
-  //                     MenuListProps={{
-  //                         'aria-labelledby': 'demo-customized-button',
-  //                     }}
-  //                     anchorEl={anchorEl}
-  //                     open={open}
-  //                     onClose={handleClose}
-  //                     disableScrollLock={true}
-  //                     sx={{position: 'absolute'}}
-  //                   >
-  //                     <MenuItem onClick={handleClose} disableRipple>
-  //                       Edit
-  //                     </MenuItem>
-  //                     <MenuItem onClick={handleClose} disableRipple>
-  //                       Delete
-  //                     </MenuItem>
-  //                   </StyledMenu>
-  //                 </div>
-  //               }
-  //             </div>
-  //               <div className='comment-div-info' style={{ borderColor: borderColor, cursor: cursor }}>
-  //                 <div className='username'>
-  //                   { movieReview.username }
-  //                 </div> 
-  //                 <div className='desc'>
-  //                     { movieReview.review }
-  //                 </div>
-  //                 <div className='usr-rating'>
-  //                   <Tooltip title={ratingToolTip}>
-  //                     <div className='rating-div'>
-  //                       <div className='rating-inline'>
-  //                         { movieReview.rating }
-  //                         <StarIcon sx={{ color: '#1976d2', fontSize: '18px' }}/>
-  //                       </div>
-  //                     </div>
-  //                   </Tooltip> 
-  //                 </div>
-  //               </div>
-  //           </div>
-  //   );
-  // });\
-
-
 
   const reviewsJsx = movieReviews.map((movieReview, index) => {
     const ratingToolTip = `${movieReview.rating} out of 5`
@@ -219,10 +135,10 @@ function UserReviews(props) {
                 variant="contained"
                 onClick={handleClick} 
               >   
-                <div>
+                <div className='vertIcon-div'>
                     <MoreVertIcon 
                       sx={{ 
-                      padding: '10px', 
+                      padding: '12px', 
                       cursor: 'pointer', 
                       borderRadius: '100%',
                       color: '#8f8f8f',
@@ -232,7 +148,21 @@ function UserReviews(props) {
                       }}
                       aria-label="cart"
                     />
-                </div>         
+                </div> 
+                <div className='horizIcon-div'>
+                    <MoreHorizIcon 
+                      sx={{ 
+                      padding: '12px', 
+                      cursor: 'pointer', 
+                      borderRadius: '100%',
+                      color: '#8f8f8f',
+                      '&:hover': {
+                        backgroundColor: '#e1e1e1'
+                      }
+                      }}
+                      aria-label="cart"
+                    />
+                </div>          
               </div>
               <StyledMenu
                 id="demo-customized-menu"
@@ -242,16 +172,12 @@ function UserReviews(props) {
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
-                disableScrollLock={false}
-                sx={{
-                  top: '-15px',
-                }}
-                
+                disableScrollLock={false} 
               >
-                <MenuItem onClick={handleClose} disableRipple>
+                {/* <MenuItem onClick={handleClose} disableRipple>
                   Edit
-                </MenuItem>
-                <MenuItem onClick={handleClose} disableRipple>
+                </MenuItem> */}
+                <MenuItem onClick={handleDelete} disableRipple>
                   Delete
                 </MenuItem>
               </StyledMenu>
@@ -285,6 +211,7 @@ function UserReviews(props) {
       <div className='comment-container'>
         <div className='comment-flex-box'>
           <h2 className='reviews-heading'>Reviews</h2>
+          {<DeleteAlert deleteMovieId={props.movieId}/>}
           { readCookies() && <InternalReview movieId={props.movieId} /> }
           { reviewsJsx }
         </div>
