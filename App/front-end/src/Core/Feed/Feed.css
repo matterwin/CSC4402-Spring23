@@ -148,7 +148,7 @@
     }
   }
 
-  @media(max-width: 425px) {
+  @media(max-width: 500px) {
     .feed-container {
         width: 100%;
         border: none;

@@ -155,6 +155,11 @@
           width: 100%;
           border: none;
       }
+
+      .movie-and-info-div {
+        margin-right: 10px;
+        margin-left: 10px;
+      }
   
       .feed-bar, .feed-bar-actual {
         margin-left: 0px;
