@@ -13,6 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import DeleteAlert from './DeleteAlert';
 import updateDelDisplay from './ReviewHooks/updateDelDisplay';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import updateShowPreview from './ReviewHooks/updateShowPreview';
 
 import './UserReviews.css'
 
@@ -85,16 +86,10 @@ function UserReviews(props) {
   }
 
   useEffect(() => {
-    const preventScrolling = e => e.preventDefault()
-  
-    window.addEventListener('scroll', preventScrolling);
-    return () => window.removeEventListener('scroll', preventScrolling);
-  }, []);
-
-  useEffect(() => {
     fetch(`http://localhost:8000/api/movieReviewControllerWithUser/${props.movieId}`)
     .then(res => res.json())
-    .then(json => setMovieReviews(json))
+    .then(json => {setMovieReviews(json)
+    })
     .catch(err => console.error(err));
   }, [props]);
 
@@ -108,7 +103,8 @@ function UserReviews(props) {
 
   const reviewsJsx = movieReviews.map((movieReview, index) => {
     const ratingToolTip = `${movieReview.rating} out of 5`
-    const checkUserIds = (movieReview.userId == userId);
+    const checkUserIds = (parseInt(movieReview.userId) === parseInt(userId));
+    if(checkUserIds) updateShowPreview(true);
     const borderColor = checkUserIds ? 'black' : '#1976d2';
     const cursor = checkUserIds ? 'pointer' : '';
     const alterBg = index % 2 ? '#fff' : '#dae9f8';
