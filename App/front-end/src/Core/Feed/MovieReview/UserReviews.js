@@ -14,6 +14,7 @@ import DeleteAlert from './DeleteAlert';
 import updateDelDisplay from './ReviewHooks/updateDelDisplay';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import updateShowPreview from './ReviewHooks/updateShowPreview';
+// import getDelDisplay from './ReviewHooks/getDelDisplay';
 
 import './UserReviews.css'
 
@@ -92,7 +93,7 @@ function UserReviews(props) {
     })
     .catch(err => console.error(err));
   }, [props]);
-
+  
   if(!movieReviews) {
     return(
       <div className='loading'>
@@ -207,7 +208,7 @@ function UserReviews(props) {
       <div className='comment-container'>
         <div className='comment-flex-box'>
           <h2 className='reviews-heading'>Reviews</h2>
-          {<DeleteAlert deleteMovieId={props.movieId}/>}
+          { <DeleteAlert deleteMovieId={props.movieId}/> }
           { readCookies() && <InternalReview movieId={props.movieId} /> }
           { reviewsJsx }
         </div>

@@ -15,7 +15,10 @@ export default function DeleteAlert(props) {
 
     useEffect(() => {
         setOpen(getDelDisplay());
+        
     },[getDelDisplay()])
+
+    console.log("open:     " + open)
 
   const handleClose = () => {
     updateDelDisplay(false);
@@ -49,7 +52,7 @@ export default function DeleteAlert(props) {
             Are you sure you want to delete your review?
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
+        <DialogActions sx={{ backgroundColor: '#e4e6e7', }}>
           <Button 
             onClick={handleClose} 
             sx={{
@@ -69,10 +72,11 @@ export default function DeleteAlert(props) {
               color: "#fff",
               border: '0.5px solid #1976d2',
               '&:hover': {
-                  backgroundColor: '#13599e',
-                  color: "#fff"
+                  backgroundColor: '#f74242',
+                  color: "#fff",
+                  border: '0.5px solid #f74242',
               },
-              borderRadius: '20px'
+              borderRadius: '20px',
           }}
           >
             Delete

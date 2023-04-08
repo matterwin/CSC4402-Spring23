@@ -1,0 +1,12 @@
+.column-box {
+    text-decoration: none;
+    display:flex;
+    flex-direction:column;
+    align-items:left;
+    justify-content: center;
+    gap: 8px;
+}
+/* 
+.column-box > div {
+    display: flex;
+} */

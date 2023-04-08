@@ -32,6 +32,21 @@
     width:fit-content;
   }
 
+  .preview-div-right {
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+  }
+
+  .comment-as-div-and-more-icon {
+    display:flex;
+    flex-direction:row;
+    align-items:flex-start;
+    justify-content:flex-start;
+    gap: 4px;
+  }
+
   .internal-comment-div-info {
     border: 1.5px solid #2c323a;
     background-color: #e1e1e1;

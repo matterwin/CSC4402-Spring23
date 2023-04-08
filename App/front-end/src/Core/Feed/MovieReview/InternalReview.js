@@ -17,6 +17,9 @@ import InternalReviewPage from '../../RateReview/InternalReviewPage';
 import Loading from '../../Loading/Loading';
 import InternalPreview from './InternalPreview';
 import getShowPreview from './ReviewHooks/getShowPreview';
+import updateDelDisplay from './ReviewHooks/updateDelDisplay';
+import DeleteAlert from './DeleteAlert';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 function InternalReview(props) {
 
@@ -162,10 +165,48 @@ function InternalReview(props) {
         updateMovieId(props.movieId);
     },[props.movieId])
 
+    const handleDelete = () => {
+      updateDelDisplay(true);
+    }
+
   return (
     <div>
         <div className='internal-comment-div'>
-          { showPreview ? (<div><InternalPreview movieId={movieIdConst}/></div>) : (<>
+          { showPreview ? (
+            <>
+            
+              <div className="comment-pfp-div">
+                <Tooltip title={username}>
+                    <img className="internal-profile-pic" src={userProfilePic} alt="ProfilePicture" />      
+                </Tooltip>            
+              </div>
+              <div className='preview-div-right'>
+                <div className='comment-as-div-and-more-icon'>
+                  <div className='comment-as-div'>
+                    comment as <NavLink end to="/Profile"><span className='comment-as'>{username}</span></NavLink>
+                  </div>
+                  <div>
+                    <DeleteForeverIcon
+                      sx={{ 
+                        padding: '0px', 
+                        cursor: 'pointer', 
+                        borderRadius: '100%',
+                        color: '#8f8f8f',
+                        '&:hover': {
+                          backgroundColor: '#e1e1e1',
+                          color: '#f74242'
+                        }
+                      }}
+                      aria-label="cart"
+                      onClick={handleDelete}
+                    />
+                  </div>          
+                </div>
+              </div>             
+              <InternalPreview movieId={movieIdConst}/>
+              
+            </>
+            ) : (<>
             {successfulLoad ? (
               <div className='internal-loading'>
                 <Loading />
