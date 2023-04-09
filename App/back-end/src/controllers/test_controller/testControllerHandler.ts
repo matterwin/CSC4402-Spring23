@@ -56,6 +56,11 @@ export const getAllTestHandler = async (_req: Request, res: Response): Promise<v
 export const getTestHandler = async (req: Request, res: Response): Promise<void> => {
   const id = req.params._id;
 
+  if (id === undefined) {
+    res.status(403).send();
+    return;
+  }
+
   try {
     const queryResult = await executeQuery(res, 'sql/test/getTest.sql', [id]);
 
@@ -96,6 +101,11 @@ export const putTestHandler = async (req: Request, res: Response): Promise<void>
 
 export const deleteTestHandler = async (req: Request, res: Response): Promise<void> => {
   const id = req.params._id;
+
+  if (id === undefined) {
+    res.status(403).send();
+    return;
+  }
 
   try {
     const queryResult = await executeQuery(res, 'sql/test/deleteTest.sql', [id]);

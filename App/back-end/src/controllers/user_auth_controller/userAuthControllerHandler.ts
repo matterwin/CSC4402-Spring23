@@ -88,6 +88,11 @@ export const getAllUserAuthHandler = async (_req: Request, res: Response): Promi
 export const getUserAuthHandler = async (req: Request, res: Response): Promise<void> => {
   const id = req.params._id;
 
+  if (id === undefined) {
+    res.status(403).send();
+    return;
+  }
+
   try {
     const queryResult = await executeQuery(res, 'sql/userAuth/getUserAuth.sql', [id]);
 
@@ -134,6 +139,11 @@ export const putUserAuthHandler = async (req: Request, res: Response): Promise<v
 
 export const deleteUserAuthHandler = async (req: Request, res: Response): Promise<void> => {
   const id = req.params._id;
+
+  if (id === undefined) {
+    res.status(403).send();
+    return;
+  }
 
   try {
     const queryResult = await executeQuery(res, 'sql/userAuth/deleteUserAuth.sql', [id]);

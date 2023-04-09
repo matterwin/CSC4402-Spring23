@@ -76,6 +76,11 @@ export const getMovieReviewAvgRatingHandler = async (
 ): Promise<void> => {
   const userId = req.params._id;
 
+  if (userId === undefined) {
+    res.status(403).send();
+    return;
+  }
+
   try {
     const queryResult = await executeQuery(res, 'sql/movieReview/getMovieReviewAvgRating.sql', [
       userId
@@ -101,6 +106,11 @@ export const getMovieReviewByMovieIdWithUserHandler = async (
 ): Promise<void> => {
   const movieId = req.params._id;
 
+  if (movieId === undefined) {
+    res.status(403).send();
+    return;
+  }
+
   try {
     const queryResult = await executeQuery(
       res,
@@ -124,6 +134,11 @@ export const getMovieReviewByMovieIdHandler = async (
 ): Promise<void> => {
   const movieId = req.params._id;
 
+  if (movieId === undefined) {
+    res.status(403).send();
+    return;
+  }
+
   try {
     const queryResult = await executeQuery(res, 'sql/movieReview/getMovieReviewByMovieId.sql', [
       movieId
@@ -141,6 +156,11 @@ export const getMovieReviewByMovieIdHandler = async (
 
 export const getAllUserMovieReviewHandler = async (req: Request, res: Response): Promise<void> => {
   const userId = req.params._id;
+
+  if (userId === undefined) {
+    res.status(403).send();
+    return;
+  }
 
   try {
     const queryResult = await executeQuery(res, 'sql/movieReview/getMovieReviewByMovieId.sql', [

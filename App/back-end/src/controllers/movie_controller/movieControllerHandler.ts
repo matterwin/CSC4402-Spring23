@@ -29,6 +29,16 @@ export const postMovieHandler = async (req: Request, res: Response): Promise<voi
   const movieSpecificFolder = splitFilePath[splitFilePath.length - 1];
   const movieFileName = file.originalname;
 
+  if (
+    movieFolder === undefined ||
+    movieSpecificFolder === undefined ||
+    movieFileName === undefined
+  ) {
+    console.error('undefined movie path');
+    res.status(500).send();
+    return;
+  }
+
   const endFilePath = `/${movieFolder}/${movieSpecificFolder}/${movieFileName}`;
 
   try {
@@ -51,6 +61,11 @@ export const postMovieHandler = async (req: Request, res: Response): Promise<voi
 
 export const getMovieWithAvgHandler = async (req: Request, res: Response): Promise<void> => {
   const id = req.params._id;
+
+  if (id === undefined) {
+    res.status(403).send();
+    return;
+  }
 
   try {
     const queryResult = await executeQuery(res, 'sql/movie/getMovieWithAvg.sql', [id, id]);
@@ -146,6 +161,11 @@ export const getAllMovieFeedHandler = async (_req: Request, res: Response): Prom
 export const getMovieHandler = async (req: Request, res: Response): Promise<void> => {
   const id = req.params._id;
 
+  if (id === undefined) {
+    res.status(403).send();
+    return;
+  }
+
   try {
     const queryResult = await executeQuery(res, 'sql/movie/getMovie.sql', [id]);
 
@@ -163,6 +183,11 @@ export const getMovieHandler = async (req: Request, res: Response): Promise<void
 export const getMovieFeedHandler = async (req: Request, res: Response): Promise<void> => {
   const id = req.params._id;
 
+  if (id === undefined) {
+    res.status(403).send();
+    return;
+  }
+
   try {
     const queryResult = await executeQuery(res, 'sql/movie/getMovieFeed.sql', [id, id]);
 
@@ -179,6 +204,11 @@ export const getMovieFeedHandler = async (req: Request, res: Response): Promise<
 
 export const deleteMovieHandler = async (req: Request, res: Response): Promise<void> => {
   const id = req.params._id;
+
+  if (id === undefined) {
+    res.status(403).send();
+    return;
+  }
 
   try {
     const queryResult = await executeQuery(res, 'sql/movie/deleteMovie.sql', [id]);
