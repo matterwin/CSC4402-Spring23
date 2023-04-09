@@ -173,8 +173,7 @@ function InternalReview(props) {
     <div>
         <div className='internal-comment-div'>
           { showPreview ? (
-            <>
-            
+            <>  
               <div className="comment-pfp-div">
                 <Tooltip title={<h3 style={{ margin: '0px' }}>{username}</h3>}>
                     <img className="internal-profile-pic" src={userProfilePic} alt="ProfilePicture" />      
@@ -186,7 +185,7 @@ function InternalReview(props) {
                     reviewed as <NavLink end to="/Profile"><span className='comment-as'>{username}</span></NavLink>
                   </div>
                   <div>
-                    <Tooltip title={<h3 style={{ margin: '0px' }}>delete</h3>}>
+                    <Tooltip title={<h3 style={{ margin: '0px' }}>delete</h3>} placement="top">
                     <DeleteForeverIcon
                       sx={{ 
                         padding: '0px', 
