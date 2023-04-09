@@ -121,7 +121,7 @@ function ReviewPage() {
             <div className='buttons-div'>
               <div className='exit-div'>
                 <a href="/Rate&Review">
-                  <Tooltip title="Exit page">
+                  <Tooltip title={<h3 style={{ margin: '0px' }}>Exit page</h3>}>
                     <KeyboardBackspaceIcon 
                       sx={{ 
                         fontSize: 30, 

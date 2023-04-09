@@ -2,12 +2,15 @@ import React, {useEffect, useState} from 'react';
 import '../MovieCard.css';
 import Stars from '../Stars';
 import Loading from '../../Loading/Loading';
-import Unknown from '../../Videos/johncena.png';
+import Unknown from '../../Videos/superbad.jpg';
 import './Movie.css'
 import UserReviews from './UserReviews';
+import Tooltip from '@mui/material/Tooltip';
+import readCookies from '../../../Hooks/readCookies';
 
 function Movie() {
   const [movie, setMovie] = useState(undefined); 
+  const userId = readCookies();
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search); 
@@ -30,13 +33,31 @@ function Movie() {
   return (
     <div>
       <div className="feed-container">
-      <div className='blue-box'>
-        <div className="feed-opening-div">
-          <div className='feed-opening-title'>
-            <p className='feed-welcome-title'>Movies Across the Globe</p>
+        <div className='blue-box-top'>
+            <div className='login-signup'>
+              { !userId ? 
+                <>
+                  <span><a href='/Login' className='login-a'>LOGIN</a></span>
+                  /
+                  <span><a href='/Register' className='signup-a'>SIGNUP</a></span>
+                </> : <></>
+              }
+            </div>
+          </div>
+        <div className='blue-box'>
+          <div className="feed-opening-div">
+            <div className='feed-opening-title'>
+              <p className='feed-welcome-title'>Movies Across the Globe</p>
+            </div>
           </div>
         </div>
-      </div>
+        <div className='blue-box-bottom'>
+          <div className='rating-bot'>
+            <Tooltip title='Ratings are out of 5' placement="top">
+              <p>Ratings</p>
+            </Tooltip>
+          </div>
+        </div>
       <div className='movie-container'>
         <div className='movie-and-info-div'>
           <div className='movie-div'>

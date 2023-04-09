@@ -15,7 +15,6 @@ import updateDelDisplay from './ReviewHooks/updateDelDisplay';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import updateShowPreview from './ReviewHooks/updateShowPreview';
 // import getDelDisplay from './ReviewHooks/getDelDisplay';
-
 import './UserReviews.css'
 
 const StyledMenu = styled((props) => (
@@ -72,6 +71,7 @@ function UserReviews(props) {
   const userId = readCookies();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const [hoverOrNot, setHoverOrNot] = useState(false);
 
   const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
@@ -85,6 +85,12 @@ function UserReviews(props) {
     handleClose();
     updateDelDisplay(true);
   }
+
+  // useEffect(() => {
+  //   if(anchorEl !== null);
+  //   else 
+  //     setHoverOrNot(false);
+  // },[anchorEl])
 
   useEffect(() => {
     fetch(`http://localhost:8000/api/movieReviewControllerWithUser/${props.movieId}`)
@@ -114,16 +120,18 @@ function UserReviews(props) {
       <div 
         key={ movieReview.userId } 
         className='comment-div' 
-        style={{ backgroundColor: checkUserIds ? '#f3f3f3' : alterBg }} 
+        style={{ backgroundColor: checkUserIds ? '#f3f3f3' : alterBg }}
+        onMouseOver={checkUserIds ? (() => setHoverOrNot(true)) : (() => {})}
+        onMouseOut={checkUserIds ? (() => setHoverOrNot(false)) : (() => {})}
       >
         <div className='left-div'>
           <div className="comment-pfp-div" style={{ borderColor: borderColor }}>
-              <Tooltip title={ movieReview.username }>
+              <Tooltip title={<h3 style={{ margin: '0px' }}>{movieReview.username}</h3>}>
                   <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />      
-              </Tooltip>            
+              </Tooltip >            
           </div>
           { checkUserIds && 
-            <div style={{ position: 'relative' }}>
+            <div style={{ position: 'relative' }} className={ hoverOrNot ? '' : 'hide-more-icon' }> 
               <div
                 id="demo-customized-button"
                 aria-controls={open ? 'demo-customized-menu' : undefined}
@@ -133,6 +141,7 @@ function UserReviews(props) {
                 onClick={handleClick} 
               >   
                 <div className='vertIcon-div'>
+                <Tooltip title={<h3 style={{ margin: '0px' }}>Options</h3>}>
                     <MoreVertIcon 
                       sx={{ 
                       padding: '12px', 
@@ -145,6 +154,7 @@ function UserReviews(props) {
                       }}
                       aria-label="cart"
                     />
+                    </Tooltip>
                 </div> 
                 <div className='horizIcon-div'>
                     <MoreHorizIcon 
@@ -189,7 +199,7 @@ function UserReviews(props) {
                 { movieReview.review }
             </div>
             <div className='usr-rating'>
-              <Tooltip title={ratingToolTip}>
+              <Tooltip title={<h3 style={{ margin: '0px' }}>{ratingToolTip}</h3>}>
                 <div className='rating-div'>
                   <div className='rating-inline'>
                     { movieReview.rating }

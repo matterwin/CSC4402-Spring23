@@ -58,7 +58,7 @@ function MovieSelection() {
         </div>
       ) : (
         <div className='flex-div-select'>
-          <Tooltip title="No movie selected">
+          <Tooltip title={<h3 style={{ margin: '0px' }}>No movie selected</h3>}>
             <img 
               alt="by" 
               className="movie-pic-selection"

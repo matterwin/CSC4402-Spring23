@@ -176,16 +176,17 @@ function InternalReview(props) {
             <>
             
               <div className="comment-pfp-div">
-                <Tooltip title={username}>
+                <Tooltip title={<h3 style={{ margin: '0px' }}>{username}</h3>}>
                     <img className="internal-profile-pic" src={userProfilePic} alt="ProfilePicture" />      
                 </Tooltip>            
               </div>
               <div className='preview-div-right'>
                 <div className='comment-as-div-and-more-icon'>
                   <div className='comment-as-div'>
-                    comment as <NavLink end to="/Profile"><span className='comment-as'>{username}</span></NavLink>
+                    reviewed as <NavLink end to="/Profile"><span className='comment-as'>{username}</span></NavLink>
                   </div>
                   <div>
+                    <Tooltip title={<h3 style={{ margin: '0px' }}>delete</h3>}>
                     <DeleteForeverIcon
                       sx={{ 
                         padding: '0px', 
@@ -200,6 +201,7 @@ function InternalReview(props) {
                       aria-label="cart"
                       onClick={handleDelete}
                     />
+                    </Tooltip>
                   </div>          
                 </div>
               </div>             
@@ -214,7 +216,7 @@ function InternalReview(props) {
               ) : (
               <>
                 <div className="internal-pfp-div">
-                    <Tooltip title={username}>
+                    <Tooltip title={<h3 style={{ margin: '0px' }}>{username}</h3>}>
                         <img className="internal-profile-pic" src={userProfilePic} alt="ProfilePicture" />      
                     </Tooltip>            
                 </div>

@@ -30,7 +30,7 @@ export default function InternalPreview(props) {
                 {movieReviews.review}
             </div>
             <div className='usr-rating'>
-              <Tooltip title={`${movieReviews.rating} out of 5`}>
+              <Tooltip title={<h3 style={{ margin: '0px' }}>{`${movieReviews.rating} out of 5`}</h3>}>
                 <div className='rating-div'>
                   <div className='rating-inline'>
                     { movieReviews.rating }

@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import './MovieCard.css';
 import Stars from './Stars';
 import Loading from '../Loading/Loading'
-import Unknown from '../Videos/johncena.png';
+// import Unknown from '../Videos/johncena.png';
+import Unknown from '../Videos/superbad.jpg';
 import { useNavigate } from "react-router-dom";
 import Tooltip from '@mui/material/Tooltip';
 

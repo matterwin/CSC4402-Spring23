@@ -122,6 +122,10 @@
     text-decoration: underline;
   }
 
+  .hide-more-icon {
+    opacity: 0;
+  }
+
   .desc {
     display: flex;
     font-family: 'Source Sans Pro', sans-serif;

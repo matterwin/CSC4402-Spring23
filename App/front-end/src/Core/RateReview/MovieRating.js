@@ -26,7 +26,7 @@ function MovieRating() {
                     <p className='rating-note'>Rating</p>
                 </div>
                 <div className='info-icon-div'>
-                    <Tooltip title="Rate out of 100">
+                    <Tooltip title={<h3 style={{ margin: '0px' }}>Rate out of 100</h3>}>
                         <InfoOutlinedIcon sx={{ color: "#fff", padding: '0', margin: '0' }}/>
                     </Tooltip>
                 </div>

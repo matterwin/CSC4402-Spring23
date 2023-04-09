@@ -72,9 +72,10 @@
 
 .percentage {
     font-family: 'Source Sans Pro', sans-serif;
-    /* font-size: 15px */
-    font-weight: 800;
-    /* font-size: 1.1rem; */
+    font-weight: 600;
+    font-size: 1.05rem;
+    /* font-weight: 800;
+    font-size: 1.1rem; */
 }
 
 .rating-in-movie-div {
@@ -89,7 +90,8 @@
 .last-review {
     margin-top: -5px;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 13px
+    font-size: 13px;
+    color: rgb(53, 53, 53);
 }
 
   
