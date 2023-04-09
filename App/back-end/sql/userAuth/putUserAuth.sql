@@ -1,3 +1,3 @@
 UPDATE userAuthTable 
-SET email=?, password=?
+SET username=?, email=?, password=?
 WHERE id=?;
