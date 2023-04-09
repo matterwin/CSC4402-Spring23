@@ -118,25 +118,6 @@
     display: flex;
   }
 
-
-    
-  
-    @media(max-width: 765px) {
-      .feed-welcome-title {
-          font-size: 1.3rem;
-      }
-      
-      .feed-welcome-msg {
-          font-size: 13px;
-      }
-    }
-  
-    @media(max-width: 1181px) {
-      .feed-welcome-title, .feed-welcome-msg {
-          margin-left: 100px;
-          margin-right: 100px;
-      }
-    }
   
     @media(max-width: 1290px) {
       .feed-container {
@@ -166,47 +147,10 @@
         margin-right: 0px;
         padding-left: 0px;
         padding-right: 0px;
-        border-bottom: 1px solid #1976d2;
+        width: 100%;
       }
   
       .movie-review-div {
         padding-bottom: 80px;
-      }
-    }
-  
-    @media(max-width: 635px) {
-      .feed-welcome-title, .feed-welcome-msg {
-          margin-left: 70px;
-          margin-right: 70px;
-      }
-    }
-  
-    @media(max-width: 565px) {
-      .feed-welcome-title, .feed-welcome-msg {
-          margin-left: 40px;
-          margin-right: 40px;
-      }
-    }
-  
-    @media(max-width: 505px) {
-      .feed-welcome-title, .feed-welcome-msg {
-          margin-left: 10px;
-          margin-right: 10px;
-      }
-    }
-  
-    @media(max-width: 435px) {
-      .feed-welcome-title {
-          font-size: 1.1rem;
-      }
-    }
-  
-    @media(max-width: 330px) {
-      .feed-welcome-title {
-          font-size: 1rem;
-      }
-      
-      .feed-welcome-msg {
-          font-size: 13px;
       }
     }

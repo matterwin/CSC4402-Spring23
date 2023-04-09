@@ -42,6 +42,9 @@
     color:  #1976d2;
 }
 
+.movie-review-div:hover .percentage {
+    color:  #1976d2;
+}
 
 .movie-pic {
     width: 160px;

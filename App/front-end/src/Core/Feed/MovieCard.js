@@ -11,7 +11,7 @@ import Tooltip from '@mui/material/Tooltip';
 function MovieCard() {
   const [movies, setMovies] = useState(undefined);
   const [showToolTip, setShowToolTip] = useState(false);
-  const [toolTipMsg, setToolTipMsg] = useState("");
+  // const [toolTipMsg, setToolTipMsg] = useState("");
   const navigate = useNavigate();
  
   useEffect(() => {
@@ -21,9 +21,9 @@ function MovieCard() {
       .catch(err => console.error(err));
   }, []);
 
-  useEffect(() => {
-    setToolTipMsg("Can't see picture");
-  },[showToolTip])
+  // useEffect(() => {
+  //   setToolTipMsg("Can't see picture");
+  // },[showToolTip])
     
   if(!movies) {
     return (
@@ -42,7 +42,7 @@ function MovieCard() {
   movies.forEach((movie) => {
     jsxMovies.push(
         <div key={ movie.name } className='movie-review-div' data={ movie.id }>
-          <Tooltip title={toolTipMsg}>
+          {/* <Tooltip title={toolTipMsg}> */}
             <img 
               src={ movie.filepath } 
               alt={ movie.name } 
@@ -55,7 +55,8 @@ function MovieCard() {
                 setShowToolTip(true);
               }} 
               className="movie-pic"
-            /></Tooltip>
+            />
+            {/* </Tooltip> */}
             <div className='rating-in-movie-div'>
               <Stars value={movie.avg}/>
               <div className='percentage'>

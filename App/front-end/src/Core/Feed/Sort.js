@@ -21,8 +21,21 @@ const MenuProps = {
       maxwidth: 30,
       borderRadius: 6,     
       border: '1.8px solid #1976d2',
-      borderTop: 0,
+      arginTop: "8px",
+      width: "fit-content",
+      transformOrigin: "right top",
+      marginRight: "0px",
+      marginLeft: "auto",
     },
+    elevation: 0,
+  },
+  anchorOrigin: {
+    vertical: "bottom",
+    horizontal: "left",
+  },
+  transformOrigin: {
+    vertical: "top",
+    horizontal: "left",
   },
 };
 
@@ -74,8 +87,8 @@ export default function MultipleSelectChip() {
   return (
     <div className="feed-bar-actual">
       <div>
-        <FormControl sx={{ m: 0.1, width: 150, fontSize: 14, borderBottom: '0px'}}>
-          <InputLabel id="demo-multiple-chip-label">SORT</InputLabel>
+        <FormControl sx={{ m: 0.1, width: 100, fontSize: 14, borderBottom: '0px'}} size='small'>
+          <InputLabel id="demo-multiple-chip-label" sx={{ fontWeight: '600' }}>SORT</InputLabel>
           <Select
             labelId="demo-multiple-chip-label"
             id="demo-multiple-chip"
@@ -90,6 +103,7 @@ export default function MultipleSelectChip() {
               </Box>
             )}
             MenuProps={MenuProps}
+            sx={{ textAlign: 'left' }}
           >
             {names.map((name) => (
               <MenuItem

@@ -4,6 +4,8 @@ import MovieCard from './MovieCard'
 import './Feed.css'
 import readCookies from '../../Hooks/readCookies';
 import Tooltip from '@mui/material/Tooltip';
+import FeedSearchBar from './FeedSearchBar';
+import { NavLink } from "react-router-dom";
 
 function Feed() {
 
@@ -26,7 +28,8 @@ function Feed() {
         <div className='blue-box'>
           <div className="feed-opening-div">
             <div className='feed-opening-title'>
-              <p className='feed-welcome-title'>Movies Across the Globe</p>
+              <NavLink end to="/Feed"><p className='feed-welcome-title'>Navbar</p></NavLink> 
+              <FeedSearchBar /> 
             </div>
           </div>
         </div>

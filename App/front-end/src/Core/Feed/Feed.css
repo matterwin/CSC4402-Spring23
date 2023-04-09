@@ -47,9 +47,13 @@
     color: #fff;
     outline: #2a3038;
     text-shadow: 1px 1px 0px #000;
-    /* margin-left: 150px;
-    margin-right: 150px; */
     font-weight: bold;
+    cursor: pointer;
+}
+
+.blue-box {
+  width: 100%;
+  background-color: #A1C7ED;
 }
 
 .blue-box-top {
@@ -80,6 +84,7 @@
   font-family: 'Baloo 2', cursive;
   margin-right: 20px;
   margin-top: 20px;
+  margin-bottom: 20px;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
@@ -106,11 +111,6 @@
   color: #2b3139;
 }
 
-.blue-box {
-  width: 100%;
-  background-color: #A1C7ED;
-}
-
 .feed-nav-div {
   margin-right: 20px;
   margin-left: 20px;
@@ -122,6 +122,10 @@
 
 .movies-div {
   margin-top: 10px;
+}
+
+.test-div {
+  width: 400px;
 }
 
 .feed-opening-div {
@@ -139,6 +143,15 @@
   display: inline-flex;
   margin: 0;
   padding: 0;
+}
+
+.feed-opening-title {
+  text-decoration: none;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .feed-welcome-msg {
@@ -167,24 +180,6 @@
     background-color: #f4f4f5;
   }
 
-  
-
-  @media(max-width: 765px) {
-    .feed-welcome-title {
-        font-size: 1.3rem;
-    }
-    
-    .feed-welcome-msg {
-        font-size: 13px;
-    }
-  }
-
-  @media(max-width: 1181px) {
-    .feed-welcome-title, .feed-welcome-msg {
-        margin-left: 100px;
-        margin-right: 100px;
-    }
-  }
 
   @media(max-width: 1290px) {
     .feed-container {
@@ -209,7 +204,7 @@
       margin-right: 0px;
       padding-left: 0px;
       padding-right: 0px;
-      border-bottom: 1px solid #1976d2;
+      /* border-bottom: 1px solid #1976d2; */
     }
 
     .movie-review-div {
@@ -217,39 +212,32 @@
     }
   }
 
-  @media(max-width: 635px) {
-    .feed-welcome-title, .feed-welcome-msg {
-        margin-left: 70px;
-        margin-right: 70px;
+  @media(max-width: 585px) {
+    .test-div {
+      width: 300px;
     }
   }
 
-  @media(max-width: 565px) {
-    .feed-welcome-title, .feed-welcome-msg {
-        margin-left: 40px;
-        margin-right: 40px;
+  @media(max-width: 475px) {
+    .test-div {
+      width: 200px;
     }
   }
 
-  @media(max-width: 505px) {
-    .feed-welcome-title, .feed-welcome-msg {
-        margin-left: 10px;
-        margin-right: 10px;
+  @media(max-width: 350px) {
+    .test-div {
+      width: 150px;
     }
   }
 
-  @media(max-width: 435px) {
-    .feed-welcome-title {
-        font-size: 1.1rem;
+  @media(max-width: 300px) {
+    .test-div {
+      width: 100px;
     }
   }
 
-  @media(max-width: 330px) {
-    .feed-welcome-title {
-        font-size: 1rem;
-    }
-    
-    .feed-welcome-msg {
-        font-size: 13px;
+  @media(max-width: 255px) {
+    .test-div {
+      display: none;
     }
   }

@@ -7,6 +7,8 @@ import './Movie.css'
 import UserReviews from './UserReviews';
 import Tooltip from '@mui/material/Tooltip';
 import readCookies from '../../../Hooks/readCookies';
+import FeedSearchBar from '../FeedSearchBar';
+import { NavLink } from "react-router-dom";
 
 function Movie() {
   const [movie, setMovie] = useState(undefined); 
@@ -47,7 +49,8 @@ function Movie() {
         <div className='blue-box'>
           <div className="feed-opening-div">
             <div className='feed-opening-title'>
-              <p className='feed-welcome-title'>Movies Across the Globe</p>
+              <NavLink end to="/Feed"><p className='feed-welcome-title'>Navbar</p></NavLink> 
+              <FeedSearchBar /> 
             </div>
           </div>
         </div>

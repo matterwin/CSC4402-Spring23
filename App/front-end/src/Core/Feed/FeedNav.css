@@ -21,11 +21,12 @@
     margin-right: -2px;
     margin-left: -2px;
     padding-left: 1px;
-    border-bottom: 1px solid #1976d2;
+    /* border-bottom: 1px solid #f2f2f3; */
 }
 
 .buttons {
     padding-right: 10px;
+    border-bottom: 1px solid transparent;
 }
 
 @media(max-width: 425px) {
