@@ -48,11 +48,11 @@ export const postMovieHandler = async (req: Request, res: Response): Promise<voi
       body.length,
       body.releaseDate,
       body.genre,
-      endFilePath
+      endFilePath,
     ]);
 
     res.json({
-      id: queryResult.insertId
+      id: queryResult.insertId,
     });
   } catch (err) {
     console.error(err);
@@ -121,7 +121,7 @@ export const getAllMovieHandler = async (_req: Request, res: Response): Promise<
         length: row.length,
         releaseDate: row.releaseDate,
         genre: row.genre,
-        filepath: row.filepath
+        filepath: row.filepath,
       });
     });
 
@@ -148,7 +148,7 @@ export const getAllMovieFeedHandler = async (_req: Request, res: Response): Prom
         name: row.name,
         releaseDate: row.releaseDate,
         filepath: row.filepath,
-        avg: row.avg
+        avg: row.avg,
       });
     });
 

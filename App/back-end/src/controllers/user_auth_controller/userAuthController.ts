@@ -5,7 +5,7 @@ import {
   getAllUserAuthHandler,
   putUserAuthHandler,
   deleteUserAuthHandler,
-  loginUserAuthHandler
+  loginUserAuthHandler,
 } from './userAuthControllerHandler';
 import { type RouterConfig, HttpMethod } from '../model';
 
@@ -58,8 +58,8 @@ const routerConfig: RouterConfig = {
     { path: getAllUserAuth, type: HttpMethod.get },
     { path: getUserAuth, type: HttpMethod.get },
     { path: putUserAuth, type: HttpMethod.put },
-    { path: deleteUserAuth, type: HttpMethod.delete }
-  ]
+    { path: deleteUserAuth, type: HttpMethod.delete },
+  ],
 };
 
 export default routerConfig;

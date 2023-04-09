@@ -39,13 +39,13 @@ const storage = multer.diskStorage({
   destination: (_req, _file, callback) => {
     const folderPath = `${bucketDir}/movie/${v4()}`;
     fs.mkdirSync(folderPath, {
-      recursive: true
+      recursive: true,
     });
     callback(null, folderPath);
   },
   filename: (_req, file, callback) => {
     callback(null, file.originalname);
-  }
+  },
 });
 const upload = multer({ storage });
 const app = express();
@@ -59,7 +59,7 @@ const controllerRouterList: RouterConfig[] = [
   testController,
   movieController,
   movieReviewController,
-  userAuthController
+  userAuthController,
 ];
 
 controllerRouterList.forEach((routerObject) => {
@@ -67,8 +67,8 @@ controllerRouterList.forEach((routerObject) => {
 
   routerObject.router.use(
     cors({
-      origin: '*'
-    })
+      origin: '*',
+    }),
   );
 
   routerObject.routerDetails.forEach((routerDetails: RouteConfig) => {

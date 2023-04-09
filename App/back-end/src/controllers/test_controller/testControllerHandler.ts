@@ -21,7 +21,7 @@ export const postTestHandler = async (req: Request, res: Response): Promise<void
     const queryResult = await executeQuery(res, 'sql/test/postTest.sql', [body.testMessage]);
 
     res.json({
-      id: queryResult.insertId
+      id: queryResult.insertId,
     });
     res.status(201).send();
   } catch (err) {
@@ -43,7 +43,7 @@ export const getAllTestHandler = async (_req: Request, res: Response): Promise<v
     queryResult.forEach((row: any) => {
       resultDTO.push({
         id: row.id,
-        testMessage: row.testMessage
+        testMessage: row.testMessage,
       });
     });
 
@@ -92,7 +92,7 @@ export const putTestHandler = async (req: Request, res: Response): Promise<void>
     }
 
     res.status(200).json({
-      id
+      id,
     });
   } catch (err) {
     console.error(err);

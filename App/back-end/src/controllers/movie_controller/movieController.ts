@@ -7,7 +7,7 @@ import {
   getMovieWithAvgHandler,
   getAllMovieFeedHandler,
   getAllMovieNameHandler,
-  deleteMovieHandler
+  deleteMovieHandler,
 } from './movieControllerHandler';
 import { HttpMethod, type RouterConfig } from '../model';
 
@@ -75,8 +75,8 @@ const routerConfig: RouterConfig = {
     { path: getMovieWithAvg, type: HttpMethod.get },
     { path: getAllMovieName, type: HttpMethod.get },
     { path: getAllMovieFeed, type: HttpMethod.get },
-    { path: deleteMovie, type: HttpMethod.delete }
-  ]
+    { path: deleteMovie, type: HttpMethod.delete },
+  ],
 };
 
 export default routerConfig;

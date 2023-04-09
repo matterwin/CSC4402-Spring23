@@ -24,10 +24,10 @@ export const postUserAuthHandler = async (req: Request, res: Response): Promise<
     const queryResult = await executeQuery(res, 'sql/userAuth/postUserAuth.sql', [
       body.username,
       body.email,
-      body.password
+      body.password,
     ]);
     res.json({
-      id: queryResult.insertId
+      id: queryResult.insertId,
     });
   } catch (err) {
     console.error(err);
@@ -45,7 +45,7 @@ export const loginUserAuthHandler = async (req: Request, res: Response): Promise
   try {
     const queryResult = await executeQuery(res, 'sql/userAuth/loginUserAuth.sql', [
       query.email as string,
-      query.password as string
+      query.password as string,
     ]);
     if (queryResult.length < 1) {
       res.status(404).send();
@@ -53,7 +53,7 @@ export const loginUserAuthHandler = async (req: Request, res: Response): Promise
     }
 
     res.json({
-      id: queryResult[0].id
+      id: queryResult[0].id,
     });
   } catch (err) {
     console.error(err);
@@ -75,7 +75,7 @@ export const getAllUserAuthHandler = async (_req: Request, res: Response): Promi
         id: row.id,
         username: row.username,
         email: row.email,
-        password: row.password
+        password: row.password,
       });
     });
 
@@ -121,7 +121,7 @@ export const putUserAuthHandler = async (req: Request, res: Response): Promise<v
       body.username,
       body.email,
       body.password,
-      id
+      id,
     ]);
 
     if (queryResult.affectedRows <= 0) {
@@ -130,7 +130,7 @@ export const putUserAuthHandler = async (req: Request, res: Response): Promise<v
     }
 
     res.status(200).json({
-      id
+      id,
     });
   } catch (err) {
     console.error(err);

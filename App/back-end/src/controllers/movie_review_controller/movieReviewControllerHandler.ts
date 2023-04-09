@@ -35,7 +35,7 @@ export const postMovieReviewHandler = async (req: Request, res: Response): Promi
       body.userId,
       body.movieId,
       body.review,
-      body.rating
+      body.rating,
     ]);
 
     res.send();
@@ -60,7 +60,7 @@ export const getAllMovieReviewHandler = async (_req: Request, res: Response): Pr
         userId: row.userId,
         movieId: row.movieId,
         review: row.review,
-        rating: row.rating
+        rating: row.rating,
       });
     });
 
@@ -72,7 +72,7 @@ export const getAllMovieReviewHandler = async (_req: Request, res: Response): Pr
 
 export const getMovieReviewAvgRatingHandler = async (
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<void> => {
   const userId = req.params._id;
 
@@ -83,7 +83,7 @@ export const getMovieReviewAvgRatingHandler = async (
 
   try {
     const queryResult = await executeQuery(res, 'sql/movieReview/getMovieReviewAvgRating.sql', [
-      userId
+      userId,
     ]);
 
     if (queryResult.length <= 0) {
@@ -92,7 +92,7 @@ export const getMovieReviewAvgRatingHandler = async (
     }
 
     res.json({
-      avg: queryResult[0].avg
+      avg: queryResult[0].avg,
     });
     res.send();
   } catch (err) {
@@ -102,7 +102,7 @@ export const getMovieReviewAvgRatingHandler = async (
 
 export const getMovieReviewByMovieIdWithUserHandler = async (
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<void> => {
   const movieId = req.params._id;
 
@@ -115,7 +115,7 @@ export const getMovieReviewByMovieIdWithUserHandler = async (
     const queryResult = await executeQuery(
       res,
       'sql/movieReview/getMovieReviewByMovieIdWithUser.sql',
-      [movieId]
+      [movieId],
     );
     if (queryResult.length <= 0) {
       res.status(404).send();
@@ -130,7 +130,7 @@ export const getMovieReviewByMovieIdWithUserHandler = async (
 
 export const getMovieReviewByMovieIdHandler = async (
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<void> => {
   const movieId = req.params._id;
 
@@ -141,7 +141,7 @@ export const getMovieReviewByMovieIdHandler = async (
 
   try {
     const queryResult = await executeQuery(res, 'sql/movieReview/getMovieReviewByMovieId.sql', [
-      movieId
+      movieId,
     ]);
     if (queryResult.length <= 0) {
       res.status(404).send();
@@ -164,7 +164,7 @@ export const getAllUserMovieReviewHandler = async (req: Request, res: Response):
 
   try {
     const queryResult = await executeQuery(res, 'sql/movieReview/getMovieReviewByMovieId.sql', [
-      userId
+      userId,
     ]);
 
     if (queryResult.length <= 0) {
@@ -179,7 +179,7 @@ export const getAllUserMovieReviewHandler = async (req: Request, res: Response):
         userId: row.userId,
         movieId: row.movieId,
         review: row.review,
-        rating: row.rating
+        rating: row.rating,
       });
     });
 
@@ -200,7 +200,7 @@ export const getMovieReviewHandler = async (req: Request, res: Response): Promis
   try {
     const queryResult = await executeQuery(res, 'sql/movieReview/getMovieReviewByMovieId.sql', [
       query.userId as string,
-      query.movieId as string
+      query.movieId as string,
     ]);
 
     if (queryResult.length <= 0) {
@@ -225,7 +225,7 @@ export const deleteMovieReviewHandler = async (req: Request, res: Response): Pro
   try {
     const queryResult = await executeQuery(res, 'sql/movieReview/deleteMovieReview.sql', [
       body.userId,
-      body.movieId
+      body.movieId,
     ]);
 
     if (queryResult.affectedRows <= 0) {
@@ -252,7 +252,7 @@ export const putMovieReviewHandler = async (req: Request, res: Response): Promis
       body.review,
       body.rating,
       body.userId,
-      body.movieId
+      body.movieId,
     ]);
 
     if (queryResult.affectedRows <= 0) {

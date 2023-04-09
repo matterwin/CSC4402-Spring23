@@ -4,7 +4,7 @@ import {
   getAllTestHandler,
   getTestHandler,
   putTestHandler,
-  deleteTestHandler
+  deleteTestHandler,
 } from './testControllerHandler';
 import { HttpMethod, type RouterConfig } from '../model';
 
@@ -51,8 +51,8 @@ const routerConfig: RouterConfig = {
     { path: getAllTest, type: HttpMethod.get },
     { path: getTest, type: HttpMethod.get },
     { path: putTest, type: HttpMethod.put },
-    { path: deleteTest, type: HttpMethod.delete }
-  ]
+    { path: deleteTest, type: HttpMethod.delete },
+  ],
 };
 
 export default routerConfig;

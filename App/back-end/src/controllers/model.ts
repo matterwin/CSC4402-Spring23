@@ -4,7 +4,7 @@ export enum HttpMethod {
   post = 'post',
   put = 'put',
   delete = 'delete',
-  get = 'get'
+  get = 'get',
 }
 
 export interface RouteConfig {

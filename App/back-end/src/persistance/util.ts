@@ -14,13 +14,13 @@ export const readSqlFile = (path: string): string => {
 export const executeQuery = async (
   res: Response,
   path: string,
-  params?: string[]
+  params?: string[],
 ): Promise<any> => {
   const configSql = {
     host: process.env.SQL_HOST,
     user: process.env.SQL_USER,
     password: process.env.SQL_PASSWORD,
-    database: process.env.SQL_DATABASE
+    database: process.env.SQL_DATABASE,
   };
 
   const connection = mysql.createConnection(configSql);

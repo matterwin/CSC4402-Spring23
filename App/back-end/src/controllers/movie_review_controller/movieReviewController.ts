@@ -8,7 +8,7 @@ import {
   getMovieReviewAvgRatingHandler,
   getMovieReviewHandler,
   deleteMovieReviewHandler,
-  putMovieReviewHandler
+  putMovieReviewHandler,
 } from './movieReviewControllerHandler';
 import { type RouterConfig, HttpMethod } from '../model';
 
@@ -83,8 +83,8 @@ const routerConfig: RouterConfig = {
     { path: getMovieReviewByMovieId, type: HttpMethod.get },
     { path: getMovieReviewAvgRating, type: HttpMethod.get },
     { path: deleteMovieReview, type: HttpMethod.delete },
-    { path: putMovieReview, type: HttpMethod.put }
-  ]
+    { path: putMovieReview, type: HttpMethod.put },
+  ],
 };
 
 export default routerConfig;
