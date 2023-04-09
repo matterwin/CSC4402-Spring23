@@ -162,7 +162,7 @@ function UserReviews(props) {
                       padding: '12px', 
                       cursor: 'pointer', 
                       borderRadius: '100%',
-                      color: '#8f8f8f',
+                      color: '#646464',
                       '&:hover': {
                         backgroundColor: '#e1e1e1'
                       }
