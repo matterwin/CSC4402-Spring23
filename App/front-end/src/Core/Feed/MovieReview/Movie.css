@@ -123,17 +123,19 @@
 
   .desc {
     text-align: left;
-    color: #2a3038;
-    font-size: 2rem;
-    font-family: 'Baloo 2', cursive;
-    font-weight: 600;
+    /* color: #2a3038; */
     margin-bottom: 30px;
+  }
+
+  .desc > * {
+    font-size: 1.15rem;
+    color: #2a3038;
   }
 
   .other-info-new {
     text-align: left;
     color: #2a3038;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     /* font-weight: 600; */
     font-family: 'Baloo 2', cursive;
   }

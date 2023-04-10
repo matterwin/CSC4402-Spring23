@@ -108,7 +108,7 @@ function Movie() {
             <div className='comment-flex-box'>
               <h2 className='reviews-heading'>MOVIE INFO</h2>
               <div className='desc'>
-                { movie.description }
+                <span>{ movie.description }</span>
               </div>
               <div className='other-info-new'>
                 <span className='span-info'>Genre:&nbsp;</span>{ movie.genre }

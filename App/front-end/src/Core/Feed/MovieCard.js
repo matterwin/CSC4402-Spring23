@@ -6,11 +6,11 @@ import Loading from '../Loading/Loading'
 // import Unknown from '../Videos/johncena.png';
 import Unknown from '../Videos/superbad.jpg';
 import { useNavigate } from "react-router-dom";
-import Tooltip from '@mui/material/Tooltip';
+// import Tooltip from '@mui/material/Tooltip';
 
 function MovieCard() {
   const [movies, setMovies] = useState(undefined);
-  const [showToolTip, setShowToolTip] = useState(false);
+  // const [showToolTip, setShowToolTip] = useState(false);
   // const [toolTipMsg, setToolTipMsg] = useState("");
   const navigate = useNavigate();
  
@@ -52,7 +52,7 @@ function MovieCard() {
               onError={(e) => {
                 e.target.onerror = null; 
                 e.target.src = Unknown;
-                setShowToolTip(true);
+                // setShowToolTip(true);
               }} 
               className="movie-pic"
             />

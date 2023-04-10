@@ -3,10 +3,13 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import Loading from '../Loading/Loading';
-import './Feed.css'
+import './Feed.css';
+import { useNavigate } from "react-router-dom";
 
 export default function FeedSearchBar() {
     const [movieNames, setMovieNames] = useState(undefined);
+    const [index, setIndex] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(() => {
       fetch('http://localhost:8000/api/movieControllerName')
@@ -15,6 +18,15 @@ export default function FeedSearchBar() {
         .catch(err => console.error(err));
     }, []);
 
+    useEffect(() => {
+        if(index === 0);
+        else {
+        setTimeout(() => {
+            navigate(`/Feed/Movie?id=${index}`);
+            }, 0);
+        }    
+    },[index, navigate])
+
     if(!movieNames) {
         return (
           <Loading />
@@ -22,12 +34,10 @@ export default function FeedSearchBar() {
     }
 
     const handleMovieSelection = (event, value) => {
-        // console.log(props)
-        var index = movieNames.indexOf(value);
-        // console.log(index);
-        // props.onMovieSelection(++index);
-        console.log(++index);
+        var i = movieNames.indexOf(value);
+        setIndex(++i);
       };
+
 
     return (
         <div className='test-div'>
