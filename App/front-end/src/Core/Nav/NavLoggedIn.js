@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import Tooltip from '@mui/material/Tooltip';
-import Notify from './NotifIcon';
+// import Notify from './NotifIcon';
 import Menu from './Menu';
 import ProfileMenu from './ProfileMenu';
 import WidgetsIcon from '@mui/icons-material/Widgets';
@@ -60,9 +60,9 @@ function NavLoggedIn() {
               <Divider orientation="vertical" style={{ backgroundColor: '#f4f4f5', height: '25px', width:'1px' }} />
           </div>
                     
-          <div className='notif'>
+          {/* <div className='notif'>
               <Notify/>
-          </div>
+          </div> */}
           
           <ProfileMenu />
           

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import '../MovieCard.css';
-import Stars from '../Stars';
+import SingleStar from '../SingleStar';
 import Loading from '../../Loading/Loading';
 import Unknown from '../../Videos/superbad.jpg';
 import './Movie.css'
@@ -61,47 +61,73 @@ function Movie() {
             </Tooltip>
           </div>
         </div>
-      <div className='movie-container'>
-        <div className='movie-and-info-div'>
-          <div className='movie-div'>
-              <img 
-                alt="pic of movie" 
-                src={ movie.filepath } 
-                className="review-movie-pic"
-                onError={(e) => {
-                  e.target.onerror = null; 
-                  e.target.src = Unknown;
-                }} 
-              >
-              </img>        
-          </div>
-          <div className='information'>
-            <div className='info-div'>
-              <div className='info-heading'>
-                <p>{ movie.name }</p>
+        <div className='movie-container'>
+          <div className='container-again'>
+            <div className='movie-and-info-div'>
+              <div className='movie-div'>
+                  <img 
+                    alt="pic of movie" 
+                    src={ movie.filepath } 
+                    className="review-movie-pic"
+                    onError={(e) => {
+                      e.target.onerror = null; 
+                      e.target.src = Unknown;
+                    }} 
+                  >
+                  </img>        
               </div>
-              <div className='stars-div'>
-                <Stars value={movie.avg} />
-              </div>
-              <div>
-                <p className='review-movie-title'><b>Genre: </b>{ movie.genre }</p>
-              </div>
-              <div>
-                <p className='review-movie-title'><b>Description: </b>{ movie.description }</p>
-              </div>
-              <div>
-                <p className='review-movie-title'><b>Length: </b>{ movie.length }</p>
-              </div>
-              <div>
-                <p className='review-movie-title'><b>Released on: </b>{ movie.releaseDate }</p>
+              <div className='movie-info-div'>
+                  <div className='movie-name-new'>
+                    { movie.name.toUpperCase() }
+                  </div>
+                  <div className='small-info-div'>
+                    <div>
+                      { movie.genre },
+                    </div>
+                    <div>
+                      { movie.length },
+                    </div>
+                    <div>
+                      { movie.releaseDate }
+                    </div>
+                  </div>
+                  <div className='stars-fix-div'>
+                    <div className='stars-div-fix'>
+                      <SingleStar/>
+                    </div>      
+                    <Tooltip title={<h3 style={{ margin: '0px' }}>{(movie.avg).toFixed(1)} out of 5</h3>} enterDelay={0} leaveDelay={500}>
+                    <div className='percentage-movie-info'>                   
+                      {(movie.avg/5*100).toFixed(0)}%
+                    </div>
+                    </Tooltip>
+                  </div>
               </div>
             </div>
           </div>
+          <div className='comment-container'>
+            <div className='comment-flex-box'>
+              <h2 className='reviews-heading'>MOVIE INFO</h2>
+              <div className='desc'>
+                { movie.description }
+              </div>
+              <div className='other-info-new'>
+                <span className='span-info'>Genre:&nbsp;</span>{ movie.genre }
+              </div>
+              <div className='other-info-new'>
+                <span className='span-info'>Rating:&nbsp;</span><span className='blue-rating'>{(movie.avg).toFixed(1)}/5 or {(movie.avg/5*100).toFixed(0)}%</span>
+              </div>
+              <div className='other-info-new'>
+                <span className='span-info'>Release date:&nbsp;</span>{ movie.releaseDate }
+              </div>
+              <div className='other-info-new'>
+                <span className='span-info'>Duration:&nbsp;</span>{ movie.length }
+              </div>
+            </div>
+          </div>
+          <div>
+            <UserReviews movieId={movie.id}/>
+          </div>
         </div>
-        <div>
-          <UserReviews movieId={movie.id}/>
-        </div>
-      </div>
       </div>
     </div>
   );
