@@ -1,24 +1,32 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import Button from '@mui/material/Button';
 import { NavLink } from "react-router-dom";
-// import PopupReview from './PopupReview';
 import Divider from '@mui/material/Divider';
-
+import UserMovieReivews from './UserMovieReivews';
+import getNumOfReviews from './ReviewAmountHooks/getNumOfReviews';
 import './RateReview.css'
 import '../../Hooks/readCookies'
 import readCookies from '../../Hooks/readCookies';
 
 function RateReview() {
+  const [showReviews, setShowReviews] = useState(getNumOfReviews());
 
   useEffect(() => {
-    if(readCookies())
-      console.warn("User signed in");
-    else {
+    if(!readCookies())
       window.location.href = "/Login";
-    }
+      setShowReviews(getNumOfReviews());
   },[])
+
+  useEffect(() => {
+    setShowReviews(getNumOfReviews());
+    console.log(showReviews);
+    if (showReviews > 0)
+      console.log("has at least 1 review");
+    else
+        console.log("no reviews");
+  },[showReviews])
 
   return (
     <div>
@@ -60,7 +68,12 @@ function RateReview() {
             </div>   
             {/* <Divider orientation="vertical" style={{ backgroundColor: '#A1C7ED', height: '38px', width:'1px' }} /> */}      
           </div>
-          <div className='no-vid-msg'>
+            <div className="feed-container-rr">
+              <div className='movie-container-rr'>
+                <UserMovieReivews />
+              </div>
+            </div>
+           {/* <div className='no-vid-msg'>
               <TheaterComedyIcon sx={{ fontSize: 50, color: '#1d1d20' }}/>
               <p className='h1-msg'>You don't have any Movie Reviews</p>
               <p className='p-msg'>Add a new Movie Review by clicking the button down below</p>      
@@ -78,7 +91,7 @@ function RateReview() {
               >
                     RATE A MOVIE
               </Button>
-          </div>
+          </div>  */}
           <div>
           <div className='space'>&nbsp;</div>
           <div className='space'>&nbsp;</div>
