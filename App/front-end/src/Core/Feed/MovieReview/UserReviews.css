@@ -208,4 +208,17 @@
   .comment-flex-box {
     margin-right: 20px;
   }
+
+  .movie-and-info-div {
+    margin-top: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-decoration: none;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    gap: 20px;
+    margin-bottom: 40px;
   }
+}
