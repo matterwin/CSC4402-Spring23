@@ -23,6 +23,7 @@ export default function FeedSearchBar() {
         else {
         setTimeout(() => {
             navigate(`/Feed/Movie?id=${index}`);
+            window.location.reload();
             }, 0);
         }    
     },[index, navigate])
