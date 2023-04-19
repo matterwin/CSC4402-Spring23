@@ -45,8 +45,8 @@
 .pic-rr-div {
     overflow: hidden;
     border-right: 1.5px solid #1976d2;
-    width: 130px;
-    height: 185px;
+    width: 90px;
+    height: 100px;
 }
 
 .movie-pic-rr {
@@ -58,7 +58,7 @@
     margin-bottom: 0px;
     padding: 0;
     margin: 0;
-    overflow: hidden;
+    overflow: hidden; 
 }
 
 .comment-pfp-div-rr:hover .profile-pic-rr {
@@ -79,8 +79,8 @@
     flex-direction:column;
     align-items:flex-start;
     justify-content:flex-start;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 5vw;
+    padding-right: 5vw;
   }
 
   .prof-pfp-div-rr {
@@ -116,7 +116,7 @@
   .comment-div-info-rr {
     /* border: 1.5px solid #1976d2; */
     background-color: none;
-    /* border-radius: 5px; */
+
     display:flex;
     align-items:flex-start;
     justify-content:flex-start;
@@ -127,7 +127,10 @@
     display: flex;
     /* min-width: 20%; */
     border-bottom: 1.5px solid #1976d2;
-    
+    /* border: 1.5px solid #1976d2;
+    border-radius: 15px;
+    background-color: #f4f4f5;
+    margin-left: 10px; */
   }
 
   .left-div-rr {

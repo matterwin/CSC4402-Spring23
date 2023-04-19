@@ -9,6 +9,7 @@ import Tooltip from '@mui/material/Tooltip';
 import readCookies from '../../../Hooks/readCookies';
 import FeedSearchBar from '../FeedSearchBar';
 import { NavLink } from "react-router-dom";
+import fire from '../../Videos/fire.gif';
 
 function Movie() {
   const [movie, setMovie] = useState(undefined); 
@@ -48,13 +49,14 @@ function Movie() {
           </div>
         <div className='blue-box'>
           <div className="feed-opening-div">
-            <div className='feed-opening-title'>
+            <div className='feed-opening-title' style={{ backgroundImage: `url(${fire})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: '100px 0' }}>
               <NavLink end to="/Feed"><p className='feed-welcome-title'>Navbar</p></NavLink> 
               <FeedSearchBar /> 
             </div>
           </div>
         </div>
         <div className='blue-box-bottom'>
+          <p className='big-letters'><b>INFORMATION</b></p>
           <div className='rating-bot'>
             <Tooltip title='Ratings are out of 5' placement="top">
               <p>Ratings</p>

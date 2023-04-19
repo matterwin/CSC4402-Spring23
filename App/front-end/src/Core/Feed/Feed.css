@@ -83,9 +83,9 @@
   color: #fff;
   font-family: 'Baloo 2', cursive;
   margin-right: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-weight: 600;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  font-weight: 800;
   cursor: pointer;
   text-decoration: none;
   font-family: 'Source Sans Pro', sans-serif;
@@ -95,6 +95,15 @@
   color: #fff;
   font-family: 'Source Sans Pro', sans-serif;
   margin-left: 20px;
+}
+
+.big-letters {
+  color: #ffe600;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin-left: 20px;
+  font-family: 'Phudu', cursive;
+  letter-spacing: 1px;
+  font-weight: 900;
 }
 
 .rating-bot > p{
@@ -152,6 +161,10 @@
   align-items:center;
   justify-content: center;
   gap: 20px;
+  background-size: contain;
+  size: cover;
+  background-repeat: no-repeat;
+  /* opacity: 0.5; */
 }
 
 .feed-welcome-msg {

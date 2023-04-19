@@ -57,14 +57,30 @@ function MovieCard() {
               className="movie-pic"
             />
             {/* </Tooltip> */}
-            <div className='rating-in-movie-div'>
+            <div className='rating-in-movie-div' onClick={() => {
+                onClick(movie.id); 
+              }}>
               <Stars value={movie.avg}/>
               <div className='percentage'>
                 {(movie.avg/5*100).toFixed(0)}%
               </div>
             </div>
-            <p className='movie-title'>{ movie.name }</p>
-            <p className='last-review'>Released { movie.releaseDate }</p>
+            <p 
+              onClick={() => {
+                onClick(movie.id); 
+              }}
+              className='movie-title'
+            >
+              { movie.name }
+            </p>
+            <p 
+              onClick={() => {
+                onClick(movie.id); 
+              }}
+              className='last-review'
+            >
+              Released { movie.releaseDate }
+            </p>
         </div>
     );
   });

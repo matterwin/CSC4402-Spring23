@@ -95,7 +95,7 @@ function Profile() {
             </div>
             
         </div>
-        <div className="profile-info">
+        <div className="review-info">
           {/* <ProfileReviewCard /> */}
             <h2 className='reviews'>Reviews</h2>
             <div className='review-box'>

@@ -6,6 +6,7 @@ import readCookies from '../../Hooks/readCookies';
 import Tooltip from '@mui/material/Tooltip';
 import FeedSearchBar from './FeedSearchBar';
 import { NavLink } from "react-router-dom";
+import fire from '../Videos/fire.gif';
 
 function Feed() {
 
@@ -26,19 +27,22 @@ function Feed() {
           </div>
         </div>
         <div className='blue-box'>
-          <div className="feed-opening-div">
-            <div className='feed-opening-title'>
+          <div className="feed-opening-div" >
+            <div className='feed-opening-title' style={{ backgroundImage: `url(${fire})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: '100px 0' }}>
               <NavLink end to="/Feed"><p className='feed-welcome-title'>Navbar</p></NavLink> 
               <FeedSearchBar /> 
+              {/* <img src={iconImg} /> */}
             </div>
           </div>
         </div>
         <div className='blue-box-bottom'>
-          <div className='rating-bot'>
-            <Tooltip title='Ratings are out of 5' placement="top">
+          <p className='big-letters'><b>INFORMATION</b></p>
+          <div className='rating-bot'>     
+            <Tooltip title='Ratings are out of 5' placement="top">           
               <p>Ratings</p>
             </Tooltip>
           </div>
+          <p></p>
         </div>
         <div className='movie-container'>
           <div className='feed-nav-div'>

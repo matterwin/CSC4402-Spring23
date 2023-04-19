@@ -51,9 +51,9 @@ export default function FeedSearchBar() {
                     sx={{
                         width: "100%",
                         backgroundColor: '#fff', 
-                        borderRadius: '5%', 
+                        borderRadius: '5px', 
                         outline: 'none',
-                        border: 'none'
+                        border: '1px solid black'
                     }}
                 />
             </Stack>
