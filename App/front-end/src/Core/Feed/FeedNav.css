@@ -24,36 +24,9 @@
     /* border-bottom: 1px solid #f2f2f3; */
 }
 
-.buttons {
-    padding-right: 10px;
-    border-bottom: 1px solid transparent;
-}
-
 @media(max-width: 425px) {
-
-    /* .feed-bar-actual {
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    .reset {
-       margin-left: 0;
-
-    } */
-
     .reset {
         padding-right: 10px;
         margin-right: 0px;
     }
-
-    .buttons {
-        padding-left: 10px;
-    }
-  }
-
-  /* @media(max-width: 420px) {
-    .feed-bar {
-        margin: 0;
-        padding: 0; 
-    }
-  } */
+}

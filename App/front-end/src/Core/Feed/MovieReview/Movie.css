@@ -218,7 +218,6 @@
   .info-div > * {
     display: flex;
   }
-
   
     @media(max-width: 1290px) {
       .feed-container {
@@ -237,7 +236,6 @@
           width: 100%;
           border: none;
       }
-
       .movie-and-info-div {
         margin-right: 10px;
         margin-left: 10px;

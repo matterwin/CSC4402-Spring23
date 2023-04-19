@@ -24,7 +24,7 @@ function OtherNav() {
     <div className="fixed-nav">
       <div className="nav-container">
 
-        <NavLink className="title" end to="/"><h1>Navbar</h1></NavLink>
+        <NavLink className="title" end to="/"><h1>local<span className='M-title'>M</span></h1></NavLink>
         <div className='search-bar'>
           <SearchBar sx={{paddingRight: 200, color: 'white'}}/>
         </div>
@@ -57,7 +57,7 @@ function OtherNav() {
             </div>
 
             <div className="hide-for-hamburger-menu">
-              <a href="/Login"><Button variant="contained" sx={{ paddingRight: '20px', paddingLeft: '20px', paddingTop: '10px', paddingBottom: '10px' }}>Log In</Button></a>
+              <a href="/Login"><Button variant="contained" sx={{ paddingRight: '30px', paddingLeft: '30px', paddingTop: '7px', paddingBottom: '7px' }}>Log In</Button></a>
             </div>
           
         </div>

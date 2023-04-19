@@ -203,6 +203,15 @@ NavLink {
     border-radius: 50%;
   }
 
+  .M-title {
+    color: #1976d2;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nova Oval', cursive;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
   .pfp-div:hover .profile-pic {
     transform: scale(1.2);
   }  

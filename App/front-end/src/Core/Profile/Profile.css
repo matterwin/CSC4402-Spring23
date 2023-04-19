@@ -157,6 +157,11 @@
     width: 100%;
 }
 
+.p-info {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.1rem;
+}
+
 .small-info {
     text-decoration: none;
     display:flex;

@@ -62,10 +62,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 100px;
 }
 
 .no-vid-div {
-  margin-top: 10%;
+  /* margin-top: 10%; */
 }
 
 /* @media(max-width: 950px) {

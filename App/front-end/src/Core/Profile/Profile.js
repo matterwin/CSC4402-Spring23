@@ -10,15 +10,24 @@ import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import DefaultPic from "../Videos/defaultPic.png";
 import readCookies from '../../Hooks/readCookies';
 import UserMovieReviews from '../RateReview/UserMovieReivews';
-// import ProfileReviewCard from './ProfileReviewCard';
+import getReviewCountForProfile from '../RateReview/ReviewAmountHooks/getReviewCountForProfile';
 
 import './Profile.css'
 
 function Profile() {
 
     const userId = readCookies();
+    const [reviewCount, setReviewCount] = useState();
     const [username, setUsername] = useState('');
     const [userProfilePic, setUserProfilePic] = useState("");
+
+    useEffect(() => {
+      getReviewCountForProfile()
+      .then(amountOfReviews => {
+        console.log(amountOfReviews);
+        setReviewCount(amountOfReviews);
+      });
+    },[])
 
     useEffect(() => {
 
@@ -59,7 +68,7 @@ function Profile() {
                     </Tooltip>             
                 </div>
                 <div className="name-and-username">
-                    <h1 className='prof-name'>n/a</h1>
+                    {/* <h1 className='prof-name'>n/a</h1> */}
                     <h2 className='prof-username'>{username}</h2>
                 </div>
             </div>
@@ -75,21 +84,20 @@ function Profile() {
                     >
                         Edit Profile
                     </Button>
-                </NavLink>
-                
+                </NavLink>          
             </div>
             <div className='small-info'>
                 <div className='small-row'>
                   <Tooltip title="Reviews">
                       <ReviewsIcon sx={{color: '#2a3038'}}/>
                   </Tooltip>
-                  <p>0</p>
+                  <p className='p-info'>{reviewCount}</p>
                 </div>
                 <div className='small-row'>
                   <Tooltip title="Username">
                     <VerifiedUserIcon sx={{color: '#2a3038'}}/>
                   </Tooltip>
-                  <p>@{username}</p>
+                  <p className='p-info'>@{username}</p>
                 </div>
                 
             </div>

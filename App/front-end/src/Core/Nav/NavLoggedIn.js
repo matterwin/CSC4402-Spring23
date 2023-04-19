@@ -25,7 +25,7 @@ function NavLoggedIn() {
     <div className="fixed-nav">
       <div className="nav-container">
 
-        <NavLink className="title" end to="/"><h1>Navbar</h1></NavLink>
+        <NavLink className="title" end to="/"><h1>local<span className='M-title'>M</span></h1></NavLink>
         <div className='search-bar'>
           <SearchBar sx={{paddingRight: 200, color: 'white'}}/>
         </div>
