@@ -63,30 +63,28 @@ export default function UserMovieReviews() {
     if(amountOfReviews < 1) {
       return (
         <div className='no-vid-msg'>
-          <TheaterComedyIcon sx={{ fontSize: 50, color: '#1d1d20' }}/>
-          <p className='h1-msg'>You don't have any Movie Reviews</p>
-          <p className='p-msg'>Add a new Movie Review by clicking the button down below</p>      
-          <Button 
-            sx={{
-              backgroundColor: '#fff',
-              border: '0.5px solid #2a3038',
-              '&:hover': {
-                backgroundColor: '#A1C7ED',
-                boxShadow: "0 0 5px rgba(0, 0, 0, 0.6)",
-                color: "#1976d2"
-              }
-            }}
-            href="/Rate&Review/create"
-          >
-                RATE A MOVIE
-          </Button>
-        </div> 
+          <div className='no-vid-div'>
+            <TheaterComedyIcon sx={{ fontSize: 50, color: '#1d1d20' }}/>
+            <p className='h1-msg'>You don't have any Movie Reviews</p>
+            <p className='p-msg'>Add a new Movie Review by clicking the button down below</p>      
+            <Button 
+              sx={{
+                backgroundColor: '#fff',
+                border: '0.5px solid #2a3038',
+                '&:hover': {
+                  backgroundColor: '#A1C7ED',
+                  boxShadow: "0 0 5px rgba(0, 0, 0, 0.6)",
+                  color: "#1976d2"
+                }
+              }}
+              href="/Rate&Review/create"
+            >
+                  RATE A MOVIE
+            </Button>
+          </div> 
+        </div>
       );
     }
-
-  const handleClick = (id) => {
-    navigate(`/Feed/Movie?id=${id}`);
-  }
 
   const reviewsJsx = movieReviews.map((movieReview) => {
     const movie = movies.find((m) => m.id === movieReview.movieId);
@@ -130,7 +128,7 @@ export default function UserMovieReviews() {
                         e.target.src = Unknown;
                       }}
                       className="movie-pic-rr"
-                      onClick={handleClick}
+                      onClick={() => navigate(`/Feed/Movie?id=${movieReview.movieId}`)}
                     />
                   </div>
                   <div className='info-right'>

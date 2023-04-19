@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from './Core/Home/Home'
 import Login from './UserAuth/Login'
@@ -11,8 +11,8 @@ import UserSettings from './Core/Profile/UserSettings'
 import Movie from './Core/Feed/MovieReview/Movie'
 import ChooseNav from "./Core/Nav/ChooseNav";
 import ReviewPage from './Core/RateReview/ReviewPage';
-import LoadingPic from './Core/LoadingScreen/LoadingPic';
-import LoadingCircle from './Core/LoadingScreen/LoadingCircle';
+// import LoadingPic from './Core/LoadingScreen/LoadingPic';
+// import LoadingCircle from './Core/LoadingScreen/LoadingCircle';
 import Logout from './UserAuth/Logout';
 
 import './App.css';
@@ -25,40 +25,40 @@ function App() {
                 || pathname === '/Logout'
   ? null : <ChooseNav />
 
-  const [isLoadingScreen, setIsLoadingScreen] = useState(true);
-  const [isLoadingContent, setIsLoadingContent] = useState(true);
+  // const [isLoadingScreen, setIsLoadingScreen] = useState(true);
+  // const [isLoadingContent, setIsLoadingContent] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoadingScreen(false);
-      setIsLoadingContent(true);
-      setTimeout(() => {
-        setIsLoadingContent(false);
-      }, 200);
-    }, 400);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsLoadingScreen(false);
+  //     setIsLoadingContent(true);
+  //     setTimeout(() => {
+  //       setIsLoadingContent(false);
+  //     }, 200);
+  //   }, 400);
+  // }, []);
 
-  if (isLoadingScreen && pathname !== '/Logout' 
-                      && pathname !== '/Rate&Review/create'
-                      && pathname !== '/Register' 
-                      && pathname !== '/Login' ){
-    return (
-      <div className='center-of-screen'>
-        <LoadingPic />
-      </div>
-    );
-  }
+  // if (isLoadingScreen && pathname !== '/Logout' 
+  //                     && pathname !== '/Rate&Review/create'
+  //                     && pathname !== '/Register' 
+  //                     && pathname !== '/Login' ){
+  //   return (
+  //     <div className='center-of-screen'>
+  //       <LoadingPic />
+  //     </div>
+  //   );
+  // }
 
-  if (isLoadingContent && pathname !== '/Logout' 
-                       && pathname !== '/Rate&Review/create'
-                       && pathname !== '/Register' 
-                       && pathname !== '/Login' ){
-    return (
-      <div className='center-of-screen'>
-        <LoadingCircle />
-      </div>
-    );
-  }
+  // if (isLoadingContent && pathname !== '/Logout' 
+  //                      && pathname !== '/Rate&Review/create'
+  //                      && pathname !== '/Register' 
+  //                      && pathname !== '/Login' ){
+  //   return (
+  //     <div className='center-of-screen'>
+  //       <LoadingCircle />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div>

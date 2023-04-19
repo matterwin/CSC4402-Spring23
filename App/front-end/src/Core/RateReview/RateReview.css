@@ -58,13 +58,13 @@
     width: 95%;
   }
 
-.no-vid-msg {
+/* .no-vid-msg {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-
+  } */
+/* 
 .h1-msg {
     color: rgb(255, 255, 255);
     color: #1d1d20;
@@ -79,7 +79,7 @@
     color: #727272;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.2rem;
-}
+} */
 
 .box-card2 {
     background-color: #e7e7e7;
@@ -174,7 +174,7 @@
       } */
 }
 
-@media(max-width:450px) {
+/* @media(max-width:450px) {
     .h1-msg {
         font-size: 1.1rem;
     }
@@ -182,15 +182,15 @@
     .p-msg {
         font-size: 1rem;
     }
-}
+} */
 
-@media(max-width: 950px) {
+/* @media(max-width: 950px) {
     .no-vid-msg {
         top: 55%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
-}
+} */
 
 .review-buttons-div {
     text-decoration: none;
