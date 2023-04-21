@@ -94,7 +94,7 @@ function ReviewPage() {
 
     function handleSubmit() {
 
-      console.log("review:           " + getReview().length);
+      // console.log("review:           " + getReview().length);
       if(getReview().length === 0 || getMovieId() === 0) {
         handleFailure();
         return;
@@ -103,7 +103,7 @@ function ReviewPage() {
 
       postReview()
       .then(statusCode => {
-        console.log(`Status Code: ${statusCode}`);
+        // console.log(`Status Code: ${statusCode}`);
         if(statusCode === '200') {
           handleSuccess();
           return;

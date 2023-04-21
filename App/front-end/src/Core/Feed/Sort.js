@@ -126,6 +126,7 @@ export default function MultipleSelectChip(props) {
   }
 
   return (
+    <div className='feed-nav-div'>
     <div className="feed-bar-actual">
       <div>
         <FormControl sx={{ m: 0.1, width: 100, fontSize: 14, borderBottom: '0px'}} size='small'>
@@ -163,6 +164,6 @@ export default function MultipleSelectChip(props) {
           <p>RESET</p>
         </div>
       }
-    </div>
+    </div></div>
   );
 }

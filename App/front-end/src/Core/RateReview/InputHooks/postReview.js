@@ -31,7 +31,7 @@ function postReview() {
           throw new Error("400 Bad Request");
         }
         else if (response.status === 200) {
-            console.log("200 Success");
+            // console.log("200 Success");
         }
         else if (response.status === 403) {
             throw new Error("403 Forbidden");

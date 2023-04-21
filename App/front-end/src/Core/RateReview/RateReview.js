@@ -20,11 +20,11 @@ function RateReview() {
 
   useEffect(() => {
     setShowReviews(getNumOfReviews());
-    console.log(showReviews);
-    if (showReviews > 0)
-      console.log("has at least 1 review");
-    else
-        console.log("no reviews");
+    // console.log(showReviews);
+    // if (showReviews > 0)
+    //   console.log("has at least 1 review");
+    // else
+    //     console.log("no reviews");
   },[showReviews])
 
   return (

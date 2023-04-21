@@ -21,7 +21,7 @@ export default function SearchMovie(props) {
     );
   }
 
-  const handleMovieSelection = (event, value) => {
+  const handleMovieSelectionExternal = (event, value) => {
     // console.log(props)
     var index = movieNames.indexOf(value);
     // console.log(index);
@@ -33,9 +33,10 @@ export default function SearchMovie(props) {
       disablePortal
       id="combo-box-demo"
       options={movieNames}
+      getOptionLabel={(option) => option.name}
       sx={{ width: 300, backgroundColor: '#fff', borderRadius: '5px', outline: 'none' }}
       renderInput={(params) => <TextField {...params} placeholder='Search movie'/>}
-      onChange={handleMovieSelection}
+      onChange={handleMovieSelectionExternal}
     />
   );
 }
