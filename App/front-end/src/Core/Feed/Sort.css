@@ -1,5 +1,48 @@
-.reset {
+/* .reset {
     margin-left: auto;
+    display: flex;
+} */
+
+/* .feed-bar-actual {
+    text-decoration: none;
+    padding-top: 11px;
+    padding-bottom: 9px;
+    margin-top: -9px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: flex-start;
+    margin-right: -2px;
+    margin-left: 200px;
+    padding-left: 1px;
+} */
+
+/* .feed-bar-actual {
+    text-decoration: none;
+    padding-top: 11px;
+    padding-bottom: 9px;
+    margin-top: -9px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: flex-start;
+    margin-right: 20px;
+    margin-left: 18px;
+} */
+
+.feed-bar-actual {
+    text-decoration: none;
+    padding-top: 11px;
+    padding-bottom: 9px;
+    margin-top: -9px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: flex-start;
+    margin-right: -2px;
+    margin-left: -2px;
+    padding-left: 1px;
+    /* border-bottom: 1px solid #f2f2f3; */
 }
 
 .reset > p {
