@@ -93,7 +93,10 @@ export const getAllMovieNameHandler = async (_req: Request, res: Response): Prom
     const resultDTO: any = [];
 
     queryResult.forEach((row: any) => {
-      resultDTO.push(row.name);
+      resultDTO.push({
+        id: row.id,
+        name: row.name,
+      });
     });
 
     res.json(resultDTO);

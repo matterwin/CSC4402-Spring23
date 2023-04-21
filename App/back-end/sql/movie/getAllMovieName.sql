@@ -1,2 +1,2 @@
-SELECT name
+SELECT name, id
 FROM movieTable;

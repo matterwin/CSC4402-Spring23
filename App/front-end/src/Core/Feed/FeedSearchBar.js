@@ -8,25 +8,34 @@ import { useNavigate } from "react-router-dom";
 
 export default function FeedSearchBar() {
     const [movieNames, setMovieNames] = useState(undefined);
-    const [index, setIndex] = useState(0);
+    const [index, setIndex] = useState(undefined);
     const navigate = useNavigate();
 
     useEffect(() => {
       fetch('http://localhost:8000/api/movieControllerName')
         .then(result => result.json())
-        .then(json => setMovieNames(json))
+        .then(json => {
+          const res = [];
+          json.forEach((movie) => {
+            res.push({
+              label: movie.name,
+              id: movie.id,
+            });
+          });
+
+          setMovieNames(res);
+        })
         .catch(err => console.error(err));
     }, []);
 
     useEffect(() => {
-        if(index === 0);
-        else {
-        setTimeout(() => {
-            navigate(`/Feed/Movie?id=${index}`);
-            window.location.reload();
-            }, 0);
-        }    
-    },[index, navigate])
+        if(index === undefined) {
+          return;
+        }
+
+        navigate(`/Feed/Movie?id=${index}`);
+        window.location.reload();
+    },[index, navigate]);
 
     if(!movieNames) {
         return (
@@ -34,11 +43,9 @@ export default function FeedSearchBar() {
         );
     }
 
-    const handleMovieSelection = (event, value) => {
-        var i = movieNames.indexOf(value);
-        setIndex(++i);
-      };
-
+    const handleMovieSelection = (_event, value) => {
+      setIndex(value.id);
+    };
 
     return (
         <div className='test-div'>
