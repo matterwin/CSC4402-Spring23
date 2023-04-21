@@ -1,5 +1,5 @@
 import React from 'react';
-import FeedNav from './FeedNav'
+import { useState } from 'react';
 import MovieCard from './MovieCard'
 import './Feed.css'
 import readCookies from '../../Hooks/readCookies';
@@ -7,10 +7,11 @@ import Tooltip from '@mui/material/Tooltip';
 import FeedSearchBar from './FeedSearchBar';
 import { NavLink } from "react-router-dom";
 import fire from '../Videos/fire.gif';
+import MultipleSelectChip from './Sort';
 
 function Feed() {
-
   const userId = readCookies();
+  const [movies, setMovies] = useState(undefined);
 
   return (
     <div>
@@ -31,7 +32,6 @@ function Feed() {
             <div className='feed-opening-title' style={{ backgroundImage: `url(${fire})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: '100px 0' }}>
               <NavLink end to="/Feed"><p className='feed-welcome-title'>local<span className='M-title'>M</span></p></NavLink> 
               <FeedSearchBar /> 
-              {/* <img src={iconImg} /> */}
             </div>
           </div>
         </div>
@@ -45,11 +45,9 @@ function Feed() {
           <p></p>
         </div>
         <div className='movie-container'>
-          <div className='feed-nav-div'>
-            <FeedNav />
-          </div>   
+          <MultipleSelectChip movies={ movies } setMovies={ setMovies } />
           <div className="movies-div">
-            <MovieCard />
+            <MovieCard movies={ movies } setMovies={ setMovies } />
           </div>            
           <div className='space'>&nbsp;</div> 
           </div>

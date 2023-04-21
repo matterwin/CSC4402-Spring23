@@ -8,24 +8,11 @@ import Unknown from '../Videos/superbad.jpg';
 import { useNavigate } from "react-router-dom";
 // import Tooltip from '@mui/material/Tooltip';
 
-function MovieCard() {
-  const [movies, setMovies] = useState(undefined);
-  // const [showToolTip, setShowToolTip] = useState(false);
-  // const [toolTipMsg, setToolTipMsg] = useState("");
+function MovieCard(props) {
   const navigate = useNavigate();
- 
-  useEffect(() => {
-    fetch('http://localhost:8000/api/movieControllerFeed')
-      .then(res => res.json())
-      .then(json => setMovies(json))
-      .catch(err => console.error(err));
-  }, []);
+  const movies = props.movies;
 
-  // useEffect(() => {
-  //   setToolTipMsg("Can't see picture");
-  // },[showToolTip])
-    
-  if(!movies) {
+  if(!props.movies) {
     return (
       <div className='loading'>
         <Loading />

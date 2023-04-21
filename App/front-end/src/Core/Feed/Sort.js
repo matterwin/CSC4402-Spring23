@@ -55,10 +55,20 @@ function getStyles(name, personName, theme) {
   };
 }
 
-export default function MultipleSelectChip() {
+export default function MultipleSelectChip(props) {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
   const [showReset, setShowReset] = React.useState(false);
+  const setMovies = props.setMovies;
+  const movies = props.movies;
+
+
+  React.useEffect(() => {
+    fetch('http://localhost:8000/api/movieControllerFeed')
+      .then(res => res.json())
+      .then(json => setMovies(json))
+      .catch(err => console.error(err));
+  }, [setMovies]);
 
   const handleChange = (event) => {
     setShowReset(true);
@@ -69,6 +79,37 @@ export default function MultipleSelectChip() {
       // On autofill we get a stringified value.
       typeof value === 'string' ? value.split(',') : value,
     );
+
+    const sortType = event.target.value;
+
+    switch(sortType) {
+      case names[0]: 
+        fetch('http://localhost:8000/api/movieControllerWithAvgTopol')
+          .then(res => res.json())
+          .then(json => setMovies(json))
+          .catch(err => console.error(err));
+        break;
+      case names[1]:
+        fetch('http://localhost:8000/api/movieControllerWithAvgAsc')
+          .then(res => res.json())
+          .then(json => setMovies(json))
+          .catch(err => console.error(err));
+        break;
+      case names[2]:
+        fetch('http://localhost:8000/api/movieControllerWithAvgDesc')
+          .then(res => res.json())
+          .then(json => setMovies(json))
+          .catch(err => console.error(err));
+        break;
+      case names[3]:
+        fetch('http://localhost:8000/api/movieControllerWithAvgReleaseDate')
+          .then(res => res.json())
+          .then(json => setMovies(json))
+          .catch(err => console.error(err));
+        break;
+      default:
+        console.error('invalid sort type!');
+    }
   };
 
   React.useEffect(() => {
@@ -93,7 +134,7 @@ export default function MultipleSelectChip() {
             labelId="demo-multiple-chip-label"
             id="demo-multiple-chip"
             value={personName}
-            onChange={handleChange}
+            onChange={(change) => handleChange(change)}
             input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
             renderValue={(selected) => (
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>

@@ -131,6 +131,137 @@ export const getAllMovieHandler = async (_req: Request, res: Response): Promise<
   }
 };
 
+export const getAllMovieWithAvgSortDescHandler = async (
+  _req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const queryResult = await executeQuery(res, 'sql/movie/getMovieWithAvgSortDesc.sql');
+
+    if (queryResult.length <= 0) {
+      res.status(404).send();
+      return;
+    }
+
+    const resultDTO: any = [];
+
+    queryResult.forEach((row: any) => {
+      resultDTO.push({
+        id: row.id,
+        name: row.name,
+        description: row.description,
+        length: row.length,
+        releaseDate: row.releaseDate,
+        genre: row.genre,
+        filepath: row.filepath,
+        avg: row.avg,
+      });
+    });
+
+    res.json(resultDTO);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const getAllMovieWithAvgSortAscHandler = async (
+  _req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const queryResult = await executeQuery(res, 'sql/movie/getMovieWithAvgSortAsc.sql');
+
+    if (queryResult.length <= 0) {
+      res.status(404).send();
+      return;
+    }
+
+    const resultDTO: any = [];
+
+    queryResult.forEach((row: any) => {
+      resultDTO.push({
+        id: row.id,
+        name: row.name,
+        description: row.description,
+        length: row.length,
+        releaseDate: row.releaseDate,
+        genre: row.genre,
+        filepath: row.filepath,
+        avg: row.avg,
+      });
+    });
+
+    res.json(resultDTO);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const getAllMovieWithAvgSortReleaseDateHandler = async (
+  _req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const queryResult = await executeQuery(res, 'sql/movie/getMovieWithAvgReleaseDate.sql');
+
+    if (queryResult.length <= 0) {
+      res.status(404).send();
+      return;
+    }
+
+    const resultDTO: any = [];
+
+    queryResult.forEach((row: any) => {
+      resultDTO.push({
+        id: row.id,
+        name: row.name,
+        description: row.description,
+        length: row.length,
+        releaseDate: row.releaseDate,
+        genre: row.genre,
+        filepath: row.filepath,
+        avg: row.avg,
+      });
+    });
+
+    res.json(resultDTO);
+  } catch (err) {
+    console.error(err);
+  }
+};
+export const getAllMovieWithAvgSortTopolHandler = async (
+  _req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const queryResult = await executeQuery(res, 'sql/movie/getMovieWithAvgTopol.sql');
+
+    if (queryResult.length <= 0) {
+      res.status(404).send();
+      return;
+    }
+
+    const resultDTO: any = [];
+
+    queryResult.forEach((row: any) => {
+      resultDTO.push({
+        id: row.id,
+        name: row.name,
+        description: row.description,
+        length: row.length,
+        releaseDate: row.releaseDate,
+        genre: row.genre,
+        filepath: row.filepath,
+        avg: row.avg,
+      });
+    });
+
+    res.json(resultDTO);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 export const getAllMovieFeedHandler = async (_req: Request, res: Response): Promise<void> => {
   try {
     const queryResult = await executeQuery(res, 'sql/movie/getAllMovieFeed.sql');
