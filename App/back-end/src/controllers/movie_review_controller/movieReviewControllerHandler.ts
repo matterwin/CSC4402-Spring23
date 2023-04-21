@@ -30,12 +30,15 @@ export const postMovieReviewHandler = async (req: Request, res: Response): Promi
     return;
   }
 
+  const datetimeSQL = new Date().toISOString().split('T').join(' ').split('Z').join('');
+
   try {
     await executeQuery(res, 'sql/movieReview/postMovieReview.sql', [
       body.userId,
       body.movieId,
       body.review,
       body.rating,
+      datetimeSQL,
     ]);
 
     res.send();

@@ -1,3 +1,4 @@
 SELECT *
 FROM movieReviewTable
-WHERE movieId=?;
+WHERE movieId=?
+ORDER BY date DESC;

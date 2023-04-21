@@ -39,6 +39,7 @@ CREATE TABLE movieReviewTable (
 
     review VARCHAR(1024) NOT NULL,
     rating DECIMAL(2, 1) NOT NULL,
+    date DATETIME NOT NULL,
 
     PRIMARY KEY (userId, movieId),
     FOREIGN KEY (userId) REFERENCES userAuthTable(id) ON DELETE CASCADE,

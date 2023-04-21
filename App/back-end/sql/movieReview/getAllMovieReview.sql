@@ -1,2 +1,3 @@
 SELECT * 
-FROM movieReviewTable;
+FROM movieReviewTable
+ORDER BY date DESC;

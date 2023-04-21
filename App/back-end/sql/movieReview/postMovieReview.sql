@@ -1,2 +1,2 @@
-INSERT INTO movieReviewTable (userId, movieId, review, rating)
-VALUES (?, ?, ?, ?);
+INSERT INTO movieReviewTable (userId, movieId, review, rating, date)
+VALUES (?, ?, ?, ?, ?);
