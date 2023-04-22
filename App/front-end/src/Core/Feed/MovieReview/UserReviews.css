@@ -67,6 +67,11 @@
     min-height: 45px;
     max-width: 45px;
     max-height: 45px;
+    transition: border-radius 0.2s ease-in-out;
+  }
+
+  .comment-pfp-div:hover {
+    border-radius: 35%;
   }
 
   .reviews-heading {
@@ -156,7 +161,7 @@
   }
 
   .usr-rating {
-    margin-top: 10px;
+    margin-top: 0px;
     display: flex;
     font-family: 'Source Sans Pro', sans-serif;
     color: #2a3038;

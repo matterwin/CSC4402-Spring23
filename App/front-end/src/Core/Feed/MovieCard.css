@@ -21,7 +21,30 @@
     padding-left: 10px;
     padding-right: 10px;
     animation: loadingtransition 500ms ease-in;
+    animation: card-flip 0.5s ease-in-out forwards;
+    position: relative;
 }
+  
+  .remove-redeye-icon {
+    position: absolute;
+    top: 35%;
+    left: 43%;
+    transform: translate(-20%, -50%);
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+    z-index: 1;
+    border: 3px solid white;
+    border-radius: 50%;
+    border-top-right-radius: 40%;
+    border-top-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    border-bottom-left-radius: 40%;
+    background-color: rgba(128, 128, 128, 0.281);
+  }
+  
+  .movie-review-div:hover .remove-redeye-icon {
+    opacity: 1;
+  }
 
 .loading {
     margin-top: 100px;
@@ -106,6 +129,16 @@
     }
     to{
         opacity: 1;
+        transform: rotateY(0);
+    }
+  }
+
+  @keyframes card-flip {
+    from {
+        transform: rotateY(180deg);
+        transform: rotateY(90deg);
+    }
+    to {
         transform: rotateY(0);
     }
   }
