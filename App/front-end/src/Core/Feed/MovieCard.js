@@ -83,7 +83,7 @@ function MovieCard(props) {
           }}
           className='last-review'
         >
-          Released { movie.releaseDate.replace(/-/g, " ") }
+          Debuted { movie.releaseDate.replace(/-/g, " ") }
         </p>
       </div>
     );

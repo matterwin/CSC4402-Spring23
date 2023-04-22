@@ -83,13 +83,13 @@ function Movie() {
                     { movie.name.toUpperCase() }
                   </div>
                   <div className='small-info-div'>
-                    <div>
-                      { movie.genre }&nbsp;&nbsp;•
+                    <div className='genre-div'>
+                      { movie.genre }
                     </div>
-                    <div>
-                      { movie.length }&nbsp;&nbsp;•
+                    <div className='other-info-div'>
+                    •&nbsp;&nbsp;{ movie.length }&nbsp;&nbsp;•
                     </div>
-                    <div>
+                    <div className='other-info-div'>
                       { movie.releaseDate.replace(/-/g, " ") }
                     </div>
                   </div>

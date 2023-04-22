@@ -8,11 +8,8 @@
     align-content: flex-start;
     flex-wrap: wrap;
 }
-    
-    /* align-items:center;
-    justify-content: flex-start; */
 
-.movie-review-div {
+  .movie-review-div {
     width: 160px;
     height: 250px;
     text-align: left;
@@ -23,7 +20,7 @@
     animation: loadingtransition 500ms ease-in;
     animation: card-flip 0.5s ease-in-out forwards;
     position: relative;
-}
+  }
   
   .remove-redeye-icon {
     position: absolute;
@@ -42,6 +39,10 @@
     background-color: rgba(128, 128, 128, 0.281);
   }
   
+  .movie-review-div:active .remove-redeye-icon {
+    background-color: #1976d275;
+  }
+
   .movie-review-div:hover .remove-redeye-icon {
     opacity: 1;
   }
@@ -82,7 +83,7 @@
     margin-bottom: 5px;
     font-family: 'Baloo 2', cursive;
     font-weight: 400;
-    font-size: 15.5px;
+    font-size: 15.6px;
     line-height: 1;
     padding-top: 3px;
     padding-bottom: 4px;
