@@ -42,6 +42,7 @@
     padding-top: 0px;
     padding-bottom: 40px;
     display: flex;
+    gap: 5px;
     /* min-width: 20%; */
   }
 
@@ -105,8 +106,27 @@
     cursor: pointer;
   }
 
+  .username-date-div {
+    text-decoration: none;
+    /* display:flex; */
+    flex-direction:row;
+    align-items:center;
+    justify-content: center;
+  }
+
+  .date {
+    display: inline-flex;
+    font-size: 1rem;
+    color: #454545;
+    font-size: 1rem;
+    font-family: 'Baloo 2', cursive;
+    /* font-family: 'Source Sans Pro', sans-serif; */
+    font-weight: 400;
+    text-align: left;
+  }
+
   .username {
-    display: flex;
+    display: inline-flex;
     font-size: 1rem;
     color: #2a3038;
     font-size: 1rem;

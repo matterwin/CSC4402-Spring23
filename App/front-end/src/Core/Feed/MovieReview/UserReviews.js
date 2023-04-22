@@ -108,6 +108,32 @@ function UserReviews(props) {
     );
   }
 
+  function createDate(rawDate) {
+    const currentDate = new Date();
+    const reviewDate = new Date(rawDate);
+    var diffInTime = (currentDate.getTime() - reviewDate.getTime()) * -1;
+  
+    if(diffInTime < 0) diffInTime *= -1
+
+    const diffInYears = Math.floor(diffInTime / (1000 * 3600 * 24 * 365.25));
+    const diffInDays = Math.floor(diffInTime / (1000 * 3600 * 24));
+    const diffInHours = Math.floor(diffInTime / (1000 * 3600));
+    const diffInMinutes = Math.floor(diffInTime / (1000 * 60));
+    const diffInSeconds = Math.floor(diffInTime / 1000);
+  
+    if (diffInYears > 0) {
+      return `${diffInYears} year${diffInYears !== 1 ? 's' : ''} ago`;
+    } else if (diffInDays > 0) {
+      return `${diffInDays} day${diffInDays !== 1 ? 's' : ''} ago`;
+    } else if (diffInHours > 0) {
+      return `${diffInHours} hour${diffInHours !== 1 ? 's' : ''} ago`;
+    } else if (diffInMinutes > 0) {
+      return `${diffInMinutes} minute${diffInMinutes !== 1 ? 's' : ''} ago`;
+    } else {
+      return `${diffInSeconds} second${diffInSeconds !== 1 ? 's' : ''} ago`;
+    }
+  }
+
   const reviewsJsx = movieReviews.map((movieReview, index) => {
     const ratingToolTip = `${movieReview.rating} out of 5`
     const checkUserIds = (parseInt(movieReview.userId) === parseInt(userId));
@@ -115,7 +141,9 @@ function UserReviews(props) {
     const borderColor = checkUserIds ? 'black' : '#1976d2';
     const cursor = checkUserIds ? 'pointer' : '';
     const alterBg = index % 2 ? '#fff' : '#dae9f8';
-  
+
+    const diff = createDate(movieReview.date);
+
     return (
       <div 
         key={ movieReview.userId } 
@@ -126,9 +154,16 @@ function UserReviews(props) {
       >
         <div className='left-div'>
           <div className="comment-pfp-div" style={{ borderColor: borderColor }}>
-              <Tooltip title={<h3 style={{ margin: '0px' }}>{movieReview.username}</h3>}>
-                  <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />      
-              </Tooltip >            
+          { checkUserIds ? 
+            <> 
+              <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />      
+            </> : 
+            <>
+            <Tooltip title={<h3 style={{ margin: '0px' }}>{movieReview.username}</h3>}>
+                <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />      
+            </Tooltip >   
+          </>
+          }       
           </div>
           { checkUserIds && 
             <div style={{ position: 'relative' }} className={ hoverOrNot ? '' : 'hide-more-icon' }> 
@@ -192,9 +227,14 @@ function UserReviews(props) {
           }
         </div>
           <div className='comment-div-info' style={{ borderColor: borderColor, cursor: cursor }}>
-            <div className='username'>
-              { movieReview.username }
-            </div> 
+            <div className='username-date-div'>
+              <div className='username'>
+                { movieReview.username }
+              </div> 
+              <div className='date'>
+                &nbsp;&nbsp;{ diff }
+              </div>
+            </div>
             <div className='desc'>
                 { movieReview.review }
             </div>

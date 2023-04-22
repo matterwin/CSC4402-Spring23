@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import './MovieCard.css';
 import Stars from './Stars';
@@ -66,7 +66,7 @@ function MovieCard(props) {
               }}
               className='last-review'
             >
-              Released { movie.releaseDate }
+              Released { movie.releaseDate.replace(/-/g, " ") }
             </p>
         </div>
     );

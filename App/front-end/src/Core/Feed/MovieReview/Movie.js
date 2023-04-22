@@ -84,13 +84,13 @@ function Movie() {
                   </div>
                   <div className='small-info-div'>
                     <div>
-                      { movie.genre },
+                      { movie.genre }&nbsp;&nbsp;•
                     </div>
                     <div>
-                      { movie.length },
+                      { movie.length }&nbsp;&nbsp;•
                     </div>
                     <div>
-                      { movie.releaseDate }
+                      { movie.releaseDate.replace(/-/g, " ") }
                     </div>
                   </div>
                   <div className='stars-fix-div'>
@@ -119,7 +119,7 @@ function Movie() {
                 <span className='span-info'>Rating:&nbsp;</span><span className='blue-rating'>{(movie.avg).toFixed(1)}/5 or {(movie.avg/5*100).toFixed(0)}%</span>
               </div>
               <div className='other-info-new'>
-                <span className='span-info'>Release date:&nbsp;</span>{ movie.releaseDate }
+                <span className='span-info'>Release date:&nbsp;</span>{ movie.releaseDate.replace(/-/g, " ") }
               </div>
               <div className='other-info-new'>
                 <span className='span-info'>Duration:&nbsp;</span>{ movie.length }

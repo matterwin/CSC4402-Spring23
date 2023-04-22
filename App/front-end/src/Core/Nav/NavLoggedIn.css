@@ -193,6 +193,7 @@ NavLink {
     overflow: hidden;
     background-color: #f4f4f5;
     cursor: pointer; 
+    transition: border-radius 0.2s ease-in-out;
   }
 
   .profile-pic {
@@ -211,10 +212,11 @@ NavLink {
     font-weight: 600;
     text-decoration: none;
   }
-
-  .pfp-div:hover .profile-pic {
-    transform: scale(1.2);
-  }  
+  
+  .pfp-div:hover{
+    border-radius: 35%;
+  }
+  
 
   .notif {
     border-radius: 50px;

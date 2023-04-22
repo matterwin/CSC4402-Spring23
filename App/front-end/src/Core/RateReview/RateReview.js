@@ -73,11 +73,6 @@ function RateReview() {
               </div>
             </div>
           <div>
-          <div className='space'>&nbsp;</div>
-          <div className='space'>&nbsp;</div>
-          <div className='space'>&nbsp;</div>
-          <div className='space'>&nbsp;</div>
-          <div className='space'>&nbsp;</div>
           </div>
         </div>
     </div>
