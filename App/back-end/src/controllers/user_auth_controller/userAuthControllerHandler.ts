@@ -86,15 +86,15 @@ export const getAllUserAuthHandler = async (_req: Request, res: Response): Promi
 };
 
 export const getUserAuthHandler = async (req: Request, res: Response): Promise<void> => {
-  const id = req.params._id;
+  const query = req.query;
 
-  if (id === undefined) {
+  if (query.id === undefined) {
     res.status(403).send();
     return;
   }
 
   try {
-    const queryResult = await executeQuery(res, 'sql/userAuth/getUserAuth.sql', [id]);
+    const queryResult = await executeQuery(res, 'sql/userAuth/getUserAuth.sql', [query.id as string]);
 
     if (queryResult.length <= 0) {
       res.status(404).send();

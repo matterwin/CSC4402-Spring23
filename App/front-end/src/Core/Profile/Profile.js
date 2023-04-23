@@ -46,6 +46,7 @@ function Profile() {
         return response.json();     
       })
       .then(data => {
+        console.log(data);
         if(data) { 
           setUsername(data.username);
           if(data.url == null)
