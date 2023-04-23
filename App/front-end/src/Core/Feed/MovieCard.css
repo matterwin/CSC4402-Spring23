@@ -37,6 +37,7 @@
     border-bottom-right-radius: 40%;
     border-bottom-left-radius: 40%;
     background-color: rgba(128, 128, 128, 0.281);
+    background-color: #1976d275;
   }
   
   .movie-review-div:active .remove-redeye-icon {

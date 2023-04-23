@@ -13,8 +13,11 @@ import ChooseNav from "./Core/Nav/ChooseNav";
 import ReviewPage from './Core/RateReview/ReviewPage';
 import Logout from './UserAuth/Logout';
 import NotFoundPage from './Core/NotFound/NotFoundPage';
+import NewHome from './Core/Home/NewHome';
+import LogInFooter from './Core/Nav/LogInFooter';
 
 import './App.css';
+import readCookies from './Hooks/readCookies';
 
 function App() {
   const { pathname } = window.location;
@@ -34,7 +37,9 @@ function App() {
                 || pathname === '/Rate&Review/create' 
                 || pathname === '/Logout'
                 
-  const HideNav = (validNavPath || HideNavIf) ? <ChooseNav /> : null;
+  const HideNav = (validNavPath && !HideNavIf) ? <ChooseNav /> : null;
+  const HideFooter = (validNavPath && !HideNavIf) ? true : null;
+  const userLoggedIn = (readCookies() || !HideFooter) ? null : <LogInFooter />;
 
   return (
     <div>
@@ -45,7 +50,7 @@ function App() {
           <ScrollButton />
         
           <Routes>
-            <Route path="/" element={<Home/>}/>
+            <Route path="/" element={<NewHome/>}/>
             <Route path="/Login" element={<Login/>}/>
             <Route path="/Register" element={<Register/>}/>
             <Route path="/Profile" element={<Profile/>}/>
@@ -57,6 +62,8 @@ function App() {
             <Route path="/Logout" element={<Logout/>}/>
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
+
+          {userLoggedIn}
 
         </Router>
     </div>

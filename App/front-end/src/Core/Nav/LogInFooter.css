@@ -1,0 +1,45 @@
+.bottom-footer-div {
+    background-color: #1976d2;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.div-butts {
+    text-decoration: none;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.login-msg {
+    text-decoration: none;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.log-in-h1 {
+    color: #f4f4f5;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-right: 50px;
+}
+
+@media (max-width: 585px) {
+    .log-in-h1 {
+       display: none;
+    }
+
+    .div-butts {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,12 @@
+.new-home-container {
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    background-color: #3b4048;
+    background-image: linear-gradient(to bottom, #2c2f35, #3b4048);
+}

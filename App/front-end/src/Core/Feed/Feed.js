@@ -20,9 +20,9 @@ function Feed() {
           <div className='login-signup'>
             { !userId ? 
               <>
-                <span><a href='/Login' className='login-a'>LOGIN</a></span>
+                <span><a href='/Login' className='login-a'><b>LOGIN</b></a></span>
                 /
-                <span><a href='/Register' className='signup-a'>SIGNUP</a></span>
+                <span><a href='/Register' className='signup-a'><b>SIGNUP</b></a></span>
               </> : <></>
             }
           </div>
