@@ -11,54 +11,30 @@ import UserSettings from './Core/Profile/UserSettings'
 import Movie from './Core/Feed/MovieReview/Movie'
 import ChooseNav from "./Core/Nav/ChooseNav";
 import ReviewPage from './Core/RateReview/ReviewPage';
-// import LoadingPic from './Core/LoadingScreen/LoadingPic';
-// import LoadingCircle from './Core/LoadingScreen/LoadingCircle';
 import Logout from './UserAuth/Logout';
+import NotFoundPage from './Core/NotFound/NotFoundPage';
 
 import './App.css';
 
 function App() {
   const { pathname } = window.location;
-  const HideNav = pathname === '/Register' 
+  const validNavPath = pathname === '/' 
+                     || pathname === '/Login' 
+                     || pathname === '/Register' 
+                     || pathname === '/Profile'
+                     || pathname === '/Rate&Review' 
+                     || pathname === '/Rate&Review/create' 
+                     || pathname === '/Feed' 
+                     || pathname === '/Settings'
+                     || pathname === '/Feed/Movie' 
+                     || pathname === '/Logout';
+
+  const HideNavIf = pathname === '/Register' 
                 || pathname === '/Login' 
                 || pathname === '/Rate&Review/create' 
                 || pathname === '/Logout'
-  ? null : <ChooseNav />
-
-  // const [isLoadingScreen, setIsLoadingScreen] = useState(true);
-  // const [isLoadingContent, setIsLoadingContent] = useState(true);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsLoadingScreen(false);
-  //     setIsLoadingContent(true);
-  //     setTimeout(() => {
-  //       setIsLoadingContent(false);
-  //     }, 200);
-  //   }, 400);
-  // }, []);
-
-  // if (isLoadingScreen && pathname !== '/Logout' 
-  //                     && pathname !== '/Rate&Review/create'
-  //                     && pathname !== '/Register' 
-  //                     && pathname !== '/Login' ){
-  //   return (
-  //     <div className='center-of-screen'>
-  //       <LoadingPic />
-  //     </div>
-  //   );
-  // }
-
-  // if (isLoadingContent && pathname !== '/Logout' 
-  //                      && pathname !== '/Rate&Review/create'
-  //                      && pathname !== '/Register' 
-  //                      && pathname !== '/Login' ){
-  //   return (
-  //     <div className='center-of-screen'>
-  //       <LoadingCircle />
-  //     </div>
-  //   );
-  // }
+                
+  const HideNav = (validNavPath || HideNavIf) ? <ChooseNav /> : null;
 
   return (
     <div>
@@ -79,6 +55,7 @@ function App() {
             <Route path="/Settings" element={<UserSettings/>}/>
             <Route path="/Feed/Movie" element={<Movie/>}/>
             <Route path="/Logout" element={<Logout/>}/>
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
 
         </Router>
