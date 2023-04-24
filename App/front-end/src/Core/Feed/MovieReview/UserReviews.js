@@ -95,8 +95,7 @@ function UserReviews(props) {
   useEffect(() => {
     fetch(`http://localhost:8000/api/movieReviewControllerWithUser/${props.movieId}`)
     .then(res => res.json())
-    .then(json => {setMovieReviews(json)
-    })
+    .then(json => {setMovieReviews(json)})
     .catch(err => console.error(err));
   }, [props]);
   
@@ -257,7 +256,7 @@ function UserReviews(props) {
     <div>
       <div className='comment-container'>
         <div className='comment-flex-box'>
-          <h2 className='reviews-heading'>Reviews</h2>
+          <h2 className='reviews-heading'>Reviews •&nbsp;{movieReviews.length} </h2>
           { <DeleteAlert deleteMovieId={props.movieId}/> }
           { readCookies() && <InternalReview movieId={props.movieId} /> }
           { reviewsJsx }
