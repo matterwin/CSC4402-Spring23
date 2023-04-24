@@ -60,7 +60,7 @@ function Profile() {
     },[userId])
 
   return (
-    <div className='profile-container'>
+    <div className='contain'>
         <div className="profile-info">
             <div className='pic-and-name'>
                 <div className="prof-pfp-div">             

@@ -55,13 +55,16 @@ export default function FeedSearchBar() {
                     freeSolo
                     onChange={handleMovieSelection}
                     options={movieNames}
-                    renderInput={(params) => <TextField {...params} placeholder='Find movie'/>}
+                    renderInput={
+                      (params) => <TextField {...params} placeholder='Find movie'/>
+                    }
+                    ListboxProps={{ style: { maxHeight: '12rem' } }}
                     sx={{
                         width: "100%",
                         backgroundColor: '#fff', 
                         borderRadius: '5px', 
                         outline: 'none',
-                        border: '1px solid black'
+                        border: '1px solid black',
                     }}
                 />
             </Stack>

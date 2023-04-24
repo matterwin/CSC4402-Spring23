@@ -1,12 +1,116 @@
-.new-home-container {
+
+
+.new-contain {
     text-align: center;
     margin: 0 auto;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 250px;
+    margin-right: 250px;
     margin-top: 50px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    border-radius: 10px;
-    background-color: #3b4048;
-    background-image: linear-gradient(to bottom, #2c2f35, #3b4048);
+    padding-bottom: 200px;
+    position: static;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1100px;
+    padding-top: 10px;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
 }
+
+.other-new-contain {
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 250px;
+    margin-right: 250px;
+    padding-bottom: 200px;
+    position: static;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1100px;
+    padding-top: 10px;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+}
+
+.new-welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+    gap: 20px;
+    padding: 20px;
+    /* background-color: red; */
+}
+
+.new-h1 {
+    font-size: 4rem;
+    font-family: 'Baloo 2', cursive;
+    font-family: 'Nova Oval', cursive;
+    font-family: 'Tilt Warp', cursive;
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Phudu', cursive;
+    margin: 0;
+    padding: 0;
+    margin-bottom: -10px;
+    color: #2a3038;
+    line-height: 1;
+}
+
+.new-h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 2.5rem;
+    color: #525252;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    line-height: 1;
+}
+
+@media (max-width: 1340px) {
+
+    .new-home-container {
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .new-h1 {
+        font-size: 3.5rem;
+    }
+    
+    .new-h3 {
+        font-size: 2.0rem;
+    }
+}
+
+
+@media (max-width: 340px) {
+
+    .new-h1 {
+        font-size: 3.0rem;
+    }
+    
+    .new-h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 300px) {
+
+    .new-h1 {
+        font-size: 2.5rem;
+    }
+    
+    .new-h3 {
+        font-size: 1.0rem;
+    }
+}
+  
+  @media(max-width: 1290px) {
+    .new-contain {
+        width: 90%;
+    }
+  }

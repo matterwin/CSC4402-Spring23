@@ -44,7 +44,7 @@ function UserSettings() {
     },[userId])
 
   return (
-    <div className='profile-container'>
+    <div className='contain'>
         <div className="setting-info-title">
           <h2 className='reviews'>Profile Settings</h2>
         </div>
