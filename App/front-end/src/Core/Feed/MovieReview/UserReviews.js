@@ -150,14 +150,7 @@ function UserReviews(props) {
       >
         <div className='left-div'>
           <div className="comment-pfp-div" style={{ borderColor: borderColor }}>
-          { checkUserIds ? 
-            <> 
-              <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />      
-            </> : 
-            <>
-              <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />        
-          </>
-          }       
+          <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />             
           </div>
           { checkUserIds && 
             <div style={{ position: 'relative' }} className={ hoverOrNot ? '' : 'hide-more-icon' }> 
