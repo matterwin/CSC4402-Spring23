@@ -14,6 +14,7 @@ import Button from '@mui/material/Button';
 export default function UserMovieReviews() {
     const [movieReviews, setMovieReviews] = useState(undefined);
     const [movies, setMovies] = useState(undefined);
+    const [userInfo, setUserInfo] = useState(undefined);
     const [amountOfReviews, setAmountOfReviews] = useState(-1);
     const userId = readCookies();
     const navigate = useNavigate();
@@ -29,6 +30,15 @@ export default function UserMovieReviews() {
         .then(json => setMovies(json))
         .catch(err => console.error(err));
     }, []);
+
+    useEffect(() => {
+      const url = `http://localhost:8000/api/userAuthControllerInfo?id=${userId}`;
+      fetch(url)
+      .then(res => res.json())
+      .then(json => setUserInfo(json))
+      .catch(err => console.error(err));
+    },[userId])
+
 
     useEffect(() => {
       fetch(`http://localhost:8000/api/movieReviewControllerAll`)
@@ -106,7 +116,7 @@ export default function UserMovieReviews() {
         </div>
         <div>
           <div className="comment-div-info-rr">
-            <div className="username-rr">Username</div>
+            <div className="username-rr">{userInfo.username}</div>
             <div className="desc-rr">{movieReview.review}</div>
             <div className="usr-rating-rr">
               <div className="rating-div-rr">

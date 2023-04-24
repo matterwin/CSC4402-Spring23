@@ -34,8 +34,8 @@ NavLink {
     background-color: #2a3038;
     display: flex;
     text-decoration: none;
-    padding-top: 9px;
-    padding-bottom: 9px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-left: 60px;
     padding-right: 60px;
 
@@ -215,6 +215,10 @@ NavLink {
   
   .pfp-div:hover{
     border-radius: 35%;
+  }
+
+  .pfp-div:hover .profile-pic {
+    transform: scale(1.2);
   }
   
 

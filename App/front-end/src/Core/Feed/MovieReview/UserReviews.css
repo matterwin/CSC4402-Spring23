@@ -42,7 +42,7 @@
     padding-top: 0px;
     padding-bottom: 40px;
     display: flex;
-    gap: 5px;
+    gap: 0px;
     /* min-width: 20%; */
   }
 
@@ -72,6 +72,10 @@
 
   .comment-pfp-div:hover {
     border-radius: 35%;
+  }
+
+  .comment-pfp-div:hover .profile-pic {
+    transform: scale(1.2);
   }
 
   .reviews-heading {

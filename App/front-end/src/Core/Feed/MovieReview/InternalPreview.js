@@ -11,17 +11,13 @@ export default function InternalPreview(props) {
     const userId = readCookies();
     const movieId = props.movieId;
     const [movieReviews, setMovieReviews] = useState([]); 
-
      
     useEffect(() => {
-
         const url = `http://localhost:8000/api/movieReviewController?userId=${userId}&movieId=${movieId}`;
-  
         fetch(url)
         .then(res => res.json())
         .then(json => setMovieReviews(json))
         .catch(err => console.error(err));
-  
     },[movieId, userId])
    
     return (

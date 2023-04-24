@@ -86,16 +86,11 @@ function UserReviews(props) {
     updateDelDisplay(true);
   }
 
-  // useEffect(() => {
-  //   if(anchorEl !== null);
-  //   else 
-  //     setHoverOrNot(false);
-  // },[anchorEl])
-
   useEffect(() => {
+    console.log("test")
     fetch(`http://localhost:8000/api/movieReviewControllerWithUser/${props.movieId}`)
     .then(res => res.json())
-    .then(json => {setMovieReviews(json)})
+    .then(json => setMovieReviews(json))
     .catch(err => console.error(err));
   }, [props]);
   
@@ -110,7 +105,9 @@ function UserReviews(props) {
   function createDate(rawDate) {
     const currentDate = new Date();
     const reviewDate = new Date(rawDate);
-    var diffInTime = (currentDate.getTime() - reviewDate.getTime()) * -1;
+    const offset = reviewDate.getTimezoneOffset() * 60 * 1000; // offset in milliseconds
+    const reviewDateWithOffset = new Date(reviewDate.getTime() - offset); // adjust review date with offset
+    var diffInTime = (currentDate.getTime() - reviewDateWithOffset.getTime()) * -1;
   
     if(diffInTime < 0) diffInTime *= -1
 
@@ -121,15 +118,15 @@ function UserReviews(props) {
     const diffInSeconds = Math.floor(diffInTime / 1000);
   
     if (diffInYears > 0) {
-      return `${diffInYears} year${diffInYears !== 1 ? 's' : ''} ago`;
+      return `${diffInYears} yr${diffInYears !== 1 ? 's' : ''} ago`;
     } else if (diffInDays > 0) {
       return `${diffInDays} day${diffInDays !== 1 ? 's' : ''} ago`;
     } else if (diffInHours > 0) {
-      return `${diffInHours} hour${diffInHours !== 1 ? 's' : ''} ago`;
+      return `${diffInHours} hr${diffInHours !== 1 ? 's' : ''} ago`;
     } else if (diffInMinutes > 0) {
-      return `${diffInMinutes} minute${diffInMinutes !== 1 ? 's' : ''} ago`;
+      return `${diffInMinutes} min${diffInMinutes !== 1 ? 's' : ''} ago`;
     } else {
-      return `${diffInSeconds} second${diffInSeconds !== 1 ? 's' : ''} ago`;
+      return `${diffInSeconds} sec${diffInSeconds !== 1 ? 's' : ''} ago`;
     }
   }
 
@@ -158,9 +155,7 @@ function UserReviews(props) {
               <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />      
             </> : 
             <>
-            <Tooltip title={<h3 style={{ margin: '0px' }}>{movieReview.username}</h3>}>
-                <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />      
-            </Tooltip >   
+              <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />        
           </>
           }       
           </div>
@@ -258,7 +253,7 @@ function UserReviews(props) {
         <div className='comment-flex-box'>
           <h2 className='reviews-heading'>Reviews •&nbsp;{movieReviews.length} </h2>
           { <DeleteAlert deleteMovieId={props.movieId}/> }
-          { readCookies() && <InternalReview movieId={props.movieId} /> }
+          { readCookies() && <InternalReview movieId={props.movieId} moviesReviews={ movieReviews } setMovieReviews={ setMovieReviews } /> }
           { reviewsJsx }
         </div>
       </div>

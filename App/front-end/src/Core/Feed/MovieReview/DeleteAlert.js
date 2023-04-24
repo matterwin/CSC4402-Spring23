@@ -18,7 +18,7 @@ export default function DeleteAlert(props) {
         
     },[getDelDisplay()])
 
-    console.log("open:     " + open)
+    // console.log("open:     " + open)
 
   const handleClose = () => {
     updateDelDisplay(false);

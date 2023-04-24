@@ -18,13 +18,13 @@ import Loading from '../../Loading/Loading';
 import InternalPreview from './InternalPreview';
 import getShowPreview from './ReviewHooks/getShowPreview';
 import updateDelDisplay from './ReviewHooks/updateDelDisplay';
-import DeleteAlert from './DeleteAlert';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 function InternalReview(props) {
 
     const userId = readCookies();
     const movieIdConst = props.movieId;
+    const setMovieReviews = props.setMovieReviews;
     const [username, setUsername] = useState('');
     const [userProfilePic, setUserProfilePic] = useState("");
     const [renderInFail, setRenderInFail] = useState(false);
@@ -68,27 +68,12 @@ function InternalReview(props) {
   }
 
   function handleSuccess() {
-
-    const intervalId = setInterval(() => {
-      setButtonClass("inputSuccess");
-      setButtonColor("#00ce8d");
-      setChangeToWhite(true);
-      setEnableHover(false);
-    }, 0);
-
     setTimeout(() => {
-      clearInterval(intervalId);
-      setButtonClass("");
-      setButtonColor("#1976d2b");
-      setChangeToWhite(false);
-      setEnableHover(true);
-      setTimeout(() => {
         handleSuccessLoading();
         setTimeout(() => {
           setShowPreview(true);
-        }, 800);
-      }, 300);
-    }, 1000); 
+        }, 1000);
+    }, 0); 
   }
 
   useEffect(() => {
@@ -119,9 +104,15 @@ function InternalReview(props) {
         console.log(`Status Code: ${statusCode}`);
         if(statusCode === '200') {
           handleSuccess();
+          setTimeout(() => {
+            fetch(`http://localhost:8000/api/movieReviewControllerWithUser/${props.movieId}`)
+            .then(res => res.json())
+            .then(json => {setMovieReviews(json); console.log(json)})
+            .catch(err => console.error(err));
+          }, 1000); 
           return;
         }
-        else if(statusCode === '200') {
+        else if(statusCode !== '200') {
           setShowPreview(true);
           return;
         }       
