@@ -201,7 +201,7 @@ export const getMovieReviewHandler = async (req: Request, res: Response): Promis
   }
 
   try {
-    const queryResult = await executeQuery(res, 'sql/movieReview/getMovieReviewByMovieId.sql', [
+    const queryResult = await executeQuery(res, 'sql/movieReview/getMovieReview.sql', [
       query.userId as string,
       query.movieId as string,
     ]);

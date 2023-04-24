@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import readCookies from '../../../Hooks/readCookies';
-// import getMovieId from '../../RateReview/InputHooks/getMovieId';
 import './UserReviews.css';
 import './InternalPreview.css';
 import StarIcon from '@mui/icons-material/Star';
 import Tooltip from '@mui/material/Tooltip';
+import deleteReview from './ReviewHooks/deleteReview';
 
 export default function InternalPreview(props) {
     const userId = readCookies();

@@ -1,8 +1,9 @@
 import readCookies from "../../../../Hooks/readCookies";
+import updateShowPreview from "./updateShowPreview";
 
-export default function deleteReview(movieId) {
+export default function deleteReview(movieId, setMovies) {
     const userId = readCookies();
-    console.log("UserId: " + userId + "       MovieId: " + movieId);
+    const setMovieReviews = setMovies;
 
     const reviewData = {
         userId: userId,
@@ -20,15 +21,17 @@ export default function deleteReview(movieId) {
 
     fetch(url, options)
     .then(response => {
-        if (response.status === 400) {
-          throw new Error("400 Bad Request");
-        }
+        if (response.status === 400) throw new Error("400 Bad Request");
         else if (response.status === 204) {
-            alert("204 No Content");
+            setTimeout(() => {
+                fetch(`http://localhost:8000/api/movieReviewControllerWithUser/${movieId}`)
+                .then(res => res.json())
+                .then(json => setMovieReviews(json))
+                .catch(err => console.error(err));
+              }, 0); 
+            updateShowPreview(false);
         }
-        else if (response.status === 404) {
-            throw new Error("404 Not Found");
-        }
+        else if (response.status === 404) throw new Error("404 Not Found");
       })
     .catch(error => {console.error(error);});
 }

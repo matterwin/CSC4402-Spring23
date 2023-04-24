@@ -245,7 +245,7 @@ function UserReviews(props) {
       <div className='comment-container'>
         <div className='comment-flex-box'>
           <h2 className='reviews-heading'>Reviews •&nbsp;{movieReviews.length} </h2>
-          { <DeleteAlert deleteMovieId={props.movieId}/> }
+          { <DeleteAlert deleteMovieId={props.movieId} moviesReviews={ movieReviews } setMovieReviews={ setMovieReviews }/> }
           { readCookies() && <InternalReview movieId={props.movieId} moviesReviews={ movieReviews } setMovieReviews={ setMovieReviews } /> }
           { reviewsJsx }
         </div>

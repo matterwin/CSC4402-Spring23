@@ -15,10 +15,7 @@ export default function DeleteAlert(props) {
 
     useEffect(() => {
         setOpen(getDelDisplay());
-        
     },[getDelDisplay()])
-
-    // console.log("open:     " + open)
 
   const handleClose = () => {
     updateDelDisplay(false);
@@ -27,7 +24,7 @@ export default function DeleteAlert(props) {
 
   const handleDelete = () => {
     handleClose();
-    deleteReview(props.deleteMovieId);
+    deleteReview(props.deleteMovieId, props.setMovieReviews);
   };
 
   return (
