@@ -15,6 +15,11 @@ function UserSettings() {
     const [userProfilePic, setUserProfilePic] = useState("");
 
     useEffect(() => {
+      if(!readCookies())
+        window.location.href = "/Login";
+    },[])
+
+    useEffect(() => {
 
       const url = `http://localhost:8000/api/userAuthControllerInfo?id=${userId}`;
 
