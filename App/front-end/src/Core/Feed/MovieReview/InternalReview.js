@@ -164,39 +164,59 @@ function InternalReview(props) {
     <div>
         <div className='internal-comment-div'>
           { showPreview ? (
-            <>  
-              <div className="comment-pfp-div">
-                <Tooltip title={<h3 style={{ margin: '0px' }}>{username}</h3>}>
-                    <img className="internal-profile-pic" src={userProfilePic} alt="ProfilePicture" />      
-                </Tooltip>            
-              </div>
-              <div className='preview-div-right'>
-                <div className='comment-as-div-and-more-icon'>
-                  <div className='comment-as-div'>
-                    reviewed as <NavLink end to="/Profile"><span className='comment-as'>{username}</span></NavLink>
-                  </div>
-                  <div>
-                    <Tooltip title={<h3 style={{ margin: '0px' }}>delete</h3>} placement="top">
-                    <DeleteForeverIcon
-                      sx={{ 
-                        padding: '0px', 
-                        cursor: 'pointer', 
-                        borderRadius: '100%',
-                        color: '#8f8f8f',
-                        '&:hover': {
-                          backgroundColor: '#e1e1e1',
-                          color: '#f74242'
-                        }
-                      }}
-                      aria-label="cart"
-                      onClick={handleDelete}
-                    />
-                    </Tooltip>
+            <> 
+              <div className='left-div'>
+                <div className="comment-pfp-div">
+                  <img className="internal-profile-pic" src={userProfilePic} alt="ProfilePicture" />                 
+                </div>
+                <div>
+                    <div className='vertIcon-div'>
+                      <Tooltip title={<h3 style={{ margin: '0px' }}>delete</h3>} placement="bottom">
+                        <DeleteForeverIcon
+                          sx={{ 
+                            padding: '12px', 
+                            cursor: 'pointer', 
+                            borderRadius: '100%',
+                            color: '#8f8f8f',
+                            '&:hover': {
+                              backgroundColor: '#e1e1e1',
+                              color: '#f74242'
+                            }
+                          }}
+                          aria-label="cart"
+                          onClick={handleDelete}
+                        />
+                      </Tooltip> 
+                    </div> 
+                    <div className='horizIcon-div'>
+                      <Tooltip title={<h3 style={{ margin: '0px' }}>delete</h3>} placement="top">
+                        <DeleteForeverIcon 
+                          sx={{ 
+                            padding: '12px', 
+                            cursor: 'pointer', 
+                            borderRadius: '100%',
+                            color: '#8f8f8f',
+                            '&:hover': {
+                              backgroundColor: '#e1e1e1',
+                              color: '#f74242'
+                            }
+                          }}
+                          aria-label="cart"
+                          onClick={handleDelete}
+                        />
+                      </Tooltip>
+                    </div>       
                   </div>          
                 </div>
-              </div>             
-              <InternalPreview movieId={movieIdConst}/>
-              
+                <div className='preview-div-right'>
+                  <div className='comment-as-div-and-more-icon'>
+                    <div className='comment-as-div'>
+                      reviewed as <NavLink end to="/Profile"><span className='comment-as'>{username}</span></NavLink>
+                    </div>
+                  </div>
+                  <InternalPreview movieId={movieIdConst}/>  
+                </div>             
+                
             </>
             ) : (<>
             {successfulLoad ? (
