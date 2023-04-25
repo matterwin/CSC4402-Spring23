@@ -226,9 +226,7 @@ function InternalReview(props) {
               ) : (
               <>
                 <div className="internal-pfp-div">
-                    <Tooltip title={<h3 style={{ margin: '0px' }}>{username}</h3>}>
-                        <img className="internal-profile-pic" src={userProfilePic} alt="ProfilePicture" />      
-                    </Tooltip>            
+                  <img className="internal-profile-pic" src={userProfilePic} alt="ProfilePicture" />               
                 </div>
                 <div className='new-review-div'>
                     { renderInFail &&

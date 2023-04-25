@@ -13,19 +13,14 @@ export default function SearchMovie(props) {
       .catch(err => console.error(err));
   }, []);
 
-  // console.log(movieNames);
-
   if(!movieNames) {
     return (
       <Loading />
     );
   }
 
-  const handleMovieSelectionExternal = (event, value) => {
-    // console.log(props)
-    var index = movieNames.indexOf(value);
-    // console.log(index);
-    props.onMovieSelection(++index);
+  const handleMovieSelection = (_event, value) => {
+    props.onMovieSelection(value.id);
   };
 
   return (
@@ -36,7 +31,8 @@ export default function SearchMovie(props) {
       getOptionLabel={(option) => option.name}
       sx={{ width: 300, backgroundColor: '#fff', borderRadius: '5px', outline: 'none' }}
       renderInput={(params) => <TextField {...params} placeholder='Search movie'/>}
-      onChange={handleMovieSelectionExternal}
+      onChange={handleMovieSelection}
+      ListboxProps={{ style: { maxHeight: '12rem' } }}
     />
   );
 }

@@ -5,6 +5,7 @@
     overflow: hidden;
     background-color: #f4f4f5;
     cursor: pointer; 
+    transition: border-radius 0.2s ease-in-out;
     border: 1.5px solid #2c323a;
   }
 
@@ -79,11 +80,19 @@
     transform: scale(1.2);
   }
 
+  .internal-pfp-div:hover .internal-profile-pic {
+    transform: scale(1.2);
+  }
+
+  .internal-pfp-div:hover {
+    border-radius: 35%;
+  }
+
   .internal-loading {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }
 
   .comment-as-div {
     text-align: left;
