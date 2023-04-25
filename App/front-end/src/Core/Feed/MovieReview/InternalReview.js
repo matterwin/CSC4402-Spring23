@@ -31,6 +31,7 @@ function InternalReview(props) {
     const userId = readCookies();
     const movieIdConst = props.movieId;
     const setMovieReviews = props.setMovieReviews;
+    const setMovie = props.setMovie;
     const [username, setUsername] = useState('');
     const [userProfilePic, setUserProfilePic] = useState("");
     const [renderInFail, setRenderInFail] = useState(false);
@@ -55,15 +56,13 @@ function InternalReview(props) {
       deleteReview(movieIdConst, setMovieReviews);
       handleClose();
       setShowPreview(false);
-      
-      const intervalId = setInterval(() => {
-          setSuccessDeleteAlert(true);
-      }, 0);
-
       setTimeout(() => {
-          clearInterval(intervalId);
-          setSuccessDeleteAlert(false);
-      }, 1000);
+        fetch(`http://localhost:8000/api/movieControllerWithAvg/${movieIdConst}`)
+          .then(res => res.json())
+          .then(json => setMovie(json))
+          .catch(err => console.error(err));   
+      }, 10);
+      return;
     };
 
   function handleFailure() {
@@ -132,15 +131,20 @@ function InternalReview(props) {
       
       postReview()
       .then(statusCode => {
-        console.log(`Status Code: ${statusCode}`);
         if(statusCode === '200') {
           handleSuccess();
           setTimeout(() => {
             fetch(`http://localhost:8000/api/movieReviewControllerWithUser/${props.movieId}`)
             .then(res => res.json())
-            .then(json => {setMovieReviews(json); console.log(json)})
+            .then(json => setMovieReviews(json))
             .catch(err => console.error(err));
-          }, 1000); 
+          }, 1000);
+          setTimeout(() => {
+          fetch(`http://localhost:8000/api/movieControllerWithAvg/${movieIdConst}`)
+            .then(res => res.json())
+            .then(json => setMovie(json))
+            .catch(err => console.error(err));
+          }, 1000);
           return;
         }
         else if(statusCode !== '200') {
@@ -170,7 +174,7 @@ function InternalReview(props) {
           return response.json();     
         })
         .then(data => {
-          if(data) { 
+          if(data) {
             setUsername(data.username);
             if(data.url == null)
               setUserProfilePic(DefaultPic);
@@ -183,8 +187,7 @@ function InternalReview(props) {
     },[userId])
 
     useEffect(() => {
-      console.log(props.movieId);
-        updateMovieId(props.movieId);
+      updateMovieId(props.movieId);
     },[props.movieId])
 
   return (
@@ -294,7 +297,7 @@ function InternalReview(props) {
                       reviewed as <NavLink end to="/Profile"><span className='comment-as'>{username}</span></NavLink>
                     </div>
                   </div>
-                  <InternalPreview movieId={movieIdConst}/>  
+                  <InternalPreview movieId={movieIdConst} />  
                 </div>             
             </>
             ) : (<>

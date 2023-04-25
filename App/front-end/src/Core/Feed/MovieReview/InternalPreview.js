@@ -5,6 +5,7 @@ import './UserReviews.css';
 import './InternalPreview.css';
 import StarIcon from '@mui/icons-material/Star';
 import Tooltip from '@mui/material/Tooltip';
+import updateShowPreview from './ReviewHooks/updateShowPreview';
 
 export default function InternalPreview(props) {
     const userId = readCookies();
@@ -14,11 +15,13 @@ export default function InternalPreview(props) {
     useEffect(() => {
         const url = `http://localhost:8000/api/movieReviewController?userId=${userId}&movieId=${movieId}`;
         fetch(url)
-        .then(res => res.json())
-        .then(json => setMovieReviews(json))
-        .catch(err => console.error(err));
+          .then(res => res.json())
+          .then(json => setMovieReviews(json))
+          .catch(err => console.error(err));
+        if(movieReviews.review === undefined)
+          updateShowPreview(false);
     },[movieId, userId])
-   
+    
     return (
         <div className='comment-div-info'>
             <div className='desc'>

@@ -14,7 +14,6 @@ import DeleteAlert from './DeleteAlert';
 import updateDelDisplay from './ReviewHooks/updateDelDisplay';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import updateShowPreview from './ReviewHooks/updateShowPreview';
-// import getDelDisplay from './ReviewHooks/getDelDisplay';
 import './UserReviews.css'
 
 const StyledMenu = styled((props) => (
@@ -87,7 +86,6 @@ function UserReviews(props) {
   }
 
   useEffect(() => {
-    console.log("test")
     fetch(`http://localhost:8000/api/movieReviewControllerWithUser/${props.movieId}`)
     .then(res => res.json())
     .then(json => setMovieReviews(json))
@@ -245,8 +243,10 @@ function UserReviews(props) {
       <div className='comment-container'>
         <div className='comment-flex-box'>
           <h2 className='reviews-heading'>Reviews •&nbsp;{movieReviews.length} </h2>
-          { <DeleteAlert deleteMovieId={props.movieId} moviesReviews={ movieReviews } setMovieReviews={ setMovieReviews }/> }
-          { readCookies() && <InternalReview movieId={props.movieId} moviesReviews={ movieReviews } setMovieReviews={ setMovieReviews } /> }
+          { <DeleteAlert deleteMovieId={props.movieId} moviesReviews={ movieReviews } setMovieReviews={ setMovieReviews } setMovie={props.setMovie}/> }
+          { readCookies() && 
+            <InternalReview movieId={props.movieId} moviesReviews={ movieReviews } setMovieReviews={ setMovieReviews } setMovie={props.setMovie}/> 
+          }
           { reviewsJsx }
         </div>
       </div>

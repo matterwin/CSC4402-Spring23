@@ -49,8 +49,7 @@ function Feed() {
           <div className="movies-div">
             <MovieCard movies={ movies } setMovies={ setMovies } />
           </div>            
-          <div className='space'>&nbsp;</div> 
-          </div>
+        </div>
       </div>
     </div>
   );

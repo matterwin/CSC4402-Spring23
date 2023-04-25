@@ -9,9 +9,11 @@ import { useEffect, useState } from 'react';
 import updateDelDisplay from './ReviewHooks/updateDelDisplay';
 import getDelDisplay from './ReviewHooks/getDelDisplay';
 import deleteReview from './ReviewHooks/deleteReview';
+import updateShowPreview from './ReviewHooks/updateShowPreview';
 
 export default function DeleteAlert(props) {
   const [open, setOpen] = useState(false);
+  const setMovie = props.setMovie;
 
     useEffect(() => {
         setOpen(getDelDisplay());
@@ -25,6 +27,13 @@ export default function DeleteAlert(props) {
   const handleDelete = () => {
     handleClose();
     deleteReview(props.deleteMovieId, props.setMovieReviews);
+    updateShowPreview(false);
+    setTimeout(() => {
+      fetch(`http://localhost:8000/api/movieControllerWithAvg/${props.deleteMovieId}`)
+        .then(res => res.json())
+        .then(json => setMovie(json))
+        .catch(err => console.error(err));   
+    }, 10);    
   };
 
   return (

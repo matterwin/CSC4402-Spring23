@@ -62,7 +62,6 @@ export default function MultipleSelectChip(props) {
   const setMovies = props.setMovies;
   const movies = props.movies;
 
-
   React.useEffect(() => {
     fetch('http://localhost:8000/api/movieControllerFeed')
       .then(res => res.json())
@@ -123,6 +122,10 @@ export default function MultipleSelectChip(props) {
   function handleReset() {
     setShowReset(false);
     setPersonName([]);
+    fetch('http://localhost:8000/api/movieControllerFeed')
+      .then(res => res.json())
+      .then(json => setMovies(json))
+      .catch(err => console.error(err));
   }
 
   return (

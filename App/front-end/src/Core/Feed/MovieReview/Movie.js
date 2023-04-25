@@ -127,7 +127,7 @@ function Movie() {
             </div>
           </div>
           <div>
-            <UserReviews movieId={movie.id}/>
+            <UserReviews movieId={movie.id} setMovie={setMovie} />
           </div>
         </div>
       </div>
