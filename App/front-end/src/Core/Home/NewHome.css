@@ -35,6 +35,16 @@
     border-right: 1px solid grey;
 }
 
+.ball {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  top: 0;
+  /* left: 0; */
+}
+
 .new-welcome {
     display: flex;
     justify-content: center;

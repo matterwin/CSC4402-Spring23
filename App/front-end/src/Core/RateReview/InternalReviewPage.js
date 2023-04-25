@@ -35,15 +35,13 @@ function InternalReviewPage() {
                 </div>
             </div>
             <div>
-                <Slider tcolor={"#2c323a"}/>
+                <Slider tcolor={"#2c323a"} wid={260}/>
             </div>
-            <div>
-                <textarea
-                    className='internal-text-area'
-                    placeholder='Write up a review'
-                    onChange={handleTextareaChange}
-                />
-            </div>  
+            <textarea
+                className='internal-text-area'
+                placeholder='Write up a review'
+                onChange={handleTextareaChange}
+            />
         </div>
     </div>
     );

@@ -31,6 +31,7 @@ function Home() {
                 </Button>
               </NavLink>
           </div>
+          <div className='space'>&nbsp;</div>
       </div>
       <div className="other-new-contain">
         <div className='new-welcome'>

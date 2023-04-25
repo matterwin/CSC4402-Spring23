@@ -5,23 +5,54 @@
     align-items:flex-start;
     justify-content: center;
     gap: 20px;
+    width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 930px;
+    position: static;
 }
 
 .internal-text-area {
     padding: 10px;
     text-decoration: none;
     outline: none;
-    width: 600px;
+    /* width: 600px; */
     height: 50px;
     resize: none;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     font-family: 'Baloo 2', cursive;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 17px;
     font-weight: 600;
     border-radius: 8px;
     line-height: 25px;
+    /* position: static; */
+    width: 90%;
 }
+    @media(max-width: 1290px) {
+        .internal-writing-review-div {
+            width: 465px;
+        }
+    }
+
+    @media(max-width: 705px) {
+        .internal-writing-review-div {
+            width: 50vw;
+        }
+    }
+
+
+    @media(max-width: 500px) {
+        .internal-writing-review-div {
+            width: 260px
+        }
+    }
+
+    @media(max-width: 400px) {
+        .internal-writing-review-div {
+            width: 86vw;
+        }
+    }
 
 .internal-rating-div {
     text-decoration: none;

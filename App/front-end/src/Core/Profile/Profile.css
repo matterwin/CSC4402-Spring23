@@ -49,6 +49,10 @@
     /* gap: 10px; */
 }
 
+.name-and-username h2 {
+    color: #2a3038;
+}
+
 .reviews {
     font-family: 'Baloo 2', cursive;
     display: flex;
@@ -116,6 +120,7 @@
 .prof-username {
     font-family: 'Baloo 2', cursive;
     color: #727272;
+    color: #2a3038;
     margin: 0;
     padding: 0;
     display: flex;

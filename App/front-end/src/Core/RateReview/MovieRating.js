@@ -32,7 +32,7 @@ function MovieRating() {
                 </div>
             </div>
             <div>
-                <Slider />
+                <Slider wid={305}/>
             </div>
             <div>
                 <textarea

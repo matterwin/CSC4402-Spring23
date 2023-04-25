@@ -147,8 +147,9 @@ export default function LabeledValuesSlider(props) {
     };
 
     //620 is a good width too
+    //was 305
     return (
-    <Box sx={{ width: 305 }}>
+    <Box sx={{ width: props.wid }}>
         <div>
             <div className='rating-box'>
                 <StyledSlider

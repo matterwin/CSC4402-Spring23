@@ -19,9 +19,15 @@ import InternalPreview from './InternalPreview';
 import getShowPreview from './ReviewHooks/getShowPreview';
 import updateDelDisplay from './ReviewHooks/updateDelDisplay';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import deleteReview from './ReviewHooks/deleteReview';
 
 function InternalReview(props) {
-
+    const [open, setOpen] = useState(false);
     const userId = readCookies();
     const movieIdConst = props.movieId;
     const setMovieReviews = props.setMovieReviews;
@@ -34,6 +40,31 @@ function InternalReview(props) {
     const [changeToWhite, setChangeToWhite] = useState(false);
     const [successfulLoad, setSuccessfulLoad] = useState(false);
     const [showPreview, setShowPreview] = useState(getShowPreview());
+    const [successDeleteAlert, setSuccessDeleteAlert] = useState(false);
+
+    const handleClose = () => {
+      updateDelDisplay(false);
+      setOpen(false);
+    };
+  
+    const handleDelete = () => {
+      setOpen(true);
+    };
+
+    const handleActualDelete = () => {
+      deleteReview(movieIdConst, setMovieReviews);
+      handleClose();
+      setShowPreview(false);
+      
+      const intervalId = setInterval(() => {
+          setSuccessDeleteAlert(true);
+      }, 0);
+
+      setTimeout(() => {
+          clearInterval(intervalId);
+          setSuccessDeleteAlert(false);
+      }, 1000);
+    };
 
   function handleFailure() {
 
@@ -156,13 +187,62 @@ function InternalReview(props) {
         updateMovieId(props.movieId);
     },[props.movieId])
 
-    const handleDelete = () => {
-      updateDelDisplay(true);
-    }
-
   return (
     <div>
         <div className='internal-comment-div'>
+        <div>
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+            sx={{
+              maxWidth: '300px',
+              margin: '0 auto',
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+          >
+            <DialogTitle id="alert-dialog-title" sx={{ fontSize: '1.1rem' }}>
+              {"Fair warning"}
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-description" sx={{ fontSize: '1rem' }}>
+                Are you sure you want to delete your review?
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions sx={{ backgroundColor: '#e4e6e7', }}>
+              <Button 
+                onClick={handleClose} 
+                sx={{
+                  '&:hover': {
+                      backgroundColor: '#cccccc;',
+                      color: "#1976d2"
+                  },
+                  borderRadius: '20px'
+                }}
+              >
+                Cancel
+              </Button>
+              <Button 
+                onClick={handleActualDelete} 
+                sx={{
+                  backgroundColor: '#1976d2',
+                  color: "#fff",
+                  border: '0.5px solid #1976d2',
+                  '&:hover': {
+                      backgroundColor: '#f74242',
+                      color: "#fff",
+                      border: '0.5px solid #f74242',
+                  },
+                  borderRadius: '20px',
+              }}
+              >
+                Delete
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </div>
           { showPreview ? (
             <> 
               <div className='left-div'>
@@ -216,7 +296,6 @@ function InternalReview(props) {
                   </div>
                   <InternalPreview movieId={movieIdConst}/>  
                 </div>             
-                
             </>
             ) : (<>
             {successfulLoad ? (
@@ -270,7 +349,16 @@ function InternalReview(props) {
                             </Alert>   
                         </div>
                     }
-
+                    {successDeleteAlert && 
+                      <div className="alert-container">
+                        <Alert 
+                          severity="success" 
+                          color="info"
+                        >
+                          Successfully deleted
+                        </Alert>
+                      </div>
+                    }
                     <div className='comment-as-div'>
                         comment as <NavLink end to="/Profile"><span className='comment-as'>{username}</span></NavLink>
                     </div>
