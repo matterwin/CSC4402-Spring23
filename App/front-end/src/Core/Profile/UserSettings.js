@@ -8,6 +8,11 @@ import DefaultPic from "../Videos/defaultPic.png";
 
 import './UserSettings.css'
 
+// http://localhost:8000/api/userAuthController/11?username=a&email=a@aol.com&password=a
+// will use this endpoint later to update user profile
+// 400 request means info inputted is not unique
+// will have to send all user data to backend, so it's basically updating the whole user info
+
 function UserSettings() {
 
   const userId = readCookies();
