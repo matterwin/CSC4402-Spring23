@@ -232,6 +232,48 @@ export const getAllMovieWithAvgSortReleaseDateHandler = async (
     console.error(err);
   }
 };
+
+export const getAllMovieWithAvgSortGenreHandler = async (
+  _req: Request,
+  res: Response,
+): Promise<void> => {
+
+  const query = _req.query;
+
+  if (query === undefined) {
+    res.status(403).send();
+    return;
+  }
+
+  try {
+    const queryResult = await executeQuery(res, 'sql/movie/getMovieWithAvgGenre.sql', [query.genre as string]);
+
+    if (queryResult.length <= 0) {
+      res.status(404).send();
+      return;
+    }
+
+    const resultDTO: any = [];
+
+    queryResult.forEach((row: any) => {
+      resultDTO.push({
+        id: row.id,
+        name: row.name,
+        description: row.description,
+        length: row.length,
+        releaseDate: row.releaseDate,
+        genre: row.genre,
+        filepath: row.filepath,
+        avg: row.avg,
+      });
+    });
+
+    res.json(resultDTO);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 export const getAllMovieWithAvgSortTopolHandler = async (
   _req: Request,
   res: Response,

@@ -11,6 +11,7 @@ import {
   getAllMovieWithAvgSortDescHandler,
   getAllMovieWithAvgSortTopolHandler,
   getAllMovieWithAvgSortReleaseDateHandler,
+  getAllMovieWithAvgSortGenreHandler,
   deleteMovieHandler,
 } from './movieControllerHandler';
 import { HttpMethod, type RouterConfig } from '../model';
@@ -30,7 +31,13 @@ const getAllMovieWithAvgSortAsc = `/${_BASE_PATH}WithAvgAsc`;
 const getAllMovieWithAvgSortDesc = `/${_BASE_PATH}WithAvgDesc`;
 const getAllMovieWithAvgSortTopol = `/${_BASE_PATH}WithAvgTopol`;
 const getAllMovieWithAvgReleaseDate = `/${_BASE_PATH}WithAvgReleaseDate`;
+const getAllMovieWithAvgGenre = `/${_BASE_PATH}WithAvgGenre`;
 
+router.get(getAllMovieWithAvgGenre, (req, res) => {
+  void (async () => {
+    await getAllMovieWithAvgSortGenreHandler(req, res);
+  })();
+});
 router.get(getAllMovieWithAvgReleaseDate, (req, res) => {
   void (async () => {
     await getAllMovieWithAvgSortReleaseDateHandler(req, res);
@@ -96,6 +103,7 @@ const routerConfig: RouterConfig = {
   router,
   routerName: 'movieController',
   routerDetails: [
+    { path: getAllMovieWithAvgGenre, type: HttpMethod.get },
     { path: getAllMovieWithAvgReleaseDate, type: HttpMethod.get },
     { path: getAllMovieWithAvgSortAsc, type: HttpMethod.get },
     { path: getAllMovieWithAvgSortDesc, type: HttpMethod.get },

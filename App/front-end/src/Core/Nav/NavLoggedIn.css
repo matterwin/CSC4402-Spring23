@@ -187,13 +187,20 @@ NavLink {
   }
   
   .pfp-div {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     overflow: hidden;
     background-color: #f4f4f5;
     cursor: pointer; 
-    transition: border-radius 0.2s ease-in-out;
+    outline-offset: 3px;
+    outline:2px solid #fff;
+    transition: border-radius 0.2s ease-in-out, outline 0.2s ease-in-out;
+  }
+
+    
+  .pfp-div:hover {
+    outline:2px solid #1976d2;
   }
 
   .profile-pic {

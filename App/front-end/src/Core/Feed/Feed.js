@@ -7,7 +7,7 @@ import Tooltip from '@mui/material/Tooltip';
 import FeedSearchBar from './FeedSearchBar';
 import { NavLink } from "react-router-dom";
 import fire from '../Videos/fire.gif';
-import MultipleSelectChip from './Sort';
+import Sort from './Sort';
 
 function Feed() {
   const userId = readCookies();
@@ -45,7 +45,7 @@ function Feed() {
           <p></p>
         </div>
         <div className='movie-container'>
-          <MultipleSelectChip movies={ movies } setMovies={ setMovies } />
+          <Sort movies={ movies } setMovies={ setMovies } />
           <div className="movies-div">
             <MovieCard movies={ movies } setMovies={ setMovies } />
           </div>            

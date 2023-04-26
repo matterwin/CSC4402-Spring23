@@ -20,6 +20,7 @@
     animation: loadingtransition 500ms ease-in;
     animation: card-flip 0.5s ease-in-out forwards;
     position: relative;
+    margin-bottom: 15px;
   }
   
   .remove-redeye-icon {
@@ -88,6 +89,12 @@
     line-height: 1;
     padding-top: 3px;
     padding-bottom: 4px;
+    max-width: 150px;
+    word-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 1rem;
 }
 
 .movie-review-div:active > .movie-title {
@@ -121,7 +128,6 @@
     font-size: 13px;
     color: rgb(53, 53, 53);
 }
-
   
   @keyframes  loadingtransition{
   

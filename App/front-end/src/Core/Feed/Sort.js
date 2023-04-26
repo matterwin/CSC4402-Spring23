@@ -46,6 +46,13 @@ const names = [
   'Newest',
 ];
 
+const genres = [
+  'Action',
+  'Adventure',
+  'Drama',
+  'Thriller'
+];
+
 function getStyles(name, personName, theme) {
   return {
     fontWeight:
@@ -58,6 +65,7 @@ function getStyles(name, personName, theme) {
 export default function MultipleSelectChip(props) {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
+  const [genreName, setGenreName] = React.useState([]);
   const [showReset, setShowReset] = React.useState(false);
   const setMovies = props.setMovies;
   const movies = props.movies;
@@ -111,6 +119,48 @@ export default function MultipleSelectChip(props) {
     }
   };
 
+  const handleChangeGenre = (event) => {
+    setShowReset(true);
+    const {
+      target: { value },
+    } = event;
+    setGenreName(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+
+    const sortType = event.target.value;
+
+    switch(sortType) {
+      case genres[0]: 
+        fetch(`http://localhost:8000/api/movieControllerWithAvgGenre?genre=${genres[0]}`)
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        break;
+      case genres[1]:
+        fetch(`http://localhost:8000/api/movieControllerWithAvgGenre?genre=${genres[1]}`)
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        break;
+      case genres[2]:
+        fetch(`http://localhost:8000/api/movieControllerWithAvgGenre?genre=${genres[2]}`)
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        break;
+      case genres[3]:
+        fetch(`http://localhost:8000/api/movieControllerWithAvgGenre?genre=${genres[3]}`)
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        break;
+      default:
+        console.error('invalid genre type!');
+    }
+  };
+
   React.useEffect(() => {
     const handleScroll = () => {
       setPersonName([...personName]);
@@ -119,9 +169,18 @@ export default function MultipleSelectChip(props) {
     return () => window.removeEventListener('scroll', handleScroll);
   });
 
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setGenreName([...genreName]);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
+
   function handleReset() {
     setShowReset(false);
     setPersonName([]);
+    setGenreName([]);
     fetch('http://localhost:8000/api/movieControllerFeed')
       .then(res => res.json())
       .then(json => setMovies(json))
@@ -131,7 +190,7 @@ export default function MultipleSelectChip(props) {
   return (
     <div className='feed-nav-div'>
     <div className="feed-bar-actual">
-      <div>
+      <div className="sort-bar">
         <FormControl sx={{ m: 0.1, width: 100, fontSize: 14, borderBottom: '0px'}} size='small'>
           <InputLabel id="demo-multiple-chip-label" sx={{ fontWeight: '600' }}>SORT</InputLabel>
           <Select
@@ -157,6 +216,35 @@ export default function MultipleSelectChip(props) {
                 style={getStyles(name, personName, theme)}
               >
                 {name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <FormControl sx={{ m: 0.1, width: 100, fontSize: 14, borderBottom: '0px'}} size='small'>
+          <InputLabel id="demo-multiple-chip-label" sx={{ fontWeight: '600' }} >GENRE&nbsp;</InputLabel>
+          <Select
+            labelId="demo-multiple-chip-label"
+            id="demo-multiple-chip"
+            value={genreName}
+            onChange={(change) => handleChangeGenre(change)}
+            input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+            renderValue={(selected) => (
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                {selected.map((value) => (
+                  <Chip key={value} label={value} />
+                ))}
+              </Box>
+            )}
+            MenuProps={MenuProps}
+            sx={{ textAlign: 'left' }}
+          >
+            {genres.map((genre) => (
+              <MenuItem
+                key={genre}
+                value={genre}
+                style={getStyles(genre, genreName, theme)}
+              >
+                {genre}
               </MenuItem>
             ))}
           </Select>
