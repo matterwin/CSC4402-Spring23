@@ -186,6 +186,14 @@ NavLink {
     cursor: default;
   }
   
+  .nav-usr-name {
+    max-width: 150px;
+    word-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .pfp-div {
     width: 40px;
     height: 40px;

@@ -72,6 +72,13 @@
     display: flex;
 }
 
+.loading-usr-settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+
 .profile-container {
     text-align: center;
     margin: 0 auto;
@@ -146,7 +153,6 @@
     display:flex;
     gap: 5px;
     margin-bottom: 20px;
-    
 }
 
 .small-row > p {

@@ -168,7 +168,7 @@ export default function CustomizedMenus() {
             >
             
           <MenuItem disableRipple>
-              <div>@{username}</div> 
+              <div className="nav-usr-name">@{username}</div> 
           </MenuItem>
 
         <Divider sx={{ my: 0.5, backgroundColor: '#fff' }} />
