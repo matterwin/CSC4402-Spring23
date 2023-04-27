@@ -28,6 +28,7 @@ function UserSettings() {
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [buttonClass, setButtonClass] = useState("");
   const [inputColor, setInputColor] = useState("#a1c7ed");
+  const [isDisabled, setIsDisabled] = useState(true);
 
   useEffect(() => {
     if(!readCookies())
@@ -152,8 +153,29 @@ function UserSettings() {
     setRenderInFail(true);
   }
 
-  function handleEmailChange() {
+  function handleUsernameChange(event) {
+    const usernameInput = event.target.value;
+    if(usernameInput === userData.username)
+      setIsDisabled(true);
+    else
+      setIsDisabled(false);
+  }
+
+  function handleEmailChange(event) {
     setIsValidEmail(false)
+    const emailInput = event.target.value;
+    if(emailInput === userData.email)
+      setIsDisabled(true);
+    else
+      setIsDisabled(false);
+  }
+
+  function handlePasswordChange(event) {
+    const passwordInput = event.target.value;
+    if(passwordInput === userData.password)
+      setIsDisabled(true);
+    else
+      setIsDisabled(false);
   }
 
   const handleSubmit = (event) => {
@@ -269,6 +291,7 @@ function UserSettings() {
                   name='username'
                   label="Username" 
                   variant="filled" 
+                  onChange={handleUsernameChange}
                   defaultValue={userData.username}
                   sx={{ 
                     border: '1px solid #858586',
@@ -295,6 +318,7 @@ function UserSettings() {
                 id="filled-basic" 
                 label="Password"
                 name='password'
+                onChange={handlePasswordChange}
                 variant="filled" 
                 defaultValue={userData.password}
                 sx={{ 
@@ -359,7 +383,6 @@ function UserSettings() {
               variant="contained"
               type="Submit"
               className={buttonClass}
-              // color={inputColor}
               color='error'
               sx={{
                 paddingRight: "30px",
@@ -375,6 +398,9 @@ function UserSettings() {
                     backgroundColor:"#fff",
                     border: "1px solid #2a3038",
                   },
+                  opacity: isDisabled ? 0.5 : 1,
+                  pointerEvents: isDisabled ? 'none' : 'auto',
+                  transition: 'opacity 0.3s ease-in-out',
                 }),
               }}
             >

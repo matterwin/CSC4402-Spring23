@@ -32,6 +32,7 @@ function InternalReview(props) {
     const movieIdConst = props.movieId;
     const setMovieReviews = props.setMovieReviews;
     const setMovie = props.setMovie;
+    const flag = getShowPreview();
     const [username, setUsername] = useState('');
     const [userProfilePic, setUserProfilePic] = useState("");
     const [renderInFail, setRenderInFail] = useState(false);
@@ -40,7 +41,7 @@ function InternalReview(props) {
     const [enableHover, setEnableHover] = useState(true);
     const [changeToWhite, setChangeToWhite] = useState(false);
     const [successfulLoad, setSuccessfulLoad] = useState(false);
-    const [showPreview, setShowPreview] = useState(getShowPreview());
+    const [showPreview, setShowPreview] = useState(flag);
     const [successDeleteAlert, setSuccessDeleteAlert] = useState(false);
 
     const handleClose = () => {
