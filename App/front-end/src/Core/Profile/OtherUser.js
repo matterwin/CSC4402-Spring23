@@ -5,14 +5,12 @@ import Button from '@mui/material/Button';
 import { NavLink } from "react-router-dom";
 import ReviewsIcon from '@mui/icons-material/Reviews';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
-// import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
-// import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 import DefaultPic from "../Videos/defaultPic.png";
 import readCookies from '../../Hooks/readCookies';
 import UserMovieReviews from '../RateReview/UserMovieReivews';
 import getReviewCountForProfile from '../RateReview/ReviewAmountHooks/getReviewCountForProfile';
 
-import './Profile.css'
+import './OtherUser.css'
 
 //future notes, fetch using this url http://localhost:8000/api/userAuthControllerSpec?username=as
 // then use that id of that url return to get all the other info, should be easy
@@ -30,11 +28,6 @@ function Profile() {
         console.log(amountOfReviews);
         setReviewCount(amountOfReviews);
       });
-    },[])
-
-    useEffect(() => {
-      if(!readCookies())
-        window.location.href = "/Login";
     },[])
 
     useEffect(() => {

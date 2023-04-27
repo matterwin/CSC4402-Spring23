@@ -14,6 +14,7 @@ import DeleteAlert from './DeleteAlert';
 import updateDelDisplay from './ReviewHooks/updateDelDisplay';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import updateShowPreview from './ReviewHooks/updateShowPreview';
+// import setUsername from '../../Profile/OtherHooks/setUsername';
 import './UserReviews.css'
 
 const StyledMenu = styled((props) => (
@@ -135,6 +136,7 @@ function UserReviews(props) {
     const borderColor = checkUserIds ? 'black' : '#1976d2';
     const cursor = checkUserIds ? 'pointer' : '';
     const alterBg = index % 2 ? '#fff' : '#dae9f8';
+    // setUsername(movieReview.username);
 
     const diff = createDate(movieReview.date);
 
