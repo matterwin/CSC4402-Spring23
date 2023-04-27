@@ -147,9 +147,11 @@ function UserReviews(props) {
         onMouseOut={checkUserIds ? (() => setHoverOrNot(false)) : (() => {})}
       >
         <div className='left-div'>
-          <div className="comment-pfp-div" style={{ borderColor: borderColor }}>
-          <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture" />             
-          </div>
+          <a href="../../OtherUser"> 
+          {/* need to somehow pass in username to this page */}
+          <div className="comment-pfp-div"  style={{ borderColor: borderColor }}>
+          <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture"/>             
+          </div></a>
           { checkUserIds && 
             <div style={{ position: 'relative' }} className={ hoverOrNot ? '' : 'hide-more-icon' }> 
               <div

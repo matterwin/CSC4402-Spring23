@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from './Core/Home/Home'
+// import Home from './Core/Home/Home'
 import Login from './UserAuth/Login'
 import Register from './UserAuth/Register'
 import Profile from './Core/Profile/Profile'
@@ -15,6 +15,7 @@ import Logout from './UserAuth/Logout';
 import NotFoundPage from './Core/NotFound/NotFoundPage';
 import NewHome from './Core/Home/NewHome';
 import LogInFooter from './Core/Nav/LogInFooter';
+import OtherUser from './Core/Profile/OtherUser';
 
 import './App.css';
 import readCookies from './Hooks/readCookies';
@@ -25,6 +26,7 @@ function App() {
                      || pathname === '/Login' 
                      || pathname === '/Register' 
                      || pathname === '/Profile'
+                     || pathname === '/OtherUser'
                      || pathname === '/Rate&Review' 
                      || pathname === '/Rate&Review/create' 
                      || pathname === '/Feed' 
@@ -54,6 +56,7 @@ function App() {
             <Route path="/Login" element={<Login/>}/>
             <Route path="/Register" element={<Register/>}/>
             <Route path="/Profile" element={<Profile/>}/>
+            <Route path="/OtherUser" element={<OtherUser/>}/>
             <Route path="/Rate&Review" element={<RateReview/>}/>
             <Route path="/Rate&Review/create" element={<ReviewPage/>}/>
             <Route path="/Feed" element={<Feed/>}/>

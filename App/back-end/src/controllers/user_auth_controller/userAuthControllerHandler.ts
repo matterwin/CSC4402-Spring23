@@ -107,6 +107,28 @@ export const getUserAuthHandler = async (req: Request, res: Response): Promise<v
   }
 };
 
+export const getSpecUserAuthHandler = async (req: Request, res: Response): Promise<void> => {
+  const query = req.query;
+
+  if (query.username === undefined) {
+    res.status(403).send();
+    return;
+  }
+
+  try {
+    const queryResult = await executeQuery(res, 'sql/userAuth/getSpecUserAuth.sql', [query.username as string]);
+
+    if (queryResult.length <= 0) {
+      res.status(404).send();
+      return;
+    }
+
+    res.json(queryResult[0]);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 export const putUserAuthHandler = async (req: Request, res: Response): Promise<void> => {
   const id = req.params._id;
   const body = req.body;

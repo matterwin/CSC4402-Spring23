@@ -1,6 +1,7 @@
 import express from 'express';
 import {
   postUserAuthHandler,
+  getSpecUserAuthHandler,
   getUserAuthHandler,
   getAllUserAuthHandler,
   putUserAuthHandler,
@@ -16,6 +17,7 @@ const putUserAuth = `/${_BASE_PATH}/:_id`;
 const deleteUserAuth = `/${_BASE_PATH}/:_id`;
 const postUserAuth = `/${_BASE_PATH}`;
 const loginUserAuth = `/${_BASE_PATH}Login`;
+const getSpecUserAuth = `/${_BASE_PATH}Spec`;
 const router = express.Router();
 
 router.post(postUserAuth, (req, res) => {
@@ -38,6 +40,11 @@ router.get(loginUserAuth, (req, res) => {
     await loginUserAuthHandler(req, res);
   })();
 });
+router.get(getSpecUserAuth, (req, res) => {
+  void (async () => {
+    await getSpecUserAuthHandler(req, res);
+  })();
+});
 router.put(putUserAuth, (req, res) => {
   void (async () => {
     await putUserAuthHandler(req, res);
@@ -57,6 +64,7 @@ const routerConfig: RouterConfig = {
     { path: loginUserAuth, type: HttpMethod.get },
     { path: getAllUserAuth, type: HttpMethod.get },
     { path: getUserAuth, type: HttpMethod.get },
+    { path: getSpecUserAuth, type: HttpMethod.get },
     { path: putUserAuth, type: HttpMethod.put },
     { path: deleteUserAuth, type: HttpMethod.delete },
   ],

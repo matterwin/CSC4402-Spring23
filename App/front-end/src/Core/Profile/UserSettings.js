@@ -164,7 +164,7 @@ function UserSettings() {
     let email = data.get('email');
     let password = data.get('password');
 
-    if ((email.trim().length === 0) || (email.trim().length === 0) || (password.trim().length === 0)) {
+    if ((username.trim().length === 0) || (email.trim().length === 0) || (password.trim().length === 0)) {
       setIsValidEmail(false)
       setRenderInFail(true);
       handleFailure();
@@ -269,7 +269,7 @@ function UserSettings() {
                   name='username'
                   label="Username" 
                   variant="filled" 
-                  // value={userData.username}
+                  defaultValue={userData.username}
                   sx={{ 
                     border: '1px solid #858586',
                     width: '70%'  
@@ -283,7 +283,7 @@ function UserSettings() {
                 name='email'
                 variant="filled" 
                 onChange={handleEmailChange}
-                // value={userData.email} 
+                defaultValue={userData.email} 
                 sx={{ 
                   border: '1px solid #858586',
                   width: '70%' 
@@ -296,7 +296,7 @@ function UserSettings() {
                 label="Password"
                 name='password'
                 variant="filled" 
-                // value={userData.password}
+                defaultValue={userData.password}
                 sx={{ 
                   border: '1px solid #858586',
                   width: '70%' 

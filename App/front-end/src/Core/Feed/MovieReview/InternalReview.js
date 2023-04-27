@@ -36,7 +36,7 @@ function InternalReview(props) {
     const [userProfilePic, setUserProfilePic] = useState("");
     const [renderInFail, setRenderInFail] = useState(false);
     const [buttonClass, setButtonClass] = useState("");
-    const [buttonColor, setButtonColor] =  useState("");
+    const [buttonColor, setButtonColor] =  useState("#dae9f8");
     const [enableHover, setEnableHover] = useState(true);
     const [changeToWhite, setChangeToWhite] = useState(false);
     const [successfulLoad, setSuccessfulLoad] = useState(false);
@@ -77,7 +77,7 @@ function InternalReview(props) {
     setTimeout(() => {
         clearInterval(intervalId);
         setButtonClass("");
-        setButtonColor("");
+        setButtonColor("#dae9f8");
         setChangeToWhite(false);
         setEnableHover(true);
     }, 500);
@@ -373,8 +373,8 @@ function InternalReview(props) {
                                 backgroundColor: buttonColor,
                                 color: changeToWhite ? '#fff' : '#2c323a',
                                 '&:hover': {
-                                    backgroundColor: enableHover ? '#e1e1e1' : buttonColor,
-                                    color: changeToWhite ? '#fff' : '#1976d2'
+                                    backgroundColor: enableHover ? '#a3c7eb' : buttonColor,
+                                    color: changeToWhite ? '#fff' : '#fff'
                                 },
                                 padding: '8px',
                                 borderBottomRightRadius:'0px',
