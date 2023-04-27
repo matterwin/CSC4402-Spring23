@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import './UserMovieReviews.css';
-import readCookies from '../../Hooks/readCookies';
 import Loading from '../Loading/Loading';
 import updateNumOfReviews from './ReviewAmountHooks/updateNumOfReviews';
 import Unknown from '../Videos/superbad.jpg';
 import SmallStar from '../Feed/SmallStar';
 import DefaultPic from "../Videos/defaultPic.png";
 import { useNavigate } from "react-router-dom";
-import { NavLink } from "react-router-dom";
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import Button from '@mui/material/Button';
 
-export default function UserMovieReviews() {
+export default function UserMovieReviews(props) {
     const [movieReviews, setMovieReviews] = useState(undefined);
     const [movies, setMovies] = useState(undefined);
     const [userInfo, setUserInfo] = useState(undefined);
     const [amountOfReviews, setAmountOfReviews] = useState(-1);
-    const userId = readCookies();
+    const userId = props.userId;
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -106,12 +104,11 @@ export default function UserMovieReviews() {
             className="comment-pfp-div-rr"
             style={{ borderColor: "#fff" }}
           >
-            <NavLink end to="/Profile">
             <img
               className="profile-pic-rr"
               src={DefaultPic}
               alt="ProfilePicture"
-            /></NavLink>
+            />
           </div>
         </div>
         <div>

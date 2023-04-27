@@ -9,7 +9,7 @@ import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 // import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 import DefaultPic from "../Videos/defaultPic.png";
 import readCookies from '../../Hooks/readCookies';
-import UserMovieReviews from '../RateReview/UserMovieReivews';
+import UserMovieReviews from '../RateReview/UserMovieReviews';
 import getReviewCountForProfile from '../RateReview/ReviewAmountHooks/getReviewCountForProfile';
 
 import './Profile.css'
@@ -62,6 +62,8 @@ function Profile() {
         console.error(error);
       });
 
+      window.scrollTo(0, 0);
+      
     },[userId])
 
   return (
@@ -110,7 +112,7 @@ function Profile() {
         <div className="review-info">
             <h2 className='reviews'>Reviews</h2>
             <div className='review-box'>
-                <UserMovieReviews />
+                <UserMovieReviews userId={userId}/>
             </div>
         </div>        
     </div>

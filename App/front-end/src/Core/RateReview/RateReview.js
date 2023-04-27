@@ -3,28 +3,23 @@ import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import { NavLink } from "react-router-dom";
 import Divider from '@mui/material/Divider';
-import UserMovieReivews from './UserMovieReivews';
+import UserMovieReivews from './UserMovieReviews';
 import getNumOfReviews from './ReviewAmountHooks/getNumOfReviews';
 import './RateReview.css'
-import '../../Hooks/readCookies'
 import readCookies from '../../Hooks/readCookies';
 
 function RateReview() {
+  const userId = readCookies();
   const [showReviews, setShowReviews] = useState(getNumOfReviews());
 
   useEffect(() => {
-    if(!readCookies())
+    if(!userId)
       window.location.href = "/Login";
       setShowReviews(getNumOfReviews());
-  },[])
+  },[userId])
 
   useEffect(() => {
     setShowReviews(getNumOfReviews());
-    // console.log(showReviews);
-    // if (showReviews > 0)
-    //   console.log("has at least 1 review");
-    // else
-    //     console.log("no reviews");
   },[showReviews])
 
   return (
@@ -69,7 +64,7 @@ function RateReview() {
           </div>
             <div className="feed-container-rr">
               <div className='movie-container-rr'>
-                <UserMovieReivews />
+                <UserMovieReivews userId={userId}/>
               </div>
             </div>
           <div>

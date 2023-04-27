@@ -14,7 +14,8 @@ import DeleteAlert from './DeleteAlert';
 import updateDelDisplay from './ReviewHooks/updateDelDisplay';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import updateShowPreview from './ReviewHooks/updateShowPreview';
-// import setUsername from '../../Profile/OtherHooks/setUsername';
+import setUserId from '../../Profile/OtherHooks/setUserId';
+import { NavLink } from "react-router-dom";
 import './UserReviews.css'
 
 const StyledMenu = styled((props) => (
@@ -129,6 +130,10 @@ function UserReviews(props) {
     }
   }
 
+  function handlePfpClick(id) {
+    setUserId(id);
+  };
+  
   const reviewsJsx = movieReviews.map((movieReview, index) => {
     const ratingToolTip = `${movieReview.rating} out of 5`
     const checkUserIds = (parseInt(movieReview.userId) === parseInt(userId));
@@ -136,8 +141,6 @@ function UserReviews(props) {
     const borderColor = checkUserIds ? 'black' : '#1976d2';
     const cursor = checkUserIds ? 'pointer' : '';
     const alterBg = index % 2 ? '#fff' : '#dae9f8';
-    // setUsername(movieReview.username);
-
     const diff = createDate(movieReview.date);
 
     return (
@@ -149,11 +152,19 @@ function UserReviews(props) {
         onMouseOut={checkUserIds ? (() => setHoverOrNot(false)) : (() => {})}
       >
         <div className='left-div'>
-          <a href="../../OtherUser"> 
-          {/* need to somehow pass in username to this page */}
-          <div className="comment-pfp-div"  style={{ borderColor: borderColor }}>
-          <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture"/>             
-          </div></a>
+          { checkUserIds ? (
+            <NavLink end to="../../Profile">
+              <div className="comment-pfp-div" style={{ borderColor: borderColor }}>
+                <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture"/>             
+              </div>
+            </NavLink>
+          ) : 
+            <NavLink end to="../../OtherUser">
+              <div className="comment-pfp-div" onClick={() => {handlePfpClick(movieReview.userId)}} style={{ borderColor: borderColor }}>
+                <img className="profile-pic" src={ DefaultPic } alt="ProfilePicture"/>             
+              </div>
+            </NavLink>
+          }
           { checkUserIds && 
             <div style={{ position: 'relative' }} className={ hoverOrNot ? '' : 'hide-more-icon' }> 
               <div

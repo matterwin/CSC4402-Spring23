@@ -1,29 +1,29 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import Tooltip from '@mui/material/Tooltip';
-import Button from '@mui/material/Button';
-import { NavLink } from "react-router-dom";
 import ReviewsIcon from '@mui/icons-material/Reviews';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import DefaultPic from "../Videos/defaultPic.png";
-import readCookies from '../../Hooks/readCookies';
-import UserMovieReviews from '../RateReview/UserMovieReivews';
-import getReviewCountForProfile from '../RateReview/ReviewAmountHooks/getReviewCountForProfile';
+import UserMovieReviews from '../RateReview/UserMovieReviews';
+import getReviewCountForOther from '../RateReview/ReviewAmountHooks/getReviewCountForOther';
+import getUserId from './OtherHooks/getUserId';
 
 import './OtherUser.css'
 
-//future notes, fetch using this url http://localhost:8000/api/userAuthControllerSpec?username=as
-// then use that id of that url return to get all the other info, should be easy
+function OtherUser() {
 
-function Profile() {
-
-    const userId = readCookies();
+    const userId = getUserId();
     const [reviewCount, setReviewCount] = useState();
     const [username, setUsername] = useState('');
     const [userProfilePic, setUserProfilePic] = useState("");
+      
+    useEffect(() => {
+      if(userId === -1)
+        window.location.href = "/";
+    },[userId]);
 
     useEffect(() => {
-      getReviewCountForProfile()
+      getReviewCountForOther()
       .then(amountOfReviews => {
         console.log(amountOfReviews);
         setReviewCount(amountOfReviews);
@@ -58,6 +58,8 @@ function Profile() {
         console.error(error);
       });
 
+      window.scrollTo(0, 0);
+
     },[userId])
 
   return (
@@ -70,23 +72,8 @@ function Profile() {
                     </Tooltip>             
                 </div>
                 <div className="name-and-username">
-                    {/* <h1 className='prof-name'>n/a</h1> */}
-                    <h2 className='prof-username'>{username}</h2>
+                    <h1 className='prof-username'>{username}</h1>
                 </div>
-            </div>
-            
-            <div className='edit-button-div'>
-                <NavLink end to="/Settings">
-                    <Button 
-                        sx={{
-                            backgroundColor: '#A1C7ED',
-                            width: '100%',
-                            border: '0.5px solid #2a3038',
-                        }}
-                    >
-                        Edit Profile
-                    </Button>
-                </NavLink>          
             </div>
             <div className='small-info-profile'>
                 <div className='small-row'>
@@ -106,11 +93,11 @@ function Profile() {
         <div className="review-info">
             <h2 className='reviews'>Reviews</h2>
             <div className='review-box'>
-                <UserMovieReviews />
+                <UserMovieReviews userId={userId}/>
             </div>
         </div>        
     </div>
   );
 }
 
-export default Profile;
+export default OtherUser;
