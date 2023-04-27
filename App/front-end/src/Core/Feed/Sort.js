@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -67,6 +68,7 @@ export default function MultipleSelectChip(props) {
   const [personName, setPersonName] = React.useState([]);
   const [genreName, setGenreName] = React.useState([]);
   const [showReset, setShowReset] = React.useState(false);
+  const [isSticky, setIsSticky] = useState(false);
   const setMovies = props.setMovies;
   const movies = props.movies;
 
@@ -187,9 +189,28 @@ export default function MultipleSelectChip(props) {
       .catch(err => console.error(err));
   }
 
+  useEffect(() => {
+    const feedBarActual = document.querySelector('.feed-bar-actual');
+    const handleScroll = () => {
+      const currentPosition = feedBarActual.getBoundingClientRect().top;
+
+      if (currentPosition <= 0) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener on unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className='feed-nav-div'>
-    <div className="feed-bar-actual">
+    <div className={`feed-bar-actual ${isSticky ? 'sticky' : ''}`}>
       <div className="sort-bar">
         <FormControl sx={{ m: 0.1, width: 100, fontSize: 14, borderBottom: '0px'}} size='small'>
           <InputLabel id="demo-multiple-chip-label" sx={{ fontWeight: '600' }}>SORT</InputLabel>

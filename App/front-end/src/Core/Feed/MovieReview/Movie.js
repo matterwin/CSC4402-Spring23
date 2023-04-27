@@ -50,7 +50,7 @@ function Movie() {
         <div className='blue-box'>
           <div className="feed-opening-div">
             <div className='feed-opening-title' style={{ backgroundImage: `url(${fire})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: '100px 0' }}>
-              <NavLink end to="/Feed"><p className='feed-welcome-title'>local<span className='M-title'>M</span></p></NavLink> 
+              <NavLink end to="/Feed"><p className='feed-welcome-title'><span className='M-title-feed'>M</span></p></NavLink> 
               <FeedSearchBar /> 
             </div>
           </div>

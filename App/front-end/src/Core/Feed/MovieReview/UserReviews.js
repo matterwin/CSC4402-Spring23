@@ -116,15 +116,15 @@ function UserReviews(props) {
     const diffInSeconds = Math.floor(diffInTime / 1000);
   
     if (diffInYears > 0) {
-      return `${diffInYears} yr${diffInYears !== 1 ? 's' : ''} ago`;
+      return `• ${diffInYears}  yr${diffInYears !== 1 ? 's' : ''} ago`;
     } else if (diffInDays > 0) {
-      return `${diffInDays} day${diffInDays !== 1 ? 's' : ''} ago`;
+      return `• ${diffInDays} day${diffInDays !== 1 ? 's' : ''} ago`;
     } else if (diffInHours > 0) {
-      return `${diffInHours} hr${diffInHours !== 1 ? 's' : ''} ago`;
+      return `• ${diffInHours} hr${diffInHours !== 1 ? 's' : ''} ago`;
     } else if (diffInMinutes > 0) {
-      return `${diffInMinutes} min${diffInMinutes !== 1 ? 's' : ''} ago`;
+      return `• ${diffInMinutes} min${diffInMinutes !== 1 ? 's' : ''} ago`;
     } else {
-      return `${diffInSeconds} sec${diffInSeconds !== 1 ? 's' : ''} ago`;
+      return `• ${diffInSeconds} sec${diffInSeconds !== 1 ? 's' : ''} ago`;
     }
   }
 

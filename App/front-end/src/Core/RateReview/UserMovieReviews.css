@@ -65,13 +65,12 @@
   margin: 100px;
 }
 
-/* @media(max-width: 950px) {
+@media(max-width: 460px) {
   .no-vid-msg {
-      top: 55%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      margin-left: 10px;
+      margin-right: 10px;
     }
-} */
+}
 
 @media(max-width: 419px) {
   .h1-msg {
