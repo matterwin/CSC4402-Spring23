@@ -12,11 +12,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState, useRef } from "react"
 import Alert from '@mui/material/Alert';
-// import AlertTitle from '@mui/material/AlertTitle';
-// import Stack from '@mui/material/Stack';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
-// import Ani from '../Core/Videos/success.gif';
 import createCookies from '../Hooks/createCookies';
 
 import "./auth.css"
@@ -47,10 +44,7 @@ export default function SignIn() {
 
   const [buttonClass, setButtonClass] = useState("");
   const [inputColor, setInputColor] = useState("primary");
-
-  // const [renderInSuccess, setRenderInSuccess] = useState(true);
   const [renderInFail, setRenderInFail] = useState(true);
-
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -82,12 +76,6 @@ export default function SignIn() {
       setButtonClass("");
       setInputColor("primary");
     }, 1000);
-
-    // setRenderInSuccess(false);
-
-    // setTimeout(() => { 
-    //   setRenderInSuccess(true);
-    // }, 1000); 
 
     setTimeout(() => {
       window.location = '/';
@@ -331,17 +319,6 @@ export default function SignIn() {
               >
                 Sign up
               </Button>
-              {/* { renderInSuccess ? <></> :
-                <div className="alert-container">
-                  <Stack sx={{ width: '300px' }} spacing={2}>
-                    <Alert severity="success">
-                      <AlertTitle>Success</AlertTitle>
-                      You have successfully <strong>registered!</strong>
-                    </Alert>
-                  </Stack>
-                  <img src={Ani} alt="success"/>
-                </div>
-              } */}
               <div className='link-div'>             
                 <div>
                   <Link href="./Login" variant="body2" sx={{ color:"#218ffd", textShadow: "0 0 8px rgba(25, 118, 210, 0.6)" }}>

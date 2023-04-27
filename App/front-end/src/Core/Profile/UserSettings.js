@@ -12,6 +12,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Loading from '../Loading/Loading';
+import Alert from '@mui/material/Alert';
+import CloseIcon from '@mui/icons-material/Close';
+import IconButton from '@mui/material/IconButton';
 
 import './UserSettings.css'
 
@@ -21,6 +24,10 @@ function UserSettings() {
   const [open, setOpen] = useState(false);
   const [userData, setUserData] = useState(undefined);
   const [updatedUserData, setUpdatedUserData] = useState({});
+  const [renderInFail, setRenderInFail] = useState(false);
+  const [isValidEmail, setIsValidEmail] = useState(false);
+  const [buttonClass, setButtonClass] = useState("");
+  const [inputColor, setInputColor] = useState("#a1c7ed");
 
   useEffect(() => {
     if(!readCookies())
@@ -130,9 +137,24 @@ function UserSettings() {
     });
   };
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  function handleFailure() {
+    const intervalId = setInterval(() => {
+      setButtonClass("inputInvalid");
+      setInputColor("error");
+    }, 0);
+
+    setTimeout(() => {
+        clearInterval(intervalId);
+        setButtonClass("");
+        setInputColor("primary");
+    }, 500);
+
+    setRenderInFail(true);
+  }
+
+  function handleEmailChange() {
+    setIsValidEmail(false)
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -141,6 +163,25 @@ function UserSettings() {
     let username = data.get('username');
     let email = data.get('email');
     let password = data.get('password');
+
+    if ((email.trim().length === 0) || (email.trim().length === 0) || (password.trim().length === 0)) {
+      setIsValidEmail(false)
+      setRenderInFail(true);
+      handleFailure();
+      return;
+    }
+    else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const valid = emailRegex.test(email);
+      setIsValidEmail(!valid);
+      if(!valid){
+        handleFailure();
+        setRenderInFail(false);
+        return
+      }
+    }
+      
+    setOpen(true);
 
     const userData = {
       username,
@@ -194,9 +235,9 @@ function UserSettings() {
               color: "#fff",
               border: '0.5px solid #1976d2',
               '&:hover': {
-                  backgroundColor: '#f74242',
-                  color: "#fff",
-                  border: '0.5px solid #f74242',
+                  backgroundColor: '#eed202',
+                  color: "black",
+                  border: '0.5px solid #eed202',
               },
               borderRadius: '20px',
           }}
@@ -240,6 +281,7 @@ function UserSettings() {
                 label="Email" 
                 name='email'
                 variant="filled" 
+                onChange={handleEmailChange}
                 // value={userData.email} 
                 sx={{ 
                   border: '1px solid #858586' 
@@ -262,23 +304,78 @@ function UserSettings() {
           </div> 
           <div className="setting-info">
             <h2 className='reviews'>Confirmation</h2>
-            <Button variant="contained" 
-              onClick={handleOpen}
+            { isValidEmail && <p className="invalid-email-msg-settings">Please enter a valid email address.</p>}
+            { renderInFail &&
+                <div className="alert-div-settings">         
+                    <Alert 
+                      variant="outlined" 
+                      severity="error" 
+                      sx={{
+                        color: 'white',
+                        backgroundColor: 'rgb(105, 0, 0)',
+                        paddingTop: '15px',
+                        paddingBottom: '15px',
+                        paddingLeft: '30px',
+                        paddingRight: '40px',
+                        width: '100%',
+                        borderRadius: '7px',
+                        borderWidth: '2px',
+                        borderColor: 'primary',
+                        position: 'relative',
+                        boxSizing: 'border-box',
+                        margin: '0',
+                      }}
+                      action={
+                        <IconButton
+                          aria-label="close"
+                          color="inherit"
+                          size="small"
+                          onClick={() => {
+                            setRenderInFail(false);
+                          }}
+                          sx={{
+                            padding: '10px',
+                            '&:hover': {
+                              backgroundColor: '#f4f4f542'
+                            },
+                            position: 'absolute',
+                            right: '10px',
+                            top: '50%',
+                            transform: 'translateY(-50%)'
+                          }}
+                        >
+                          <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                    }
+                    >
+                      Input is <strong>invalid</strong>.
+                    </Alert>   
+                </div>
+            }
+            <Button
+              variant="contained"
               type="Submit"
-              sx={{ 
-                  backgroundColor: '#689acc',
-                  paddingRight: '30px', 
-                  paddingLeft: '30px', 
-                  paddingTop: '7px', 
-                  paddingBottom: '7px',
-                  border: '1px solid #fff',
-                  '&:hover': {
-                      backgroundColor: '#1976d2',
-                  }
+              className={buttonClass}
+              // color={inputColor}
+              color='error'
+              sx={{
+                paddingRight: "30px",
+                paddingLeft: "30px",
+                paddingTop: "7px",
+                paddingBottom: "7px",
+                border: "1px solid #fff",
+                ...(inputColor !== "error" && {
+                  color:"black",
+                  backgroundColor:"#a1c7ed",
+                  "&:hover": {
+                    color:"black",
+                    backgroundColor:"#fff",
+                  },
+                }),
               }}
-              >
-                Change
-            </Button>          
+            >
+              Change
+            </Button>
           </div>
         </form>
       </div>
