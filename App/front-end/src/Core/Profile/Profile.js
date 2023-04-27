@@ -92,7 +92,7 @@ function Profile() {
                     </Button>
                 </NavLink>          
             </div>
-            <div className='small-info'>
+            <div className='small-info-profile'>
                 <div className='small-row'>
                   <Tooltip title="Reviews">
                       <ReviewsIcon sx={{color: '#2a3038'}}/>
@@ -104,10 +104,8 @@ function Profile() {
                     <VerifiedUserIcon sx={{color: '#2a3038'}}/>
                   </Tooltip>
                   <p className='p-info'>@{username}</p>
-                </div>
-                
+                </div>         
             </div>
-            
         </div>
         <div className="review-info">
             <h2 className='reviews'>Reviews</h2>

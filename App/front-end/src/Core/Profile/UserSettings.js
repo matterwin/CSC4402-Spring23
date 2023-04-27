@@ -271,7 +271,8 @@ function UserSettings() {
                   variant="filled" 
                   // value={userData.username}
                   sx={{ 
-                    border: '1px solid #858586' 
+                    border: '1px solid #858586',
+                    width: '70%'  
                   }}
                 />
               </div>
@@ -284,7 +285,8 @@ function UserSettings() {
                 onChange={handleEmailChange}
                 // value={userData.email} 
                 sx={{ 
-                  border: '1px solid #858586' 
+                  border: '1px solid #858586',
+                  width: '70%' 
                 }}
                 />
               </div>
@@ -296,7 +298,8 @@ function UserSettings() {
                 variant="filled" 
                 // value={userData.password}
                 sx={{ 
-                  border: '1px solid #858586' 
+                  border: '1px solid #858586',
+                  width: '70%' 
                 }}
               />
               </div>
@@ -370,6 +373,7 @@ function UserSettings() {
                   "&:hover": {
                     color:"black",
                     backgroundColor:"#fff",
+                    border: "1px solid #2a3038",
                   },
                 }),
               }}
