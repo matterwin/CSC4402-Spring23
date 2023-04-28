@@ -69,8 +69,9 @@ export default function MultipleSelectChip(props) {
   const [genreName, setGenreName] = React.useState([]);
   const [showReset, setShowReset] = React.useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const [selectedSort, setSelectedSort] = useState(null);
+  const [selectedGenre, setSelectedGenre] = useState(null);
   const setMovies = props.setMovies;
-  const movies = props.movies;
 
   React.useEffect(() => {
     fetch('http://localhost:8000/api/movieControllerFeed')
@@ -92,34 +93,101 @@ export default function MultipleSelectChip(props) {
     const sortType = event.target.value;
 
     switch(sortType) {
-      case names[0]: 
-        fetch('http://localhost:8000/api/movieControllerWithAvgTopol')
-          .then(res => res.json())
-          .then(json => setMovies(json))
-          .catch(err => console.error(err));
+      case names[0]:
+        setSelectedSort(names[0]);
+        if(selectedGenre === null) {
+          fetch('http://localhost:8000/api/movieControllerWithAvgTopol')
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        }
+        else {
+          fetch(`http://localhost:8000/api/movieControllerWithAvgTopolPlusGenre?genre=${selectedGenre}`)
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        }
         break;
       case names[1]:
-        fetch('http://localhost:8000/api/movieControllerWithAvgAsc')
-          .then(res => res.json())
-          .then(json => setMovies(json))
-          .catch(err => console.error(err));
+        setSelectedSort(names[1]);
+        if(selectedGenre === null) {
+          fetch('http://localhost:8000/api/movieControllerWithAvgAsc')
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        }
+        else {
+          fetch(`http://localhost:8000/api/movieControllerWithAvgAscPlusGenre?genre=${selectedGenre}`)
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        }
         break;
       case names[2]:
-        fetch('http://localhost:8000/api/movieControllerWithAvgDesc')
-          .then(res => res.json())
-          .then(json => setMovies(json))
-          .catch(err => console.error(err));
+        setSelectedSort(names[2]);
+        if(selectedGenre === null) {
+          fetch('http://localhost:8000/api/movieControllerWithAvgDesc')
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        }
+        else {
+          fetch(`http://localhost:8000/api/movieControllerWithAvgDescPlusGenre?genre=${selectedGenre}`)
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        }
         break;
       case names[3]:
-        fetch('http://localhost:8000/api/movieControllerWithAvgReleaseDate')
-          .then(res => res.json())
-          .then(json => setMovies(json))
-          .catch(err => console.error(err));
+        setSelectedSort(names[3]);
+        if(selectedGenre === null) {
+          fetch('http://localhost:8000/api/movieControllerWithAvgReleaseDate')
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        }
+        else {
+          fetch(`http://localhost:8000/api/movieControllerWithAvgReleaseDatePlusGenre?genre=${selectedGenre}`)
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        }
         break;
       default:
         console.error('invalid sort type!');
     }
   };
+
+  function handleSortPlusGenre(genre) {
+    switch(selectedSort) {
+      case 'A-Z':
+          fetch(`http://localhost:8000/api/movieControllerWithAvgTopolPlusGenre?genre=${genre}`)
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        break;
+      case 'Highest Rating':
+          fetch(`http://localhost:8000/api/movieControllerWithAvgAscPlusGenre?genre=${genre}`)
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        break;
+      case 'Lowest Rating':
+          fetch(`http://localhost:8000/api/movieControllerWithAvgDescPlusGenre?genre=${genre}`)
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        break;
+      case 'Newest':
+          fetch(`http://localhost:8000/api/movieControllerWithAvgReleaseDatePlusGenre?genre=${genre}`)
+            .then(res => res.json())
+            .then(json => setMovies(json))
+            .catch(err => console.error(err));
+        break;
+      default:
+        console.error('invalid sort and genre types');
+    }
+  }
 
   const handleChangeGenre = (event) => {
     setShowReset(true);
@@ -135,28 +203,52 @@ export default function MultipleSelectChip(props) {
 
     switch(sortType) {
       case genres[0]: 
-        fetch(`http://localhost:8000/api/movieControllerWithAvgGenre?genre=${genres[0]}`)
+        setSelectedGenre(genres[0]);
+        if(selectedSort === null) {
+          fetch(`http://localhost:8000/api/movieControllerWithAvgGenre?genre=${genres[0]}`)
             .then(res => res.json())
             .then(json => setMovies(json))
             .catch(err => console.error(err));
+        }
+        else {
+          handleSortPlusGenre(genres[0]);
+        }
         break;
       case genres[1]:
-        fetch(`http://localhost:8000/api/movieControllerWithAvgGenre?genre=${genres[1]}`)
+        setSelectedGenre(genres[1]);
+        if(selectedSort === null) {
+          fetch(`http://localhost:8000/api/movieControllerWithAvgGenre?genre=${genres[1]}`)
             .then(res => res.json())
             .then(json => setMovies(json))
             .catch(err => console.error(err));
+        }
+        else {
+          handleSortPlusGenre(genres[1]);
+        }
         break;
       case genres[2]:
-        fetch(`http://localhost:8000/api/movieControllerWithAvgGenre?genre=${genres[2]}`)
+        setSelectedGenre(genres[2]);
+        if(selectedSort === null) {
+          fetch(`http://localhost:8000/api/movieControllerWithAvgGenre?genre=${genres[2]}`)
             .then(res => res.json())
             .then(json => setMovies(json))
             .catch(err => console.error(err));
+        }
+        else {
+          handleSortPlusGenre(genres[2]);
+        }
         break;
       case genres[3]:
-        fetch(`http://localhost:8000/api/movieControllerWithAvgGenre?genre=${genres[3]}`)
+        setSelectedGenre(genres[3]);
+        if(selectedSort === null) {
+          fetch(`http://localhost:8000/api/movieControllerWithAvgGenre?genre=${genres[3]}`)
             .then(res => res.json())
             .then(json => setMovies(json))
             .catch(err => console.error(err));
+        }
+        else {
+          handleSortPlusGenre(genres[3]);
+        }
         break;
       default:
         console.error('invalid genre type!');
@@ -183,6 +275,8 @@ export default function MultipleSelectChip(props) {
     setShowReset(false);
     setPersonName([]);
     setGenreName([]);
+    setSelectedSort(null);
+    setSelectedGenre(null);
     fetch('http://localhost:8000/api/movieControllerFeed')
       .then(res => res.json())
       .then(json => setMovies(json))
