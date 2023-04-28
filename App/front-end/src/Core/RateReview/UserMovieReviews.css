@@ -22,7 +22,7 @@
     margin-top: 10px;
     /* width: 700px;
     height: 300px; */
-    border: 1.5px solid #1976d2;
+    border: 1.5px solid #fff;
     background-color: none;
     border-radius: 20px;
 }
@@ -95,7 +95,7 @@
 
 .pic-rr-div {
     overflow: hidden;
-    border-right: 1.5px solid #1976d2;
+    border-right: 1.5px solid #fff;
     width: 90px;
     height: 100px;
     transition: transform .2s;
@@ -183,11 +183,16 @@
     padding-bottom: 40px;
     display: flex;
     /* min-width: 20%; */
-    border-bottom: 1.5px solid #1976d2;
+    /* border-bottom: 1.5px solid #1976d2; */
     /* border: 1.5px solid #1976d2;
     border-radius: 15px;
     background-color: #f4f4f5;
     margin-left: 10px; */
+    background-color: #e1e1e1;
+    border-radius: 15px;
+    margin-left: 10px;
+    margin-right: 15px;
+    border: 1.5px solid #fff;
   }
 
   .left-div-rr {

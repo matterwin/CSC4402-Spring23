@@ -228,9 +228,19 @@ function UserReviews(props) {
         </div>
           <div className='comment-div-info' style={{ borderColor: borderColor, cursor: cursor }}>
             <div className='username-date-div'>
-              <div className='username'>
-                { movieReview.username }
-              </div> 
+            { checkUserIds ? (
+              <NavLink end to="../../Profile"> 
+                <div className='username'>
+                  { movieReview.username }
+                </div> 
+              </NavLink>
+            ) : 
+              <NavLink end to="../../OtherUser"> 
+                <div className='username' onClick={() => {handlePfpClick(movieReview.userId)}}>
+                  { movieReview.username }
+                </div> 
+              </NavLink>
+            }
               <div className='date'>
                 &nbsp;&nbsp;{ diff }
               </div>

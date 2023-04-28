@@ -287,42 +287,39 @@ function UserSettings() {
             <div className='small-info'>
               <div className='settings-small-row'>
                 <TextField 
-                  id="filled-basic" 
+                  id="standard-basic"
+                  variant="standard"
                   name='username'
                   label="Username" 
-                  variant="filled" 
                   onChange={handleUsernameChange}
                   defaultValue={userData.username}
                   sx={{ 
-                    border: '1px solid #858586',
                     width: '70%'  
                   }}
                 />
               </div>
               <div className='settings-small-row'>
                 <TextField 
-                id="filled-basic" 
+                id="standard-basic"
+                variant="standard"
                 label="Email" 
                 name='email'
-                variant="filled" 
                 onChange={handleEmailChange}
                 defaultValue={userData.email} 
                 sx={{ 
-                  border: '1px solid #858586',
                   width: '70%' 
                 }}
                 />
               </div>
               <div className='settings-small-row'>
               <TextField 
-                id="filled-basic" 
+                iid="standard-basic"
+                variant="standard" 
                 label="Password"
                 name='password'
                 onChange={handlePasswordChange}
-                variant="filled" 
                 defaultValue={userData.password}
                 sx={{ 
-                  border: '1px solid #858586',
                   width: '70%' 
                 }}
               />

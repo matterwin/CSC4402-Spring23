@@ -41,7 +41,7 @@ function MovieSelection() {
       <div className='movie-selection-div'> 
       {movie?.filepath ? (
         <div className='flex-div-select'>
-          <div> 
+          <div className='sep-rr'> 
               <img 
                 alt="Movie pic" 
                 className='movie-pic-selection'
@@ -52,7 +52,7 @@ function MovieSelection() {
                 }} 
               />
           </div>
-          <div>
+          <div className='sep-rr'>
             <p className='selected-movie-title'>{movie.name}</p>
           </div>
         </div>
