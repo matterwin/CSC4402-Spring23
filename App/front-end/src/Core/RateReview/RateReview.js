@@ -64,7 +64,7 @@ function RateReview() {
           </div>
             <div className="feed-container-rr">
               <div className='movie-container-rr'>
-                <UserMovieReviews userId={userId} colorPick={'#1976d2'}/>
+                <UserMovieReviews userId={userId} colorPick={'#1976d2'} colorButt={'#a1c7ed'}/>
               </div>
             </div>
           <div>

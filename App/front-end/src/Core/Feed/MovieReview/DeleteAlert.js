@@ -33,7 +33,8 @@ export default function DeleteAlert(props) {
         .then(res => res.json())
         .then(json => setMovie(json))
         .catch(err => console.error(err));   
-    }, 10);    
+    }, 10);  
+    window.location.reload();
   };
 
   return (

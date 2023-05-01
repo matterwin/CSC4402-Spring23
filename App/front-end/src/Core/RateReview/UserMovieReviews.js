@@ -16,6 +16,7 @@ export default function UserMovieReviews(props) {
     const [amountOfReviews, setAmountOfReviews] = useState(-1);
     const userId = props.userId;
     const colorBorder = props.colorPick;
+    const colorButton = props.colorButt
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -78,7 +79,7 @@ export default function UserMovieReviews(props) {
             <p className='p-msg'>Add a new Movie Review by clicking the button down below</p>      
             <Button 
               sx={{
-                backgroundColor: '#fff',
+                backgroundColor: colorButton,
                 border: '0.5px solid #2a3038',
                 '&:hover': {
                   backgroundColor: '#A1C7ED',

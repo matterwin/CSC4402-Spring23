@@ -188,7 +188,7 @@ NavLink {
   
   .nav-usr-name {
     max-width: 150px;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
