@@ -31,13 +31,18 @@ function Home() {
                 </Button>
               </NavLink>
           </div>
+          <div className="cinema">
+          <p>
+            <span style={{'--index': 0}} data-word="cinema">We</span> 
+            <span style={{'--index': 2}}>&nbsp;love </span>
+            <span style={{'--index': 21}} data-word="cinema">&nbsp;simplicity</span>
+          </p>
+        </div>
           <div className='space'>&nbsp;</div>
       </div>
-      <div className="other-new-contain">
-        <div className='new-welcome'>
-          <h1 className='new-h1'>Other shit</h1>
-        </div>
-      </div>
+      <div className='space'>&nbsp;</div>
+      <div className='space'>&nbsp;</div>
+      <div className='space'>&nbsp;</div>
       <div className='space'>&nbsp;</div>
       <div className='space'>&nbsp;</div>
       <div className='space'>&nbsp;</div>

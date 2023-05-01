@@ -1,0 +1,49 @@
+.burger-navs {
+    text-decoration: none;
+    display:flex;
+    flex-direction:column;
+    align-items:left;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.navActive-burger {
+    text-decoration: none;
+    color: #1976d2;
+    font-size: 1.2rem;
+    font-family: 'Baloo 2', cursive;
+    border-bottom: 3px solid #1976d2;
+    border-radius: 3px;
+  }
+
+  .burger-pfp {
+    text-decoration: none;
+    display:flex;
+    flex-direction:row;
+    align-items:left;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .usrname-burger {
+    display: flex;
+    text-decoration: none;
+    color: #1976d2;
+    font-size: 1.2rem;
+    font-family: 'Baloo 2', cursive;
+    border-radius: 3px;
+    margin-right: 10px;
+    overflow-wrap: break-word;
+  }
+
+  .navInactive-burger {
+    color: #8f8f8f;
+    font-size: 1.2rem;
+    font-family: 'Baloo 2', cursive;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+  }
+
+  .navInactive-burger:hover {
+    color: rgb(83, 83, 83);
+  }

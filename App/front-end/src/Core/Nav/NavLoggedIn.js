@@ -3,10 +3,10 @@ import { NavLink, useLocation } from "react-router-dom";
 // import SearchBar from "./SearchBar";
 import Tooltip from '@mui/material/Tooltip';
 // import Notify from './NotifIcon';
-import Menu from './Menu';
 import ProfileMenu from './ProfileMenu';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import Divider from '@mui/material/Divider';
+import SmallScreenNavIn from './SmallScreenNavIn';
 
 import './NavLoggedIn.css'
 
@@ -26,10 +26,6 @@ function NavLoggedIn() {
       <div className="nav-container">
 
         <NavLink className="title" end to="/"><h1>local<span className='M-title'>M</span></h1></NavLink>
-        {/* <div className='search-bar'>
-          <SearchBar sx={{paddingRight: 200, color: 'white'}}/>
-        </div> */}
-        
             
         <div className="path">             
           <div className="pos">
@@ -69,7 +65,7 @@ function NavLoggedIn() {
         </div>
 
         <div className='burger'>
-          <Menu />
+          <SmallScreenNavIn />
         </div>
        
       </div>

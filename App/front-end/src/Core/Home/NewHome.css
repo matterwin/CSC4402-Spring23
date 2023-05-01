@@ -35,6 +35,43 @@
     border-right: 1px solid grey;
 }
 
+.cinema {
+    margin-top: 100px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.3rem;
+    margin-right: 5.5rem;
+    margin-left: 5.5rem;
+}
+
+  /* Define the keyframes for the glowing effect */
+@keyframes glowing {
+  0% {
+    color: #1d1d20;
+    text-shadow: 0 0 10px #1d1d20;
+  }
+  50% {
+    color: #1d1d20;
+    text-shadow: 0 0 20px #1d1d20;
+  }
+  100% {
+    color: #1d1d20;
+    text-shadow: 0 0 10px #1d1d20;
+  }
+}
+
+/* Apply the glowing effect to each word in the div */
+.cinema span {
+  display: inline-block;
+  animation: glowing 1s ease-in-out infinite;
+  animation-delay: calc(var(--index) * 0.2s); /* Delay the animation based on the index of each word */
+}
+
+/* Use CSS variables to set the --index property on each span element */
+.cinema span:before {
+  content: attr(data-word);
+  display: none;
+}
+
 .ball {
   width: 40px;
   height: 40px;
