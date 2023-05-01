@@ -18,7 +18,7 @@
 }
 
 .container-rr {
-    /* background-color: red; */
+    background-color: #fff;
     margin-top: 10px;
     /* width: 700px;
     height: 300px; */
@@ -110,7 +110,8 @@
     margin-bottom: 0px;
     padding: 0;
     margin: 0;
-    overflow: hidden; 
+    overflow: hidden;
+    /* object-fit: cover; */
 }
   
   .comment-pfp-div-rr:hover{
@@ -149,10 +150,19 @@
     border: 2px solid #2a3038;
   }
 
+  .prof-pfp-div-rr {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f4f4f5;
+    cursor: pointer; 
+  }
+
   .profile-pic-rr {
     width: 100%;
     height: 100%;
-    object-fit:contain;
+    object-fit:cover;
     border-radius: 50%;
     transition: transform .2s;
   }
@@ -168,6 +178,7 @@
     width: 100%;
     /* background-color: blue; */
     padding: 10px;
+    /* border-bottom: 1.5px solid #1976d2; */
   }
 
   .comment-div-info-rr {

@@ -25,6 +25,8 @@ function UserSettings() {
   const [userData, setUserData] = useState(undefined);
   const [updatedUserData, setUpdatedUserData] = useState({});
   const [renderInFail, setRenderInFail] = useState(false);
+  const [renderInSuccess, setRenderInSuccess] = useState(false);
+  const [renderInError, setRenderInError] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [buttonClass, setButtonClass] = useState("");
   const [inputColor, setInputColor] = useState("#a1c7ed");
@@ -117,25 +119,35 @@ function UserSettings() {
 
     return fetch(url, options)
     .then(response => {
-        // statusCode = response.status;
-
         if (response.status === 400) { 
-          alert("400 Bad Request"); //means info inputted is not unique
+          handleError();
         }
         else if (response.status === 200) {
-          // alert("200 Success");
-          window.location.reload();
+          handleSuccess();
+          const url = `http://localhost:8000/api/userAuthControllerInfo?id=${userId}`;
+          fetch(url)
+          .then(response => {
+            if (response.status === 404) {
+              throw new Error("User not found");
+            }
+            return response.json();     
+          })
+          .then(data => {
+            console.log(data);
+            if(data) { 
+              setUserData(data);
+              if(data.url == null)
+                setUserProfilePic(DefaultPic);
+            }
+          })
+          .catch(err => console.error(err));
         }
         else if (response.status === 403) {
             throw new Error("403 Forbidden");
         }
-        // return statusCode.toString();
         return;
       })
-    .catch(error => {
-        console.error(error);
-        // return statusCode.toString();
-    });
+    .catch(error => console.error(error));
   };
 
   function handleFailure() {
@@ -151,6 +163,37 @@ function UserSettings() {
     }, 500);
 
     setRenderInFail(true);
+  }
+
+  function handleSuccess() {
+
+    const intervalId = setInterval(() => {
+      setButtonClass("inputSuccess");
+      setInputColor("primary");
+    }, 0);
+
+    setTimeout(() => {
+      clearInterval(intervalId);
+      setButtonClass("");
+      setInputColor("primary");
+    }, 1000);
+
+    setRenderInSuccess(true);
+  }
+
+  function handleError() {
+    const intervalId = setInterval(() => {
+      setButtonClass("inputInvalid");
+      setInputColor("error");
+    }, 0);
+
+    setTimeout(() => {
+        clearInterval(intervalId);
+        setButtonClass("");
+        setInputColor("primary");
+    }, 500);
+
+    setRenderInError(true);
   }
 
   function handleUsernameChange(event) {
@@ -287,21 +330,21 @@ function UserSettings() {
             <div className='small-info'>
               <div className='settings-small-row'>
                 <TextField 
-                  id="standard-basic"
-                  variant="standard"
+                  variant="filled"
+                  helperText="Please enter your changed username, and any inappropriate names are strongly discouraged"
                   name='username'
                   label="Username" 
                   onChange={handleUsernameChange}
                   defaultValue={userData.username}
                   sx={{ 
-                    width: '70%'  
-                  }}
+                    width: '70%'
+                  }}  
                 />
               </div>
               <div className='settings-small-row'>
                 <TextField 
-                id="standard-basic"
-                variant="standard"
+                variant="filled"
+                helperText="Change your email"
                 label="Email" 
                 name='email'
                 onChange={handleEmailChange}
@@ -313,14 +356,15 @@ function UserSettings() {
               </div>
               <div className='settings-small-row'>
               <TextField 
-                iid="standard-basic"
-                variant="standard" 
+                variant="filled"
                 label="Password"
+                helperText="It's always good to switch-up your passwords"
+                type={'password'}
                 name='password'
                 onChange={handlePasswordChange}
                 defaultValue={userData.password}
                 sx={{ 
-                  width: '70%' 
+                  width: '70%'
                 }}
               />
               </div>
@@ -373,6 +417,100 @@ function UserSettings() {
                     }
                     >
                       Input is <strong>invalid</strong>.
+                    </Alert>   
+                </div>
+            }
+            { renderInSuccess &&
+                <div className="alert-div-settings">         
+                    <Alert 
+                      variant="outlined" 
+                      icon={<span style={{color: 'white'}}><i className="fas fa-info-circle"></i></span>}
+                      sx={{
+                        color: 'white',
+                        backgroundColor: '#1976d2',
+                        paddingTop: '15px',
+                        paddingBottom: '15px',
+                        paddingLeft: '30px',
+                        paddingRight: '40px',
+                        width: '100%',
+                        borderRadius: '7px',
+                        borderWidth: '2px',
+                        borderColor: '#9ac7ed',
+                        position: 'relative',
+                        boxSizing: 'border-box',
+                        margin: '0',
+                      }}
+                      action={
+                        <IconButton
+                          aria-label="close"
+                          color="inherit"
+                          size="small"
+                          onClick={() => {
+                            setRenderInSuccess(false);
+                          }}
+                          sx={{
+                            padding: '10px',
+                            '&:hover': {
+                              backgroundColor: '#f4f4f542'
+                            },
+                            position: 'absolute',
+                            right: '10px',
+                            top: '50%',
+                            transform: 'translateY(-50%)'
+                          }}
+                        >
+                          <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                    }
+                    >
+                      Profile updated <strong>successfully</strong>.
+                    </Alert>   
+                </div>
+            }
+            { renderInError &&
+                <div className="alert-div-settings">         
+                    <Alert 
+                      variant="outlined" 
+                      severity="error" 
+                      sx={{
+                        color: 'white',
+                        backgroundColor: 'rgb(105, 0, 0)',
+                        paddingTop: '15px',
+                        paddingBottom: '15px',
+                        paddingLeft: '30px',
+                        paddingRight: '40px',
+                        width: '100%',
+                        borderRadius: '7px',
+                        borderWidth: '2px',
+                        borderColor: 'primary',
+                        position: 'relative',
+                        boxSizing: 'border-box',
+                        margin: '0',
+                      }}
+                      action={
+                        <IconButton
+                          aria-label="close"
+                          color="inherit"
+                          size="small"
+                          onClick={() => {
+                            setRenderInError(false);
+                          }}
+                          sx={{
+                            padding: '10px',
+                            '&:hover': {
+                              backgroundColor: '#f4f4f542'
+                            },
+                            position: 'absolute',
+                            right: '10px',
+                            top: '50%',
+                            transform: 'translateY(-50%)'
+                          }}
+                        >
+                          <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                    }
+                    >
+                      Failed attempt, <strong>username or email already taken</strong>.
                     </Alert>   
                 </div>
             }

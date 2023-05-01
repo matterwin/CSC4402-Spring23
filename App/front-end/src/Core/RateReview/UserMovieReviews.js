@@ -15,6 +15,7 @@ export default function UserMovieReviews(props) {
     const [userInfo, setUserInfo] = useState(undefined);
     const [amountOfReviews, setAmountOfReviews] = useState(-1);
     const userId = props.userId;
+    const colorBorder = props.colorPick;
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -102,7 +103,7 @@ export default function UserMovieReviews(props) {
         <div className="left-div-rr">
           <div
             className="comment-pfp-div-rr"
-            style={{ borderColor: "#fff" }}
+            style={{ borderColor: colorBorder }}
           >
             <img
               className="profile-pic-rr"

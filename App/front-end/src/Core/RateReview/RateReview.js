@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import { NavLink } from "react-router-dom";
 import Divider from '@mui/material/Divider';
-import UserMovieReivews from './UserMovieReviews';
+import UserMovieReviews from './UserMovieReviews';
 import getNumOfReviews from './ReviewAmountHooks/getNumOfReviews';
 import './RateReview.css'
 import readCookies from '../../Hooks/readCookies';
@@ -64,7 +64,7 @@ function RateReview() {
           </div>
             <div className="feed-container-rr">
               <div className='movie-container-rr'>
-                <UserMovieReivews userId={userId}/>
+                <UserMovieReviews userId={userId} colorPick={'#1976d2'}/>
               </div>
             </div>
           <div>

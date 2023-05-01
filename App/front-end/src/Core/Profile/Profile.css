@@ -46,11 +46,19 @@
     flex-direction:column;
     align-items:left;
     justify-content: flex-start;
-    /* gap: 10px; */
+    max-width: 100%;
 }
 
-.name-and-username h2 {
+.prof-username {
+    font-family: 'Baloo 2', cursive;
+    color: #727272;
     color: #2a3038;
+    margin: 0;
+    padding: 0;
+    overflow-wrap: break-word;
+    color: #2a3038;
+    text-align: left;
+    margin-right: 15px;
 }
 
 .reviews {
@@ -117,15 +125,6 @@
     font-size: 1.2rem;
 }
 
-.prof-username {
-    font-family: 'Baloo 2', cursive;
-    color: #727272;
-    color: #2a3038;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
 .prof-name {
     font-family: 'Baloo 2', cursive;
     margin: 0;
@@ -135,10 +134,11 @@
 }
 
 .prof-pfp-div {
-    width: 95px;
-    height: 95px;
+    min-width: 95px;
+    min-height: 95px;
+    max-width: 95px;
+    max-height: 95px;
     border-radius: 50%;
-    overflow: hidden;
     background-color: #f4f4f5;
     cursor: pointer; 
     border: 2px solid #2a3038;
@@ -147,7 +147,7 @@
   .prof-profile-pic {
     width: 100%;
     height: 100%;
-    object-fit:contain;
+    object-fit: cover;
     border-radius: 50%;
   }
 
@@ -160,11 +160,6 @@
     gap: 10px;
     padding-top: 10px;
     width: 100%;
-}
-
-.p-info {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1.1rem;
 }
 
 .small-info {
@@ -183,11 +178,16 @@
     justify-content: flex-start;
     gap: 5px;
     margin-bottom: -27px;
+    max-width: 100%;
+    margin-right: 50px;
 }
 
 .small-row > p {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.1rem;
+    overflow-wrap: break-word;
+    max-width: 100%;
+
 }
 
 @media(max-width: 695px) {

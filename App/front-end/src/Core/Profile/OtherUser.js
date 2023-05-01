@@ -93,7 +93,7 @@ function OtherUser() {
         <div className="review-info">
             <h2 className='reviews'>Reviews</h2>
             <div className='review-box'>
-                <UserMovieReviews userId={userId}/>
+                <UserMovieReviews userId={userId} colorPick={'#fff'}/>
             </div>
         </div>        
     </div>

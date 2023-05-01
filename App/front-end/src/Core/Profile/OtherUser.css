@@ -40,19 +40,6 @@
     gap: 10px;
 }
 
-.name-and-username {
-    text-decoration: none;
-    display:flex;
-    flex-direction:column;
-    align-items:left;
-    justify-content: flex-start;
-    /* gap: 10px; */
-}
-
-.name-and-username h2 {
-    color: #2a3038;
-}
-
 .reviews {
     font-family: 'Baloo 2', cursive;
     display: flex;
@@ -117,15 +104,6 @@
     font-size: 1.2rem;
 }
 
-.prof-username {
-    font-family: 'Baloo 2', cursive;
-    color: #727272;
-    color: #2a3038;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
 .prof-name {
     font-family: 'Baloo 2', cursive;
     margin: 0;
@@ -133,23 +111,6 @@
     display: flex;
     margin-bottom: -15px;
 }
-
-.prof-pfp-div {
-    width: 95px;
-    height: 95px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: #f4f4f5;
-    cursor: pointer; 
-    border: 2px solid #2a3038;
-  }
-
-  .prof-profile-pic {
-    width: 100%;
-    height: 100%;
-    object-fit:contain;
-    border-radius: 50%;
-  }
 
 .edit-button-div {
     text-decoration: none;
@@ -162,11 +123,6 @@
     width: 100%;
 }
 
-.p-info {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1.1rem;
-}
-
 .small-info {
     text-decoration: none;
     display:flex;
@@ -174,20 +130,6 @@
     align-items:left;
     justify-content: flex-start;
     /* margin-bottom: -10px; */
-}
-
-.small-row {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content: flex-start;
-    gap: 5px;
-    margin-bottom: -27px;
-}
-
-.small-row > p {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1.1rem;
 }
 
 @media(max-width: 695px) {
